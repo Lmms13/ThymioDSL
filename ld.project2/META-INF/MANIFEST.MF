@@ -1,0 +1,28 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: ld.project2
+Bundle-ManifestVersion: 2
+Bundle-Name: ld.project2
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: ld.project2; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.16.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.34.0",
+ org.eclipse.emf.common,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Export-Package: ld.project2.thymioDSL.util,
+ ld.project2.thymioDSL.impl,
+ ld.project2.generator,
+ ld.project2.services,
+ ld.project2.scoping,
+ ld.project2.serializer,
+ ld.project2.validation,
+ ld.project2,
+ ld.project2.thymioDSL,
+ ld.project2.parser.antlr.internal,
+ ld.project2.parser.antlr
+Import-Package: org.apache.log4j

@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: ld.project2.ui
+Bundle-ManifestVersion: 2
+Bundle-Name: ld.project2.ui
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: ld.project2.ui; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: ld.project2,
+ ld.project2.ide,
+ org.eclipse.xtext.ui,
+ org.eclipse.xtext.ui.shared,
+ org.eclipse.xtext.ui.codetemplates.ui,
+ org.eclipse.ui.editors;bundle-version="3.14.300",
+ org.eclipse.ui.ide;bundle-version="3.18.500",
+ org.eclipse.ui,
+ org.eclipse.compare,
+ org.eclipse.xtext.builder
+Import-Package: org.apache.log4j
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Export-Package: ld.project2.ui.quickfix,
+ ld.project2.ui.contentassist,
+ ld.project2.ui.internal
+Bundle-Activator: ld.project2.ui.internal.Project2Activator
