@@ -1,0 +1,42 @@
+Events:
+
+Clicar nos 5 botões
+
+5 sensores na frente, 2 atrás
+
+2 em baixo
+
+
+Preto e branco nos sensores
+Preto -> destapado
+Branco -> tapado
+
+Toque em cima
+
+Bater palmas
+
+
+Branco -> tapado
+Preto -> Destapado
+
+
+Actions
+
+Mover para frente, trás, direita, esquerda, parado
+
+Luzes de cima ou baixo, rgb
+
+Música -> branco é longo, preto é curto
+
+cores em baixo, sensor com pontinho
+
+cores em cima, sensor normal
+
+
+
+
+
+Contornar uma folha
+
+Mudar cores quando encontra branco ou preto
+

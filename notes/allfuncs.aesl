@@ -1,0 +1,156 @@
+<!DOCTYPE aesl-source>
+<network>
+<node nodeId="64221" name="thymio-II"># variables for notes
+var notes[6]
+var durations[6]
+var note_index = 6
+var note_count = 6
+var wave[142]
+var i
+var wave_phase
+var wave_intensity
+
+# compute a sinus wave for sound
+for i in 0:141 do
+	wave_phase = (i-70)*468
+	call math.cos(wave_intensity, wave_phase)
+	wave[i] = wave_intensity/256
+end
+call sound.wave(wave)
+# setup threshold for detecting claps
+mic.threshold = 250
+# reset outputs
+call sound.system(-1)
+call leds.top(0,0,0)
+call leds.bottom.left(0,0,0)
+call leds.bottom.right(0,0,0)
+call leds.circle(0,0,0,0,0,0,0,0)
+
+# when a note is finished, play the next note
+onevent sound.finished
+	if note_index != note_count then
+		call sound.freq(notes[note_index], durations[note_index])
+		note_index += 1
+	end
+
+onevent buttons
+	when button.center == 1 do
+		call leds.bottom.left(0,32,0)
+		call leds.bottom.right(0,32,0)
+		emit pair_run 6
+	end
+
+	when button.forward == 1 and button.left == 1 and button.backward == 1 and button.right == 1 do
+		call math.copy(notes[0:4], [524, 524, 0, 524, 524])
+		call math.copy(durations[0:4], [7, 14, 14, 7, 14])
+		note_index = 1
+		note_count = 5
+		call sound.freq(notes[0], durations[0])
+		emit pair_run 9
+	end
+
+
+onevent mic
+	call leds.top(32,0,0)
+	emit pair_run 5
+
+
+onevent prox
+	when prox.ground.delta[0] &lt;= 400 and prox.ground.delta[1] &lt;= 400 do
+		motor.left.target = 500
+		motor.right.target = 500
+		call leds.top(32,0,0)
+		emit pair_run 0
+	end
+
+	when prox.ground.delta[0] >= 450 and prox.ground.delta[1] &lt;= 400 do
+		motor.left.target = 500
+		motor.right.target = 0
+		emit pair_run 1
+	end
+
+	when prox.ground.delta[0] &lt;= 400 and prox.ground.delta[1] >= 450 do
+		motor.left.target = 0
+		motor.right.target = 500
+		emit pair_run 2
+	end
+
+	when prox.ground.delta[0] >= 450 and prox.ground.delta[1] >= 450 do
+		motor.left.target = 500
+		motor.right.target = 0
+		emit pair_run 3
+	end
+
+	when prox.horizontal[2] >= 2000 do
+		call math.copy(notes[0:5], [440, 524, 440, 370, 311, 370])
+		call math.copy(durations[0:5], [7, 7, 14, 7, 7, 14])
+		note_index = 1
+		note_count = 6
+		call sound.freq(notes[0], durations[0])
+		emit pair_run 7
+	end
+
+	when prox.horizontal[5] &lt;= 1000 do
+		motor.left.target = 0
+		motor.right.target = 0
+		emit pair_run 8
+	end
+
+
+onevent tap
+	motor.left.target = 0
+	motor.right.target = -450
+	emit pair_run 4
+
+<toolsPlugins>
+<ThymioVisualProgramming>
+<vplroot xml-format-version="1">
+<program advanced_mode="0">
+<set>
+<block value0="2" value1="2" value2="400" value3="450" type="event" name="proxground"/>
+<block value0="500" value1="500" type="action" name="move"/>
+<block value0="32" value1="0" value2="0" type="action" name="colortop"/>
+</set>
+<set>
+<block value0="1" value1="2" value2="400" value3="450" type="event" name="proxground"/>
+<block value0="500" value1="0" type="action" name="move"/>
+</set>
+<set>
+<block value0="2" value1="1" value2="400" value3="450" type="event" name="proxground"/>
+<block value0="0" value1="500" type="action" name="move"/>
+</set>
+<set>
+<block value0="1" value1="1" value2="400" value3="450" type="event" name="proxground"/>
+<block value0="500" value1="0" type="action" name="move"/>
+</set>
+<set>
+<block value0="0" value1="0" type="event" name="acc"/>
+<block value0="0" value1="-450" type="action" name="move"/>
+</set>
+<set>
+<block type="event" name="clap"/>
+<block value0="32" value1="0" value2="0" type="action" name="colortop"/>
+</set>
+<set>
+<block value0="0" value1="0" value2="0" value3="0" value4="1" value5="0" value6="0" type="event" name="button"/>
+<block value0="0" value1="32" value2="0" type="action" name="colorbottom"/>
+</set>
+<set>
+<block value0="0" value1="0" value2="1" value3="0" value4="0" value5="0" value6="0" value7="1000" type="event" value8="2000" name="prox"/>
+<block value0="259" value1="260" value2="515" value3="258" value4="257" value5="514" type="action" name="sound"/>
+</set>
+<set>
+<block value0="0" value1="0" value2="0" value3="0" value4="0" value5="2" value6="0" value7="1000" type="event" value8="2000" name="prox"/>
+<block value0="0" value1="0" type="action" name="move"/>
+</set>
+<set>
+<block value0="1" value1="1" value2="1" value3="1" value4="0" value5="0" value6="0" type="event" name="button"/>
+<block value0="260" value1="516" value2="517" value3="260" value4="516" value5="517" type="action" name="sound"/>
+</set>
+<set/>
+</program>
+</vplroot>
+</ThymioVisualProgramming>
+</toolsPlugins>
+</node>
+</network>
