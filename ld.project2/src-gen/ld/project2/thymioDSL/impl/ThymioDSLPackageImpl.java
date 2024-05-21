@@ -301,7 +301,7 @@ public class ThymioDSLPackageImpl extends EPackageImpl implements ThymioDSLPacka
    * @generated
    */
   @Override
-  public EAttribute getSensor_BottomLeftSensor()
+  public EAttribute getSensor_BackLeftSensor()
   {
     return (EAttribute)sensorEClass.getEStructuralFeatures().get(0);
   }
@@ -312,7 +312,7 @@ public class ThymioDSLPackageImpl extends EPackageImpl implements ThymioDSLPacka
    * @generated
    */
   @Override
-  public EAttribute getSensor_BottomRightSensor()
+  public EAttribute getSensor_BackRightSensor()
   {
     return (EAttribute)sensorEClass.getEStructuralFeatures().get(1);
   }
@@ -323,7 +323,7 @@ public class ThymioDSLPackageImpl extends EPackageImpl implements ThymioDSLPacka
    * @generated
    */
   @Override
-  public EAttribute getSensor_NorthWest()
+  public EAttribute getSensor_FrontRightSensor()
   {
     return (EAttribute)sensorEClass.getEStructuralFeatures().get(2);
   }
@@ -334,7 +334,7 @@ public class ThymioDSLPackageImpl extends EPackageImpl implements ThymioDSLPacka
    * @generated
    */
   @Override
-  public EAttribute getSensor_NorthNorthWest()
+  public EAttribute getSensor_FrontCenterRightSensor()
   {
     return (EAttribute)sensorEClass.getEStructuralFeatures().get(3);
   }
@@ -345,7 +345,7 @@ public class ThymioDSLPackageImpl extends EPackageImpl implements ThymioDSLPacka
    * @generated
    */
   @Override
-  public EAttribute getSensor_North()
+  public EAttribute getSensor_FrontCenterSensor()
   {
     return (EAttribute)sensorEClass.getEStructuralFeatures().get(4);
   }
@@ -356,7 +356,7 @@ public class ThymioDSLPackageImpl extends EPackageImpl implements ThymioDSLPacka
    * @generated
    */
   @Override
-  public EAttribute getSensor_NorthNorthEast()
+  public EAttribute getSensor_FrontCenterLeftSensor()
   {
     return (EAttribute)sensorEClass.getEStructuralFeatures().get(5);
   }
@@ -367,7 +367,7 @@ public class ThymioDSLPackageImpl extends EPackageImpl implements ThymioDSLPacka
    * @generated
    */
   @Override
-  public EAttribute getSensor_NorthEast()
+  public EAttribute getSensor_FrontLeftSensor()
   {
     return (EAttribute)sensorEClass.getEStructuralFeatures().get(6);
   }
@@ -605,13 +605,13 @@ public class ThymioDSLPackageImpl extends EPackageImpl implements ThymioDSLPacka
     createEReference(eventEClass, EVENT__SENSOR);
 
     sensorEClass = createEClass(SENSOR);
-    createEAttribute(sensorEClass, SENSOR__BOTTOM_LEFT_SENSOR);
-    createEAttribute(sensorEClass, SENSOR__BOTTOM_RIGHT_SENSOR);
-    createEAttribute(sensorEClass, SENSOR__NORTH_WEST);
-    createEAttribute(sensorEClass, SENSOR__NORTH_NORTH_WEST);
-    createEAttribute(sensorEClass, SENSOR__NORTH);
-    createEAttribute(sensorEClass, SENSOR__NORTH_NORTH_EAST);
-    createEAttribute(sensorEClass, SENSOR__NORTH_EAST);
+    createEAttribute(sensorEClass, SENSOR__BACK_LEFT_SENSOR);
+    createEAttribute(sensorEClass, SENSOR__BACK_RIGHT_SENSOR);
+    createEAttribute(sensorEClass, SENSOR__FRONT_RIGHT_SENSOR);
+    createEAttribute(sensorEClass, SENSOR__FRONT_CENTER_RIGHT_SENSOR);
+    createEAttribute(sensorEClass, SENSOR__FRONT_CENTER_SENSOR);
+    createEAttribute(sensorEClass, SENSOR__FRONT_CENTER_LEFT_SENSOR);
+    createEAttribute(sensorEClass, SENSOR__FRONT_LEFT_SENSOR);
 
     actionEClass = createEClass(ACTION);
     createEReference(actionEClass, ACTION__MOVE);
@@ -685,13 +685,13 @@ public class ThymioDSLPackageImpl extends EPackageImpl implements ThymioDSLPacka
     initEReference(getEvent_Sensor(), this.getSensor(), null, "sensor", null, 0, -1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(sensorEClass, Sensor.class, "Sensor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getSensor_BottomLeftSensor(), ecorePackage.getEString(), "bottomLeftSensor", null, 0, 1, Sensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getSensor_BottomRightSensor(), ecorePackage.getEString(), "bottomRightSensor", null, 0, 1, Sensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getSensor_NorthWest(), ecorePackage.getEString(), "northWest", null, 0, 1, Sensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getSensor_NorthNorthWest(), ecorePackage.getEString(), "northNorthWest", null, 0, 1, Sensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getSensor_North(), ecorePackage.getEString(), "north", null, 0, 1, Sensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getSensor_NorthNorthEast(), ecorePackage.getEString(), "northNorthEast", null, 0, 1, Sensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getSensor_NorthEast(), ecorePackage.getEString(), "northEast", null, 0, 1, Sensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSensor_BackLeftSensor(), ecorePackage.getEString(), "backLeftSensor", null, 0, 1, Sensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSensor_BackRightSensor(), ecorePackage.getEString(), "backRightSensor", null, 0, 1, Sensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSensor_FrontRightSensor(), ecorePackage.getEString(), "frontRightSensor", null, 0, 1, Sensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSensor_FrontCenterRightSensor(), ecorePackage.getEString(), "frontCenterRightSensor", null, 0, 1, Sensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSensor_FrontCenterSensor(), ecorePackage.getEString(), "frontCenterSensor", null, 0, 1, Sensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSensor_FrontCenterLeftSensor(), ecorePackage.getEString(), "frontCenterLeftSensor", null, 0, 1, Sensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSensor_FrontLeftSensor(), ecorePackage.getEString(), "frontLeftSensor", null, 0, 1, Sensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(actionEClass, Action.class, "Action", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAction_Move(), this.getMotor(), null, "move", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

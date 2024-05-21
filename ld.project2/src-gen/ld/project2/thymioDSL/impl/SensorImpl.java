@@ -21,13 +21,13 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ld.project2.thymioDSL.impl.SensorImpl#getBottomLeftSensor <em>Bottom Left Sensor</em>}</li>
- *   <li>{@link ld.project2.thymioDSL.impl.SensorImpl#getBottomRightSensor <em>Bottom Right Sensor</em>}</li>
- *   <li>{@link ld.project2.thymioDSL.impl.SensorImpl#getNorthWest <em>North West</em>}</li>
- *   <li>{@link ld.project2.thymioDSL.impl.SensorImpl#getNorthNorthWest <em>North North West</em>}</li>
- *   <li>{@link ld.project2.thymioDSL.impl.SensorImpl#getNorth <em>North</em>}</li>
- *   <li>{@link ld.project2.thymioDSL.impl.SensorImpl#getNorthNorthEast <em>North North East</em>}</li>
- *   <li>{@link ld.project2.thymioDSL.impl.SensorImpl#getNorthEast <em>North East</em>}</li>
+ *   <li>{@link ld.project2.thymioDSL.impl.SensorImpl#getBackLeftSensor <em>Back Left Sensor</em>}</li>
+ *   <li>{@link ld.project2.thymioDSL.impl.SensorImpl#getBackRightSensor <em>Back Right Sensor</em>}</li>
+ *   <li>{@link ld.project2.thymioDSL.impl.SensorImpl#getFrontRightSensor <em>Front Right Sensor</em>}</li>
+ *   <li>{@link ld.project2.thymioDSL.impl.SensorImpl#getFrontCenterRightSensor <em>Front Center Right Sensor</em>}</li>
+ *   <li>{@link ld.project2.thymioDSL.impl.SensorImpl#getFrontCenterSensor <em>Front Center Sensor</em>}</li>
+ *   <li>{@link ld.project2.thymioDSL.impl.SensorImpl#getFrontCenterLeftSensor <em>Front Center Left Sensor</em>}</li>
+ *   <li>{@link ld.project2.thymioDSL.impl.SensorImpl#getFrontLeftSensor <em>Front Left Sensor</em>}</li>
  * </ul>
  *
  * @generated
@@ -35,144 +35,144 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class SensorImpl extends MinimalEObjectImpl.Container implements Sensor
 {
   /**
-   * The default value of the '{@link #getBottomLeftSensor() <em>Bottom Left Sensor</em>}' attribute.
+   * The default value of the '{@link #getBackLeftSensor() <em>Back Left Sensor</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getBottomLeftSensor()
+   * @see #getBackLeftSensor()
    * @generated
    * @ordered
    */
-  protected static final String BOTTOM_LEFT_SENSOR_EDEFAULT = null;
+  protected static final String BACK_LEFT_SENSOR_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getBottomLeftSensor() <em>Bottom Left Sensor</em>}' attribute.
+   * The cached value of the '{@link #getBackLeftSensor() <em>Back Left Sensor</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getBottomLeftSensor()
+   * @see #getBackLeftSensor()
    * @generated
    * @ordered
    */
-  protected String bottomLeftSensor = BOTTOM_LEFT_SENSOR_EDEFAULT;
+  protected String backLeftSensor = BACK_LEFT_SENSOR_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getBottomRightSensor() <em>Bottom Right Sensor</em>}' attribute.
+   * The default value of the '{@link #getBackRightSensor() <em>Back Right Sensor</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getBottomRightSensor()
+   * @see #getBackRightSensor()
    * @generated
    * @ordered
    */
-  protected static final String BOTTOM_RIGHT_SENSOR_EDEFAULT = null;
+  protected static final String BACK_RIGHT_SENSOR_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getBottomRightSensor() <em>Bottom Right Sensor</em>}' attribute.
+   * The cached value of the '{@link #getBackRightSensor() <em>Back Right Sensor</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getBottomRightSensor()
+   * @see #getBackRightSensor()
    * @generated
    * @ordered
    */
-  protected String bottomRightSensor = BOTTOM_RIGHT_SENSOR_EDEFAULT;
+  protected String backRightSensor = BACK_RIGHT_SENSOR_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getNorthWest() <em>North West</em>}' attribute.
+   * The default value of the '{@link #getFrontRightSensor() <em>Front Right Sensor</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getNorthWest()
+   * @see #getFrontRightSensor()
    * @generated
    * @ordered
    */
-  protected static final String NORTH_WEST_EDEFAULT = null;
+  protected static final String FRONT_RIGHT_SENSOR_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getNorthWest() <em>North West</em>}' attribute.
+   * The cached value of the '{@link #getFrontRightSensor() <em>Front Right Sensor</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getNorthWest()
+   * @see #getFrontRightSensor()
    * @generated
    * @ordered
    */
-  protected String northWest = NORTH_WEST_EDEFAULT;
+  protected String frontRightSensor = FRONT_RIGHT_SENSOR_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getNorthNorthWest() <em>North North West</em>}' attribute.
+   * The default value of the '{@link #getFrontCenterRightSensor() <em>Front Center Right Sensor</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getNorthNorthWest()
+   * @see #getFrontCenterRightSensor()
    * @generated
    * @ordered
    */
-  protected static final String NORTH_NORTH_WEST_EDEFAULT = null;
+  protected static final String FRONT_CENTER_RIGHT_SENSOR_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getNorthNorthWest() <em>North North West</em>}' attribute.
+   * The cached value of the '{@link #getFrontCenterRightSensor() <em>Front Center Right Sensor</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getNorthNorthWest()
+   * @see #getFrontCenterRightSensor()
    * @generated
    * @ordered
    */
-  protected String northNorthWest = NORTH_NORTH_WEST_EDEFAULT;
+  protected String frontCenterRightSensor = FRONT_CENTER_RIGHT_SENSOR_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getNorth() <em>North</em>}' attribute.
+   * The default value of the '{@link #getFrontCenterSensor() <em>Front Center Sensor</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getNorth()
+   * @see #getFrontCenterSensor()
    * @generated
    * @ordered
    */
-  protected static final String NORTH_EDEFAULT = null;
+  protected static final String FRONT_CENTER_SENSOR_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getNorth() <em>North</em>}' attribute.
+   * The cached value of the '{@link #getFrontCenterSensor() <em>Front Center Sensor</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getNorth()
+   * @see #getFrontCenterSensor()
    * @generated
    * @ordered
    */
-  protected String north = NORTH_EDEFAULT;
+  protected String frontCenterSensor = FRONT_CENTER_SENSOR_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getNorthNorthEast() <em>North North East</em>}' attribute.
+   * The default value of the '{@link #getFrontCenterLeftSensor() <em>Front Center Left Sensor</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getNorthNorthEast()
+   * @see #getFrontCenterLeftSensor()
    * @generated
    * @ordered
    */
-  protected static final String NORTH_NORTH_EAST_EDEFAULT = null;
+  protected static final String FRONT_CENTER_LEFT_SENSOR_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getNorthNorthEast() <em>North North East</em>}' attribute.
+   * The cached value of the '{@link #getFrontCenterLeftSensor() <em>Front Center Left Sensor</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getNorthNorthEast()
+   * @see #getFrontCenterLeftSensor()
    * @generated
    * @ordered
    */
-  protected String northNorthEast = NORTH_NORTH_EAST_EDEFAULT;
+  protected String frontCenterLeftSensor = FRONT_CENTER_LEFT_SENSOR_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getNorthEast() <em>North East</em>}' attribute.
+   * The default value of the '{@link #getFrontLeftSensor() <em>Front Left Sensor</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getNorthEast()
+   * @see #getFrontLeftSensor()
    * @generated
    * @ordered
    */
-  protected static final String NORTH_EAST_EDEFAULT = null;
+  protected static final String FRONT_LEFT_SENSOR_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getNorthEast() <em>North East</em>}' attribute.
+   * The cached value of the '{@link #getFrontLeftSensor() <em>Front Left Sensor</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getNorthEast()
+   * @see #getFrontLeftSensor()
    * @generated
    * @ordered
    */
-  protected String northEast = NORTH_EAST_EDEFAULT;
+  protected String frontLeftSensor = FRONT_LEFT_SENSOR_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -201,9 +201,9 @@ public class SensorImpl extends MinimalEObjectImpl.Container implements Sensor
    * @generated
    */
   @Override
-  public String getBottomLeftSensor()
+  public String getBackLeftSensor()
   {
-    return bottomLeftSensor;
+    return backLeftSensor;
   }
 
   /**
@@ -212,12 +212,12 @@ public class SensorImpl extends MinimalEObjectImpl.Container implements Sensor
    * @generated
    */
   @Override
-  public void setBottomLeftSensor(String newBottomLeftSensor)
+  public void setBackLeftSensor(String newBackLeftSensor)
   {
-    String oldBottomLeftSensor = bottomLeftSensor;
-    bottomLeftSensor = newBottomLeftSensor;
+    String oldBackLeftSensor = backLeftSensor;
+    backLeftSensor = newBackLeftSensor;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.SENSOR__BOTTOM_LEFT_SENSOR, oldBottomLeftSensor, bottomLeftSensor));
+      eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.SENSOR__BACK_LEFT_SENSOR, oldBackLeftSensor, backLeftSensor));
   }
 
   /**
@@ -226,9 +226,9 @@ public class SensorImpl extends MinimalEObjectImpl.Container implements Sensor
    * @generated
    */
   @Override
-  public String getBottomRightSensor()
+  public String getBackRightSensor()
   {
-    return bottomRightSensor;
+    return backRightSensor;
   }
 
   /**
@@ -237,12 +237,12 @@ public class SensorImpl extends MinimalEObjectImpl.Container implements Sensor
    * @generated
    */
   @Override
-  public void setBottomRightSensor(String newBottomRightSensor)
+  public void setBackRightSensor(String newBackRightSensor)
   {
-    String oldBottomRightSensor = bottomRightSensor;
-    bottomRightSensor = newBottomRightSensor;
+    String oldBackRightSensor = backRightSensor;
+    backRightSensor = newBackRightSensor;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.SENSOR__BOTTOM_RIGHT_SENSOR, oldBottomRightSensor, bottomRightSensor));
+      eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.SENSOR__BACK_RIGHT_SENSOR, oldBackRightSensor, backRightSensor));
   }
 
   /**
@@ -251,9 +251,9 @@ public class SensorImpl extends MinimalEObjectImpl.Container implements Sensor
    * @generated
    */
   @Override
-  public String getNorthWest()
+  public String getFrontRightSensor()
   {
-    return northWest;
+    return frontRightSensor;
   }
 
   /**
@@ -262,12 +262,12 @@ public class SensorImpl extends MinimalEObjectImpl.Container implements Sensor
    * @generated
    */
   @Override
-  public void setNorthWest(String newNorthWest)
+  public void setFrontRightSensor(String newFrontRightSensor)
   {
-    String oldNorthWest = northWest;
-    northWest = newNorthWest;
+    String oldFrontRightSensor = frontRightSensor;
+    frontRightSensor = newFrontRightSensor;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.SENSOR__NORTH_WEST, oldNorthWest, northWest));
+      eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.SENSOR__FRONT_RIGHT_SENSOR, oldFrontRightSensor, frontRightSensor));
   }
 
   /**
@@ -276,9 +276,9 @@ public class SensorImpl extends MinimalEObjectImpl.Container implements Sensor
    * @generated
    */
   @Override
-  public String getNorthNorthWest()
+  public String getFrontCenterRightSensor()
   {
-    return northNorthWest;
+    return frontCenterRightSensor;
   }
 
   /**
@@ -287,12 +287,12 @@ public class SensorImpl extends MinimalEObjectImpl.Container implements Sensor
    * @generated
    */
   @Override
-  public void setNorthNorthWest(String newNorthNorthWest)
+  public void setFrontCenterRightSensor(String newFrontCenterRightSensor)
   {
-    String oldNorthNorthWest = northNorthWest;
-    northNorthWest = newNorthNorthWest;
+    String oldFrontCenterRightSensor = frontCenterRightSensor;
+    frontCenterRightSensor = newFrontCenterRightSensor;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.SENSOR__NORTH_NORTH_WEST, oldNorthNorthWest, northNorthWest));
+      eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.SENSOR__FRONT_CENTER_RIGHT_SENSOR, oldFrontCenterRightSensor, frontCenterRightSensor));
   }
 
   /**
@@ -301,9 +301,9 @@ public class SensorImpl extends MinimalEObjectImpl.Container implements Sensor
    * @generated
    */
   @Override
-  public String getNorth()
+  public String getFrontCenterSensor()
   {
-    return north;
+    return frontCenterSensor;
   }
 
   /**
@@ -312,12 +312,12 @@ public class SensorImpl extends MinimalEObjectImpl.Container implements Sensor
    * @generated
    */
   @Override
-  public void setNorth(String newNorth)
+  public void setFrontCenterSensor(String newFrontCenterSensor)
   {
-    String oldNorth = north;
-    north = newNorth;
+    String oldFrontCenterSensor = frontCenterSensor;
+    frontCenterSensor = newFrontCenterSensor;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.SENSOR__NORTH, oldNorth, north));
+      eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.SENSOR__FRONT_CENTER_SENSOR, oldFrontCenterSensor, frontCenterSensor));
   }
 
   /**
@@ -326,9 +326,9 @@ public class SensorImpl extends MinimalEObjectImpl.Container implements Sensor
    * @generated
    */
   @Override
-  public String getNorthNorthEast()
+  public String getFrontCenterLeftSensor()
   {
-    return northNorthEast;
+    return frontCenterLeftSensor;
   }
 
   /**
@@ -337,12 +337,12 @@ public class SensorImpl extends MinimalEObjectImpl.Container implements Sensor
    * @generated
    */
   @Override
-  public void setNorthNorthEast(String newNorthNorthEast)
+  public void setFrontCenterLeftSensor(String newFrontCenterLeftSensor)
   {
-    String oldNorthNorthEast = northNorthEast;
-    northNorthEast = newNorthNorthEast;
+    String oldFrontCenterLeftSensor = frontCenterLeftSensor;
+    frontCenterLeftSensor = newFrontCenterLeftSensor;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.SENSOR__NORTH_NORTH_EAST, oldNorthNorthEast, northNorthEast));
+      eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.SENSOR__FRONT_CENTER_LEFT_SENSOR, oldFrontCenterLeftSensor, frontCenterLeftSensor));
   }
 
   /**
@@ -351,9 +351,9 @@ public class SensorImpl extends MinimalEObjectImpl.Container implements Sensor
    * @generated
    */
   @Override
-  public String getNorthEast()
+  public String getFrontLeftSensor()
   {
-    return northEast;
+    return frontLeftSensor;
   }
 
   /**
@@ -362,12 +362,12 @@ public class SensorImpl extends MinimalEObjectImpl.Container implements Sensor
    * @generated
    */
   @Override
-  public void setNorthEast(String newNorthEast)
+  public void setFrontLeftSensor(String newFrontLeftSensor)
   {
-    String oldNorthEast = northEast;
-    northEast = newNorthEast;
+    String oldFrontLeftSensor = frontLeftSensor;
+    frontLeftSensor = newFrontLeftSensor;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.SENSOR__NORTH_EAST, oldNorthEast, northEast));
+      eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.SENSOR__FRONT_LEFT_SENSOR, oldFrontLeftSensor, frontLeftSensor));
   }
 
   /**
@@ -380,20 +380,20 @@ public class SensorImpl extends MinimalEObjectImpl.Container implements Sensor
   {
     switch (featureID)
     {
-      case ThymioDSLPackage.SENSOR__BOTTOM_LEFT_SENSOR:
-        return getBottomLeftSensor();
-      case ThymioDSLPackage.SENSOR__BOTTOM_RIGHT_SENSOR:
-        return getBottomRightSensor();
-      case ThymioDSLPackage.SENSOR__NORTH_WEST:
-        return getNorthWest();
-      case ThymioDSLPackage.SENSOR__NORTH_NORTH_WEST:
-        return getNorthNorthWest();
-      case ThymioDSLPackage.SENSOR__NORTH:
-        return getNorth();
-      case ThymioDSLPackage.SENSOR__NORTH_NORTH_EAST:
-        return getNorthNorthEast();
-      case ThymioDSLPackage.SENSOR__NORTH_EAST:
-        return getNorthEast();
+      case ThymioDSLPackage.SENSOR__BACK_LEFT_SENSOR:
+        return getBackLeftSensor();
+      case ThymioDSLPackage.SENSOR__BACK_RIGHT_SENSOR:
+        return getBackRightSensor();
+      case ThymioDSLPackage.SENSOR__FRONT_RIGHT_SENSOR:
+        return getFrontRightSensor();
+      case ThymioDSLPackage.SENSOR__FRONT_CENTER_RIGHT_SENSOR:
+        return getFrontCenterRightSensor();
+      case ThymioDSLPackage.SENSOR__FRONT_CENTER_SENSOR:
+        return getFrontCenterSensor();
+      case ThymioDSLPackage.SENSOR__FRONT_CENTER_LEFT_SENSOR:
+        return getFrontCenterLeftSensor();
+      case ThymioDSLPackage.SENSOR__FRONT_LEFT_SENSOR:
+        return getFrontLeftSensor();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -408,26 +408,26 @@ public class SensorImpl extends MinimalEObjectImpl.Container implements Sensor
   {
     switch (featureID)
     {
-      case ThymioDSLPackage.SENSOR__BOTTOM_LEFT_SENSOR:
-        setBottomLeftSensor((String)newValue);
+      case ThymioDSLPackage.SENSOR__BACK_LEFT_SENSOR:
+        setBackLeftSensor((String)newValue);
         return;
-      case ThymioDSLPackage.SENSOR__BOTTOM_RIGHT_SENSOR:
-        setBottomRightSensor((String)newValue);
+      case ThymioDSLPackage.SENSOR__BACK_RIGHT_SENSOR:
+        setBackRightSensor((String)newValue);
         return;
-      case ThymioDSLPackage.SENSOR__NORTH_WEST:
-        setNorthWest((String)newValue);
+      case ThymioDSLPackage.SENSOR__FRONT_RIGHT_SENSOR:
+        setFrontRightSensor((String)newValue);
         return;
-      case ThymioDSLPackage.SENSOR__NORTH_NORTH_WEST:
-        setNorthNorthWest((String)newValue);
+      case ThymioDSLPackage.SENSOR__FRONT_CENTER_RIGHT_SENSOR:
+        setFrontCenterRightSensor((String)newValue);
         return;
-      case ThymioDSLPackage.SENSOR__NORTH:
-        setNorth((String)newValue);
+      case ThymioDSLPackage.SENSOR__FRONT_CENTER_SENSOR:
+        setFrontCenterSensor((String)newValue);
         return;
-      case ThymioDSLPackage.SENSOR__NORTH_NORTH_EAST:
-        setNorthNorthEast((String)newValue);
+      case ThymioDSLPackage.SENSOR__FRONT_CENTER_LEFT_SENSOR:
+        setFrontCenterLeftSensor((String)newValue);
         return;
-      case ThymioDSLPackage.SENSOR__NORTH_EAST:
-        setNorthEast((String)newValue);
+      case ThymioDSLPackage.SENSOR__FRONT_LEFT_SENSOR:
+        setFrontLeftSensor((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -443,26 +443,26 @@ public class SensorImpl extends MinimalEObjectImpl.Container implements Sensor
   {
     switch (featureID)
     {
-      case ThymioDSLPackage.SENSOR__BOTTOM_LEFT_SENSOR:
-        setBottomLeftSensor(BOTTOM_LEFT_SENSOR_EDEFAULT);
+      case ThymioDSLPackage.SENSOR__BACK_LEFT_SENSOR:
+        setBackLeftSensor(BACK_LEFT_SENSOR_EDEFAULT);
         return;
-      case ThymioDSLPackage.SENSOR__BOTTOM_RIGHT_SENSOR:
-        setBottomRightSensor(BOTTOM_RIGHT_SENSOR_EDEFAULT);
+      case ThymioDSLPackage.SENSOR__BACK_RIGHT_SENSOR:
+        setBackRightSensor(BACK_RIGHT_SENSOR_EDEFAULT);
         return;
-      case ThymioDSLPackage.SENSOR__NORTH_WEST:
-        setNorthWest(NORTH_WEST_EDEFAULT);
+      case ThymioDSLPackage.SENSOR__FRONT_RIGHT_SENSOR:
+        setFrontRightSensor(FRONT_RIGHT_SENSOR_EDEFAULT);
         return;
-      case ThymioDSLPackage.SENSOR__NORTH_NORTH_WEST:
-        setNorthNorthWest(NORTH_NORTH_WEST_EDEFAULT);
+      case ThymioDSLPackage.SENSOR__FRONT_CENTER_RIGHT_SENSOR:
+        setFrontCenterRightSensor(FRONT_CENTER_RIGHT_SENSOR_EDEFAULT);
         return;
-      case ThymioDSLPackage.SENSOR__NORTH:
-        setNorth(NORTH_EDEFAULT);
+      case ThymioDSLPackage.SENSOR__FRONT_CENTER_SENSOR:
+        setFrontCenterSensor(FRONT_CENTER_SENSOR_EDEFAULT);
         return;
-      case ThymioDSLPackage.SENSOR__NORTH_NORTH_EAST:
-        setNorthNorthEast(NORTH_NORTH_EAST_EDEFAULT);
+      case ThymioDSLPackage.SENSOR__FRONT_CENTER_LEFT_SENSOR:
+        setFrontCenterLeftSensor(FRONT_CENTER_LEFT_SENSOR_EDEFAULT);
         return;
-      case ThymioDSLPackage.SENSOR__NORTH_EAST:
-        setNorthEast(NORTH_EAST_EDEFAULT);
+      case ThymioDSLPackage.SENSOR__FRONT_LEFT_SENSOR:
+        setFrontLeftSensor(FRONT_LEFT_SENSOR_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -478,20 +478,20 @@ public class SensorImpl extends MinimalEObjectImpl.Container implements Sensor
   {
     switch (featureID)
     {
-      case ThymioDSLPackage.SENSOR__BOTTOM_LEFT_SENSOR:
-        return BOTTOM_LEFT_SENSOR_EDEFAULT == null ? bottomLeftSensor != null : !BOTTOM_LEFT_SENSOR_EDEFAULT.equals(bottomLeftSensor);
-      case ThymioDSLPackage.SENSOR__BOTTOM_RIGHT_SENSOR:
-        return BOTTOM_RIGHT_SENSOR_EDEFAULT == null ? bottomRightSensor != null : !BOTTOM_RIGHT_SENSOR_EDEFAULT.equals(bottomRightSensor);
-      case ThymioDSLPackage.SENSOR__NORTH_WEST:
-        return NORTH_WEST_EDEFAULT == null ? northWest != null : !NORTH_WEST_EDEFAULT.equals(northWest);
-      case ThymioDSLPackage.SENSOR__NORTH_NORTH_WEST:
-        return NORTH_NORTH_WEST_EDEFAULT == null ? northNorthWest != null : !NORTH_NORTH_WEST_EDEFAULT.equals(northNorthWest);
-      case ThymioDSLPackage.SENSOR__NORTH:
-        return NORTH_EDEFAULT == null ? north != null : !NORTH_EDEFAULT.equals(north);
-      case ThymioDSLPackage.SENSOR__NORTH_NORTH_EAST:
-        return NORTH_NORTH_EAST_EDEFAULT == null ? northNorthEast != null : !NORTH_NORTH_EAST_EDEFAULT.equals(northNorthEast);
-      case ThymioDSLPackage.SENSOR__NORTH_EAST:
-        return NORTH_EAST_EDEFAULT == null ? northEast != null : !NORTH_EAST_EDEFAULT.equals(northEast);
+      case ThymioDSLPackage.SENSOR__BACK_LEFT_SENSOR:
+        return BACK_LEFT_SENSOR_EDEFAULT == null ? backLeftSensor != null : !BACK_LEFT_SENSOR_EDEFAULT.equals(backLeftSensor);
+      case ThymioDSLPackage.SENSOR__BACK_RIGHT_SENSOR:
+        return BACK_RIGHT_SENSOR_EDEFAULT == null ? backRightSensor != null : !BACK_RIGHT_SENSOR_EDEFAULT.equals(backRightSensor);
+      case ThymioDSLPackage.SENSOR__FRONT_RIGHT_SENSOR:
+        return FRONT_RIGHT_SENSOR_EDEFAULT == null ? frontRightSensor != null : !FRONT_RIGHT_SENSOR_EDEFAULT.equals(frontRightSensor);
+      case ThymioDSLPackage.SENSOR__FRONT_CENTER_RIGHT_SENSOR:
+        return FRONT_CENTER_RIGHT_SENSOR_EDEFAULT == null ? frontCenterRightSensor != null : !FRONT_CENTER_RIGHT_SENSOR_EDEFAULT.equals(frontCenterRightSensor);
+      case ThymioDSLPackage.SENSOR__FRONT_CENTER_SENSOR:
+        return FRONT_CENTER_SENSOR_EDEFAULT == null ? frontCenterSensor != null : !FRONT_CENTER_SENSOR_EDEFAULT.equals(frontCenterSensor);
+      case ThymioDSLPackage.SENSOR__FRONT_CENTER_LEFT_SENSOR:
+        return FRONT_CENTER_LEFT_SENSOR_EDEFAULT == null ? frontCenterLeftSensor != null : !FRONT_CENTER_LEFT_SENSOR_EDEFAULT.equals(frontCenterLeftSensor);
+      case ThymioDSLPackage.SENSOR__FRONT_LEFT_SENSOR:
+        return FRONT_LEFT_SENSOR_EDEFAULT == null ? frontLeftSensor != null : !FRONT_LEFT_SENSOR_EDEFAULT.equals(frontLeftSensor);
     }
     return super.eIsSet(featureID);
   }
@@ -507,20 +507,20 @@ public class SensorImpl extends MinimalEObjectImpl.Container implements Sensor
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (bottomLeftSensor: ");
-    result.append(bottomLeftSensor);
-    result.append(", bottomRightSensor: ");
-    result.append(bottomRightSensor);
-    result.append(", northWest: ");
-    result.append(northWest);
-    result.append(", northNorthWest: ");
-    result.append(northNorthWest);
-    result.append(", north: ");
-    result.append(north);
-    result.append(", northNorthEast: ");
-    result.append(northNorthEast);
-    result.append(", northEast: ");
-    result.append(northEast);
+    result.append(" (backLeftSensor: ");
+    result.append(backLeftSensor);
+    result.append(", backRightSensor: ");
+    result.append(backRightSensor);
+    result.append(", frontRightSensor: ");
+    result.append(frontRightSensor);
+    result.append(", frontCenterRightSensor: ");
+    result.append(frontCenterRightSensor);
+    result.append(", frontCenterSensor: ");
+    result.append(frontCenterSensor);
+    result.append(", frontCenterLeftSensor: ");
+    result.append(frontCenterLeftSensor);
+    result.append(", frontLeftSensor: ");
+    result.append(frontLeftSensor);
     result.append(')');
     return result.toString();
   }

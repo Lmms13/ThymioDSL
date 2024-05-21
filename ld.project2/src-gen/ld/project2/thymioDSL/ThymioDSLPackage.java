@@ -197,67 +197,67 @@ public interface ThymioDSLPackage extends EPackage
   int SENSOR = 3;
 
   /**
-   * The feature id for the '<em><b>Bottom Left Sensor</b></em>' attribute.
+   * The feature id for the '<em><b>Back Left Sensor</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SENSOR__BOTTOM_LEFT_SENSOR = 0;
+  int SENSOR__BACK_LEFT_SENSOR = 0;
 
   /**
-   * The feature id for the '<em><b>Bottom Right Sensor</b></em>' attribute.
+   * The feature id for the '<em><b>Back Right Sensor</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SENSOR__BOTTOM_RIGHT_SENSOR = 1;
+  int SENSOR__BACK_RIGHT_SENSOR = 1;
 
   /**
-   * The feature id for the '<em><b>North West</b></em>' attribute.
+   * The feature id for the '<em><b>Front Right Sensor</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SENSOR__NORTH_WEST = 2;
+  int SENSOR__FRONT_RIGHT_SENSOR = 2;
 
   /**
-   * The feature id for the '<em><b>North North West</b></em>' attribute.
+   * The feature id for the '<em><b>Front Center Right Sensor</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SENSOR__NORTH_NORTH_WEST = 3;
+  int SENSOR__FRONT_CENTER_RIGHT_SENSOR = 3;
 
   /**
-   * The feature id for the '<em><b>North</b></em>' attribute.
+   * The feature id for the '<em><b>Front Center Sensor</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SENSOR__NORTH = 4;
+  int SENSOR__FRONT_CENTER_SENSOR = 4;
 
   /**
-   * The feature id for the '<em><b>North North East</b></em>' attribute.
+   * The feature id for the '<em><b>Front Center Left Sensor</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SENSOR__NORTH_NORTH_EAST = 5;
+  int SENSOR__FRONT_CENTER_LEFT_SENSOR = 5;
 
   /**
-   * The feature id for the '<em><b>North East</b></em>' attribute.
+   * The feature id for the '<em><b>Front Left Sensor</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SENSOR__NORTH_EAST = 6;
+  int SENSOR__FRONT_LEFT_SENSOR = 6;
 
   /**
    * The number of structural features of the '<em>Sensor</em>' class.
@@ -665,81 +665,81 @@ public interface ThymioDSLPackage extends EPackage
   EClass getSensor();
 
   /**
-   * Returns the meta object for the attribute '{@link ld.project2.thymioDSL.Sensor#getBottomLeftSensor <em>Bottom Left Sensor</em>}'.
+   * Returns the meta object for the attribute '{@link ld.project2.thymioDSL.Sensor#getBackLeftSensor <em>Back Left Sensor</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Bottom Left Sensor</em>'.
-   * @see ld.project2.thymioDSL.Sensor#getBottomLeftSensor()
+   * @return the meta object for the attribute '<em>Back Left Sensor</em>'.
+   * @see ld.project2.thymioDSL.Sensor#getBackLeftSensor()
    * @see #getSensor()
    * @generated
    */
-  EAttribute getSensor_BottomLeftSensor();
+  EAttribute getSensor_BackLeftSensor();
 
   /**
-   * Returns the meta object for the attribute '{@link ld.project2.thymioDSL.Sensor#getBottomRightSensor <em>Bottom Right Sensor</em>}'.
+   * Returns the meta object for the attribute '{@link ld.project2.thymioDSL.Sensor#getBackRightSensor <em>Back Right Sensor</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Bottom Right Sensor</em>'.
-   * @see ld.project2.thymioDSL.Sensor#getBottomRightSensor()
+   * @return the meta object for the attribute '<em>Back Right Sensor</em>'.
+   * @see ld.project2.thymioDSL.Sensor#getBackRightSensor()
    * @see #getSensor()
    * @generated
    */
-  EAttribute getSensor_BottomRightSensor();
+  EAttribute getSensor_BackRightSensor();
 
   /**
-   * Returns the meta object for the attribute '{@link ld.project2.thymioDSL.Sensor#getNorthWest <em>North West</em>}'.
+   * Returns the meta object for the attribute '{@link ld.project2.thymioDSL.Sensor#getFrontRightSensor <em>Front Right Sensor</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>North West</em>'.
-   * @see ld.project2.thymioDSL.Sensor#getNorthWest()
+   * @return the meta object for the attribute '<em>Front Right Sensor</em>'.
+   * @see ld.project2.thymioDSL.Sensor#getFrontRightSensor()
    * @see #getSensor()
    * @generated
    */
-  EAttribute getSensor_NorthWest();
+  EAttribute getSensor_FrontRightSensor();
 
   /**
-   * Returns the meta object for the attribute '{@link ld.project2.thymioDSL.Sensor#getNorthNorthWest <em>North North West</em>}'.
+   * Returns the meta object for the attribute '{@link ld.project2.thymioDSL.Sensor#getFrontCenterRightSensor <em>Front Center Right Sensor</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>North North West</em>'.
-   * @see ld.project2.thymioDSL.Sensor#getNorthNorthWest()
+   * @return the meta object for the attribute '<em>Front Center Right Sensor</em>'.
+   * @see ld.project2.thymioDSL.Sensor#getFrontCenterRightSensor()
    * @see #getSensor()
    * @generated
    */
-  EAttribute getSensor_NorthNorthWest();
+  EAttribute getSensor_FrontCenterRightSensor();
 
   /**
-   * Returns the meta object for the attribute '{@link ld.project2.thymioDSL.Sensor#getNorth <em>North</em>}'.
+   * Returns the meta object for the attribute '{@link ld.project2.thymioDSL.Sensor#getFrontCenterSensor <em>Front Center Sensor</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>North</em>'.
-   * @see ld.project2.thymioDSL.Sensor#getNorth()
+   * @return the meta object for the attribute '<em>Front Center Sensor</em>'.
+   * @see ld.project2.thymioDSL.Sensor#getFrontCenterSensor()
    * @see #getSensor()
    * @generated
    */
-  EAttribute getSensor_North();
+  EAttribute getSensor_FrontCenterSensor();
 
   /**
-   * Returns the meta object for the attribute '{@link ld.project2.thymioDSL.Sensor#getNorthNorthEast <em>North North East</em>}'.
+   * Returns the meta object for the attribute '{@link ld.project2.thymioDSL.Sensor#getFrontCenterLeftSensor <em>Front Center Left Sensor</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>North North East</em>'.
-   * @see ld.project2.thymioDSL.Sensor#getNorthNorthEast()
+   * @return the meta object for the attribute '<em>Front Center Left Sensor</em>'.
+   * @see ld.project2.thymioDSL.Sensor#getFrontCenterLeftSensor()
    * @see #getSensor()
    * @generated
    */
-  EAttribute getSensor_NorthNorthEast();
+  EAttribute getSensor_FrontCenterLeftSensor();
 
   /**
-   * Returns the meta object for the attribute '{@link ld.project2.thymioDSL.Sensor#getNorthEast <em>North East</em>}'.
+   * Returns the meta object for the attribute '{@link ld.project2.thymioDSL.Sensor#getFrontLeftSensor <em>Front Left Sensor</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>North East</em>'.
-   * @see ld.project2.thymioDSL.Sensor#getNorthEast()
+   * @return the meta object for the attribute '<em>Front Left Sensor</em>'.
+   * @see ld.project2.thymioDSL.Sensor#getFrontLeftSensor()
    * @see #getSensor()
    * @generated
    */
-  EAttribute getSensor_NorthEast();
+  EAttribute getSensor_FrontLeftSensor();
 
   /**
    * Returns the meta object for class '{@link ld.project2.thymioDSL.Action <em>Action</em>}'.
@@ -1050,60 +1050,60 @@ public interface ThymioDSLPackage extends EPackage
     EClass SENSOR = eINSTANCE.getSensor();
 
     /**
-     * The meta object literal for the '<em><b>Bottom Left Sensor</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Back Left Sensor</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute SENSOR__BOTTOM_LEFT_SENSOR = eINSTANCE.getSensor_BottomLeftSensor();
+    EAttribute SENSOR__BACK_LEFT_SENSOR = eINSTANCE.getSensor_BackLeftSensor();
 
     /**
-     * The meta object literal for the '<em><b>Bottom Right Sensor</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Back Right Sensor</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute SENSOR__BOTTOM_RIGHT_SENSOR = eINSTANCE.getSensor_BottomRightSensor();
+    EAttribute SENSOR__BACK_RIGHT_SENSOR = eINSTANCE.getSensor_BackRightSensor();
 
     /**
-     * The meta object literal for the '<em><b>North West</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Front Right Sensor</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute SENSOR__NORTH_WEST = eINSTANCE.getSensor_NorthWest();
+    EAttribute SENSOR__FRONT_RIGHT_SENSOR = eINSTANCE.getSensor_FrontRightSensor();
 
     /**
-     * The meta object literal for the '<em><b>North North West</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Front Center Right Sensor</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute SENSOR__NORTH_NORTH_WEST = eINSTANCE.getSensor_NorthNorthWest();
+    EAttribute SENSOR__FRONT_CENTER_RIGHT_SENSOR = eINSTANCE.getSensor_FrontCenterRightSensor();
 
     /**
-     * The meta object literal for the '<em><b>North</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Front Center Sensor</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute SENSOR__NORTH = eINSTANCE.getSensor_North();
+    EAttribute SENSOR__FRONT_CENTER_SENSOR = eINSTANCE.getSensor_FrontCenterSensor();
 
     /**
-     * The meta object literal for the '<em><b>North North East</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Front Center Left Sensor</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute SENSOR__NORTH_NORTH_EAST = eINSTANCE.getSensor_NorthNorthEast();
+    EAttribute SENSOR__FRONT_CENTER_LEFT_SENSOR = eINSTANCE.getSensor_FrontCenterLeftSensor();
 
     /**
-     * The meta object literal for the '<em><b>North East</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Front Left Sensor</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute SENSOR__NORTH_EAST = eINSTANCE.getSensor_NorthEast();
+    EAttribute SENSOR__FRONT_LEFT_SENSOR = eINSTANCE.getSensor_FrontLeftSensor();
 
     /**
      * The meta object literal for the '{@link ld.project2.thymioDSL.impl.ActionImpl <em>Action</em>}' class.

@@ -18,44 +18,43 @@ Procedure returns Procedure:
 ;
 
 Event returns Event:
-	{Event} 'when:'
-	('button_is_clicked:'
-	(button = Ortogonal))?
+	{Event} ('button_is_clicked:'
+	(button = Ortogonal))|
 	('robot_is_tapped:'
-	(tap = EBoolean))?
+	(tap = EBoolean))|
 	('sound_is_detected:'
-	(mic = EBoolean))?
+	(mic = EBoolean))|
 	('sensor_is_activated:'
-	(sensor+= (Sensor)))?
+	(sensor+= (Sensor)))+
 ;
 
 Sensor returns Sensor:
-	{Sensor} ('bottom_left:'
-	bottomLeftSensor = BlackWhite)?
-	('bottom_right:'
-	bottomRightSensor = BlackWhite)?
-	('northwest:'
-	 northWest = SensorStatus)?
-	('northnorthwest:'
-	 northNorthWest = SensorStatus)?
-	('north:'
-	 north = SensorStatus)?
-	('northnortheast:'
-	 northNorthEast = SensorStatus)?
-	 ('northeast:'
-	 northEast = SensorStatus)?
+	{Sensor} ('back_left:'
+	(backLeftSensor = BlackWhite))|
+	('back_right:'
+	(backRightSensor = BlackWhite))|
+	('front_right:'
+	(frontRightSensor = SensorStatus))|
+	('front_center_right:'
+	(frontCenterRightSensor = SensorStatus))|
+	('front_center:'
+	(frontCenterSensor = SensorStatus))|
+	('front_center_left:'
+	(frontCenterLeftSensor = SensorStatus))|
+	('front_left:'
+	(frontLeftSensor = SensorStatus))
 ;
 
 
 Action returns Action:
-	'move:'
-	move = (Motor)
-	'toplight:'
-	topLight = OnOff
-	'bottomlight:'
-	bottomLight = OnOff
-	'sound:'
-	(sound+= Sound)
+	{Action} ('move:'
+	(move = (Motor)))|
+	('top_light:'
+	(topLight = OnOff))|
+	('bottom_light:'
+	(bottomLight = OnOff))|
+	('sound:'
+	(sound+= (Sound)))
 ;
 
 Motor returns Motor:
@@ -67,10 +66,10 @@ Motor returns Motor:
 ;
 
 Sound returns Sound:
-	'Note:'
+	'note:'
 	(pitch+= Addition)
 	(duration+= NoteDuration)
-	('Note:'
+	('note:'
 	pitch+= Addition
 	duration+= NoteDuration)*
 ;

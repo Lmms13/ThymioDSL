@@ -50,7 +50,7 @@ public class ThymioDSLSemanticSequencer extends AbstractDelegatingSemanticSequen
 				sequence_Event(context, (Event) semanticObject); 
 				return; 
 			case ThymioDSLPackage.EXPRESSION:
-				sequence_Primary(context, (Expression) semanticObject); 
+				sequence_Number(context, (Expression) semanticObject); 
 				return; 
 			case ThymioDSLPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
@@ -81,7 +81,7 @@ public class ThymioDSLSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Action returns Action
 	 *
 	 * Constraint:
-	 *     (move=Motor topLight=OnOff bottomLight=OnOff sound+=Sound)
+	 *     (move=Motor | topLight=OnOff | bottomLight=OnOff | sound+=Sound)
 	 * </pre>
 	 */
 	protected void sequence_Action(ISerializationContext context, ld.project2.thymioDSL.Action semanticObject) {
@@ -96,7 +96,7 @@ public class ThymioDSLSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Addition.Addition_1_0 returns Addition
 	 *     Multiplication returns Addition
 	 *     Multiplication.Multiplication_1_0 returns Addition
-	 *     Primary returns Addition
+	 *     Number returns Addition
 	 *
 	 * Constraint:
 	 *     (left=Addition_Addition_1_0 right=Multiplication)
@@ -122,7 +122,7 @@ public class ThymioDSLSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Event returns Event
 	 *
 	 * Constraint:
-	 *     (button=Ortogonal? tap=EBoolean? mic=EBoolean? sensor+=Sensor?)
+	 *     (button=Ortogonal | tap=EBoolean | mic=EBoolean | sensor+=Sensor+)
 	 * </pre>
 	 */
 	protected void sequence_Event(ISerializationContext context, Event semanticObject) {
@@ -174,10 +174,10 @@ public class ThymioDSLSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Addition.Addition_1_0 returns Multiplication
 	 *     Multiplication returns Multiplication
 	 *     Multiplication.Multiplication_1_0 returns Multiplication
-	 *     Primary returns Multiplication
+	 *     Number returns Multiplication
 	 *
 	 * Constraint:
-	 *     (left=Multiplication_Multiplication_1_0 right=Primary)
+	 *     (left=Multiplication_Multiplication_1_0 right=Number)
 	 * </pre>
 	 */
 	protected void sequence_Multiplication(ISerializationContext context, Multiplication semanticObject) {
@@ -189,7 +189,7 @@ public class ThymioDSLSemanticSequencer extends AbstractDelegatingSemanticSequen
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getMultiplicationAccess().getMultiplicationLeftAction_1_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getMultiplicationAccess().getRightPrimaryParserRuleCall_1_2_0(), semanticObject.getRight());
+		feeder.accept(grammarAccess.getMultiplicationAccess().getRightNumberParserRuleCall_1_2_0(), semanticObject.getRight());
 		feeder.finish();
 	}
 	
@@ -201,19 +201,19 @@ public class ThymioDSLSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Addition.Addition_1_0 returns Expression
 	 *     Multiplication returns Expression
 	 *     Multiplication.Multiplication_1_0 returns Expression
-	 *     Primary returns Expression
+	 *     Number returns Expression
 	 *
 	 * Constraint:
 	 *     value=EInt
 	 * </pre>
 	 */
-	protected void sequence_Primary(ISerializationContext context, Expression semanticObject) {
+	protected void sequence_Number(ISerializationContext context, Expression semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, ThymioDSLPackage.Literals.EXPRESSION__VALUE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ThymioDSLPackage.Literals.EXPRESSION__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPrimaryAccess().getValueEIntParserRuleCall_0_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getNumberAccess().getValueEIntParserRuleCall_0_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -239,13 +239,13 @@ public class ThymioDSLSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *
 	 * Constraint:
 	 *     (
-	 *         bottomLeftSensor=BlackWhite? 
-	 *         bottomRightSensor=BlackWhite? 
-	 *         northWest=SensorStatus? 
-	 *         northNorthWest=SensorStatus? 
-	 *         north=SensorStatus? 
-	 *         northNorthEast=SensorStatus? 
-	 *         northEast=SensorStatus?
+	 *         backLeftSensor=BlackWhite | 
+	 *         backRightSensor=BlackWhite | 
+	 *         frontRightSensor=SensorStatus | 
+	 *         frontCenterRightSensor=SensorStatus | 
+	 *         frontCenterSensor=SensorStatus | 
+	 *         frontCenterLeftSensor=SensorStatus | 
+	 *         frontLeftSensor=SensorStatus
 	 *     )
 	 * </pre>
 	 */

@@ -21,13 +21,13 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ThymioDSL.ecore#//Event/sensor"/>
     </genClasses>
     <genClasses ecoreClass="ThymioDSL.ecore#//Sensor">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ThymioDSL.ecore#//Sensor/bottomLeftSensor"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ThymioDSL.ecore#//Sensor/bottomRightSensor"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ThymioDSL.ecore#//Sensor/northWest"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ThymioDSL.ecore#//Sensor/northNorthWest"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ThymioDSL.ecore#//Sensor/north"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ThymioDSL.ecore#//Sensor/northNorthEast"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ThymioDSL.ecore#//Sensor/northEast"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ThymioDSL.ecore#//Sensor/backLeftSensor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ThymioDSL.ecore#//Sensor/backRightSensor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ThymioDSL.ecore#//Sensor/frontRightSensor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ThymioDSL.ecore#//Sensor/frontCenterRightSensor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ThymioDSL.ecore#//Sensor/frontCenterSensor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ThymioDSL.ecore#//Sensor/frontCenterLeftSensor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ThymioDSL.ecore#//Sensor/frontLeftSensor"/>
     </genClasses>
     <genClasses ecoreClass="ThymioDSL.ecore#//Action">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ThymioDSL.ecore#//Action/move"/>
