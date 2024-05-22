@@ -3,7 +3,14 @@
  */
 package ld.project2.generator;
 
+import ld.project2.thymioDSL.Action;
+import ld.project2.thymioDSL.BottomSensor;
+import ld.project2.thymioDSL.Model;
+import ld.project2.thymioDSL.Procedure;
+import ld.project2.thymioDSL.ProxSensor;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
@@ -17,5 +24,269 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 public class ThymioDSLGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+  }
+
+  public CharSequence generateCode(final Model m) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<!DOCTYPE aesl-source>");
+    _builder.newLine();
+    _builder.append("<network>");
+    _builder.newLine();
+    _builder.append("<node>");
+    _builder.newLine();
+    _builder.append("var notes[6]");
+    _builder.newLine();
+    _builder.append("var durations[6]");
+    _builder.newLine();
+    _builder.append("var note_index = 6");
+    _builder.newLine();
+    _builder.append("var note_count = 6");
+    _builder.newLine();
+    _builder.append("var wave[142]");
+    _builder.newLine();
+    _builder.append("var i");
+    _builder.newLine();
+    _builder.append("var wave_phase");
+    _builder.newLine();
+    _builder.append("var wave_intensity");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("# compute a sinus wave for sound");
+    _builder.newLine();
+    _builder.append("for i in 0:141 do");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("wave_phase = (i-70)*468");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("call math.cos(wave_intensity, wave_phase)");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("wave[i] = wave_intensity/256");
+    _builder.newLine();
+    _builder.append("end");
+    _builder.newLine();
+    _builder.append("call sound.wave(wave)");
+    _builder.newLine();
+    _builder.append("# setup threshold for detecting claps");
+    _builder.newLine();
+    _builder.append("mic.threshold = 250");
+    _builder.newLine();
+    _builder.append("# reset outputs");
+    _builder.newLine();
+    _builder.append("call sound.system(-1)");
+    _builder.newLine();
+    _builder.append("call leds.top(0,0,0)");
+    _builder.newLine();
+    _builder.append("call leds.bottom.left(0,0,0)");
+    _builder.newLine();
+    _builder.append("call leds.bottom.right(0,0,0)");
+    _builder.newLine();
+    _builder.append("call leds.circle(0,0,0,0,0,0,0,0)");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("# when a note is finished, play the next note");
+    _builder.newLine();
+    _builder.append("onevent sound.finished");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("if note_index != note_count then");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("call sound.freq(notes[note_index], durations[note_index])");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("note_index += 1");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("end");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("<toolsPlugins>");
+    _builder.newLine();
+    _builder.append("<ThymioVisualProgramming>");
+    _builder.newLine();
+    _builder.append("<vplroot xml-format-version=\"1\">");
+    _builder.newLine();
+    _builder.append("<program advanced_mode=\"0\">");
+    _builder.newLine();
+    _builder.newLine();
+    {
+      EList<Procedure> _procedures = m.getProcedures();
+      for(final Procedure p : _procedures) {
+        _builder.append("<set>");
+        _builder.newLine();
+        {
+          String _button = p.getEvents().getButton();
+          boolean _tripleNotEquals = (_button != null);
+          if (_tripleNotEquals) {
+            _builder.append("<block type=\"event\" name=\"button\" value0=\"");
+            int _xifexpression = (int) 0;
+            boolean _equals = p.getEvents().getButton().equals("up");
+            if (_equals) {
+              _xifexpression = 1;
+            } else {
+              _xifexpression = 0;
+            }
+            _builder.append(_xifexpression);
+            _builder.append("\" value1=\"");
+            int _xifexpression_1 = (int) 0;
+            boolean _equals_1 = p.getEvents().getButton().equals("left");
+            if (_equals_1) {
+              _xifexpression_1 = 1;
+            } else {
+              _xifexpression_1 = 0;
+            }
+            _builder.append(_xifexpression_1);
+            _builder.append("\" value2=\"");
+            int _xifexpression_2 = (int) 0;
+            boolean _equals_2 = p.getEvents().getButton().equals("down");
+            if (_equals_2) {
+              _xifexpression_2 = 1;
+            } else {
+              _xifexpression_2 = 0;
+            }
+            _builder.append(_xifexpression_2);
+            _builder.append("\" value3=\"");
+            int _xifexpression_3 = (int) 0;
+            boolean _equals_3 = p.getEvents().getButton().equals("right");
+            if (_equals_3) {
+              _xifexpression_3 = 1;
+            } else {
+              _xifexpression_3 = 0;
+            }
+            _builder.append(_xifexpression_3);
+            _builder.append("\" value4=\"");
+            int _xifexpression_4 = (int) 0;
+            boolean _equals_4 = p.getEvents().getButton().equals("center");
+            if (_equals_4) {
+              _xifexpression_4 = 1;
+            } else {
+              _xifexpression_4 = 0;
+            }
+            _builder.append(_xifexpression_4);
+            _builder.append("\"/>");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+        {
+          String _stimulus = p.getEvents().getStimulus();
+          boolean _tripleNotEquals_1 = (_stimulus != null);
+          if (_tripleNotEquals_1) {
+            _builder.append("<block type=\"event\" name=\"");
+            String _xifexpression_5 = null;
+            boolean _equals_5 = p.getEvents().getStimulus().equals("tap");
+            if (_equals_5) {
+              _xifexpression_5 = "acc";
+            } else {
+              _xifexpression_5 = "clap";
+            }
+            _builder.append(_xifexpression_5);
+            _builder.append("\"/>");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+        {
+          ProxSensor _proxSensor = p.getEvents().getProxSensor();
+          boolean _tripleNotEquals_2 = (_proxSensor != null);
+          if (_tripleNotEquals_2) {
+            _builder.append("<block type=\"event\" name=\"prox\" value0=\"");
+            int _xifexpression_6 = (int) 0;
+            String _frontLeftSensor = p.getEvents().getProxSensor().getFrontLeftSensor();
+            boolean _tripleNotEquals_3 = (_frontLeftSensor != null);
+            if (_tripleNotEquals_3) {
+              int _xifexpression_7 = (int) 0;
+              boolean _equals_6 = p.getEvents().getProxSensor().getFrontLeftSensor().equals("far");
+              if (_equals_6) {
+                _xifexpression_7 = 0;
+              } else {
+                int _xifexpression_8 = (int) 0;
+                boolean _equals_7 = p.getEvents().getProxSensor().getFrontLeftSensor().equals("very_close");
+                if (_equals_7) {
+                  _xifexpression_8 = 1;
+                } else {
+                  _xifexpression_8 = 2;
+                }
+                _xifexpression_7 = _xifexpression_8;
+              }
+              _xifexpression_6 = _xifexpression_7;
+            } else {
+              _xifexpression_6 = 0;
+            }
+            _builder.append(_xifexpression_6);
+            _builder.append("\"value7=\"1000\" value8=\"2000\"/>");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+        {
+          BottomSensor _bottomSensor = p.getEvents().getBottomSensor();
+          boolean _tripleNotEquals_4 = (_bottomSensor != null);
+          if (_tripleNotEquals_4) {
+            _builder.append("<block type=\"event\" name=\"proxground\" value0=\"");
+            int _xifexpression_9 = (int) 0;
+            boolean _equals_8 = p.getEvents().getBottomSensor().getBottomLeftSensor().equals("any");
+            if (_equals_8) {
+              _xifexpression_9 = 0;
+            } else {
+              int _xifexpression_10 = (int) 0;
+              boolean _equals_9 = p.getEvents().getBottomSensor().getBottomLeftSensor().equals("white");
+              if (_equals_9) {
+                _xifexpression_10 = 1;
+              } else {
+                _xifexpression_10 = 2;
+              }
+              _xifexpression_9 = _xifexpression_10;
+            }
+            _builder.append(_xifexpression_9);
+            _builder.append("\" value1=\"");
+            int _xifexpression_11 = (int) 0;
+            boolean _equals_10 = p.getEvents().getBottomSensor().getBottomRightSensor().equals("any");
+            if (_equals_10) {
+              _xifexpression_11 = 0;
+            } else {
+              int _xifexpression_12 = (int) 0;
+              boolean _equals_11 = p.getEvents().getBottomSensor().getBottomRightSensor().equals("white");
+              if (_equals_11) {
+                _xifexpression_12 = 1;
+              } else {
+                _xifexpression_12 = 2;
+              }
+              _xifexpression_11 = _xifexpression_12;
+            }
+            _builder.append(_xifexpression_11);
+            _builder.append("\" value2=\"400\" value3=\"450\"/>");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+        _builder.newLine();
+        _builder.newLine();
+        {
+          EList<Action> _actions = p.getActions();
+          for(final Action a : _actions) {
+            _builder.append("\t");
+            _builder.newLine();
+          }
+        }
+        _builder.append("</set>");
+        _builder.newLine();
+      }
+    }
+    _builder.newLine();
+    _builder.append("<set/>");
+    _builder.newLine();
+    _builder.append("</program>");
+    _builder.newLine();
+    _builder.append("</vplroot>");
+    _builder.newLine();
+    _builder.append("</ThymioVisualProgramming>");
+    _builder.newLine();
+    _builder.append("</toolsPlugins>");
+    _builder.newLine();
+    _builder.append("</node>");
+    _builder.newLine();
+    _builder.append("</network>");
+    _builder.newLine();
+    return _builder;
   }
 }

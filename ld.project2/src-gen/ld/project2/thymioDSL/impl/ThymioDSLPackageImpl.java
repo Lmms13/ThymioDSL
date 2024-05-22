@@ -280,7 +280,7 @@ public class ThymioDSLPackageImpl extends EPackageImpl implements ThymioDSLPacka
 	 * @generated
 	 */
   @Override
-  public EAttribute getEvent_Tap()
+  public EAttribute getEvent_Stimulus()
   {
 		return (EAttribute)eventEClass.getEStructuralFeatures().get(1);
 	}
@@ -291,20 +291,9 @@ public class ThymioDSLPackageImpl extends EPackageImpl implements ThymioDSLPacka
 	 * @generated
 	 */
   @Override
-  public EAttribute getEvent_Mic()
-  {
-		return (EAttribute)eventEClass.getEStructuralFeatures().get(2);
-	}
-
-  /**
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 */
-  @Override
   public EReference getEvent_ProxSensor()
   {
-		return (EReference)eventEClass.getEStructuralFeatures().get(3);
+		return (EReference)eventEClass.getEStructuralFeatures().get(2);
 	}
 
   /**
@@ -315,7 +304,7 @@ public class ThymioDSLPackageImpl extends EPackageImpl implements ThymioDSLPacka
   @Override
   public EReference getEvent_BottomSensor()
   {
-		return (EReference)eventEClass.getEStructuralFeatures().get(4);
+		return (EReference)eventEClass.getEStructuralFeatures().get(3);
 	}
 
   /**
@@ -335,7 +324,7 @@ public class ThymioDSLPackageImpl extends EPackageImpl implements ThymioDSLPacka
 	 * @generated
 	 */
   @Override
-  public EAttribute getProxSensor_BackLeftSensor()
+  public EAttribute getProxSensor_FrontLeftSensor()
   {
 		return (EAttribute)proxSensorEClass.getEStructuralFeatures().get(0);
 	}
@@ -346,7 +335,7 @@ public class ThymioDSLPackageImpl extends EPackageImpl implements ThymioDSLPacka
 	 * @generated
 	 */
   @Override
-  public EAttribute getProxSensor_BackRightSensor()
+  public EAttribute getProxSensor_FrontCenterLeftSensor()
   {
 		return (EAttribute)proxSensorEClass.getEStructuralFeatures().get(1);
 	}
@@ -357,7 +346,7 @@ public class ThymioDSLPackageImpl extends EPackageImpl implements ThymioDSLPacka
 	 * @generated
 	 */
   @Override
-  public EAttribute getProxSensor_FrontRightSensor()
+  public EAttribute getProxSensor_FrontCenterSensor()
   {
 		return (EAttribute)proxSensorEClass.getEStructuralFeatures().get(2);
 	}
@@ -379,7 +368,7 @@ public class ThymioDSLPackageImpl extends EPackageImpl implements ThymioDSLPacka
 	 * @generated
 	 */
   @Override
-  public EAttribute getProxSensor_FrontCenterSensor()
+  public EAttribute getProxSensor_FrontRightSensor()
   {
 		return (EAttribute)proxSensorEClass.getEStructuralFeatures().get(4);
 	}
@@ -390,7 +379,7 @@ public class ThymioDSLPackageImpl extends EPackageImpl implements ThymioDSLPacka
 	 * @generated
 	 */
   @Override
-  public EAttribute getProxSensor_FrontCenterLeftSensor()
+  public EAttribute getProxSensor_BackLeftSensor()
   {
 		return (EAttribute)proxSensorEClass.getEStructuralFeatures().get(5);
 	}
@@ -401,7 +390,7 @@ public class ThymioDSLPackageImpl extends EPackageImpl implements ThymioDSLPacka
 	 * @generated
 	 */
   @Override
-  public EAttribute getProxSensor_FrontLeftSensor()
+  public EAttribute getProxSensor_BackRightSensor()
   {
 		return (EAttribute)proxSensorEClass.getEStructuralFeatures().get(6);
 	}
@@ -744,19 +733,18 @@ public class ThymioDSLPackageImpl extends EPackageImpl implements ThymioDSLPacka
 
 		eventEClass = createEClass(EVENT);
 		createEAttribute(eventEClass, EVENT__BUTTON);
-		createEAttribute(eventEClass, EVENT__TAP);
-		createEAttribute(eventEClass, EVENT__MIC);
+		createEAttribute(eventEClass, EVENT__STIMULUS);
 		createEReference(eventEClass, EVENT__PROX_SENSOR);
 		createEReference(eventEClass, EVENT__BOTTOM_SENSOR);
 
 		proxSensorEClass = createEClass(PROX_SENSOR);
+		createEAttribute(proxSensorEClass, PROX_SENSOR__FRONT_LEFT_SENSOR);
+		createEAttribute(proxSensorEClass, PROX_SENSOR__FRONT_CENTER_LEFT_SENSOR);
+		createEAttribute(proxSensorEClass, PROX_SENSOR__FRONT_CENTER_SENSOR);
+		createEAttribute(proxSensorEClass, PROX_SENSOR__FRONT_CENTER_RIGHT_SENSOR);
+		createEAttribute(proxSensorEClass, PROX_SENSOR__FRONT_RIGHT_SENSOR);
 		createEAttribute(proxSensorEClass, PROX_SENSOR__BACK_LEFT_SENSOR);
 		createEAttribute(proxSensorEClass, PROX_SENSOR__BACK_RIGHT_SENSOR);
-		createEAttribute(proxSensorEClass, PROX_SENSOR__FRONT_RIGHT_SENSOR);
-		createEAttribute(proxSensorEClass, PROX_SENSOR__FRONT_CENTER_RIGHT_SENSOR);
-		createEAttribute(proxSensorEClass, PROX_SENSOR__FRONT_CENTER_SENSOR);
-		createEAttribute(proxSensorEClass, PROX_SENSOR__FRONT_CENTER_LEFT_SENSOR);
-		createEAttribute(proxSensorEClass, PROX_SENSOR__FRONT_LEFT_SENSOR);
 
 		bottomSensorEClass = createEClass(BOTTOM_SENSOR);
 		createEAttribute(bottomSensorEClass, BOTTOM_SENSOR__BOTTOM_LEFT_SENSOR);
@@ -838,19 +826,18 @@ public class ThymioDSLPackageImpl extends EPackageImpl implements ThymioDSLPacka
 
 		initEClass(eventEClass, Event.class, "Event", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEvent_Button(), ecorePackage.getEString(), "button", null, 0, 1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEvent_Tap(), ecorePackage.getEBoolean(), "tap", null, 0, 1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEvent_Mic(), ecorePackage.getEBoolean(), "mic", null, 0, 1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEvent_ProxSensor(), this.getProxSensor(), null, "proxSensor", null, 0, -1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEvent_BottomSensor(), this.getBottomSensor(), null, "bottomSensor", null, 0, -1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEvent_Stimulus(), ecorePackage.getEString(), "stimulus", null, 0, 1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEvent_ProxSensor(), this.getProxSensor(), null, "proxSensor", null, 0, 1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEvent_BottomSensor(), this.getBottomSensor(), null, "bottomSensor", null, 0, 1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(proxSensorEClass, ProxSensor.class, "ProxSensor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getProxSensor_FrontLeftSensor(), ecorePackage.getEString(), "frontLeftSensor", null, 0, 1, ProxSensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProxSensor_FrontCenterLeftSensor(), ecorePackage.getEString(), "frontCenterLeftSensor", null, 0, 1, ProxSensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProxSensor_FrontCenterSensor(), ecorePackage.getEString(), "frontCenterSensor", null, 0, 1, ProxSensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProxSensor_FrontCenterRightSensor(), ecorePackage.getEString(), "frontCenterRightSensor", null, 0, 1, ProxSensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProxSensor_FrontRightSensor(), ecorePackage.getEString(), "frontRightSensor", null, 0, 1, ProxSensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProxSensor_BackLeftSensor(), ecorePackage.getEString(), "backLeftSensor", null, 0, 1, ProxSensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProxSensor_BackRightSensor(), ecorePackage.getEString(), "backRightSensor", null, 0, 1, ProxSensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getProxSensor_FrontRightSensor(), ecorePackage.getEString(), "frontRightSensor", null, 0, 1, ProxSensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getProxSensor_FrontCenterRightSensor(), ecorePackage.getEString(), "frontCenterRightSensor", null, 0, 1, ProxSensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getProxSensor_FrontCenterSensor(), ecorePackage.getEString(), "frontCenterSensor", null, 0, 1, ProxSensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getProxSensor_FrontCenterLeftSensor(), ecorePackage.getEString(), "frontCenterLeftSensor", null, 0, 1, ProxSensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getProxSensor_FrontLeftSensor(), ecorePackage.getEString(), "frontLeftSensor", null, 0, 1, ProxSensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(bottomSensorEClass, BottomSensor.class, "BottomSensor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBottomSensor_BottomLeftSensor(), ecorePackage.getEString(), "bottomLeftSensor", null, 0, 1, BottomSensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

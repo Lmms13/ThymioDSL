@@ -105,46 +105,38 @@ public class ThymioDSLGrammarAccess extends AbstractElementFinder.AbstractGramma
 		private final Assignment cButtonAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
 		private final RuleCall cButtonOrtogonalParserRuleCall_0_1_0 = (RuleCall)cButtonAssignment_0_1.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Keyword cRobot_is_tappedKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Assignment cTapAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cTapEBooleanParserRuleCall_1_1_0 = (RuleCall)cTapAssignment_1_1.eContents().get(0);
+		private final Keyword cRobot_detects_stimulusKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cStimulusAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cStimulusStimulusParserRuleCall_1_1_0 = (RuleCall)cStimulusAssignment_1_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
-		private final Keyword cSound_is_detectedKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cMicAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cMicEBooleanParserRuleCall_2_1_0 = (RuleCall)cMicAssignment_2_1.eContents().get(0);
+		private final Keyword cProximity_sensor_is_activatedKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cProxSensorAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cProxSensorProxSensorParserRuleCall_2_1_0 = (RuleCall)cProxSensorAssignment_2_1.eContents().get(0);
 		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
-		private final Keyword cProximity_sensor_is_activatedKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cProxSensorAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cProxSensorProxSensorParserRuleCall_3_1_0 = (RuleCall)cProxSensorAssignment_3_1.eContents().get(0);
-		private final Group cGroup_4 = (Group)cAlternatives.eContents().get(4);
-		private final Keyword cBottom_sensor_detects_colorKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cBottomSensorAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cBottomSensorBottomSensorParserRuleCall_4_1_0 = (RuleCall)cBottomSensorAssignment_4_1.eContents().get(0);
+		private final Keyword cBottom_sensor_detects_colorKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cBottomSensorAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cBottomSensorBottomSensorParserRuleCall_3_1_0 = (RuleCall)cBottomSensorAssignment_3_1.eContents().get(0);
 		
 		//Event returns Event:
 		//    ('button_is_clicked:'
 		//    (button = Ortogonal))|
-		//    ('robot_is_tapped:'
-		//    (tap = EBoolean))|
-		//    ('sound_is_detected:'
-		//    (mic = EBoolean))|
+		//    ('robot_detects_stimulus:'
+		//    (stimulus = Stimulus))|
 		//    ('proximity_sensor_is_activated:'
-		//    (proxSensor+= (ProxSensor)+))|
+		//    (proxSensor = (ProxSensor)))|
 		//    ('bottom_sensor_detects_color:'
-		//    (bottomSensor+= (BottomSensor)+))
+		//    (bottomSensor = (BottomSensor)))
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//('button_is_clicked:'
 		//(button = Ortogonal))|
-		//('robot_is_tapped:'
-		//(tap = EBoolean))|
-		//('sound_is_detected:'
-		//(mic = EBoolean))|
+		//('robot_detects_stimulus:'
+		//(stimulus = Stimulus))|
 		//('proximity_sensor_is_activated:'
-		//(proxSensor+= (ProxSensor)+))|
+		//(proxSensor = (ProxSensor)))|
 		//('bottom_sensor_detects_color:'
-		//(bottomSensor+= (BottomSensor)+))
+		//(bottomSensor = (BottomSensor)))
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//('button_is_clicked:'
@@ -160,214 +152,207 @@ public class ThymioDSLGrammarAccess extends AbstractElementFinder.AbstractGramma
 		//Ortogonal
 		public RuleCall getButtonOrtogonalParserRuleCall_0_1_0() { return cButtonOrtogonalParserRuleCall_0_1_0; }
 		
-		//('robot_is_tapped:'
-		//(tap = EBoolean))
+		//('robot_detects_stimulus:'
+		//(stimulus = Stimulus))
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//'robot_is_tapped:'
-		public Keyword getRobot_is_tappedKeyword_1_0() { return cRobot_is_tappedKeyword_1_0; }
+		//'robot_detects_stimulus:'
+		public Keyword getRobot_detects_stimulusKeyword_1_0() { return cRobot_detects_stimulusKeyword_1_0; }
 		
-		//(tap = EBoolean)
-		public Assignment getTapAssignment_1_1() { return cTapAssignment_1_1; }
+		//(stimulus = Stimulus)
+		public Assignment getStimulusAssignment_1_1() { return cStimulusAssignment_1_1; }
 		
-		//EBoolean
-		public RuleCall getTapEBooleanParserRuleCall_1_1_0() { return cTapEBooleanParserRuleCall_1_1_0; }
-		
-		//('sound_is_detected:'
-		//(mic = EBoolean))
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//'sound_is_detected:'
-		public Keyword getSound_is_detectedKeyword_2_0() { return cSound_is_detectedKeyword_2_0; }
-		
-		//(mic = EBoolean)
-		public Assignment getMicAssignment_2_1() { return cMicAssignment_2_1; }
-		
-		//EBoolean
-		public RuleCall getMicEBooleanParserRuleCall_2_1_0() { return cMicEBooleanParserRuleCall_2_1_0; }
+		//Stimulus
+		public RuleCall getStimulusStimulusParserRuleCall_1_1_0() { return cStimulusStimulusParserRuleCall_1_1_0; }
 		
 		//('proximity_sensor_is_activated:'
-		//(proxSensor+= (ProxSensor)+))
-		public Group getGroup_3() { return cGroup_3; }
+		//(proxSensor = (ProxSensor)))
+		public Group getGroup_2() { return cGroup_2; }
 		
 		//'proximity_sensor_is_activated:'
-		public Keyword getProximity_sensor_is_activatedKeyword_3_0() { return cProximity_sensor_is_activatedKeyword_3_0; }
+		public Keyword getProximity_sensor_is_activatedKeyword_2_0() { return cProximity_sensor_is_activatedKeyword_2_0; }
 		
-		//(proxSensor+= (ProxSensor)+)
-		public Assignment getProxSensorAssignment_3_1() { return cProxSensorAssignment_3_1; }
+		//(proxSensor = (ProxSensor))
+		public Assignment getProxSensorAssignment_2_1() { return cProxSensorAssignment_2_1; }
 		
 		//(ProxSensor)
-		public RuleCall getProxSensorProxSensorParserRuleCall_3_1_0() { return cProxSensorProxSensorParserRuleCall_3_1_0; }
+		public RuleCall getProxSensorProxSensorParserRuleCall_2_1_0() { return cProxSensorProxSensorParserRuleCall_2_1_0; }
 		
 		//('bottom_sensor_detects_color:'
-		//(bottomSensor+= (BottomSensor)+))
-		public Group getGroup_4() { return cGroup_4; }
+		//(bottomSensor = (BottomSensor)))
+		public Group getGroup_3() { return cGroup_3; }
 		
 		//'bottom_sensor_detects_color:'
-		public Keyword getBottom_sensor_detects_colorKeyword_4_0() { return cBottom_sensor_detects_colorKeyword_4_0; }
+		public Keyword getBottom_sensor_detects_colorKeyword_3_0() { return cBottom_sensor_detects_colorKeyword_3_0; }
 		
-		//(bottomSensor+= (BottomSensor)+)
-		public Assignment getBottomSensorAssignment_4_1() { return cBottomSensorAssignment_4_1; }
+		//(bottomSensor = (BottomSensor))
+		public Assignment getBottomSensorAssignment_3_1() { return cBottomSensorAssignment_3_1; }
 		
 		//(BottomSensor)
-		public RuleCall getBottomSensorBottomSensorParserRuleCall_4_1_0() { return cBottomSensorBottomSensorParserRuleCall_4_1_0; }
+		public RuleCall getBottomSensorBottomSensorParserRuleCall_3_1_0() { return cBottomSensorBottomSensorParserRuleCall_3_1_0; }
 	}
 	public class ProxSensorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ld.project2.ThymioDSL.ProxSensor");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
-		private final Keyword cBack_leftKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
-		private final Assignment cBackLeftSensorAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
-		private final RuleCall cBackLeftSensorSensorStatusParserRuleCall_0_1_0 = (RuleCall)cBackLeftSensorAssignment_0_1.eContents().get(0);
-		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Keyword cBack_rightKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Assignment cBackRightSensorAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cBackRightSensorSensorStatusParserRuleCall_1_1_0 = (RuleCall)cBackRightSensorAssignment_1_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
-		private final Keyword cFront_rightKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cFrontRightSensorAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cFrontRightSensorSensorStatusParserRuleCall_2_1_0 = (RuleCall)cFrontRightSensorAssignment_2_1.eContents().get(0);
-		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
-		private final Keyword cFront_center_rightKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cFrontCenterRightSensorAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cFrontCenterRightSensorSensorStatusParserRuleCall_3_1_0 = (RuleCall)cFrontCenterRightSensorAssignment_3_1.eContents().get(0);
-		private final Group cGroup_4 = (Group)cAlternatives.eContents().get(4);
-		private final Keyword cFront_centerKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cFrontCenterSensorAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cFrontCenterSensorSensorStatusParserRuleCall_4_1_0 = (RuleCall)cFrontCenterSensorAssignment_4_1.eContents().get(0);
-		private final Group cGroup_5 = (Group)cAlternatives.eContents().get(5);
-		private final Keyword cFront_center_leftKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Assignment cFrontCenterLeftSensorAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cFrontCenterLeftSensorSensorStatusParserRuleCall_5_1_0 = (RuleCall)cFrontCenterLeftSensorAssignment_5_1.eContents().get(0);
-		private final Group cGroup_6 = (Group)cAlternatives.eContents().get(6);
-		private final Keyword cFront_leftKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Assignment cFrontLeftSensorAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cFrontLeftSensorSensorStatusParserRuleCall_6_1_0 = (RuleCall)cFrontLeftSensorAssignment_6_1.eContents().get(0);
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cProxSensorAction_0 = (Action)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cFront_leftKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cFrontLeftSensorAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cFrontLeftSensorSensorStatusParserRuleCall_1_1_0 = (RuleCall)cFrontLeftSensorAssignment_1_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cFront_center_leftKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cFrontCenterLeftSensorAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cFrontCenterLeftSensorSensorStatusParserRuleCall_2_1_0 = (RuleCall)cFrontCenterLeftSensorAssignment_2_1.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cFront_centerKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cFrontCenterSensorAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cFrontCenterSensorSensorStatusParserRuleCall_3_1_0 = (RuleCall)cFrontCenterSensorAssignment_3_1.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cFront_center_rightKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cFrontCenterRightSensorAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cFrontCenterRightSensorSensorStatusParserRuleCall_4_1_0 = (RuleCall)cFrontCenterRightSensorAssignment_4_1.eContents().get(0);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cFront_rightKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cFrontRightSensorAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cFrontRightSensorSensorStatusParserRuleCall_5_1_0 = (RuleCall)cFrontRightSensorAssignment_5_1.eContents().get(0);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cBack_leftKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Assignment cBackLeftSensorAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final RuleCall cBackLeftSensorSensorStatusParserRuleCall_6_1_0 = (RuleCall)cBackLeftSensorAssignment_6_1.eContents().get(0);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cBack_rightKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cBackRightSensorAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final RuleCall cBackRightSensorSensorStatusParserRuleCall_7_1_0 = (RuleCall)cBackRightSensorAssignment_7_1.eContents().get(0);
 		
 		//ProxSensor returns ProxSensor:
-		//    ('back_left:'
-		//    (backLeftSensor = SensorStatus))|
-		//    ('back_right:'
-		//    (backRightSensor = SensorStatus))|
-		//    ('front_right:'
-		//    (frontRightSensor = SensorStatus))|
-		//    ('front_center_right:'
-		//    (frontCenterRightSensor = SensorStatus))|
-		//    ('front_center:'
-		//    (frontCenterSensor = SensorStatus))|
-		//    ('front_center_left:'
-		//    (frontCenterLeftSensor = SensorStatus))|
+		//    {ProxSensor}
 		//    ('front_left:'
-		//    (frontLeftSensor = SensorStatus))
+		//    (frontLeftSensor = SensorStatus))?
+		//    ('front_center_left:'
+		//    (frontCenterLeftSensor = SensorStatus))?
+		//    ('front_center:'
+		//    (frontCenterSensor = SensorStatus))?
+		//    ('front_center_right:'
+		//    (frontCenterRightSensor = SensorStatus))?
+		//    ('front_right:'
+		//    (frontRightSensor = SensorStatus))?
+		//    ('back_left:'
+		//    (backLeftSensor = SensorStatus))?
+		//    ('back_right:'
+		//    (backRightSensor = SensorStatus))?
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//('back_left:'
-		//(backLeftSensor = SensorStatus))|
-		//('back_right:'
-		//(backRightSensor = SensorStatus))|
-		//('front_right:'
-		//(frontRightSensor = SensorStatus))|
-		//('front_center_right:'
-		//(frontCenterRightSensor = SensorStatus))|
-		//('front_center:'
-		//(frontCenterSensor = SensorStatus))|
-		//('front_center_left:'
-		//(frontCenterLeftSensor = SensorStatus))|
+		//{ProxSensor}
 		//('front_left:'
-		//(frontLeftSensor = SensorStatus))
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
+		//(frontLeftSensor = SensorStatus))?
+		//('front_center_left:'
+		//(frontCenterLeftSensor = SensorStatus))?
+		//('front_center:'
+		//(frontCenterSensor = SensorStatus))?
+		//('front_center_right:'
+		//(frontCenterRightSensor = SensorStatus))?
+		//('front_right:'
+		//(frontRightSensor = SensorStatus))?
 		//('back_left:'
-		//(backLeftSensor = SensorStatus))
-		public Group getGroup_0() { return cGroup_0; }
-		
-		//'back_left:'
-		public Keyword getBack_leftKeyword_0_0() { return cBack_leftKeyword_0_0; }
-		
-		//(backLeftSensor = SensorStatus)
-		public Assignment getBackLeftSensorAssignment_0_1() { return cBackLeftSensorAssignment_0_1; }
-		
-		//SensorStatus
-		public RuleCall getBackLeftSensorSensorStatusParserRuleCall_0_1_0() { return cBackLeftSensorSensorStatusParserRuleCall_0_1_0; }
-		
+		//(backLeftSensor = SensorStatus))?
 		//('back_right:'
-		//(backRightSensor = SensorStatus))
+		//(backRightSensor = SensorStatus))?
+		public Group getGroup() { return cGroup; }
+		
+		//{ProxSensor}
+		public Action getProxSensorAction_0() { return cProxSensorAction_0; }
+		
+		//('front_left:'
+		//(frontLeftSensor = SensorStatus))?
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//'back_right:'
-		public Keyword getBack_rightKeyword_1_0() { return cBack_rightKeyword_1_0; }
-		
-		//(backRightSensor = SensorStatus)
-		public Assignment getBackRightSensorAssignment_1_1() { return cBackRightSensorAssignment_1_1; }
-		
-		//SensorStatus
-		public RuleCall getBackRightSensorSensorStatusParserRuleCall_1_1_0() { return cBackRightSensorSensorStatusParserRuleCall_1_1_0; }
-		
-		//('front_right:'
-		//(frontRightSensor = SensorStatus))
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//'front_right:'
-		public Keyword getFront_rightKeyword_2_0() { return cFront_rightKeyword_2_0; }
-		
-		//(frontRightSensor = SensorStatus)
-		public Assignment getFrontRightSensorAssignment_2_1() { return cFrontRightSensorAssignment_2_1; }
-		
-		//SensorStatus
-		public RuleCall getFrontRightSensorSensorStatusParserRuleCall_2_1_0() { return cFrontRightSensorSensorStatusParserRuleCall_2_1_0; }
-		
-		//('front_center_right:'
-		//(frontCenterRightSensor = SensorStatus))
-		public Group getGroup_3() { return cGroup_3; }
-		
-		//'front_center_right:'
-		public Keyword getFront_center_rightKeyword_3_0() { return cFront_center_rightKeyword_3_0; }
-		
-		//(frontCenterRightSensor = SensorStatus)
-		public Assignment getFrontCenterRightSensorAssignment_3_1() { return cFrontCenterRightSensorAssignment_3_1; }
-		
-		//SensorStatus
-		public RuleCall getFrontCenterRightSensorSensorStatusParserRuleCall_3_1_0() { return cFrontCenterRightSensorSensorStatusParserRuleCall_3_1_0; }
-		
-		//('front_center:'
-		//(frontCenterSensor = SensorStatus))
-		public Group getGroup_4() { return cGroup_4; }
-		
-		//'front_center:'
-		public Keyword getFront_centerKeyword_4_0() { return cFront_centerKeyword_4_0; }
-		
-		//(frontCenterSensor = SensorStatus)
-		public Assignment getFrontCenterSensorAssignment_4_1() { return cFrontCenterSensorAssignment_4_1; }
-		
-		//SensorStatus
-		public RuleCall getFrontCenterSensorSensorStatusParserRuleCall_4_1_0() { return cFrontCenterSensorSensorStatusParserRuleCall_4_1_0; }
-		
-		//('front_center_left:'
-		//(frontCenterLeftSensor = SensorStatus))
-		public Group getGroup_5() { return cGroup_5; }
-		
-		//'front_center_left:'
-		public Keyword getFront_center_leftKeyword_5_0() { return cFront_center_leftKeyword_5_0; }
-		
-		//(frontCenterLeftSensor = SensorStatus)
-		public Assignment getFrontCenterLeftSensorAssignment_5_1() { return cFrontCenterLeftSensorAssignment_5_1; }
-		
-		//SensorStatus
-		public RuleCall getFrontCenterLeftSensorSensorStatusParserRuleCall_5_1_0() { return cFrontCenterLeftSensorSensorStatusParserRuleCall_5_1_0; }
-		
-		//('front_left:'
-		//(frontLeftSensor = SensorStatus))
-		public Group getGroup_6() { return cGroup_6; }
-		
 		//'front_left:'
-		public Keyword getFront_leftKeyword_6_0() { return cFront_leftKeyword_6_0; }
+		public Keyword getFront_leftKeyword_1_0() { return cFront_leftKeyword_1_0; }
 		
 		//(frontLeftSensor = SensorStatus)
-		public Assignment getFrontLeftSensorAssignment_6_1() { return cFrontLeftSensorAssignment_6_1; }
+		public Assignment getFrontLeftSensorAssignment_1_1() { return cFrontLeftSensorAssignment_1_1; }
 		
 		//SensorStatus
-		public RuleCall getFrontLeftSensorSensorStatusParserRuleCall_6_1_0() { return cFrontLeftSensorSensorStatusParserRuleCall_6_1_0; }
+		public RuleCall getFrontLeftSensorSensorStatusParserRuleCall_1_1_0() { return cFrontLeftSensorSensorStatusParserRuleCall_1_1_0; }
+		
+		//('front_center_left:'
+		//(frontCenterLeftSensor = SensorStatus))?
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//'front_center_left:'
+		public Keyword getFront_center_leftKeyword_2_0() { return cFront_center_leftKeyword_2_0; }
+		
+		//(frontCenterLeftSensor = SensorStatus)
+		public Assignment getFrontCenterLeftSensorAssignment_2_1() { return cFrontCenterLeftSensorAssignment_2_1; }
+		
+		//SensorStatus
+		public RuleCall getFrontCenterLeftSensorSensorStatusParserRuleCall_2_1_0() { return cFrontCenterLeftSensorSensorStatusParserRuleCall_2_1_0; }
+		
+		//('front_center:'
+		//(frontCenterSensor = SensorStatus))?
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//'front_center:'
+		public Keyword getFront_centerKeyword_3_0() { return cFront_centerKeyword_3_0; }
+		
+		//(frontCenterSensor = SensorStatus)
+		public Assignment getFrontCenterSensorAssignment_3_1() { return cFrontCenterSensorAssignment_3_1; }
+		
+		//SensorStatus
+		public RuleCall getFrontCenterSensorSensorStatusParserRuleCall_3_1_0() { return cFrontCenterSensorSensorStatusParserRuleCall_3_1_0; }
+		
+		//('front_center_right:'
+		//(frontCenterRightSensor = SensorStatus))?
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//'front_center_right:'
+		public Keyword getFront_center_rightKeyword_4_0() { return cFront_center_rightKeyword_4_0; }
+		
+		//(frontCenterRightSensor = SensorStatus)
+		public Assignment getFrontCenterRightSensorAssignment_4_1() { return cFrontCenterRightSensorAssignment_4_1; }
+		
+		//SensorStatus
+		public RuleCall getFrontCenterRightSensorSensorStatusParserRuleCall_4_1_0() { return cFrontCenterRightSensorSensorStatusParserRuleCall_4_1_0; }
+		
+		//('front_right:'
+		//(frontRightSensor = SensorStatus))?
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//'front_right:'
+		public Keyword getFront_rightKeyword_5_0() { return cFront_rightKeyword_5_0; }
+		
+		//(frontRightSensor = SensorStatus)
+		public Assignment getFrontRightSensorAssignment_5_1() { return cFrontRightSensorAssignment_5_1; }
+		
+		//SensorStatus
+		public RuleCall getFrontRightSensorSensorStatusParserRuleCall_5_1_0() { return cFrontRightSensorSensorStatusParserRuleCall_5_1_0; }
+		
+		//('back_left:'
+		//(backLeftSensor = SensorStatus))?
+		public Group getGroup_6() { return cGroup_6; }
+		
+		//'back_left:'
+		public Keyword getBack_leftKeyword_6_0() { return cBack_leftKeyword_6_0; }
+		
+		//(backLeftSensor = SensorStatus)
+		public Assignment getBackLeftSensorAssignment_6_1() { return cBackLeftSensorAssignment_6_1; }
+		
+		//SensorStatus
+		public RuleCall getBackLeftSensorSensorStatusParserRuleCall_6_1_0() { return cBackLeftSensorSensorStatusParserRuleCall_6_1_0; }
+		
+		//('back_right:'
+		//(backRightSensor = SensorStatus))?
+		public Group getGroup_7() { return cGroup_7; }
+		
+		//'back_right:'
+		public Keyword getBack_rightKeyword_7_0() { return cBack_rightKeyword_7_0; }
+		
+		//(backRightSensor = SensorStatus)
+		public Assignment getBackRightSensorAssignment_7_1() { return cBackRightSensorAssignment_7_1; }
+		
+		//SensorStatus
+		public RuleCall getBackRightSensorSensorStatusParserRuleCall_7_1_0() { return cBackRightSensorSensorStatusParserRuleCall_7_1_0; }
 	}
 	public class BottomSensorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ld.project2.ThymioDSL.BottomSensor");
@@ -780,24 +765,24 @@ public class ThymioDSLGrammarAccess extends AbstractElementFinder.AbstractGramma
 		//ID
 		public RuleCall getIDTerminalRuleCall_1() { return cIDTerminalRuleCall_1; }
 	}
-	public class EBooleanElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ld.project2.ThymioDSL.EBoolean");
+	public class StimulusElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ld.project2.ThymioDSL.Stimulus");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Keyword cTrueKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
-		private final Keyword cFalseKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Keyword cTapKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cSoundKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
 		
-		//EBoolean returns ecore::EBoolean:
-		//    'true' | 'false';
+		//Stimulus returns ecore::EString:
+		//    'tap' | 'sound';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'true' | 'false'
+		//'tap' | 'sound'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//'true'
-		public Keyword getTrueKeyword_0() { return cTrueKeyword_0; }
+		//'tap'
+		public Keyword getTapKeyword_0() { return cTapKeyword_0; }
 		
-		//'false'
-		public Keyword getFalseKeyword_1() { return cFalseKeyword_1; }
+		//'sound'
+		public Keyword getSoundKeyword_1() { return cSoundKeyword_1; }
 	}
 	public class NoteDurationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ld.project2.ThymioDSL.NoteDuration");
@@ -1040,7 +1025,7 @@ public class ThymioDSLGrammarAccess extends AbstractElementFinder.AbstractGramma
 	private final SoundElements pSound;
 	private final EIntElements pEInt;
 	private final EStringElements pEString;
-	private final EBooleanElements pEBoolean;
+	private final StimulusElements pStimulus;
 	private final NoteDurationElements pNoteDuration;
 	private final OrtogonalElements pOrtogonal;
 	private final SensorStatusElements pSensorStatus;
@@ -1070,7 +1055,7 @@ public class ThymioDSLGrammarAccess extends AbstractElementFinder.AbstractGramma
 		this.pSound = new SoundElements();
 		this.pEInt = new EIntElements();
 		this.pEString = new EStringElements();
-		this.pEBoolean = new EBooleanElements();
+		this.pStimulus = new StimulusElements();
 		this.pNoteDuration = new NoteDurationElements();
 		this.pOrtogonal = new OrtogonalElements();
 		this.pSensorStatus = new SensorStatusElements();
@@ -1137,14 +1122,12 @@ public class ThymioDSLGrammarAccess extends AbstractElementFinder.AbstractGramma
 	//Event returns Event:
 	//    ('button_is_clicked:'
 	//    (button = Ortogonal))|
-	//    ('robot_is_tapped:'
-	//    (tap = EBoolean))|
-	//    ('sound_is_detected:'
-	//    (mic = EBoolean))|
+	//    ('robot_detects_stimulus:'
+	//    (stimulus = Stimulus))|
 	//    ('proximity_sensor_is_activated:'
-	//    (proxSensor+= (ProxSensor)+))|
+	//    (proxSensor = (ProxSensor)))|
 	//    ('bottom_sensor_detects_color:'
-	//    (bottomSensor+= (BottomSensor)+))
+	//    (bottomSensor = (BottomSensor)))
 	//;
 	public EventElements getEventAccess() {
 		return pEvent;
@@ -1155,20 +1138,21 @@ public class ThymioDSLGrammarAccess extends AbstractElementFinder.AbstractGramma
 	}
 	
 	//ProxSensor returns ProxSensor:
-	//    ('back_left:'
-	//    (backLeftSensor = SensorStatus))|
-	//    ('back_right:'
-	//    (backRightSensor = SensorStatus))|
-	//    ('front_right:'
-	//    (frontRightSensor = SensorStatus))|
-	//    ('front_center_right:'
-	//    (frontCenterRightSensor = SensorStatus))|
-	//    ('front_center:'
-	//    (frontCenterSensor = SensorStatus))|
-	//    ('front_center_left:'
-	//    (frontCenterLeftSensor = SensorStatus))|
+	//    {ProxSensor}
 	//    ('front_left:'
-	//    (frontLeftSensor = SensorStatus))
+	//    (frontLeftSensor = SensorStatus))?
+	//    ('front_center_left:'
+	//    (frontCenterLeftSensor = SensorStatus))?
+	//    ('front_center:'
+	//    (frontCenterSensor = SensorStatus))?
+	//    ('front_center_right:'
+	//    (frontCenterRightSensor = SensorStatus))?
+	//    ('front_right:'
+	//    (frontRightSensor = SensorStatus))?
+	//    ('back_left:'
+	//    (backLeftSensor = SensorStatus))?
+	//    ('back_right:'
+	//    (backRightSensor = SensorStatus))?
 	//;
 	public ProxSensorElements getProxSensorAccess() {
 		return pProxSensor;
@@ -1290,14 +1274,14 @@ public class ThymioDSLGrammarAccess extends AbstractElementFinder.AbstractGramma
 		return getEStringAccess().getRule();
 	}
 	
-	//EBoolean returns ecore::EBoolean:
-	//    'true' | 'false';
-	public EBooleanElements getEBooleanAccess() {
-		return pEBoolean;
+	//Stimulus returns ecore::EString:
+	//    'tap' | 'sound';
+	public StimulusElements getStimulusAccess() {
+		return pStimulus;
 	}
 	
-	public ParserRule getEBooleanRule() {
-		return getEBooleanAccess().getRule();
+	public ParserRule getStimulusRule() {
+		return getStimulusAccess().getRule();
 	}
 	
 	//NoteDuration returns ecore::EString:

@@ -3,8 +3,6 @@
  */
 package ld.project2.thymioDSL;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -17,8 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link ld.project2.thymioDSL.Event#getButton <em>Button</em>}</li>
- *   <li>{@link ld.project2.thymioDSL.Event#isTap <em>Tap</em>}</li>
- *   <li>{@link ld.project2.thymioDSL.Event#isMic <em>Mic</em>}</li>
+ *   <li>{@link ld.project2.thymioDSL.Event#getStimulus <em>Stimulus</em>}</li>
  *   <li>{@link ld.project2.thymioDSL.Event#getProxSensor <em>Prox Sensor</em>}</li>
  *   <li>{@link ld.project2.thymioDSL.Event#getBottomSensor <em>Bottom Sensor</em>}</li>
  * </ul>
@@ -52,71 +49,69 @@ public interface Event extends EObject
   void setButton(String value);
 
   /**
-	 * Returns the value of the '<em><b>Tap</b></em>' attribute.
+	 * Returns the value of the '<em><b>Stimulus</b></em>' attribute.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @return the value of the '<em>Tap</em>' attribute.
-	 * @see #setTap(boolean)
-	 * @see ld.project2.thymioDSL.ThymioDSLPackage#getEvent_Tap()
+	 * @return the value of the '<em>Stimulus</em>' attribute.
+	 * @see #setStimulus(String)
+	 * @see ld.project2.thymioDSL.ThymioDSLPackage#getEvent_Stimulus()
 	 * @model
 	 * @generated
 	 */
-  boolean isTap();
+  String getStimulus();
 
   /**
-	 * Sets the value of the '{@link ld.project2.thymioDSL.Event#isTap <em>Tap</em>}' attribute.
+	 * Sets the value of the '{@link ld.project2.thymioDSL.Event#getStimulus <em>Stimulus</em>}' attribute.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Tap</em>' attribute.
-	 * @see #isTap()
+	 * @param value the new value of the '<em>Stimulus</em>' attribute.
+	 * @see #getStimulus()
 	 * @generated
 	 */
-  void setTap(boolean value);
+  void setStimulus(String value);
 
   /**
-	 * Returns the value of the '<em><b>Mic</b></em>' attribute.
+	 * Returns the value of the '<em><b>Prox Sensor</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @return the value of the '<em>Mic</em>' attribute.
-	 * @see #setMic(boolean)
-	 * @see ld.project2.thymioDSL.ThymioDSLPackage#getEvent_Mic()
-	 * @model
-	 * @generated
-	 */
-  boolean isMic();
-
-  /**
-	 * Sets the value of the '{@link ld.project2.thymioDSL.Event#isMic <em>Mic</em>}' attribute.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Mic</em>' attribute.
-	 * @see #isMic()
-	 * @generated
-	 */
-  void setMic(boolean value);
-
-  /**
-	 * Returns the value of the '<em><b>Prox Sensor</b></em>' containment reference list.
-	 * The list contents are of type {@link ld.project2.thymioDSL.ProxSensor}.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @return the value of the '<em>Prox Sensor</em>' containment reference list.
+	 * @return the value of the '<em>Prox Sensor</em>' containment reference.
+	 * @see #setProxSensor(ProxSensor)
 	 * @see ld.project2.thymioDSL.ThymioDSLPackage#getEvent_ProxSensor()
 	 * @model containment="true"
 	 * @generated
 	 */
-  EList<ProxSensor> getProxSensor();
+  ProxSensor getProxSensor();
 
   /**
-	 * Returns the value of the '<em><b>Bottom Sensor</b></em>' containment reference list.
-	 * The list contents are of type {@link ld.project2.thymioDSL.BottomSensor}.
+	 * Sets the value of the '{@link ld.project2.thymioDSL.Event#getProxSensor <em>Prox Sensor</em>}' containment reference.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @return the value of the '<em>Bottom Sensor</em>' containment reference list.
+	 * @param value the new value of the '<em>Prox Sensor</em>' containment reference.
+	 * @see #getProxSensor()
+	 * @generated
+	 */
+  void setProxSensor(ProxSensor value);
+
+  /**
+	 * Returns the value of the '<em><b>Bottom Sensor</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @return the value of the '<em>Bottom Sensor</em>' containment reference.
+	 * @see #setBottomSensor(BottomSensor)
 	 * @see ld.project2.thymioDSL.ThymioDSLPackage#getEvent_BottomSensor()
 	 * @model containment="true"
 	 * @generated
 	 */
-  EList<BottomSensor> getBottomSensor();
+  BottomSensor getBottomSensor();
+
+  /**
+	 * Sets the value of the '{@link ld.project2.thymioDSL.Event#getBottomSensor <em>Bottom Sensor</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Bottom Sensor</em>' containment reference.
+	 * @see #getBottomSensor()
+	 * @generated
+	 */
+  void setBottomSensor(BottomSensor value);
 
 } // Event

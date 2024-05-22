@@ -20,31 +20,30 @@ Procedure returns Procedure:
 Event returns Event:
 	('button_is_clicked:'
 	(button = Ortogonal))|
-	('robot_is_tapped:'
-	(tap = EBoolean))|
-	('sound_is_detected:'
-	(mic = EBoolean))|
+	('robot_detects_stimulus:'
+	(stimulus = Stimulus))|
 	('proximity_sensor_is_activated:'
-	(proxSensor+= (ProxSensor)+))|
+	(proxSensor = (ProxSensor)))|
 	('bottom_sensor_detects_color:'
-	(bottomSensor+= (BottomSensor)+))
+	(bottomSensor = (BottomSensor)))
 ;
 
 ProxSensor returns ProxSensor:
-	('back_left:'
-	(backLeftSensor = SensorStatus))|
-	('back_right:'
-	(backRightSensor = SensorStatus))|
-	('front_right:'
-	(frontRightSensor = SensorStatus))|
-	('front_center_right:'
-	(frontCenterRightSensor = SensorStatus))|
-	('front_center:'
-	(frontCenterSensor = SensorStatus))|
-	('front_center_left:'
-	(frontCenterLeftSensor = SensorStatus))|
+	{ProxSensor} 
 	('front_left:'
-	(frontLeftSensor = SensorStatus))
+	(frontLeftSensor = SensorStatus))?
+	('front_center_left:'
+	(frontCenterLeftSensor = SensorStatus))?
+	('front_center:'
+	(frontCenterSensor = SensorStatus))?
+	('front_center_right:'
+	(frontCenterRightSensor = SensorStatus))?
+	('front_right:'
+	(frontRightSensor = SensorStatus))?
+	('back_left:'
+	(backLeftSensor = SensorStatus))?
+	('back_right:'
+	(backRightSensor = SensorStatus))?
 ;
 
 BottomSensor returns BottomSensor:
@@ -103,8 +102,8 @@ EInt returns ecore::EInt:
 EString returns ecore::EString:
 	STRING | ID;
 	
-EBoolean returns ecore::EBoolean:
-	'true' | 'false';
+Stimulus returns ecore::EString:
+	'tap' | 'sound';
 	
 NoteDuration returns ecore::EString:
 	'short' | 'long';

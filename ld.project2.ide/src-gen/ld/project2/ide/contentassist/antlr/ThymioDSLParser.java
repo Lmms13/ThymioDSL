@@ -32,12 +32,11 @@ public class ThymioDSLParser extends AbstractContentAssistParser {
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, ThymioDSLGrammarAccess grammarAccess) {
 			builder.put(grammarAccess.getEventAccess().getAlternatives(), "rule__Event__Alternatives");
-			builder.put(grammarAccess.getProxSensorAccess().getAlternatives(), "rule__ProxSensor__Alternatives");
 			builder.put(grammarAccess.getActionAccess().getAlternatives(), "rule__Action__Alternatives");
 			builder.put(grammarAccess.getLightsAccess().getAlternatives_1_1(), "rule__Lights__Alternatives_1_1");
 			builder.put(grammarAccess.getLightsAccess().getAlternatives_2_1(), "rule__Lights__Alternatives_2_1");
 			builder.put(grammarAccess.getEStringAccess().getAlternatives(), "rule__EString__Alternatives");
-			builder.put(grammarAccess.getEBooleanAccess().getAlternatives(), "rule__EBoolean__Alternatives");
+			builder.put(grammarAccess.getStimulusAccess().getAlternatives(), "rule__Stimulus__Alternatives");
 			builder.put(grammarAccess.getNoteDurationAccess().getAlternatives(), "rule__NoteDuration__Alternatives");
 			builder.put(grammarAccess.getOrtogonalAccess().getAlternatives(), "rule__Ortogonal__Alternatives");
 			builder.put(grammarAccess.getSensorStatusAccess().getAlternatives(), "rule__SensorStatus__Alternatives");
@@ -50,14 +49,14 @@ public class ThymioDSLParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getEventAccess().getGroup_1(), "rule__Event__Group_1__0");
 			builder.put(grammarAccess.getEventAccess().getGroup_2(), "rule__Event__Group_2__0");
 			builder.put(grammarAccess.getEventAccess().getGroup_3(), "rule__Event__Group_3__0");
-			builder.put(grammarAccess.getEventAccess().getGroup_4(), "rule__Event__Group_4__0");
-			builder.put(grammarAccess.getProxSensorAccess().getGroup_0(), "rule__ProxSensor__Group_0__0");
+			builder.put(grammarAccess.getProxSensorAccess().getGroup(), "rule__ProxSensor__Group__0");
 			builder.put(grammarAccess.getProxSensorAccess().getGroup_1(), "rule__ProxSensor__Group_1__0");
 			builder.put(grammarAccess.getProxSensorAccess().getGroup_2(), "rule__ProxSensor__Group_2__0");
 			builder.put(grammarAccess.getProxSensorAccess().getGroup_3(), "rule__ProxSensor__Group_3__0");
 			builder.put(grammarAccess.getProxSensorAccess().getGroup_4(), "rule__ProxSensor__Group_4__0");
 			builder.put(grammarAccess.getProxSensorAccess().getGroup_5(), "rule__ProxSensor__Group_5__0");
 			builder.put(grammarAccess.getProxSensorAccess().getGroup_6(), "rule__ProxSensor__Group_6__0");
+			builder.put(grammarAccess.getProxSensorAccess().getGroup_7(), "rule__ProxSensor__Group_7__0");
 			builder.put(grammarAccess.getBottomSensorAccess().getGroup(), "rule__BottomSensor__Group__0");
 			builder.put(grammarAccess.getBottomSensorAccess().getGroup_0(), "rule__BottomSensor__Group_0__0");
 			builder.put(grammarAccess.getBottomSensorAccess().getGroup_1(), "rule__BottomSensor__Group_1__0");
@@ -83,17 +82,16 @@ public class ThymioDSLParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getProcedureAccess().getEventsAssignment_3(), "rule__Procedure__EventsAssignment_3");
 			builder.put(grammarAccess.getProcedureAccess().getActionsAssignment_5(), "rule__Procedure__ActionsAssignment_5");
 			builder.put(grammarAccess.getEventAccess().getButtonAssignment_0_1(), "rule__Event__ButtonAssignment_0_1");
-			builder.put(grammarAccess.getEventAccess().getTapAssignment_1_1(), "rule__Event__TapAssignment_1_1");
-			builder.put(grammarAccess.getEventAccess().getMicAssignment_2_1(), "rule__Event__MicAssignment_2_1");
-			builder.put(grammarAccess.getEventAccess().getProxSensorAssignment_3_1(), "rule__Event__ProxSensorAssignment_3_1");
-			builder.put(grammarAccess.getEventAccess().getBottomSensorAssignment_4_1(), "rule__Event__BottomSensorAssignment_4_1");
-			builder.put(grammarAccess.getProxSensorAccess().getBackLeftSensorAssignment_0_1(), "rule__ProxSensor__BackLeftSensorAssignment_0_1");
-			builder.put(grammarAccess.getProxSensorAccess().getBackRightSensorAssignment_1_1(), "rule__ProxSensor__BackRightSensorAssignment_1_1");
-			builder.put(grammarAccess.getProxSensorAccess().getFrontRightSensorAssignment_2_1(), "rule__ProxSensor__FrontRightSensorAssignment_2_1");
-			builder.put(grammarAccess.getProxSensorAccess().getFrontCenterRightSensorAssignment_3_1(), "rule__ProxSensor__FrontCenterRightSensorAssignment_3_1");
-			builder.put(grammarAccess.getProxSensorAccess().getFrontCenterSensorAssignment_4_1(), "rule__ProxSensor__FrontCenterSensorAssignment_4_1");
-			builder.put(grammarAccess.getProxSensorAccess().getFrontCenterLeftSensorAssignment_5_1(), "rule__ProxSensor__FrontCenterLeftSensorAssignment_5_1");
-			builder.put(grammarAccess.getProxSensorAccess().getFrontLeftSensorAssignment_6_1(), "rule__ProxSensor__FrontLeftSensorAssignment_6_1");
+			builder.put(grammarAccess.getEventAccess().getStimulusAssignment_1_1(), "rule__Event__StimulusAssignment_1_1");
+			builder.put(grammarAccess.getEventAccess().getProxSensorAssignment_2_1(), "rule__Event__ProxSensorAssignment_2_1");
+			builder.put(grammarAccess.getEventAccess().getBottomSensorAssignment_3_1(), "rule__Event__BottomSensorAssignment_3_1");
+			builder.put(grammarAccess.getProxSensorAccess().getFrontLeftSensorAssignment_1_1(), "rule__ProxSensor__FrontLeftSensorAssignment_1_1");
+			builder.put(grammarAccess.getProxSensorAccess().getFrontCenterLeftSensorAssignment_2_1(), "rule__ProxSensor__FrontCenterLeftSensorAssignment_2_1");
+			builder.put(grammarAccess.getProxSensorAccess().getFrontCenterSensorAssignment_3_1(), "rule__ProxSensor__FrontCenterSensorAssignment_3_1");
+			builder.put(grammarAccess.getProxSensorAccess().getFrontCenterRightSensorAssignment_4_1(), "rule__ProxSensor__FrontCenterRightSensorAssignment_4_1");
+			builder.put(grammarAccess.getProxSensorAccess().getFrontRightSensorAssignment_5_1(), "rule__ProxSensor__FrontRightSensorAssignment_5_1");
+			builder.put(grammarAccess.getProxSensorAccess().getBackLeftSensorAssignment_6_1(), "rule__ProxSensor__BackLeftSensorAssignment_6_1");
+			builder.put(grammarAccess.getProxSensorAccess().getBackRightSensorAssignment_7_1(), "rule__ProxSensor__BackRightSensorAssignment_7_1");
 			builder.put(grammarAccess.getBottomSensorAccess().getBottomLeftSensorAssignment_0_1(), "rule__BottomSensor__BottomLeftSensorAssignment_0_1");
 			builder.put(grammarAccess.getBottomSensorAccess().getBottomRightSensorAssignment_1_1(), "rule__BottomSensor__BottomRightSensorAssignment_1_1");
 			builder.put(grammarAccess.getActionAccess().getMoveAssignment_0_1(), "rule__Action__MoveAssignment_0_1");

@@ -1,0 +1,208 @@
+<!DOCTYPE aesl-source>
+<network>
+<event name="pair_run" size="1"/>
+<event name="debug_log" size="14"/>
+<node name="Thymio A0 on LAPTOP-FN93M8DD - 2632" nodeId="{916e8ef7-810a-4c14-8132-db0caba1daac}"># variables for notes
+var notes[6]
+var durations[6]
+var note_index = 6
+var note_count = 6
+var wave[142]
+var i
+var wave_phase
+var wave_intensity
+
+# compute a sinus wave for sound
+for i in 0:141 do
+	wave_phase = (i-70)*468
+	call math.cos(wave_intensity, wave_phase)
+	wave[i] = wave_intensity/256
+end
+call sound.wave(wave)
+# setup threshold for detecting claps
+mic.threshold = 250
+# reset outputs
+call sound.system(-1)
+call leds.top(0,0,0)
+call leds.bottom.left(0,0,0)
+call leds.bottom.right(0,0,0)
+call leds.circle(0,0,0,0,0,0,0,0)
+
+# when a note is finished, play the next note
+onevent sound.finished
+	if note_index != note_count then
+		call sound.freq(notes[note_index], durations[note_index])
+		note_index += 1
+	end
+
+onevent buttons
+	call leds.top(0,15,0)
+	emit pair_run 13
+	_emit debug_log [0xd, 0x2, 0x91, 0, 0, 0x1ef]
+
+	when button.forward == 1 do
+		call math.copy(notes[0:4], [524, 524, 0, 524, 524])
+		call math.copy(durations[0:4], [7, 14, 14, 7, 14])
+		note_index = 1
+		note_count = 5
+		call sound.freq(notes[0], durations[0])
+		emit pair_run 8
+		_emit debug_log [0x8, 0x2, 0xb1, 0, 0x10, 0x92a5, 0x1dc]
+	end
+
+	when button.backward == 1 do
+		call leds.top(0,0,0)
+		emit pair_run 9
+		_emit debug_log [0x9, 0x2, 0x91, 0, 0x4, 0]
+	end
+
+	when button.left == 1 do
+		call leds.bottom.left(0,0,9)
+		call leds.bottom.right(0,0,9)
+		emit pair_run 10
+		_emit debug_log [0xa, 0x2, 0xa1, 0, 0x8, 0x9]
+	end
+
+	when button.right == 1 do
+		call leds.bottom.left(3,0,0)
+		call leds.bottom.right(3,0,0)
+		emit pair_run 11
+		_emit debug_log [0xb, 0x2, 0xa1, 0, 0x2, 0xcc3]
+	end
+
+	when button.center == 1 do
+		call leds.bottom.left(0,0,0)
+		call leds.bottom.right(0,0,0)
+		emit pair_run 12
+		_emit debug_log [0xc, 0x2, 0xa1, 0, 0x1, 0]
+	end
+
+
+onevent mic
+	call leds.top(32,0,3)
+	emit pair_run 5
+	_emit debug_log [0x5, 0x2, 0x95, 0x8823]
+
+
+onevent prox
+	when prox.ground.delta[0] &lt;= 400 and prox.ground.delta[1] &lt;= 400 do
+		motor.left.target = 500
+		motor.right.target = 500
+		call leds.top(32,0,0)
+		emit pair_run 0
+		_emit debug_log [0, 0x3, 0x983, 0xa, 0x190, 0x1c2, 0x1414, 0x8820]
+	end
+
+	when prox.ground.delta[0] >= 450 and prox.ground.delta[1] &lt;= 400 do
+		motor.left.target = 500
+		motor.right.target = 0
+		emit pair_run 1
+		_emit debug_log [0x1, 0x2, 0x83, 0x6, 0x190, 0x1c2, 0x140a]
+	end
+
+	when prox.ground.delta[0] &lt;= 400 and prox.ground.delta[1] >= 450 do
+		motor.left.target = 0
+		motor.right.target = 500
+		emit pair_run 2
+		_emit debug_log [0x2, 0x2, 0x83, 0x9, 0x190, 0x1c2, 0xa14]
+	end
+
+	when prox.ground.delta[0] >= 450 do
+		motor.left.target = 500
+		motor.right.target = -500
+		emit pair_run 3
+		_emit debug_log [0x3, 0x2, 0x83, 0x4, 0x190, 0x1c2, 0x1400]
+	end
+
+	when prox.horizontal[2] >= 2000 do
+		call math.copy(notes[0:5], [440, 524, 440, 370, 311, 370])
+		call math.copy(durations[0:5], [7, 7, 14, 7, 7, 14])
+		note_index = 1
+		note_count = 6
+		call sound.freq(notes[0], durations[0])
+		emit pair_run 6
+		_emit debug_log [0x6, 0x2, 0xb2, 0x100, 0x3e8, 0x7d0, 0x7238, 0x188]
+	end
+
+	when prox.horizontal[1] >= 2000 and prox.horizontal[2] &lt;= 1000 and prox.horizontal[4] >= 2000 and prox.horizontal[5] &lt;= 1000 do
+		motor.left.target = 0
+		motor.right.target = -150
+		emit pair_run 7
+		_emit debug_log [0x7, 0x2, 0x82, 0x618, 0x3e8, 0x7d0, 0xa07]
+	end
+
+
+onevent tap
+	motor.left.target = 0
+	motor.right.target = -500
+	emit pair_run 4
+	_emit debug_log [0x4, 0x2, 0x84, 0, 0xa00]
+
+<toolsPlugins>
+<ThymioVisualProgramming>
+<vplroot xml-format-version="1">
+<program advanced_mode="0">
+<set>
+<block value1="2" name="proxground" value3="450" value2="400" value0="2" type="event"/>
+<block value1="500" name="move" value0="500" type="action"/>
+<block value1="0" name="colortop" value2="0" value0="32" type="action"/>
+</set>
+<set>
+<block value1="2" name="proxground" value3="450" value2="400" value0="1" type="event"/>
+<block value1="0" name="move" value0="500" type="action"/>
+</set>
+<set>
+<block value1="1" name="proxground" value3="450" value2="400" value0="2" type="event"/>
+<block value1="500" name="move" value0="0" type="action"/>
+</set>
+<set>
+<block value1="0" name="proxground" value3="450" value2="400" value0="1" type="event"/>
+<block value1="-500" name="move" value0="500" type="action"/>
+</set>
+<set>
+<block value1="0" name="acc" value0="0" type="event"/>
+<block value1="-500" name="move" value0="0" type="action"/>
+</set>
+<set>
+<block name="clap" type="event"/>
+<block value1="0" name="colortop" value2="3" value0="32" type="action"/>
+</set>
+<set>
+<block value7="1000" value8="2000" value5="0" value1="0" name="prox" value6="0" value4="0" value3="0" value2="1" value0="0" type="event"/>
+<block value5="514" value1="260" name="sound" value4="257" value3="258" value2="515" value0="259" type="action"/>
+</set>
+<set>
+<block value7="1000" value8="2000" value5="2" value1="1" name="prox" value6="0" value4="1" value3="0" value2="2" value0="0" type="event"/>
+<block value1="-150" name="move" value0="0" type="action"/>
+</set>
+<set>
+<block value5="0" value1="0" name="button" value6="0" value4="0" value3="0" value2="0" value0="1" type="event"/>
+<block value5="517" value1="516" name="sound" value4="516" value3="260" value2="517" value0="260" type="action"/>
+</set>
+<set>
+<block value5="0" value1="0" name="button" value6="0" value4="0" value3="0" value2="1" value0="0" type="event"/>
+<block value1="0" name="colortop" value2="0" value0="0" type="action"/>
+</set>
+<set>
+<block value5="0" value1="1" name="button" value6="0" value4="0" value3="0" value2="0" value0="0" type="event"/>
+<block value1="0" name="colorbottom" value2="9" value0="0" type="action"/>
+</set>
+<set>
+<block value5="0" value1="0" name="button" value6="0" value4="0" value3="1" value2="0" value0="0" type="event"/>
+<block value1="0" name="colorbottom" value2="0" value0="3" type="action"/>
+</set>
+<set>
+<block value5="0" value1="0" name="button" value6="0" value4="1" value3="0" value2="0" value0="0" type="event"/>
+<block value1="0" name="colorbottom" value2="0" value0="0" type="action"/>
+</set>
+<set>
+<block value5="0" value1="0" name="button" value6="0" value4="0" value3="0" value2="0" value0="0" type="event"/>
+<block value1="15" name="colortop" value2="0" value0="0" type="action"/>
+</set>
+<set/>
+</program>
+</vplroot>
+</ThymioVisualProgramming>
+</toolsPlugins>
+</node>
+</network>

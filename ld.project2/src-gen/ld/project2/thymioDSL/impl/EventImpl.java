@@ -3,8 +3,6 @@
  */
 package ld.project2.thymioDSL.impl;
 
-import java.util.Collection;
-
 import ld.project2.thymioDSL.BottomSensor;
 import ld.project2.thymioDSL.Event;
 import ld.project2.thymioDSL.ProxSensor;
@@ -13,16 +11,11 @@ import ld.project2.thymioDSL.ThymioDSLPackage;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,8 +26,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link ld.project2.thymioDSL.impl.EventImpl#getButton <em>Button</em>}</li>
- *   <li>{@link ld.project2.thymioDSL.impl.EventImpl#isTap <em>Tap</em>}</li>
- *   <li>{@link ld.project2.thymioDSL.impl.EventImpl#isMic <em>Mic</em>}</li>
+ *   <li>{@link ld.project2.thymioDSL.impl.EventImpl#getStimulus <em>Stimulus</em>}</li>
  *   <li>{@link ld.project2.thymioDSL.impl.EventImpl#getProxSensor <em>Prox Sensor</em>}</li>
  *   <li>{@link ld.project2.thymioDSL.impl.EventImpl#getBottomSensor <em>Bottom Sensor</em>}</li>
  * </ul>
@@ -64,64 +56,44 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
   protected String button = BUTTON_EDEFAULT;
 
   /**
-	 * The default value of the '{@link #isTap() <em>Tap</em>}' attribute.
+	 * The default value of the '{@link #getStimulus() <em>Stimulus</em>}' attribute.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @see #isTap()
+	 * @see #getStimulus()
 	 * @generated
 	 * @ordered
 	 */
-  protected static final boolean TAP_EDEFAULT = false;
+  protected static final String STIMULUS_EDEFAULT = null;
 
   /**
-	 * The cached value of the '{@link #isTap() <em>Tap</em>}' attribute.
+	 * The cached value of the '{@link #getStimulus() <em>Stimulus</em>}' attribute.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @see #isTap()
+	 * @see #getStimulus()
 	 * @generated
 	 * @ordered
 	 */
-  protected boolean tap = TAP_EDEFAULT;
+  protected String stimulus = STIMULUS_EDEFAULT;
 
   /**
-	 * The default value of the '{@link #isMic() <em>Mic</em>}' attribute.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @see #isMic()
-	 * @generated
-	 * @ordered
-	 */
-  protected static final boolean MIC_EDEFAULT = false;
-
-  /**
-	 * The cached value of the '{@link #isMic() <em>Mic</em>}' attribute.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @see #isMic()
-	 * @generated
-	 * @ordered
-	 */
-  protected boolean mic = MIC_EDEFAULT;
-
-  /**
-	 * The cached value of the '{@link #getProxSensor() <em>Prox Sensor</em>}' containment reference list.
+	 * The cached value of the '{@link #getProxSensor() <em>Prox Sensor</em>}' containment reference.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
 	 * @see #getProxSensor()
 	 * @generated
 	 * @ordered
 	 */
-  protected EList<ProxSensor> proxSensor;
+  protected ProxSensor proxSensor;
 
   /**
-	 * The cached value of the '{@link #getBottomSensor() <em>Bottom Sensor</em>}' containment reference list.
+	 * The cached value of the '{@link #getBottomSensor() <em>Bottom Sensor</em>}' containment reference.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
 	 * @see #getBottomSensor()
 	 * @generated
 	 * @ordered
 	 */
-  protected EList<BottomSensor> bottomSensor;
+  protected BottomSensor bottomSensor;
 
   /**
 	 * <!-- begin-user-doc -->
@@ -175,9 +147,9 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
 	 * @generated
 	 */
   @Override
-  public boolean isTap()
+  public String getStimulus()
   {
-		return tap;
+		return stimulus;
 	}
 
   /**
@@ -186,12 +158,12 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
 	 * @generated
 	 */
   @Override
-  public void setTap(boolean newTap)
+  public void setStimulus(String newStimulus)
   {
-		boolean oldTap = tap;
-		tap = newTap;
+		String oldStimulus = stimulus;
+		stimulus = newStimulus;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.EVENT__TAP, oldTap, tap));
+			eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.EVENT__STIMULUS, oldStimulus, stimulus));
 	}
 
   /**
@@ -200,36 +172,8 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
 	 * @generated
 	 */
   @Override
-  public boolean isMic()
+  public ProxSensor getProxSensor()
   {
-		return mic;
-	}
-
-  /**
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 */
-  @Override
-  public void setMic(boolean newMic)
-  {
-		boolean oldMic = mic;
-		mic = newMic;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.EVENT__MIC, oldMic, mic));
-	}
-
-  /**
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 */
-  @Override
-  public EList<ProxSensor> getProxSensor()
-  {
-		if (proxSensor == null) {
-			proxSensor = new EObjectContainmentEList<ProxSensor>(ProxSensor.class, this, ThymioDSLPackage.EVENT__PROX_SENSOR);
-		}
 		return proxSensor;
 	}
 
@@ -238,13 +182,84 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
    * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @Override
-  public EList<BottomSensor> getBottomSensor()
+  public NotificationChain basicSetProxSensor(ProxSensor newProxSensor, NotificationChain msgs)
   {
-		if (bottomSensor == null) {
-			bottomSensor = new EObjectContainmentEList<BottomSensor>(BottomSensor.class, this, ThymioDSLPackage.EVENT__BOTTOM_SENSOR);
+		ProxSensor oldProxSensor = proxSensor;
+		proxSensor = newProxSensor;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.EVENT__PROX_SENSOR, oldProxSensor, newProxSensor);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
+		return msgs;
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 */
+  @Override
+  public void setProxSensor(ProxSensor newProxSensor)
+  {
+		if (newProxSensor != proxSensor) {
+			NotificationChain msgs = null;
+			if (proxSensor != null)
+				msgs = ((InternalEObject)proxSensor).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.EVENT__PROX_SENSOR, null, msgs);
+			if (newProxSensor != null)
+				msgs = ((InternalEObject)newProxSensor).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.EVENT__PROX_SENSOR, null, msgs);
+			msgs = basicSetProxSensor(newProxSensor, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.EVENT__PROX_SENSOR, newProxSensor, newProxSensor));
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 */
+  @Override
+  public BottomSensor getBottomSensor()
+  {
 		return bottomSensor;
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 */
+  public NotificationChain basicSetBottomSensor(BottomSensor newBottomSensor, NotificationChain msgs)
+  {
+		BottomSensor oldBottomSensor = bottomSensor;
+		bottomSensor = newBottomSensor;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.EVENT__BOTTOM_SENSOR, oldBottomSensor, newBottomSensor);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 */
+  @Override
+  public void setBottomSensor(BottomSensor newBottomSensor)
+  {
+		if (newBottomSensor != bottomSensor) {
+			NotificationChain msgs = null;
+			if (bottomSensor != null)
+				msgs = ((InternalEObject)bottomSensor).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.EVENT__BOTTOM_SENSOR, null, msgs);
+			if (newBottomSensor != null)
+				msgs = ((InternalEObject)newBottomSensor).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.EVENT__BOTTOM_SENSOR, null, msgs);
+			msgs = basicSetBottomSensor(newBottomSensor, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.EVENT__BOTTOM_SENSOR, newBottomSensor, newBottomSensor));
 	}
 
   /**
@@ -257,9 +272,9 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
   {
 		switch (featureID) {
 			case ThymioDSLPackage.EVENT__PROX_SENSOR:
-				return ((InternalEList<?>)getProxSensor()).basicRemove(otherEnd, msgs);
+				return basicSetProxSensor(null, msgs);
 			case ThymioDSLPackage.EVENT__BOTTOM_SENSOR:
-				return ((InternalEList<?>)getBottomSensor()).basicRemove(otherEnd, msgs);
+				return basicSetBottomSensor(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -275,10 +290,8 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
 		switch (featureID) {
 			case ThymioDSLPackage.EVENT__BUTTON:
 				return getButton();
-			case ThymioDSLPackage.EVENT__TAP:
-				return isTap();
-			case ThymioDSLPackage.EVENT__MIC:
-				return isMic();
+			case ThymioDSLPackage.EVENT__STIMULUS:
+				return getStimulus();
 			case ThymioDSLPackage.EVENT__PROX_SENSOR:
 				return getProxSensor();
 			case ThymioDSLPackage.EVENT__BOTTOM_SENSOR:
@@ -292,7 +305,6 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
    * <!-- end-user-doc -->
 	 * @generated
 	 */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -300,19 +312,14 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
 			case ThymioDSLPackage.EVENT__BUTTON:
 				setButton((String)newValue);
 				return;
-			case ThymioDSLPackage.EVENT__TAP:
-				setTap((Boolean)newValue);
-				return;
-			case ThymioDSLPackage.EVENT__MIC:
-				setMic((Boolean)newValue);
+			case ThymioDSLPackage.EVENT__STIMULUS:
+				setStimulus((String)newValue);
 				return;
 			case ThymioDSLPackage.EVENT__PROX_SENSOR:
-				getProxSensor().clear();
-				getProxSensor().addAll((Collection<? extends ProxSensor>)newValue);
+				setProxSensor((ProxSensor)newValue);
 				return;
 			case ThymioDSLPackage.EVENT__BOTTOM_SENSOR:
-				getBottomSensor().clear();
-				getBottomSensor().addAll((Collection<? extends BottomSensor>)newValue);
+				setBottomSensor((BottomSensor)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -330,17 +337,14 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
 			case ThymioDSLPackage.EVENT__BUTTON:
 				setButton(BUTTON_EDEFAULT);
 				return;
-			case ThymioDSLPackage.EVENT__TAP:
-				setTap(TAP_EDEFAULT);
-				return;
-			case ThymioDSLPackage.EVENT__MIC:
-				setMic(MIC_EDEFAULT);
+			case ThymioDSLPackage.EVENT__STIMULUS:
+				setStimulus(STIMULUS_EDEFAULT);
 				return;
 			case ThymioDSLPackage.EVENT__PROX_SENSOR:
-				getProxSensor().clear();
+				setProxSensor((ProxSensor)null);
 				return;
 			case ThymioDSLPackage.EVENT__BOTTOM_SENSOR:
-				getBottomSensor().clear();
+				setBottomSensor((BottomSensor)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -357,14 +361,12 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
 		switch (featureID) {
 			case ThymioDSLPackage.EVENT__BUTTON:
 				return BUTTON_EDEFAULT == null ? button != null : !BUTTON_EDEFAULT.equals(button);
-			case ThymioDSLPackage.EVENT__TAP:
-				return tap != TAP_EDEFAULT;
-			case ThymioDSLPackage.EVENT__MIC:
-				return mic != MIC_EDEFAULT;
+			case ThymioDSLPackage.EVENT__STIMULUS:
+				return STIMULUS_EDEFAULT == null ? stimulus != null : !STIMULUS_EDEFAULT.equals(stimulus);
 			case ThymioDSLPackage.EVENT__PROX_SENSOR:
-				return proxSensor != null && !proxSensor.isEmpty();
+				return proxSensor != null;
 			case ThymioDSLPackage.EVENT__BOTTOM_SENSOR:
-				return bottomSensor != null && !bottomSensor.isEmpty();
+				return bottomSensor != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -382,10 +384,8 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (button: ");
 		result.append(button);
-		result.append(", tap: ");
-		result.append(tap);
-		result.append(", mic: ");
-		result.append(mic);
+		result.append(", stimulus: ");
+		result.append(stimulus);
 		result.append(')');
 		return result.toString();
 	}

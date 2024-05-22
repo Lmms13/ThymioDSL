@@ -151,40 +151,31 @@ public interface ThymioDSLPackage extends EPackage
   int EVENT__BUTTON = 0;
 
   /**
-	 * The feature id for the '<em><b>Tap</b></em>' attribute.
+	 * The feature id for the '<em><b>Stimulus</b></em>' attribute.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-  int EVENT__TAP = 1;
+  int EVENT__STIMULUS = 1;
 
   /**
-	 * The feature id for the '<em><b>Mic</b></em>' attribute.
+	 * The feature id for the '<em><b>Prox Sensor</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-  int EVENT__MIC = 2;
+  int EVENT__PROX_SENSOR = 2;
 
   /**
-	 * The feature id for the '<em><b>Prox Sensor</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Bottom Sensor</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-  int EVENT__PROX_SENSOR = 3;
-
-  /**
-	 * The feature id for the '<em><b>Bottom Sensor</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-  int EVENT__BOTTOM_SENSOR = 4;
+  int EVENT__BOTTOM_SENSOR = 3;
 
   /**
 	 * The number of structural features of the '<em>Event</em>' class.
@@ -193,7 +184,7 @@ public interface ThymioDSLPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-  int EVENT_FEATURE_COUNT = 5;
+  int EVENT_FEATURE_COUNT = 4;
 
   /**
 	 * The meta object id for the '{@link ld.project2.thymioDSL.impl.ProxSensorImpl <em>Prox Sensor</em>}' class.
@@ -206,31 +197,31 @@ public interface ThymioDSLPackage extends EPackage
   int PROX_SENSOR = 3;
 
   /**
-	 * The feature id for the '<em><b>Back Left Sensor</b></em>' attribute.
+	 * The feature id for the '<em><b>Front Left Sensor</b></em>' attribute.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-  int PROX_SENSOR__BACK_LEFT_SENSOR = 0;
+  int PROX_SENSOR__FRONT_LEFT_SENSOR = 0;
 
   /**
-	 * The feature id for the '<em><b>Back Right Sensor</b></em>' attribute.
+	 * The feature id for the '<em><b>Front Center Left Sensor</b></em>' attribute.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-  int PROX_SENSOR__BACK_RIGHT_SENSOR = 1;
+  int PROX_SENSOR__FRONT_CENTER_LEFT_SENSOR = 1;
 
   /**
-	 * The feature id for the '<em><b>Front Right Sensor</b></em>' attribute.
+	 * The feature id for the '<em><b>Front Center Sensor</b></em>' attribute.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-  int PROX_SENSOR__FRONT_RIGHT_SENSOR = 2;
+  int PROX_SENSOR__FRONT_CENTER_SENSOR = 2;
 
   /**
 	 * The feature id for the '<em><b>Front Center Right Sensor</b></em>' attribute.
@@ -242,31 +233,31 @@ public interface ThymioDSLPackage extends EPackage
   int PROX_SENSOR__FRONT_CENTER_RIGHT_SENSOR = 3;
 
   /**
-	 * The feature id for the '<em><b>Front Center Sensor</b></em>' attribute.
+	 * The feature id for the '<em><b>Front Right Sensor</b></em>' attribute.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-  int PROX_SENSOR__FRONT_CENTER_SENSOR = 4;
+  int PROX_SENSOR__FRONT_RIGHT_SENSOR = 4;
 
   /**
-	 * The feature id for the '<em><b>Front Center Left Sensor</b></em>' attribute.
+	 * The feature id for the '<em><b>Back Left Sensor</b></em>' attribute.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-  int PROX_SENSOR__FRONT_CENTER_LEFT_SENSOR = 5;
+  int PROX_SENSOR__BACK_LEFT_SENSOR = 5;
 
   /**
-	 * The feature id for the '<em><b>Front Left Sensor</b></em>' attribute.
+	 * The feature id for the '<em><b>Back Right Sensor</b></em>' attribute.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-  int PROX_SENSOR__FRONT_LEFT_SENSOR = 6;
+  int PROX_SENSOR__BACK_RIGHT_SENSOR = 6;
 
   /**
 	 * The number of structural features of the '<em>Prox Sensor</em>' class.
@@ -769,32 +760,21 @@ public interface ThymioDSLPackage extends EPackage
   EAttribute getEvent_Button();
 
   /**
-	 * Returns the meta object for the attribute '{@link ld.project2.thymioDSL.Event#isTap <em>Tap</em>}'.
+	 * Returns the meta object for the attribute '{@link ld.project2.thymioDSL.Event#getStimulus <em>Stimulus</em>}'.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Tap</em>'.
-	 * @see ld.project2.thymioDSL.Event#isTap()
+	 * @return the meta object for the attribute '<em>Stimulus</em>'.
+	 * @see ld.project2.thymioDSL.Event#getStimulus()
 	 * @see #getEvent()
 	 * @generated
 	 */
-  EAttribute getEvent_Tap();
+  EAttribute getEvent_Stimulus();
 
   /**
-	 * Returns the meta object for the attribute '{@link ld.project2.thymioDSL.Event#isMic <em>Mic</em>}'.
+	 * Returns the meta object for the containment reference '{@link ld.project2.thymioDSL.Event#getProxSensor <em>Prox Sensor</em>}'.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Mic</em>'.
-	 * @see ld.project2.thymioDSL.Event#isMic()
-	 * @see #getEvent()
-	 * @generated
-	 */
-  EAttribute getEvent_Mic();
-
-  /**
-	 * Returns the meta object for the containment reference list '{@link ld.project2.thymioDSL.Event#getProxSensor <em>Prox Sensor</em>}'.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Prox Sensor</em>'.
+	 * @return the meta object for the containment reference '<em>Prox Sensor</em>'.
 	 * @see ld.project2.thymioDSL.Event#getProxSensor()
 	 * @see #getEvent()
 	 * @generated
@@ -802,10 +782,10 @@ public interface ThymioDSLPackage extends EPackage
   EReference getEvent_ProxSensor();
 
   /**
-	 * Returns the meta object for the containment reference list '{@link ld.project2.thymioDSL.Event#getBottomSensor <em>Bottom Sensor</em>}'.
+	 * Returns the meta object for the containment reference '{@link ld.project2.thymioDSL.Event#getBottomSensor <em>Bottom Sensor</em>}'.
 	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Bottom Sensor</em>'.
+	 * @return the meta object for the containment reference '<em>Bottom Sensor</em>'.
 	 * @see ld.project2.thymioDSL.Event#getBottomSensor()
 	 * @see #getEvent()
 	 * @generated
@@ -821,6 +801,61 @@ public interface ThymioDSLPackage extends EPackage
 	 * @generated
 	 */
   EClass getProxSensor();
+
+  /**
+	 * Returns the meta object for the attribute '{@link ld.project2.thymioDSL.ProxSensor#getFrontLeftSensor <em>Front Left Sensor</em>}'.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Front Left Sensor</em>'.
+	 * @see ld.project2.thymioDSL.ProxSensor#getFrontLeftSensor()
+	 * @see #getProxSensor()
+	 * @generated
+	 */
+  EAttribute getProxSensor_FrontLeftSensor();
+
+  /**
+	 * Returns the meta object for the attribute '{@link ld.project2.thymioDSL.ProxSensor#getFrontCenterLeftSensor <em>Front Center Left Sensor</em>}'.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Front Center Left Sensor</em>'.
+	 * @see ld.project2.thymioDSL.ProxSensor#getFrontCenterLeftSensor()
+	 * @see #getProxSensor()
+	 * @generated
+	 */
+  EAttribute getProxSensor_FrontCenterLeftSensor();
+
+  /**
+	 * Returns the meta object for the attribute '{@link ld.project2.thymioDSL.ProxSensor#getFrontCenterSensor <em>Front Center Sensor</em>}'.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Front Center Sensor</em>'.
+	 * @see ld.project2.thymioDSL.ProxSensor#getFrontCenterSensor()
+	 * @see #getProxSensor()
+	 * @generated
+	 */
+  EAttribute getProxSensor_FrontCenterSensor();
+
+  /**
+	 * Returns the meta object for the attribute '{@link ld.project2.thymioDSL.ProxSensor#getFrontCenterRightSensor <em>Front Center Right Sensor</em>}'.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Front Center Right Sensor</em>'.
+	 * @see ld.project2.thymioDSL.ProxSensor#getFrontCenterRightSensor()
+	 * @see #getProxSensor()
+	 * @generated
+	 */
+  EAttribute getProxSensor_FrontCenterRightSensor();
+
+  /**
+	 * Returns the meta object for the attribute '{@link ld.project2.thymioDSL.ProxSensor#getFrontRightSensor <em>Front Right Sensor</em>}'.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Front Right Sensor</em>'.
+	 * @see ld.project2.thymioDSL.ProxSensor#getFrontRightSensor()
+	 * @see #getProxSensor()
+	 * @generated
+	 */
+  EAttribute getProxSensor_FrontRightSensor();
 
   /**
 	 * Returns the meta object for the attribute '{@link ld.project2.thymioDSL.ProxSensor#getBackLeftSensor <em>Back Left Sensor</em>}'.
@@ -843,61 +878,6 @@ public interface ThymioDSLPackage extends EPackage
 	 * @generated
 	 */
   EAttribute getProxSensor_BackRightSensor();
-
-  /**
-	 * Returns the meta object for the attribute '{@link ld.project2.thymioDSL.ProxSensor#getFrontRightSensor <em>Front Right Sensor</em>}'.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Front Right Sensor</em>'.
-	 * @see ld.project2.thymioDSL.ProxSensor#getFrontRightSensor()
-	 * @see #getProxSensor()
-	 * @generated
-	 */
-  EAttribute getProxSensor_FrontRightSensor();
-
-  /**
-	 * Returns the meta object for the attribute '{@link ld.project2.thymioDSL.ProxSensor#getFrontCenterRightSensor <em>Front Center Right Sensor</em>}'.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Front Center Right Sensor</em>'.
-	 * @see ld.project2.thymioDSL.ProxSensor#getFrontCenterRightSensor()
-	 * @see #getProxSensor()
-	 * @generated
-	 */
-  EAttribute getProxSensor_FrontCenterRightSensor();
-
-  /**
-	 * Returns the meta object for the attribute '{@link ld.project2.thymioDSL.ProxSensor#getFrontCenterSensor <em>Front Center Sensor</em>}'.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Front Center Sensor</em>'.
-	 * @see ld.project2.thymioDSL.ProxSensor#getFrontCenterSensor()
-	 * @see #getProxSensor()
-	 * @generated
-	 */
-  EAttribute getProxSensor_FrontCenterSensor();
-
-  /**
-	 * Returns the meta object for the attribute '{@link ld.project2.thymioDSL.ProxSensor#getFrontCenterLeftSensor <em>Front Center Left Sensor</em>}'.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Front Center Left Sensor</em>'.
-	 * @see ld.project2.thymioDSL.ProxSensor#getFrontCenterLeftSensor()
-	 * @see #getProxSensor()
-	 * @generated
-	 */
-  EAttribute getProxSensor_FrontCenterLeftSensor();
-
-  /**
-	 * Returns the meta object for the attribute '{@link ld.project2.thymioDSL.ProxSensor#getFrontLeftSensor <em>Front Left Sensor</em>}'.
-	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Front Left Sensor</em>'.
-	 * @see ld.project2.thymioDSL.ProxSensor#getFrontLeftSensor()
-	 * @see #getProxSensor()
-	 * @generated
-	 */
-  EAttribute getProxSensor_FrontLeftSensor();
 
   /**
 	 * Returns the meta object for class '{@link ld.project2.thymioDSL.BottomSensor <em>Bottom Sensor</em>}'.
@@ -1281,23 +1261,15 @@ public interface ThymioDSLPackage extends EPackage
     EAttribute EVENT__BUTTON = eINSTANCE.getEvent_Button();
 
     /**
-		 * The meta object literal for the '<em><b>Tap</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Stimulus</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
 		 * @generated
 		 */
-    EAttribute EVENT__TAP = eINSTANCE.getEvent_Tap();
+    EAttribute EVENT__STIMULUS = eINSTANCE.getEvent_Stimulus();
 
     /**
-		 * The meta object literal for the '<em><b>Mic</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-		 * @generated
-		 */
-    EAttribute EVENT__MIC = eINSTANCE.getEvent_Mic();
-
-    /**
-		 * The meta object literal for the '<em><b>Prox Sensor</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Prox Sensor</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
 		 * @generated
@@ -1305,7 +1277,7 @@ public interface ThymioDSLPackage extends EPackage
     EReference EVENT__PROX_SENSOR = eINSTANCE.getEvent_ProxSensor();
 
     /**
-		 * The meta object literal for the '<em><b>Bottom Sensor</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Bottom Sensor</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
 		 * @generated
@@ -1323,6 +1295,46 @@ public interface ThymioDSLPackage extends EPackage
     EClass PROX_SENSOR = eINSTANCE.getProxSensor();
 
     /**
+		 * The meta object literal for the '<em><b>Front Left Sensor</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+		 * @generated
+		 */
+    EAttribute PROX_SENSOR__FRONT_LEFT_SENSOR = eINSTANCE.getProxSensor_FrontLeftSensor();
+
+    /**
+		 * The meta object literal for the '<em><b>Front Center Left Sensor</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+		 * @generated
+		 */
+    EAttribute PROX_SENSOR__FRONT_CENTER_LEFT_SENSOR = eINSTANCE.getProxSensor_FrontCenterLeftSensor();
+
+    /**
+		 * The meta object literal for the '<em><b>Front Center Sensor</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+		 * @generated
+		 */
+    EAttribute PROX_SENSOR__FRONT_CENTER_SENSOR = eINSTANCE.getProxSensor_FrontCenterSensor();
+
+    /**
+		 * The meta object literal for the '<em><b>Front Center Right Sensor</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+		 * @generated
+		 */
+    EAttribute PROX_SENSOR__FRONT_CENTER_RIGHT_SENSOR = eINSTANCE.getProxSensor_FrontCenterRightSensor();
+
+    /**
+		 * The meta object literal for the '<em><b>Front Right Sensor</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+		 * @generated
+		 */
+    EAttribute PROX_SENSOR__FRONT_RIGHT_SENSOR = eINSTANCE.getProxSensor_FrontRightSensor();
+
+    /**
 		 * The meta object literal for the '<em><b>Back Left Sensor</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1337,46 +1349,6 @@ public interface ThymioDSLPackage extends EPackage
 		 * @generated
 		 */
     EAttribute PROX_SENSOR__BACK_RIGHT_SENSOR = eINSTANCE.getProxSensor_BackRightSensor();
-
-    /**
-		 * The meta object literal for the '<em><b>Front Right Sensor</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-		 * @generated
-		 */
-    EAttribute PROX_SENSOR__FRONT_RIGHT_SENSOR = eINSTANCE.getProxSensor_FrontRightSensor();
-
-    /**
-		 * The meta object literal for the '<em><b>Front Center Right Sensor</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-		 * @generated
-		 */
-    EAttribute PROX_SENSOR__FRONT_CENTER_RIGHT_SENSOR = eINSTANCE.getProxSensor_FrontCenterRightSensor();
-
-    /**
-		 * The meta object literal for the '<em><b>Front Center Sensor</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-		 * @generated
-		 */
-    EAttribute PROX_SENSOR__FRONT_CENTER_SENSOR = eINSTANCE.getProxSensor_FrontCenterSensor();
-
-    /**
-		 * The meta object literal for the '<em><b>Front Center Left Sensor</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-		 * @generated
-		 */
-    EAttribute PROX_SENSOR__FRONT_CENTER_LEFT_SENSOR = eINSTANCE.getProxSensor_FrontCenterLeftSensor();
-
-    /**
-		 * The meta object literal for the '<em><b>Front Left Sensor</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-		 * @generated
-		 */
-    EAttribute PROX_SENSOR__FRONT_LEFT_SENSOR = eINSTANCE.getProxSensor_FrontLeftSensor();
 
     /**
 		 * The meta object literal for the '{@link ld.project2.thymioDSL.impl.BottomSensorImpl <em>Bottom Sensor</em>}' class.

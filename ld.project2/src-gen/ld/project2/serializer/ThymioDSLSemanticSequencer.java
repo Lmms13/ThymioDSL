@@ -148,7 +148,7 @@ public class ThymioDSLSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Event returns Event
 	 *
 	 * Constraint:
-	 *     (button=Ortogonal | tap=EBoolean | mic=EBoolean | proxSensor+=ProxSensor+ | bottomSensor+=BottomSensor+)
+	 *     (button=Ortogonal | stimulus=Stimulus | proxSensor=ProxSensor | bottomSensor=BottomSensor)
 	 * </pre>
 	 */
 	protected void sequence_Event(ISerializationContext context, Event semanticObject) {
@@ -270,13 +270,13 @@ public class ThymioDSLSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *
 	 * Constraint:
 	 *     (
-	 *         backLeftSensor=SensorStatus | 
-	 *         backRightSensor=SensorStatus | 
-	 *         frontRightSensor=SensorStatus | 
-	 *         frontCenterRightSensor=SensorStatus | 
-	 *         frontCenterSensor=SensorStatus | 
-	 *         frontCenterLeftSensor=SensorStatus | 
-	 *         frontLeftSensor=SensorStatus
+	 *         frontLeftSensor=SensorStatus? 
+	 *         frontCenterLeftSensor=SensorStatus? 
+	 *         frontCenterSensor=SensorStatus? 
+	 *         frontCenterRightSensor=SensorStatus? 
+	 *         frontRightSensor=SensorStatus? 
+	 *         backLeftSensor=SensorStatus? 
+	 *         backRightSensor=SensorStatus?
 	 *     )
 	 * </pre>
 	 */

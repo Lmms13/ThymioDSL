@@ -16,19 +16,18 @@
     </genClasses>
     <genClasses ecoreClass="ThymioDSL.ecore#//Event">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ThymioDSL.ecore#//Event/button"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ThymioDSL.ecore#//Event/tap"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ThymioDSL.ecore#//Event/mic"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ThymioDSL.ecore#//Event/stimulus"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ThymioDSL.ecore#//Event/proxSensor"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ThymioDSL.ecore#//Event/bottomSensor"/>
     </genClasses>
     <genClasses ecoreClass="ThymioDSL.ecore#//ProxSensor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ThymioDSL.ecore#//ProxSensor/frontLeftSensor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ThymioDSL.ecore#//ProxSensor/frontCenterLeftSensor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ThymioDSL.ecore#//ProxSensor/frontCenterSensor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ThymioDSL.ecore#//ProxSensor/frontCenterRightSensor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ThymioDSL.ecore#//ProxSensor/frontRightSensor"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ThymioDSL.ecore#//ProxSensor/backLeftSensor"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ThymioDSL.ecore#//ProxSensor/backRightSensor"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ThymioDSL.ecore#//ProxSensor/frontRightSensor"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ThymioDSL.ecore#//ProxSensor/frontCenterRightSensor"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ThymioDSL.ecore#//ProxSensor/frontCenterSensor"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ThymioDSL.ecore#//ProxSensor/frontCenterLeftSensor"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ThymioDSL.ecore#//ProxSensor/frontLeftSensor"/>
     </genClasses>
     <genClasses ecoreClass="ThymioDSL.ecore#//BottomSensor">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ThymioDSL.ecore#//BottomSensor/bottomLeftSensor"/>

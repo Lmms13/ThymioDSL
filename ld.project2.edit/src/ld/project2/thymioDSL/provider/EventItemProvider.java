@@ -65,8 +65,7 @@ public class EventItemProvider
 			super.getPropertyDescriptors(object);
 
 			addButtonPropertyDescriptor(object);
-			addTapPropertyDescriptor(object);
-			addMicPropertyDescriptor(object);
+			addStimulusPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -94,45 +93,23 @@ public class EventItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Tap feature.
+	 * This adds a property descriptor for the Stimulus feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addTapPropertyDescriptor(Object object) {
+	protected void addStimulusPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Event_tap_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Event_tap_feature", "_UI_Event_type"),
-				 ThymioDSLPackage.Literals.EVENT__TAP,
+				 getString("_UI_Event_stimulus_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Event_stimulus_feature", "_UI_Event_type"),
+				 ThymioDSLPackage.Literals.EVENT__STIMULUS,
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Mic feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addMicPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Event_mic_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Event_mic_feature", "_UI_Event_type"),
-				 ThymioDSLPackage.Literals.EVENT__MIC,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -207,8 +184,7 @@ public class EventItemProvider
 
 		switch (notification.getFeatureID(Event.class)) {
 			case ThymioDSLPackage.EVENT__BUTTON:
-			case ThymioDSLPackage.EVENT__TAP:
-			case ThymioDSLPackage.EVENT__MIC:
+			case ThymioDSLPackage.EVENT__STIMULUS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ThymioDSLPackage.EVENT__PROX_SENSOR:

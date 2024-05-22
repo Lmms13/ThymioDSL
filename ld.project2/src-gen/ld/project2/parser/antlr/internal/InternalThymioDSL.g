@@ -227,25 +227,25 @@ ruleEvent returns [EObject current=null]
 		)
 		    |
 		(
-			otherlv_2='robot_is_tapped:'
+			otherlv_2='robot_detects_stimulus:'
 			{
-				newLeafNode(otherlv_2, grammarAccess.getEventAccess().getRobot_is_tappedKeyword_1_0());
+				newLeafNode(otherlv_2, grammarAccess.getEventAccess().getRobot_detects_stimulusKeyword_1_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getEventAccess().getTapEBooleanParserRuleCall_1_1_0());
+						newCompositeNode(grammarAccess.getEventAccess().getStimulusStimulusParserRuleCall_1_1_0());
 					}
-					lv_tap_3_0=ruleEBoolean
+					lv_stimulus_3_0=ruleStimulus
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getEventRule());
 						}
 						set(
 							$current,
-							"tap",
-							lv_tap_3_0,
-							"ld.project2.ThymioDSL.EBoolean");
+							"stimulus",
+							lv_stimulus_3_0,
+							"ld.project2.ThymioDSL.Stimulus");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -253,81 +253,55 @@ ruleEvent returns [EObject current=null]
 		)
 		    |
 		(
-			otherlv_4='sound_is_detected:'
+			otherlv_4='proximity_sensor_is_activated:'
 			{
-				newLeafNode(otherlv_4, grammarAccess.getEventAccess().getSound_is_detectedKeyword_2_0());
+				newLeafNode(otherlv_4, grammarAccess.getEventAccess().getProximity_sensor_is_activatedKeyword_2_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getEventAccess().getMicEBooleanParserRuleCall_2_1_0());
+						newCompositeNode(grammarAccess.getEventAccess().getProxSensorProxSensorParserRuleCall_2_1_0());
 					}
-					lv_mic_5_0=ruleEBoolean
+					lv_proxSensor_5_0=ruleProxSensor
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getEventRule());
 						}
 						set(
-							$current,
-							"mic",
-							lv_mic_5_0,
-							"ld.project2.ThymioDSL.EBoolean");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)
-		    |
-		(
-			otherlv_6='proximity_sensor_is_activated:'
-			{
-				newLeafNode(otherlv_6, grammarAccess.getEventAccess().getProximity_sensor_is_activatedKeyword_3_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getEventAccess().getProxSensorProxSensorParserRuleCall_3_1_0());
-					}
-					lv_proxSensor_7_0=ruleProxSensor
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getEventRule());
-						}
-						add(
 							$current,
 							"proxSensor",
-							lv_proxSensor_7_0,
+							lv_proxSensor_5_0,
 							"ld.project2.ThymioDSL.ProxSensor");
 						afterParserOrEnumRuleCall();
 					}
 				)
-			)+
+			)
 		)
 		    |
 		(
-			otherlv_8='bottom_sensor_detects_color:'
+			otherlv_6='bottom_sensor_detects_color:'
 			{
-				newLeafNode(otherlv_8, grammarAccess.getEventAccess().getBottom_sensor_detects_colorKeyword_4_0());
+				newLeafNode(otherlv_6, grammarAccess.getEventAccess().getBottom_sensor_detects_colorKeyword_3_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getEventAccess().getBottomSensorBottomSensorParserRuleCall_4_1_0());
+						newCompositeNode(grammarAccess.getEventAccess().getBottomSensorBottomSensorParserRuleCall_3_1_0());
 					}
-					lv_bottomSensor_9_0=ruleBottomSensor
+					lv_bottomSensor_7_0=ruleBottomSensor
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getEventRule());
 						}
-						add(
+						set(
 							$current,
 							"bottomSensor",
-							lv_bottomSensor_9_0,
+							lv_bottomSensor_7_0,
 							"ld.project2.ThymioDSL.BottomSensor");
 						afterParserOrEnumRuleCall();
 					}
 				)
-			)+
+			)
 		)
 	)
 ;
@@ -349,172 +323,23 @@ ruleProxSensor returns [EObject current=null]
 }:
 	(
 		(
-			otherlv_0='back_left:'
 			{
-				newLeafNode(otherlv_0, grammarAccess.getProxSensorAccess().getBack_leftKeyword_0_0());
+				$current = forceCreateModelElement(
+					grammarAccess.getProxSensorAccess().getProxSensorAction_0(),
+					$current);
 			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getProxSensorAccess().getBackLeftSensorSensorStatusParserRuleCall_0_1_0());
-					}
-					lv_backLeftSensor_1_0=ruleSensorStatus
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getProxSensorRule());
-						}
-						set(
-							$current,
-							"backLeftSensor",
-							lv_backLeftSensor_1_0,
-							"ld.project2.ThymioDSL.SensorStatus");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
 		)
-		    |
 		(
-			otherlv_2='back_right:'
+			otherlv_1='front_left:'
 			{
-				newLeafNode(otherlv_2, grammarAccess.getProxSensorAccess().getBack_rightKeyword_1_0());
+				newLeafNode(otherlv_1, grammarAccess.getProxSensorAccess().getFront_leftKeyword_1_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getProxSensorAccess().getBackRightSensorSensorStatusParserRuleCall_1_1_0());
+						newCompositeNode(grammarAccess.getProxSensorAccess().getFrontLeftSensorSensorStatusParserRuleCall_1_1_0());
 					}
-					lv_backRightSensor_3_0=ruleSensorStatus
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getProxSensorRule());
-						}
-						set(
-							$current,
-							"backRightSensor",
-							lv_backRightSensor_3_0,
-							"ld.project2.ThymioDSL.SensorStatus");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)
-		    |
-		(
-			otherlv_4='front_right:'
-			{
-				newLeafNode(otherlv_4, grammarAccess.getProxSensorAccess().getFront_rightKeyword_2_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getProxSensorAccess().getFrontRightSensorSensorStatusParserRuleCall_2_1_0());
-					}
-					lv_frontRightSensor_5_0=ruleSensorStatus
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getProxSensorRule());
-						}
-						set(
-							$current,
-							"frontRightSensor",
-							lv_frontRightSensor_5_0,
-							"ld.project2.ThymioDSL.SensorStatus");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)
-		    |
-		(
-			otherlv_6='front_center_right:'
-			{
-				newLeafNode(otherlv_6, grammarAccess.getProxSensorAccess().getFront_center_rightKeyword_3_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getProxSensorAccess().getFrontCenterRightSensorSensorStatusParserRuleCall_3_1_0());
-					}
-					lv_frontCenterRightSensor_7_0=ruleSensorStatus
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getProxSensorRule());
-						}
-						set(
-							$current,
-							"frontCenterRightSensor",
-							lv_frontCenterRightSensor_7_0,
-							"ld.project2.ThymioDSL.SensorStatus");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)
-		    |
-		(
-			otherlv_8='front_center:'
-			{
-				newLeafNode(otherlv_8, grammarAccess.getProxSensorAccess().getFront_centerKeyword_4_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getProxSensorAccess().getFrontCenterSensorSensorStatusParserRuleCall_4_1_0());
-					}
-					lv_frontCenterSensor_9_0=ruleSensorStatus
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getProxSensorRule());
-						}
-						set(
-							$current,
-							"frontCenterSensor",
-							lv_frontCenterSensor_9_0,
-							"ld.project2.ThymioDSL.SensorStatus");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)
-		    |
-		(
-			otherlv_10='front_center_left:'
-			{
-				newLeafNode(otherlv_10, grammarAccess.getProxSensorAccess().getFront_center_leftKeyword_5_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getProxSensorAccess().getFrontCenterLeftSensorSensorStatusParserRuleCall_5_1_0());
-					}
-					lv_frontCenterLeftSensor_11_0=ruleSensorStatus
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getProxSensorRule());
-						}
-						set(
-							$current,
-							"frontCenterLeftSensor",
-							lv_frontCenterLeftSensor_11_0,
-							"ld.project2.ThymioDSL.SensorStatus");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)
-		    |
-		(
-			otherlv_12='front_left:'
-			{
-				newLeafNode(otherlv_12, grammarAccess.getProxSensorAccess().getFront_leftKeyword_6_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getProxSensorAccess().getFrontLeftSensorSensorStatusParserRuleCall_6_1_0());
-					}
-					lv_frontLeftSensor_13_0=ruleSensorStatus
+					lv_frontLeftSensor_2_0=ruleSensorStatus
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getProxSensorRule());
@@ -522,13 +347,163 @@ ruleProxSensor returns [EObject current=null]
 						set(
 							$current,
 							"frontLeftSensor",
-							lv_frontLeftSensor_13_0,
+							lv_frontLeftSensor_2_0,
 							"ld.project2.ThymioDSL.SensorStatus");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
-		)
+		)?
+		(
+			otherlv_3='front_center_left:'
+			{
+				newLeafNode(otherlv_3, grammarAccess.getProxSensorAccess().getFront_center_leftKeyword_2_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getProxSensorAccess().getFrontCenterLeftSensorSensorStatusParserRuleCall_2_1_0());
+					}
+					lv_frontCenterLeftSensor_4_0=ruleSensorStatus
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getProxSensorRule());
+						}
+						set(
+							$current,
+							"frontCenterLeftSensor",
+							lv_frontCenterLeftSensor_4_0,
+							"ld.project2.ThymioDSL.SensorStatus");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_5='front_center:'
+			{
+				newLeafNode(otherlv_5, grammarAccess.getProxSensorAccess().getFront_centerKeyword_3_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getProxSensorAccess().getFrontCenterSensorSensorStatusParserRuleCall_3_1_0());
+					}
+					lv_frontCenterSensor_6_0=ruleSensorStatus
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getProxSensorRule());
+						}
+						set(
+							$current,
+							"frontCenterSensor",
+							lv_frontCenterSensor_6_0,
+							"ld.project2.ThymioDSL.SensorStatus");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_7='front_center_right:'
+			{
+				newLeafNode(otherlv_7, grammarAccess.getProxSensorAccess().getFront_center_rightKeyword_4_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getProxSensorAccess().getFrontCenterRightSensorSensorStatusParserRuleCall_4_1_0());
+					}
+					lv_frontCenterRightSensor_8_0=ruleSensorStatus
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getProxSensorRule());
+						}
+						set(
+							$current,
+							"frontCenterRightSensor",
+							lv_frontCenterRightSensor_8_0,
+							"ld.project2.ThymioDSL.SensorStatus");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_9='front_right:'
+			{
+				newLeafNode(otherlv_9, grammarAccess.getProxSensorAccess().getFront_rightKeyword_5_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getProxSensorAccess().getFrontRightSensorSensorStatusParserRuleCall_5_1_0());
+					}
+					lv_frontRightSensor_10_0=ruleSensorStatus
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getProxSensorRule());
+						}
+						set(
+							$current,
+							"frontRightSensor",
+							lv_frontRightSensor_10_0,
+							"ld.project2.ThymioDSL.SensorStatus");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_11='back_left:'
+			{
+				newLeafNode(otherlv_11, grammarAccess.getProxSensorAccess().getBack_leftKeyword_6_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getProxSensorAccess().getBackLeftSensorSensorStatusParserRuleCall_6_1_0());
+					}
+					lv_backLeftSensor_12_0=ruleSensorStatus
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getProxSensorRule());
+						}
+						set(
+							$current,
+							"backLeftSensor",
+							lv_backLeftSensor_12_0,
+							"ld.project2.ThymioDSL.SensorStatus");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_13='back_right:'
+			{
+				newLeafNode(otherlv_13, grammarAccess.getProxSensorAccess().getBack_rightKeyword_7_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getProxSensorAccess().getBackRightSensorSensorStatusParserRuleCall_7_1_0());
+					}
+					lv_backRightSensor_14_0=ruleSensorStatus
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getProxSensorRule());
+						}
+						set(
+							$current,
+							"backRightSensor",
+							lv_backRightSensor_14_0,
+							"ld.project2.ThymioDSL.SensorStatus");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
 	)
 ;
 
@@ -1084,15 +1059,15 @@ ruleEString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()
 	)
 ;
 
-// Entry rule entryRuleEBoolean
-entryRuleEBoolean returns [String current=null]:
-	{ newCompositeNode(grammarAccess.getEBooleanRule()); }
-	iv_ruleEBoolean=ruleEBoolean
-	{ $current=$iv_ruleEBoolean.current.getText(); }
+// Entry rule entryRuleStimulus
+entryRuleStimulus returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getStimulusRule()); }
+	iv_ruleStimulus=ruleStimulus
+	{ $current=$iv_ruleStimulus.current.getText(); }
 	EOF;
 
-// Rule EBoolean
-ruleEBoolean returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+// Rule Stimulus
+ruleStimulus returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 @init {
 	enterRule();
 }
@@ -1100,16 +1075,16 @@ ruleEBoolean returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken(
 	leaveRule();
 }:
 	(
-		kw='true'
+		kw='tap'
 		{
 			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getEBooleanAccess().getTrueKeyword_0());
+			newLeafNode(kw, grammarAccess.getStimulusAccess().getTapKeyword_0());
 		}
 		    |
-		kw='false'
+		kw='sound'
 		{
 			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getEBooleanAccess().getFalseKeyword_1());
+			newLeafNode(kw, grammarAccess.getStimulusAccess().getSoundKeyword_1());
 		}
 	)
 ;

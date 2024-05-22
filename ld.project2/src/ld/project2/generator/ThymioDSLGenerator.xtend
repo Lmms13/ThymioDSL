@@ -8,6 +8,7 @@ import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
 import ld.project2.thymioDSL.Procedure
+import ld.project2.thymioDSL.Model
 
 /**
  * Generates code from your model files on save.
@@ -23,4 +24,80 @@ class ThymioDSLGenerator extends AbstractGenerator {
 //				.map[name]
 //				.join(', '))
 	}
+	
+	def generateCode(Model m){
+		'''
+		<!DOCTYPE aesl-source>
+		<network>
+		<node>
+		var notes[6]
+		var durations[6]
+		var note_index = 6
+		var note_count = 6
+		var wave[142]
+		var i
+		var wave_phase
+		var wave_intensity
+		
+		# compute a sinus wave for sound
+		for i in 0:141 do
+			wave_phase = (i-70)*468
+			call math.cos(wave_intensity, wave_phase)
+			wave[i] = wave_intensity/256
+		end
+		call sound.wave(wave)
+		# setup threshold for detecting claps
+		mic.threshold = 250
+		# reset outputs
+		call sound.system(-1)
+		call leds.top(0,0,0)
+		call leds.bottom.left(0,0,0)
+		call leds.bottom.right(0,0,0)
+		call leds.circle(0,0,0,0,0,0,0,0)
+		
+		# when a note is finished, play the next note
+		onevent sound.finished
+			if note_index != note_count then
+				call sound.freq(notes[note_index], durations[note_index])
+				note_index += 1
+			end
+			
+		<toolsPlugins>
+		<ThymioVisualProgramming>
+		<vplroot xml-format-version="1">
+		<program advanced_mode="0">
+		
+		«FOR p : m.procedures»
+			<set>
+			«IF p.events.button !== null»
+				<block type="event" name="button" value0="«p.events.button.equals("up")?1:0»" value1="«p.events.button.equals("left")?1:0»" value2="«p.events.button.equals("down")?1:0»" value3="«p.events.button.equals("right")?1:0»" value4="«p.events.button.equals("center")?1:0»"/>
+			«ENDIF»
+			«IF p.events.stimulus !== null»
+				<block type="event" name="«p.events.stimulus.equals("tap")?"acc":"clap"»"/>
+			«ENDIF»		
+			«IF p.events.proxSensor !== null»
+				<block type="event" name="prox" value0="«p.events.proxSensor.frontLeftSensor !== null?p.events.proxSensor.frontLeftSensor.equals("far")?0:p.events.proxSensor.frontLeftSensor.equals("very_close")?1:2:0»"value7="1000" value8="2000"/>
+			«ENDIF»
+			«IF p.events.bottomSensor !== null»
+				<block type="event" name="proxground" value0="«p.events.bottomSensor.bottomLeftSensor.equals("any")?0:p.events.bottomSensor.bottomLeftSensor.equals("white")?1:2»" value1="«p.events.bottomSensor.bottomRightSensor.equals("any")?0:p.events.bottomSensor.bottomRightSensor.equals("white")?1:2»" value2="400" value3="450"/>
+			«ENDIF»
+			
+			
+			«FOR a : p.actions»
+				
+			«ENDFOR»
+			</set>
+		«ENDFOR»	
+		
+		<set/>
+		</program>
+		</vplroot>
+		</ThymioVisualProgramming>
+		</toolsPlugins>
+		</node>
+		</network>
+		'''
+	}
+	
+
 }

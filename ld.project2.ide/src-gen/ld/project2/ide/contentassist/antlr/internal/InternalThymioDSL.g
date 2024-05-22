@@ -147,9 +147,9 @@ ruleProxSensor
 	}
 	:
 	(
-		{ before(grammarAccess.getProxSensorAccess().getAlternatives()); }
-		(rule__ProxSensor__Alternatives)
-		{ after(grammarAccess.getProxSensorAccess().getAlternatives()); }
+		{ before(grammarAccess.getProxSensorAccess().getGroup()); }
+		(rule__ProxSensor__Group__0)
+		{ after(grammarAccess.getProxSensorAccess().getGroup()); }
 	)
 ;
 finally {
@@ -356,25 +356,25 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-// Entry rule entryRuleEBoolean
-entryRuleEBoolean
+// Entry rule entryRuleStimulus
+entryRuleStimulus
 :
-{ before(grammarAccess.getEBooleanRule()); }
-	 ruleEBoolean
-{ after(grammarAccess.getEBooleanRule()); } 
+{ before(grammarAccess.getStimulusRule()); }
+	 ruleStimulus
+{ after(grammarAccess.getStimulusRule()); } 
 	 EOF 
 ;
 
-// Rule EBoolean
-ruleEBoolean 
+// Rule Stimulus
+ruleStimulus 
 	@init {
 		int stackSize = keepStackSize();
 	}
 	:
 	(
-		{ before(grammarAccess.getEBooleanAccess().getAlternatives()); }
-		(rule__EBoolean__Alternatives)
-		{ after(grammarAccess.getEBooleanAccess().getAlternatives()); }
+		{ before(grammarAccess.getStimulusAccess().getAlternatives()); }
+		(rule__Stimulus__Alternatives)
+		{ after(grammarAccess.getStimulusAccess().getAlternatives()); }
 	)
 ;
 finally {
@@ -584,63 +584,6 @@ rule__Event__Alternatives
 		(rule__Event__Group_3__0)
 		{ after(grammarAccess.getEventAccess().getGroup_3()); }
 	)
-	|
-	(
-		{ before(grammarAccess.getEventAccess().getGroup_4()); }
-		(rule__Event__Group_4__0)
-		{ after(grammarAccess.getEventAccess().getGroup_4()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__ProxSensor__Alternatives
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getProxSensorAccess().getGroup_0()); }
-		(rule__ProxSensor__Group_0__0)
-		{ after(grammarAccess.getProxSensorAccess().getGroup_0()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getProxSensorAccess().getGroup_1()); }
-		(rule__ProxSensor__Group_1__0)
-		{ after(grammarAccess.getProxSensorAccess().getGroup_1()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getProxSensorAccess().getGroup_2()); }
-		(rule__ProxSensor__Group_2__0)
-		{ after(grammarAccess.getProxSensorAccess().getGroup_2()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getProxSensorAccess().getGroup_3()); }
-		(rule__ProxSensor__Group_3__0)
-		{ after(grammarAccess.getProxSensorAccess().getGroup_3()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getProxSensorAccess().getGroup_4()); }
-		(rule__ProxSensor__Group_4__0)
-		{ after(grammarAccess.getProxSensorAccess().getGroup_4()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getProxSensorAccess().getGroup_5()); }
-		(rule__ProxSensor__Group_5__0)
-		{ after(grammarAccess.getProxSensorAccess().getGroup_5()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getProxSensorAccess().getGroup_6()); }
-		(rule__ProxSensor__Group_6__0)
-		{ after(grammarAccess.getProxSensorAccess().getGroup_6()); }
-	)
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -736,21 +679,21 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__EBoolean__Alternatives
+rule__Stimulus__Alternatives
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getEBooleanAccess().getTrueKeyword_0()); }
-		'true'
-		{ after(grammarAccess.getEBooleanAccess().getTrueKeyword_0()); }
+		{ before(grammarAccess.getStimulusAccess().getTapKeyword_0()); }
+		'tap'
+		{ after(grammarAccess.getStimulusAccess().getTapKeyword_0()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getEBooleanAccess().getFalseKeyword_1()); }
-		'false'
-		{ after(grammarAccess.getEBooleanAccess().getFalseKeyword_1()); }
+		{ before(grammarAccess.getStimulusAccess().getSoundKeyword_1()); }
+		'sound'
+		{ after(grammarAccess.getStimulusAccess().getSoundKeyword_1()); }
 	)
 ;
 finally {
@@ -1175,9 +1118,9 @@ rule__Event__Group_1__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getEventAccess().getRobot_is_tappedKeyword_1_0()); }
-	'robot_is_tapped:'
-	{ after(grammarAccess.getEventAccess().getRobot_is_tappedKeyword_1_0()); }
+	{ before(grammarAccess.getEventAccess().getRobot_detects_stimulusKeyword_1_0()); }
+	'robot_detects_stimulus:'
+	{ after(grammarAccess.getEventAccess().getRobot_detects_stimulusKeyword_1_0()); }
 )
 ;
 finally {
@@ -1201,9 +1144,9 @@ rule__Event__Group_1__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getEventAccess().getTapAssignment_1_1()); }
-	(rule__Event__TapAssignment_1_1)
-	{ after(grammarAccess.getEventAccess().getTapAssignment_1_1()); }
+	{ before(grammarAccess.getEventAccess().getStimulusAssignment_1_1()); }
+	(rule__Event__StimulusAssignment_1_1)
+	{ after(grammarAccess.getEventAccess().getStimulusAssignment_1_1()); }
 )
 ;
 finally {
@@ -1229,9 +1172,9 @@ rule__Event__Group_2__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getEventAccess().getSound_is_detectedKeyword_2_0()); }
-	'sound_is_detected:'
-	{ after(grammarAccess.getEventAccess().getSound_is_detectedKeyword_2_0()); }
+	{ before(grammarAccess.getEventAccess().getProximity_sensor_is_activatedKeyword_2_0()); }
+	'proximity_sensor_is_activated:'
+	{ after(grammarAccess.getEventAccess().getProximity_sensor_is_activatedKeyword_2_0()); }
 )
 ;
 finally {
@@ -1255,9 +1198,9 @@ rule__Event__Group_2__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getEventAccess().getMicAssignment_2_1()); }
-	(rule__Event__MicAssignment_2_1)
-	{ after(grammarAccess.getEventAccess().getMicAssignment_2_1()); }
+	{ before(grammarAccess.getEventAccess().getProxSensorAssignment_2_1()); }
+	(rule__Event__ProxSensorAssignment_2_1)
+	{ after(grammarAccess.getEventAccess().getProxSensorAssignment_2_1()); }
 )
 ;
 finally {
@@ -1283,9 +1226,9 @@ rule__Event__Group_3__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getEventAccess().getProximity_sensor_is_activatedKeyword_3_0()); }
-	'proximity_sensor_is_activated:'
-	{ after(grammarAccess.getEventAccess().getProximity_sensor_is_activatedKeyword_3_0()); }
+	{ before(grammarAccess.getEventAccess().getBottom_sensor_detects_colorKeyword_3_0()); }
+	'bottom_sensor_detects_color:'
+	{ after(grammarAccess.getEventAccess().getBottom_sensor_detects_colorKeyword_3_0()); }
 )
 ;
 finally {
@@ -1309,16 +1252,9 @@ rule__Event__Group_3__1__Impl
 	}
 :
 (
-	(
-		{ before(grammarAccess.getEventAccess().getProxSensorAssignment_3_1()); }
-		(rule__Event__ProxSensorAssignment_3_1)
-		{ after(grammarAccess.getEventAccess().getProxSensorAssignment_3_1()); }
-	)
-	(
-		{ before(grammarAccess.getEventAccess().getProxSensorAssignment_3_1()); }
-		(rule__Event__ProxSensorAssignment_3_1)*
-		{ after(grammarAccess.getEventAccess().getProxSensorAssignment_3_1()); }
-	)
+	{ before(grammarAccess.getEventAccess().getBottomSensorAssignment_3_1()); }
+	(rule__Event__BottomSensorAssignment_3_1)
+	{ after(grammarAccess.getEventAccess().getBottomSensorAssignment_3_1()); }
 )
 ;
 finally {
@@ -1326,114 +1262,215 @@ finally {
 }
 
 
-rule__Event__Group_4__0
+rule__ProxSensor__Group__0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__Event__Group_4__0__Impl
-	rule__Event__Group_4__1
+	rule__ProxSensor__Group__0__Impl
+	rule__ProxSensor__Group__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Event__Group_4__0__Impl
+rule__ProxSensor__Group__0__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getEventAccess().getBottom_sensor_detects_colorKeyword_4_0()); }
-	'bottom_sensor_detects_color:'
-	{ after(grammarAccess.getEventAccess().getBottom_sensor_detects_colorKeyword_4_0()); }
+	{ before(grammarAccess.getProxSensorAccess().getProxSensorAction_0()); }
+	()
+	{ after(grammarAccess.getProxSensorAccess().getProxSensorAction_0()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Event__Group_4__1
+rule__ProxSensor__Group__1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__Event__Group_4__1__Impl
+	rule__ProxSensor__Group__1__Impl
+	rule__ProxSensor__Group__2
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Event__Group_4__1__Impl
+rule__ProxSensor__Group__1__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	(
-		{ before(grammarAccess.getEventAccess().getBottomSensorAssignment_4_1()); }
-		(rule__Event__BottomSensorAssignment_4_1)
-		{ after(grammarAccess.getEventAccess().getBottomSensorAssignment_4_1()); }
-	)
-	(
-		{ before(grammarAccess.getEventAccess().getBottomSensorAssignment_4_1()); }
-		(rule__Event__BottomSensorAssignment_4_1)*
-		{ after(grammarAccess.getEventAccess().getBottomSensorAssignment_4_1()); }
-	)
+	{ before(grammarAccess.getProxSensorAccess().getGroup_1()); }
+	(rule__ProxSensor__Group_1__0)?
+	{ after(grammarAccess.getProxSensorAccess().getGroup_1()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-
-rule__ProxSensor__Group_0__0
+rule__ProxSensor__Group__2
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__ProxSensor__Group_0__0__Impl
-	rule__ProxSensor__Group_0__1
+	rule__ProxSensor__Group__2__Impl
+	rule__ProxSensor__Group__3
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ProxSensor__Group_0__0__Impl
+rule__ProxSensor__Group__2__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getProxSensorAccess().getBack_leftKeyword_0_0()); }
-	'back_left:'
-	{ after(grammarAccess.getProxSensorAccess().getBack_leftKeyword_0_0()); }
+	{ before(grammarAccess.getProxSensorAccess().getGroup_2()); }
+	(rule__ProxSensor__Group_2__0)?
+	{ after(grammarAccess.getProxSensorAccess().getGroup_2()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ProxSensor__Group_0__1
+rule__ProxSensor__Group__3
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__ProxSensor__Group_0__1__Impl
+	rule__ProxSensor__Group__3__Impl
+	rule__ProxSensor__Group__4
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ProxSensor__Group_0__1__Impl
+rule__ProxSensor__Group__3__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getProxSensorAccess().getBackLeftSensorAssignment_0_1()); }
-	(rule__ProxSensor__BackLeftSensorAssignment_0_1)
-	{ after(grammarAccess.getProxSensorAccess().getBackLeftSensorAssignment_0_1()); }
+	{ before(grammarAccess.getProxSensorAccess().getGroup_3()); }
+	(rule__ProxSensor__Group_3__0)?
+	{ after(grammarAccess.getProxSensorAccess().getGroup_3()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ProxSensor__Group__4
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__ProxSensor__Group__4__Impl
+	rule__ProxSensor__Group__5
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ProxSensor__Group__4__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getProxSensorAccess().getGroup_4()); }
+	(rule__ProxSensor__Group_4__0)?
+	{ after(grammarAccess.getProxSensorAccess().getGroup_4()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ProxSensor__Group__5
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__ProxSensor__Group__5__Impl
+	rule__ProxSensor__Group__6
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ProxSensor__Group__5__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getProxSensorAccess().getGroup_5()); }
+	(rule__ProxSensor__Group_5__0)?
+	{ after(grammarAccess.getProxSensorAccess().getGroup_5()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ProxSensor__Group__6
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__ProxSensor__Group__6__Impl
+	rule__ProxSensor__Group__7
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ProxSensor__Group__6__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getProxSensorAccess().getGroup_6()); }
+	(rule__ProxSensor__Group_6__0)?
+	{ after(grammarAccess.getProxSensorAccess().getGroup_6()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ProxSensor__Group__7
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__ProxSensor__Group__7__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ProxSensor__Group__7__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getProxSensorAccess().getGroup_7()); }
+	(rule__ProxSensor__Group_7__0)?
+	{ after(grammarAccess.getProxSensorAccess().getGroup_7()); }
 )
 ;
 finally {
@@ -1459,9 +1496,9 @@ rule__ProxSensor__Group_1__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getProxSensorAccess().getBack_rightKeyword_1_0()); }
-	'back_right:'
-	{ after(grammarAccess.getProxSensorAccess().getBack_rightKeyword_1_0()); }
+	{ before(grammarAccess.getProxSensorAccess().getFront_leftKeyword_1_0()); }
+	'front_left:'
+	{ after(grammarAccess.getProxSensorAccess().getFront_leftKeyword_1_0()); }
 )
 ;
 finally {
@@ -1485,9 +1522,9 @@ rule__ProxSensor__Group_1__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getProxSensorAccess().getBackRightSensorAssignment_1_1()); }
-	(rule__ProxSensor__BackRightSensorAssignment_1_1)
-	{ after(grammarAccess.getProxSensorAccess().getBackRightSensorAssignment_1_1()); }
+	{ before(grammarAccess.getProxSensorAccess().getFrontLeftSensorAssignment_1_1()); }
+	(rule__ProxSensor__FrontLeftSensorAssignment_1_1)
+	{ after(grammarAccess.getProxSensorAccess().getFrontLeftSensorAssignment_1_1()); }
 )
 ;
 finally {
@@ -1513,9 +1550,9 @@ rule__ProxSensor__Group_2__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getProxSensorAccess().getFront_rightKeyword_2_0()); }
-	'front_right:'
-	{ after(grammarAccess.getProxSensorAccess().getFront_rightKeyword_2_0()); }
+	{ before(grammarAccess.getProxSensorAccess().getFront_center_leftKeyword_2_0()); }
+	'front_center_left:'
+	{ after(grammarAccess.getProxSensorAccess().getFront_center_leftKeyword_2_0()); }
 )
 ;
 finally {
@@ -1539,9 +1576,9 @@ rule__ProxSensor__Group_2__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getProxSensorAccess().getFrontRightSensorAssignment_2_1()); }
-	(rule__ProxSensor__FrontRightSensorAssignment_2_1)
-	{ after(grammarAccess.getProxSensorAccess().getFrontRightSensorAssignment_2_1()); }
+	{ before(grammarAccess.getProxSensorAccess().getFrontCenterLeftSensorAssignment_2_1()); }
+	(rule__ProxSensor__FrontCenterLeftSensorAssignment_2_1)
+	{ after(grammarAccess.getProxSensorAccess().getFrontCenterLeftSensorAssignment_2_1()); }
 )
 ;
 finally {
@@ -1567,9 +1604,9 @@ rule__ProxSensor__Group_3__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getProxSensorAccess().getFront_center_rightKeyword_3_0()); }
-	'front_center_right:'
-	{ after(grammarAccess.getProxSensorAccess().getFront_center_rightKeyword_3_0()); }
+	{ before(grammarAccess.getProxSensorAccess().getFront_centerKeyword_3_0()); }
+	'front_center:'
+	{ after(grammarAccess.getProxSensorAccess().getFront_centerKeyword_3_0()); }
 )
 ;
 finally {
@@ -1593,9 +1630,9 @@ rule__ProxSensor__Group_3__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getProxSensorAccess().getFrontCenterRightSensorAssignment_3_1()); }
-	(rule__ProxSensor__FrontCenterRightSensorAssignment_3_1)
-	{ after(grammarAccess.getProxSensorAccess().getFrontCenterRightSensorAssignment_3_1()); }
+	{ before(grammarAccess.getProxSensorAccess().getFrontCenterSensorAssignment_3_1()); }
+	(rule__ProxSensor__FrontCenterSensorAssignment_3_1)
+	{ after(grammarAccess.getProxSensorAccess().getFrontCenterSensorAssignment_3_1()); }
 )
 ;
 finally {
@@ -1621,9 +1658,9 @@ rule__ProxSensor__Group_4__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getProxSensorAccess().getFront_centerKeyword_4_0()); }
-	'front_center:'
-	{ after(grammarAccess.getProxSensorAccess().getFront_centerKeyword_4_0()); }
+	{ before(grammarAccess.getProxSensorAccess().getFront_center_rightKeyword_4_0()); }
+	'front_center_right:'
+	{ after(grammarAccess.getProxSensorAccess().getFront_center_rightKeyword_4_0()); }
 )
 ;
 finally {
@@ -1647,9 +1684,9 @@ rule__ProxSensor__Group_4__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getProxSensorAccess().getFrontCenterSensorAssignment_4_1()); }
-	(rule__ProxSensor__FrontCenterSensorAssignment_4_1)
-	{ after(grammarAccess.getProxSensorAccess().getFrontCenterSensorAssignment_4_1()); }
+	{ before(grammarAccess.getProxSensorAccess().getFrontCenterRightSensorAssignment_4_1()); }
+	(rule__ProxSensor__FrontCenterRightSensorAssignment_4_1)
+	{ after(grammarAccess.getProxSensorAccess().getFrontCenterRightSensorAssignment_4_1()); }
 )
 ;
 finally {
@@ -1675,9 +1712,9 @@ rule__ProxSensor__Group_5__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getProxSensorAccess().getFront_center_leftKeyword_5_0()); }
-	'front_center_left:'
-	{ after(grammarAccess.getProxSensorAccess().getFront_center_leftKeyword_5_0()); }
+	{ before(grammarAccess.getProxSensorAccess().getFront_rightKeyword_5_0()); }
+	'front_right:'
+	{ after(grammarAccess.getProxSensorAccess().getFront_rightKeyword_5_0()); }
 )
 ;
 finally {
@@ -1701,9 +1738,9 @@ rule__ProxSensor__Group_5__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getProxSensorAccess().getFrontCenterLeftSensorAssignment_5_1()); }
-	(rule__ProxSensor__FrontCenterLeftSensorAssignment_5_1)
-	{ after(grammarAccess.getProxSensorAccess().getFrontCenterLeftSensorAssignment_5_1()); }
+	{ before(grammarAccess.getProxSensorAccess().getFrontRightSensorAssignment_5_1()); }
+	(rule__ProxSensor__FrontRightSensorAssignment_5_1)
+	{ after(grammarAccess.getProxSensorAccess().getFrontRightSensorAssignment_5_1()); }
 )
 ;
 finally {
@@ -1729,9 +1766,9 @@ rule__ProxSensor__Group_6__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getProxSensorAccess().getFront_leftKeyword_6_0()); }
-	'front_left:'
-	{ after(grammarAccess.getProxSensorAccess().getFront_leftKeyword_6_0()); }
+	{ before(grammarAccess.getProxSensorAccess().getBack_leftKeyword_6_0()); }
+	'back_left:'
+	{ after(grammarAccess.getProxSensorAccess().getBack_leftKeyword_6_0()); }
 )
 ;
 finally {
@@ -1755,9 +1792,63 @@ rule__ProxSensor__Group_6__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getProxSensorAccess().getFrontLeftSensorAssignment_6_1()); }
-	(rule__ProxSensor__FrontLeftSensorAssignment_6_1)
-	{ after(grammarAccess.getProxSensorAccess().getFrontLeftSensorAssignment_6_1()); }
+	{ before(grammarAccess.getProxSensorAccess().getBackLeftSensorAssignment_6_1()); }
+	(rule__ProxSensor__BackLeftSensorAssignment_6_1)
+	{ after(grammarAccess.getProxSensorAccess().getBackLeftSensorAssignment_6_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__ProxSensor__Group_7__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__ProxSensor__Group_7__0__Impl
+	rule__ProxSensor__Group_7__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ProxSensor__Group_7__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getProxSensorAccess().getBack_rightKeyword_7_0()); }
+	'back_right:'
+	{ after(grammarAccess.getProxSensorAccess().getBack_rightKeyword_7_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ProxSensor__Group_7__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__ProxSensor__Group_7__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ProxSensor__Group_7__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getProxSensorAccess().getBackRightSensorAssignment_7_1()); }
+	(rule__ProxSensor__BackRightSensorAssignment_7_1)
+	{ after(grammarAccess.getProxSensorAccess().getBackRightSensorAssignment_7_1()); }
 )
 ;
 finally {
@@ -3251,165 +3342,150 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Event__TapAssignment_1_1
+rule__Event__StimulusAssignment_1_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getEventAccess().getTapEBooleanParserRuleCall_1_1_0()); }
-		ruleEBoolean
-		{ after(grammarAccess.getEventAccess().getTapEBooleanParserRuleCall_1_1_0()); }
+		{ before(grammarAccess.getEventAccess().getStimulusStimulusParserRuleCall_1_1_0()); }
+		ruleStimulus
+		{ after(grammarAccess.getEventAccess().getStimulusStimulusParserRuleCall_1_1_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Event__MicAssignment_2_1
+rule__Event__ProxSensorAssignment_2_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getEventAccess().getMicEBooleanParserRuleCall_2_1_0()); }
-		ruleEBoolean
-		{ after(grammarAccess.getEventAccess().getMicEBooleanParserRuleCall_2_1_0()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Event__ProxSensorAssignment_3_1
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getEventAccess().getProxSensorProxSensorParserRuleCall_3_1_0()); }
+		{ before(grammarAccess.getEventAccess().getProxSensorProxSensorParserRuleCall_2_1_0()); }
 		ruleProxSensor
-		{ after(grammarAccess.getEventAccess().getProxSensorProxSensorParserRuleCall_3_1_0()); }
+		{ after(grammarAccess.getEventAccess().getProxSensorProxSensorParserRuleCall_2_1_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Event__BottomSensorAssignment_4_1
+rule__Event__BottomSensorAssignment_3_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getEventAccess().getBottomSensorBottomSensorParserRuleCall_4_1_0()); }
+		{ before(grammarAccess.getEventAccess().getBottomSensorBottomSensorParserRuleCall_3_1_0()); }
 		ruleBottomSensor
-		{ after(grammarAccess.getEventAccess().getBottomSensorBottomSensorParserRuleCall_4_1_0()); }
+		{ after(grammarAccess.getEventAccess().getBottomSensorBottomSensorParserRuleCall_3_1_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ProxSensor__BackLeftSensorAssignment_0_1
+rule__ProxSensor__FrontLeftSensorAssignment_1_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getProxSensorAccess().getBackLeftSensorSensorStatusParserRuleCall_0_1_0()); }
+		{ before(grammarAccess.getProxSensorAccess().getFrontLeftSensorSensorStatusParserRuleCall_1_1_0()); }
 		ruleSensorStatus
-		{ after(grammarAccess.getProxSensorAccess().getBackLeftSensorSensorStatusParserRuleCall_0_1_0()); }
+		{ after(grammarAccess.getProxSensorAccess().getFrontLeftSensorSensorStatusParserRuleCall_1_1_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ProxSensor__BackRightSensorAssignment_1_1
+rule__ProxSensor__FrontCenterLeftSensorAssignment_2_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getProxSensorAccess().getBackRightSensorSensorStatusParserRuleCall_1_1_0()); }
+		{ before(grammarAccess.getProxSensorAccess().getFrontCenterLeftSensorSensorStatusParserRuleCall_2_1_0()); }
 		ruleSensorStatus
-		{ after(grammarAccess.getProxSensorAccess().getBackRightSensorSensorStatusParserRuleCall_1_1_0()); }
+		{ after(grammarAccess.getProxSensorAccess().getFrontCenterLeftSensorSensorStatusParserRuleCall_2_1_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ProxSensor__FrontRightSensorAssignment_2_1
+rule__ProxSensor__FrontCenterSensorAssignment_3_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getProxSensorAccess().getFrontRightSensorSensorStatusParserRuleCall_2_1_0()); }
+		{ before(grammarAccess.getProxSensorAccess().getFrontCenterSensorSensorStatusParserRuleCall_3_1_0()); }
 		ruleSensorStatus
-		{ after(grammarAccess.getProxSensorAccess().getFrontRightSensorSensorStatusParserRuleCall_2_1_0()); }
+		{ after(grammarAccess.getProxSensorAccess().getFrontCenterSensorSensorStatusParserRuleCall_3_1_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ProxSensor__FrontCenterRightSensorAssignment_3_1
+rule__ProxSensor__FrontCenterRightSensorAssignment_4_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getProxSensorAccess().getFrontCenterRightSensorSensorStatusParserRuleCall_3_1_0()); }
+		{ before(grammarAccess.getProxSensorAccess().getFrontCenterRightSensorSensorStatusParserRuleCall_4_1_0()); }
 		ruleSensorStatus
-		{ after(grammarAccess.getProxSensorAccess().getFrontCenterRightSensorSensorStatusParserRuleCall_3_1_0()); }
+		{ after(grammarAccess.getProxSensorAccess().getFrontCenterRightSensorSensorStatusParserRuleCall_4_1_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ProxSensor__FrontCenterSensorAssignment_4_1
+rule__ProxSensor__FrontRightSensorAssignment_5_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getProxSensorAccess().getFrontCenterSensorSensorStatusParserRuleCall_4_1_0()); }
+		{ before(grammarAccess.getProxSensorAccess().getFrontRightSensorSensorStatusParserRuleCall_5_1_0()); }
 		ruleSensorStatus
-		{ after(grammarAccess.getProxSensorAccess().getFrontCenterSensorSensorStatusParserRuleCall_4_1_0()); }
+		{ after(grammarAccess.getProxSensorAccess().getFrontRightSensorSensorStatusParserRuleCall_5_1_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ProxSensor__FrontCenterLeftSensorAssignment_5_1
+rule__ProxSensor__BackLeftSensorAssignment_6_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getProxSensorAccess().getFrontCenterLeftSensorSensorStatusParserRuleCall_5_1_0()); }
+		{ before(grammarAccess.getProxSensorAccess().getBackLeftSensorSensorStatusParserRuleCall_6_1_0()); }
 		ruleSensorStatus
-		{ after(grammarAccess.getProxSensorAccess().getFrontCenterLeftSensorSensorStatusParserRuleCall_5_1_0()); }
+		{ after(grammarAccess.getProxSensorAccess().getBackLeftSensorSensorStatusParserRuleCall_6_1_0()); }
 	)
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ProxSensor__FrontLeftSensorAssignment_6_1
+rule__ProxSensor__BackRightSensorAssignment_7_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getProxSensorAccess().getFrontLeftSensorSensorStatusParserRuleCall_6_1_0()); }
+		{ before(grammarAccess.getProxSensorAccess().getBackRightSensorSensorStatusParserRuleCall_7_1_0()); }
 		ruleSensorStatus
-		{ after(grammarAccess.getProxSensorAccess().getFrontLeftSensorSensorStatusParserRuleCall_6_1_0()); }
+		{ after(grammarAccess.getProxSensorAccess().getBackRightSensorSensorStatusParserRuleCall_7_1_0()); }
 	)
 ;
 finally {

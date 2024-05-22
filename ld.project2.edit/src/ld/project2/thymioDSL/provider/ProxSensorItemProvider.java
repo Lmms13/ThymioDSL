@@ -61,13 +61,13 @@ public class ProxSensorItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addFrontLeftSensorPropertyDescriptor(object);
+			addFrontCenterLeftSensorPropertyDescriptor(object);
+			addFrontCenterSensorPropertyDescriptor(object);
+			addFrontCenterRightSensorPropertyDescriptor(object);
+			addFrontRightSensorPropertyDescriptor(object);
 			addBackLeftSensorPropertyDescriptor(object);
 			addBackRightSensorPropertyDescriptor(object);
-			addFrontRightSensorPropertyDescriptor(object);
-			addFrontCenterRightSensorPropertyDescriptor(object);
-			addFrontCenterSensorPropertyDescriptor(object);
-			addFrontCenterLeftSensorPropertyDescriptor(object);
-			addFrontLeftSensorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -245,7 +245,7 @@ public class ProxSensorItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ProxSensor)object).getBackLeftSensor();
+		String label = ((ProxSensor)object).getFrontLeftSensor();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ProxSensor_type") :
 			getString("_UI_ProxSensor_type") + " " + label;
@@ -264,13 +264,13 @@ public class ProxSensorItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ProxSensor.class)) {
+			case ThymioDSLPackage.PROX_SENSOR__FRONT_LEFT_SENSOR:
+			case ThymioDSLPackage.PROX_SENSOR__FRONT_CENTER_LEFT_SENSOR:
+			case ThymioDSLPackage.PROX_SENSOR__FRONT_CENTER_SENSOR:
+			case ThymioDSLPackage.PROX_SENSOR__FRONT_CENTER_RIGHT_SENSOR:
+			case ThymioDSLPackage.PROX_SENSOR__FRONT_RIGHT_SENSOR:
 			case ThymioDSLPackage.PROX_SENSOR__BACK_LEFT_SENSOR:
 			case ThymioDSLPackage.PROX_SENSOR__BACK_RIGHT_SENSOR:
-			case ThymioDSLPackage.PROX_SENSOR__FRONT_RIGHT_SENSOR:
-			case ThymioDSLPackage.PROX_SENSOR__FRONT_CENTER_RIGHT_SENSOR:
-			case ThymioDSLPackage.PROX_SENSOR__FRONT_CENTER_SENSOR:
-			case ThymioDSLPackage.PROX_SENSOR__FRONT_CENTER_LEFT_SENSOR:
-			case ThymioDSLPackage.PROX_SENSOR__FRONT_LEFT_SENSOR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

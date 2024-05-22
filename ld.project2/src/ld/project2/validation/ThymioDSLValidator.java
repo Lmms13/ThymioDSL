@@ -198,47 +198,49 @@ public class ThymioDSLValidator extends AbstractThymioDSLValidator {
 		}
 	}
 	
-	private boolean duplicateSensors(ProxSensor s1, ProxSensor s2) {
-		if(s1.getBackLeftSensor() != null && s2.getBackLeftSensor() != null) {
-			return true;
-		}
-		else if(s1.getBackRightSensor() != null && s2.getBackRightSensor() != null) {
-			return true;
-		}
-		else if(s1.getFrontLeftSensor() != null && s2.getFrontLeftSensor() != null) {
-			return true;
-		}
-		else if(s1.getFrontCenterLeftSensor() != null && s2.getBackRightSensor() != null) {
-			return true;
-		}
-		else if(s1.getFrontCenterSensor() != null && s2.getFrontCenterSensor() != null) {
-			return true;
-		}
-		else if(s1.getFrontCenterRightSensor() != null && s2.getFrontCenterRightSensor() != null) {
-			return true;
-		}
-		else if(s1.getFrontRightSensor() != null && s2.getFrontRightSensor() != null) {
-			return true;
-		}
-		return false;
-	}
-	
-	public static final String DUPLICATE_SENSOR = "duplicateSensor";
-	
-	@Check(CheckType.NORMAL)
-	public void checkDuplicateProcedure(Event event) {
-		if(!event.getProxSensor().isEmpty()) {
-			for(ProxSensor s1: event.getProxSensor()) {
-				for(ProxSensor s2: event.getProxSensor()) {
-					if(!s1.equals(s2) && duplicateSensors(s1, s2))
-						error("can't set behavior for the same sensor twice"
-								, s2
-								, ThymioDSLPackage.eINSTANCE.getProxSensor_BackLeftSensor()
-								, DUPLICATE_SENSOR);
-				}
-			}
-		}
-	}
+//	private boolean duplicateSensors(ProxSensor s1, ProxSensor s2) {
+//		if(s1.getBackLeftSensor() != null && s2.getBackLeftSensor() != null) {
+//			return true;
+//		}
+//		else if(s1.getBackRightSensor() != null && s2.getBackRightSensor() != null) {
+//			return true;
+//		}
+//		else if(s1.getFrontLeftSensor() != null && s2.getFrontLeftSensor() != null) {
+//			return true;
+//		}
+//		else if(s1.getFrontCenterLeftSensor() != null && s2.getBackRightSensor() != null) {
+//			return true;
+//		}
+//		else if(s1.getFrontCenterSensor() != null && s2.getFrontCenterSensor() != null) {
+//			return true;
+//		}
+//		else if(s1.getFrontCenterRightSensor() != null && s2.getFrontCenterRightSensor() != null) {
+//			return true;
+//		}
+//		else if(s1.getFrontRightSensor() != null && s2.getFrontRightSensor() != null) {
+//			return true;
+//		}
+//		return false;
+//	}
+//	
+//	public static final String DUPLICATE_SENSOR = "duplicateSensor";
+//	
+//	@Check(CheckType.NORMAL)
+//	public void checkDuplicateProcedure(Event event) {
+//		if(event.getProxSensor() != null) {
+//			event.getProxSensor().get
+//			
+//			for(ProxSensor s1: event.getProxSensor()) {
+//				for(ProxSensor s2: event.getProxSensor()) {
+//					if(!s1.equals(s2) && duplicateSensors(s1, s2))
+//						error("can't set behavior for the same sensor twice"
+//								, s2
+//								, ThymioDSLPackage.eINSTANCE.getProxSensor_BackLeftSensor()
+//								, DUPLICATE_SENSOR);
+//				}
+//			}
+//		}
+//	}
 	
 	
 }
