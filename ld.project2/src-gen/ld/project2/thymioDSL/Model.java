@@ -26,15 +26,15 @@ import org.eclipse.emf.ecore.EObject;
 public interface Model extends EObject
 {
   /**
-	 * Returns the value of the '<em><b>Procedures</b></em>' containment reference list.
-	 * The list contents are of type {@link ld.project2.thymioDSL.Procedure}.
-	 * <!-- begin-user-doc -->
+   * Returns the value of the '<em><b>Procedures</b></em>' containment reference list.
+   * The list contents are of type {@link ld.project2.thymioDSL.Procedure}.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @return the value of the '<em>Procedures</em>' containment reference list.
-	 * @see ld.project2.thymioDSL.ThymioDSLPackage#getModel_Procedures()
-	 * @model containment="true"
-	 * @generated
-	 */
+   * @return the value of the '<em>Procedures</em>' containment reference list.
+   * @see ld.project2.thymioDSL.ThymioDSLPackage#getModel_Procedures()
+   * @model containment="true"
+   * @generated
+   */
   EList<Procedure> getProcedures();
 
 } // Model

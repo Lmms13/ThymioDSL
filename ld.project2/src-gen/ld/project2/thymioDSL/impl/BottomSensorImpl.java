@@ -30,205 +30,209 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class BottomSensorImpl extends MinimalEObjectImpl.Container implements BottomSensor
 {
   /**
-	 * The default value of the '{@link #getBottomLeftSensor() <em>Bottom Left Sensor</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * The default value of the '{@link #getBottomLeftSensor() <em>Bottom Left Sensor</em>}' attribute.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @see #getBottomLeftSensor()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getBottomLeftSensor()
+   * @generated
+   * @ordered
+   */
   protected static final String BOTTOM_LEFT_SENSOR_EDEFAULT = null;
 
   /**
-	 * The cached value of the '{@link #getBottomLeftSensor() <em>Bottom Left Sensor</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getBottomLeftSensor() <em>Bottom Left Sensor</em>}' attribute.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @see #getBottomLeftSensor()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getBottomLeftSensor()
+   * @generated
+   * @ordered
+   */
   protected String bottomLeftSensor = BOTTOM_LEFT_SENSOR_EDEFAULT;
 
   /**
-	 * The default value of the '{@link #getBottomRightSensor() <em>Bottom Right Sensor</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * The default value of the '{@link #getBottomRightSensor() <em>Bottom Right Sensor</em>}' attribute.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @see #getBottomRightSensor()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getBottomRightSensor()
+   * @generated
+   * @ordered
+   */
   protected static final String BOTTOM_RIGHT_SENSOR_EDEFAULT = null;
 
   /**
-	 * The cached value of the '{@link #getBottomRightSensor() <em>Bottom Right Sensor</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getBottomRightSensor() <em>Bottom Right Sensor</em>}' attribute.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @see #getBottomRightSensor()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getBottomRightSensor()
+   * @generated
+   * @ordered
+   */
   protected String bottomRightSensor = BOTTOM_RIGHT_SENSOR_EDEFAULT;
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   protected BottomSensorImpl()
   {
-		super();
-	}
+    super();
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   protected EClass eStaticClass()
   {
-		return ThymioDSLPackage.Literals.BOTTOM_SENSOR;
-	}
+    return ThymioDSLPackage.Literals.BOTTOM_SENSOR;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public String getBottomLeftSensor()
   {
-		return bottomLeftSensor;
-	}
+    return bottomLeftSensor;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public void setBottomLeftSensor(String newBottomLeftSensor)
   {
-		String oldBottomLeftSensor = bottomLeftSensor;
-		bottomLeftSensor = newBottomLeftSensor;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.BOTTOM_SENSOR__BOTTOM_LEFT_SENSOR, oldBottomLeftSensor, bottomLeftSensor));
-	}
+    String oldBottomLeftSensor = bottomLeftSensor;
+    bottomLeftSensor = newBottomLeftSensor;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.BOTTOM_SENSOR__BOTTOM_LEFT_SENSOR, oldBottomLeftSensor, bottomLeftSensor));
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public String getBottomRightSensor()
   {
-		return bottomRightSensor;
-	}
+    return bottomRightSensor;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public void setBottomRightSensor(String newBottomRightSensor)
   {
-		String oldBottomRightSensor = bottomRightSensor;
-		bottomRightSensor = newBottomRightSensor;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.BOTTOM_SENSOR__BOTTOM_RIGHT_SENSOR, oldBottomRightSensor, bottomRightSensor));
-	}
+    String oldBottomRightSensor = bottomRightSensor;
+    bottomRightSensor = newBottomRightSensor;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.BOTTOM_SENSOR__BOTTOM_RIGHT_SENSOR, oldBottomRightSensor, bottomRightSensor));
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-		switch (featureID) {
-			case ThymioDSLPackage.BOTTOM_SENSOR__BOTTOM_LEFT_SENSOR:
-				return getBottomLeftSensor();
-			case ThymioDSLPackage.BOTTOM_SENSOR__BOTTOM_RIGHT_SENSOR:
-				return getBottomRightSensor();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+    switch (featureID)
+    {
+      case ThymioDSLPackage.BOTTOM_SENSOR__BOTTOM_LEFT_SENSOR:
+        return getBottomLeftSensor();
+      case ThymioDSLPackage.BOTTOM_SENSOR__BOTTOM_RIGHT_SENSOR:
+        return getBottomRightSensor();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public void eSet(int featureID, Object newValue)
   {
-		switch (featureID) {
-			case ThymioDSLPackage.BOTTOM_SENSOR__BOTTOM_LEFT_SENSOR:
-				setBottomLeftSensor((String)newValue);
-				return;
-			case ThymioDSLPackage.BOTTOM_SENSOR__BOTTOM_RIGHT_SENSOR:
-				setBottomRightSensor((String)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+    switch (featureID)
+    {
+      case ThymioDSLPackage.BOTTOM_SENSOR__BOTTOM_LEFT_SENSOR:
+        setBottomLeftSensor((String)newValue);
+        return;
+      case ThymioDSLPackage.BOTTOM_SENSOR__BOTTOM_RIGHT_SENSOR:
+        setBottomRightSensor((String)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public void eUnset(int featureID)
   {
-		switch (featureID) {
-			case ThymioDSLPackage.BOTTOM_SENSOR__BOTTOM_LEFT_SENSOR:
-				setBottomLeftSensor(BOTTOM_LEFT_SENSOR_EDEFAULT);
-				return;
-			case ThymioDSLPackage.BOTTOM_SENSOR__BOTTOM_RIGHT_SENSOR:
-				setBottomRightSensor(BOTTOM_RIGHT_SENSOR_EDEFAULT);
-				return;
-		}
-		super.eUnset(featureID);
-	}
+    switch (featureID)
+    {
+      case ThymioDSLPackage.BOTTOM_SENSOR__BOTTOM_LEFT_SENSOR:
+        setBottomLeftSensor(BOTTOM_LEFT_SENSOR_EDEFAULT);
+        return;
+      case ThymioDSLPackage.BOTTOM_SENSOR__BOTTOM_RIGHT_SENSOR:
+        setBottomRightSensor(BOTTOM_RIGHT_SENSOR_EDEFAULT);
+        return;
+    }
+    super.eUnset(featureID);
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public boolean eIsSet(int featureID)
   {
-		switch (featureID) {
-			case ThymioDSLPackage.BOTTOM_SENSOR__BOTTOM_LEFT_SENSOR:
-				return BOTTOM_LEFT_SENSOR_EDEFAULT == null ? bottomLeftSensor != null : !BOTTOM_LEFT_SENSOR_EDEFAULT.equals(bottomLeftSensor);
-			case ThymioDSLPackage.BOTTOM_SENSOR__BOTTOM_RIGHT_SENSOR:
-				return BOTTOM_RIGHT_SENSOR_EDEFAULT == null ? bottomRightSensor != null : !BOTTOM_RIGHT_SENSOR_EDEFAULT.equals(bottomRightSensor);
-		}
-		return super.eIsSet(featureID);
-	}
+    switch (featureID)
+    {
+      case ThymioDSLPackage.BOTTOM_SENSOR__BOTTOM_LEFT_SENSOR:
+        return BOTTOM_LEFT_SENSOR_EDEFAULT == null ? bottomLeftSensor != null : !BOTTOM_LEFT_SENSOR_EDEFAULT.equals(bottomLeftSensor);
+      case ThymioDSLPackage.BOTTOM_SENSOR__BOTTOM_RIGHT_SENSOR:
+        return BOTTOM_RIGHT_SENSOR_EDEFAULT == null ? bottomRightSensor != null : !BOTTOM_RIGHT_SENSOR_EDEFAULT.equals(bottomRightSensor);
+    }
+    return super.eIsSet(featureID);
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public String toString()
   {
-		if (eIsProxy()) return super.toString();
+    if (eIsProxy()) return super.toString();
 
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (bottomLeftSensor: ");
-		result.append(bottomLeftSensor);
-		result.append(", bottomRightSensor: ");
-		result.append(bottomRightSensor);
-		result.append(')');
-		return result.toString();
-	}
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (bottomLeftSensor: ");
+    result.append(bottomLeftSensor);
+    result.append(", bottomRightSensor: ");
+    result.append(bottomRightSensor);
+    result.append(')');
+    return result.toString();
+  }
 
 } //BottomSensorImpl

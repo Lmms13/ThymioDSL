@@ -28,59 +28,59 @@ import org.eclipse.emf.ecore.EObject;
 public interface Procedure extends EObject
 {
   /**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see ld.project2.thymioDSL.ThymioDSLPackage#getProcedure_Name()
-	 * @model
-	 * @generated
-	 */
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
+   * @see ld.project2.thymioDSL.ThymioDSLPackage#getProcedure_Name()
+   * @model
+   * @generated
+   */
   String getName();
 
   /**
-	 * Sets the value of the '{@link ld.project2.thymioDSL.Procedure#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * Sets the value of the '{@link ld.project2.thymioDSL.Procedure#getName <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
+   * @generated
+   */
   void setName(String value);
 
   /**
-	 * Returns the value of the '<em><b>Events</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
+   * Returns the value of the '<em><b>Events</b></em>' containment reference.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @return the value of the '<em>Events</em>' containment reference.
-	 * @see #setEvents(Event)
-	 * @see ld.project2.thymioDSL.ThymioDSLPackage#getProcedure_Events()
-	 * @model containment="true"
-	 * @generated
-	 */
+   * @return the value of the '<em>Events</em>' containment reference.
+   * @see #setEvents(Event)
+   * @see ld.project2.thymioDSL.ThymioDSLPackage#getProcedure_Events()
+   * @model containment="true"
+   * @generated
+   */
   Event getEvents();
 
   /**
-	 * Sets the value of the '{@link ld.project2.thymioDSL.Procedure#getEvents <em>Events</em>}' containment reference.
-	 * <!-- begin-user-doc -->
+   * Sets the value of the '{@link ld.project2.thymioDSL.Procedure#getEvents <em>Events</em>}' containment reference.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Events</em>' containment reference.
-	 * @see #getEvents()
-	 * @generated
-	 */
+   * @param value the new value of the '<em>Events</em>' containment reference.
+   * @see #getEvents()
+   * @generated
+   */
   void setEvents(Event value);
 
   /**
-	 * Returns the value of the '<em><b>Actions</b></em>' containment reference list.
-	 * The list contents are of type {@link ld.project2.thymioDSL.Action}.
-	 * <!-- begin-user-doc -->
+   * Returns the value of the '<em><b>Actions</b></em>' containment reference list.
+   * The list contents are of type {@link ld.project2.thymioDSL.Action}.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @return the value of the '<em>Actions</em>' containment reference list.
-	 * @see ld.project2.thymioDSL.ThymioDSLPackage#getProcedure_Actions()
-	 * @model containment="true"
-	 * @generated
-	 */
+   * @return the value of the '<em>Actions</em>' containment reference list.
+   * @see ld.project2.thymioDSL.ThymioDSLPackage#getProcedure_Actions()
+   * @model containment="true"
+   * @generated
+   */
   EList<Action> getActions();
 
 } // Procedure

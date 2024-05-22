@@ -42,269 +42,277 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class ProcedureImpl extends MinimalEObjectImpl.Container implements Procedure
 {
   /**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
   protected static final String NAME_EDEFAULT = null;
 
   /**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
   protected String name = NAME_EDEFAULT;
 
   /**
-	 * The cached value of the '{@link #getEvents() <em>Events</em>}' containment reference.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getEvents() <em>Events</em>}' containment reference.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @see #getEvents()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getEvents()
+   * @generated
+   * @ordered
+   */
   protected Event events;
 
   /**
-	 * The cached value of the '{@link #getActions() <em>Actions</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getActions() <em>Actions</em>}' containment reference list.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @see #getActions()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getActions()
+   * @generated
+   * @ordered
+   */
   protected EList<Action> actions;
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   protected ProcedureImpl()
   {
-		super();
-	}
+    super();
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   protected EClass eStaticClass()
   {
-		return ThymioDSLPackage.Literals.PROCEDURE;
-	}
+    return ThymioDSLPackage.Literals.PROCEDURE;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public String getName()
   {
-		return name;
-	}
+    return name;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public void setName(String newName)
   {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.PROCEDURE__NAME, oldName, name));
-	}
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.PROCEDURE__NAME, oldName, name));
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public Event getEvents()
   {
-		return events;
-	}
+    return events;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   public NotificationChain basicSetEvents(Event newEvents, NotificationChain msgs)
   {
-		Event oldEvents = events;
-		events = newEvents;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.PROCEDURE__EVENTS, oldEvents, newEvents);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
+    Event oldEvents = events;
+    events = newEvents;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.PROCEDURE__EVENTS, oldEvents, newEvents);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public void setEvents(Event newEvents)
   {
-		if (newEvents != events) {
-			NotificationChain msgs = null;
-			if (events != null)
-				msgs = ((InternalEObject)events).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.PROCEDURE__EVENTS, null, msgs);
-			if (newEvents != null)
-				msgs = ((InternalEObject)newEvents).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.PROCEDURE__EVENTS, null, msgs);
-			msgs = basicSetEvents(newEvents, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.PROCEDURE__EVENTS, newEvents, newEvents));
-	}
+    if (newEvents != events)
+    {
+      NotificationChain msgs = null;
+      if (events != null)
+        msgs = ((InternalEObject)events).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.PROCEDURE__EVENTS, null, msgs);
+      if (newEvents != null)
+        msgs = ((InternalEObject)newEvents).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.PROCEDURE__EVENTS, null, msgs);
+      msgs = basicSetEvents(newEvents, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.PROCEDURE__EVENTS, newEvents, newEvents));
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public EList<Action> getActions()
   {
-		if (actions == null) {
-			actions = new EObjectContainmentEList<Action>(Action.class, this, ThymioDSLPackage.PROCEDURE__ACTIONS);
-		}
-		return actions;
-	}
+    if (actions == null)
+    {
+      actions = new EObjectContainmentEList<Action>(Action.class, this, ThymioDSLPackage.PROCEDURE__ACTIONS);
+    }
+    return actions;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-		switch (featureID) {
-			case ThymioDSLPackage.PROCEDURE__EVENTS:
-				return basicSetEvents(null, msgs);
-			case ThymioDSLPackage.PROCEDURE__ACTIONS:
-				return ((InternalEList<?>)getActions()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
+    switch (featureID)
+    {
+      case ThymioDSLPackage.PROCEDURE__EVENTS:
+        return basicSetEvents(null, msgs);
+      case ThymioDSLPackage.PROCEDURE__ACTIONS:
+        return ((InternalEList<?>)getActions()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-		switch (featureID) {
-			case ThymioDSLPackage.PROCEDURE__NAME:
-				return getName();
-			case ThymioDSLPackage.PROCEDURE__EVENTS:
-				return getEvents();
-			case ThymioDSLPackage.PROCEDURE__ACTIONS:
-				return getActions();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+    switch (featureID)
+    {
+      case ThymioDSLPackage.PROCEDURE__NAME:
+        return getName();
+      case ThymioDSLPackage.PROCEDURE__EVENTS:
+        return getEvents();
+      case ThymioDSLPackage.PROCEDURE__ACTIONS:
+        return getActions();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
-		switch (featureID) {
-			case ThymioDSLPackage.PROCEDURE__NAME:
-				setName((String)newValue);
-				return;
-			case ThymioDSLPackage.PROCEDURE__EVENTS:
-				setEvents((Event)newValue);
-				return;
-			case ThymioDSLPackage.PROCEDURE__ACTIONS:
-				getActions().clear();
-				getActions().addAll((Collection<? extends Action>)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+    switch (featureID)
+    {
+      case ThymioDSLPackage.PROCEDURE__NAME:
+        setName((String)newValue);
+        return;
+      case ThymioDSLPackage.PROCEDURE__EVENTS:
+        setEvents((Event)newValue);
+        return;
+      case ThymioDSLPackage.PROCEDURE__ACTIONS:
+        getActions().clear();
+        getActions().addAll((Collection<? extends Action>)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public void eUnset(int featureID)
   {
-		switch (featureID) {
-			case ThymioDSLPackage.PROCEDURE__NAME:
-				setName(NAME_EDEFAULT);
-				return;
-			case ThymioDSLPackage.PROCEDURE__EVENTS:
-				setEvents((Event)null);
-				return;
-			case ThymioDSLPackage.PROCEDURE__ACTIONS:
-				getActions().clear();
-				return;
-		}
-		super.eUnset(featureID);
-	}
+    switch (featureID)
+    {
+      case ThymioDSLPackage.PROCEDURE__NAME:
+        setName(NAME_EDEFAULT);
+        return;
+      case ThymioDSLPackage.PROCEDURE__EVENTS:
+        setEvents((Event)null);
+        return;
+      case ThymioDSLPackage.PROCEDURE__ACTIONS:
+        getActions().clear();
+        return;
+    }
+    super.eUnset(featureID);
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public boolean eIsSet(int featureID)
   {
-		switch (featureID) {
-			case ThymioDSLPackage.PROCEDURE__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case ThymioDSLPackage.PROCEDURE__EVENTS:
-				return events != null;
-			case ThymioDSLPackage.PROCEDURE__ACTIONS:
-				return actions != null && !actions.isEmpty();
-		}
-		return super.eIsSet(featureID);
-	}
+    switch (featureID)
+    {
+      case ThymioDSLPackage.PROCEDURE__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case ThymioDSLPackage.PROCEDURE__EVENTS:
+        return events != null;
+      case ThymioDSLPackage.PROCEDURE__ACTIONS:
+        return actions != null && !actions.isEmpty();
+    }
+    return super.eIsSet(featureID);
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public String toString()
   {
-		if (eIsProxy()) return super.toString();
+    if (eIsProxy()) return super.toString();
 
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(')');
-		return result.toString();
-	}
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
+  }
 
 } //ProcedureImpl

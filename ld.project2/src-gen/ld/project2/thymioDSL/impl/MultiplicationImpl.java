@@ -18,24 +18,24 @@ import org.eclipse.emf.ecore.EClass;
 public class MultiplicationImpl extends ExpressionImpl implements Multiplication
 {
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   protected MultiplicationImpl()
   {
-		super();
-	}
+    super();
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   protected EClass eStaticClass()
   {
-		return ThymioDSLPackage.Literals.MULTIPLICATION;
-	}
+    return ThymioDSLPackage.Literals.MULTIPLICATION;
+  }
 
 } //MultiplicationImpl

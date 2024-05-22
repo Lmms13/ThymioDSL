@@ -26,69 +26,69 @@ import org.eclipse.emf.ecore.EObject;
 public interface RGB extends EObject
 {
   /**
-	 * Returns the value of the '<em><b>Red</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
+   * Returns the value of the '<em><b>Red</b></em>' containment reference.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @return the value of the '<em>Red</em>' containment reference.
-	 * @see #setRed(Expression)
-	 * @see ld.project2.thymioDSL.ThymioDSLPackage#getRGB_Red()
-	 * @model containment="true"
-	 * @generated
-	 */
+   * @return the value of the '<em>Red</em>' containment reference.
+   * @see #setRed(Expression)
+   * @see ld.project2.thymioDSL.ThymioDSLPackage#getRGB_Red()
+   * @model containment="true"
+   * @generated
+   */
   Expression getRed();
 
   /**
-	 * Sets the value of the '{@link ld.project2.thymioDSL.RGB#getRed <em>Red</em>}' containment reference.
-	 * <!-- begin-user-doc -->
+   * Sets the value of the '{@link ld.project2.thymioDSL.RGB#getRed <em>Red</em>}' containment reference.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Red</em>' containment reference.
-	 * @see #getRed()
-	 * @generated
-	 */
+   * @param value the new value of the '<em>Red</em>' containment reference.
+   * @see #getRed()
+   * @generated
+   */
   void setRed(Expression value);
 
   /**
-	 * Returns the value of the '<em><b>Green</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
+   * Returns the value of the '<em><b>Green</b></em>' containment reference.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @return the value of the '<em>Green</em>' containment reference.
-	 * @see #setGreen(Expression)
-	 * @see ld.project2.thymioDSL.ThymioDSLPackage#getRGB_Green()
-	 * @model containment="true"
-	 * @generated
-	 */
+   * @return the value of the '<em>Green</em>' containment reference.
+   * @see #setGreen(Expression)
+   * @see ld.project2.thymioDSL.ThymioDSLPackage#getRGB_Green()
+   * @model containment="true"
+   * @generated
+   */
   Expression getGreen();
 
   /**
-	 * Sets the value of the '{@link ld.project2.thymioDSL.RGB#getGreen <em>Green</em>}' containment reference.
-	 * <!-- begin-user-doc -->
+   * Sets the value of the '{@link ld.project2.thymioDSL.RGB#getGreen <em>Green</em>}' containment reference.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Green</em>' containment reference.
-	 * @see #getGreen()
-	 * @generated
-	 */
+   * @param value the new value of the '<em>Green</em>' containment reference.
+   * @see #getGreen()
+   * @generated
+   */
   void setGreen(Expression value);
 
   /**
-	 * Returns the value of the '<em><b>Blue</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
+   * Returns the value of the '<em><b>Blue</b></em>' containment reference.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @return the value of the '<em>Blue</em>' containment reference.
-	 * @see #setBlue(Expression)
-	 * @see ld.project2.thymioDSL.ThymioDSLPackage#getRGB_Blue()
-	 * @model containment="true"
-	 * @generated
-	 */
+   * @return the value of the '<em>Blue</em>' containment reference.
+   * @see #setBlue(Expression)
+   * @see ld.project2.thymioDSL.ThymioDSLPackage#getRGB_Blue()
+   * @model containment="true"
+   * @generated
+   */
   Expression getBlue();
 
   /**
-	 * Sets the value of the '{@link ld.project2.thymioDSL.RGB#getBlue <em>Blue</em>}' containment reference.
-	 * <!-- begin-user-doc -->
+   * Sets the value of the '{@link ld.project2.thymioDSL.RGB#getBlue <em>Blue</em>}' containment reference.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Blue</em>' containment reference.
-	 * @see #getBlue()
-	 * @generated
-	 */
+   * @param value the new value of the '<em>Blue</em>' containment reference.
+   * @see #getBlue()
+   * @generated
+   */
   void setBlue(Expression value);
 
 } // RGB

@@ -3,6 +3,12 @@
  */
 package ld.project2;
 
+import org.eclipse.emf.ecore.EPackage;
+
+import com.google.inject.Injector;
+
+import ld.project2.thymioDSL.ThymioDSLPackage;
+
 
 /**
  * Initialization support for running Xtext languages without Equinox extension registry.
@@ -11,5 +17,12 @@ public class ThymioDSLStandaloneSetup extends ThymioDSLStandaloneSetupGenerated 
 
 	public static void doSetup() {
 		new ThymioDSLStandaloneSetup().createInjectorAndDoEMFRegistration();
+	}
+	
+	public void register (Injector injector) {
+		if(!EPackage.Registry.INSTANCE.containsKey("project2")) {
+			EPackage.Registry.INSTANCE.put("project2", ThymioDSLPackage.eINSTANCE);
+		}
+		super.register(injector);
 	}
 }

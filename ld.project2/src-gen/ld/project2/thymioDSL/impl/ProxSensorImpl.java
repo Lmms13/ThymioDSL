@@ -35,490 +35,494 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class ProxSensorImpl extends MinimalEObjectImpl.Container implements ProxSensor
 {
   /**
-	 * The default value of the '{@link #getFrontLeftSensor() <em>Front Left Sensor</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * The default value of the '{@link #getFrontLeftSensor() <em>Front Left Sensor</em>}' attribute.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @see #getFrontLeftSensor()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getFrontLeftSensor()
+   * @generated
+   * @ordered
+   */
   protected static final String FRONT_LEFT_SENSOR_EDEFAULT = null;
 
   /**
-	 * The cached value of the '{@link #getFrontLeftSensor() <em>Front Left Sensor</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getFrontLeftSensor() <em>Front Left Sensor</em>}' attribute.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @see #getFrontLeftSensor()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getFrontLeftSensor()
+   * @generated
+   * @ordered
+   */
   protected String frontLeftSensor = FRONT_LEFT_SENSOR_EDEFAULT;
 
   /**
-	 * The default value of the '{@link #getFrontCenterLeftSensor() <em>Front Center Left Sensor</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * The default value of the '{@link #getFrontCenterLeftSensor() <em>Front Center Left Sensor</em>}' attribute.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @see #getFrontCenterLeftSensor()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getFrontCenterLeftSensor()
+   * @generated
+   * @ordered
+   */
   protected static final String FRONT_CENTER_LEFT_SENSOR_EDEFAULT = null;
 
   /**
-	 * The cached value of the '{@link #getFrontCenterLeftSensor() <em>Front Center Left Sensor</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getFrontCenterLeftSensor() <em>Front Center Left Sensor</em>}' attribute.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @see #getFrontCenterLeftSensor()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getFrontCenterLeftSensor()
+   * @generated
+   * @ordered
+   */
   protected String frontCenterLeftSensor = FRONT_CENTER_LEFT_SENSOR_EDEFAULT;
 
   /**
-	 * The default value of the '{@link #getFrontCenterSensor() <em>Front Center Sensor</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * The default value of the '{@link #getFrontCenterSensor() <em>Front Center Sensor</em>}' attribute.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @see #getFrontCenterSensor()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getFrontCenterSensor()
+   * @generated
+   * @ordered
+   */
   protected static final String FRONT_CENTER_SENSOR_EDEFAULT = null;
 
   /**
-	 * The cached value of the '{@link #getFrontCenterSensor() <em>Front Center Sensor</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getFrontCenterSensor() <em>Front Center Sensor</em>}' attribute.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @see #getFrontCenterSensor()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getFrontCenterSensor()
+   * @generated
+   * @ordered
+   */
   protected String frontCenterSensor = FRONT_CENTER_SENSOR_EDEFAULT;
 
   /**
-	 * The default value of the '{@link #getFrontCenterRightSensor() <em>Front Center Right Sensor</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * The default value of the '{@link #getFrontCenterRightSensor() <em>Front Center Right Sensor</em>}' attribute.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @see #getFrontCenterRightSensor()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getFrontCenterRightSensor()
+   * @generated
+   * @ordered
+   */
   protected static final String FRONT_CENTER_RIGHT_SENSOR_EDEFAULT = null;
 
   /**
-	 * The cached value of the '{@link #getFrontCenterRightSensor() <em>Front Center Right Sensor</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getFrontCenterRightSensor() <em>Front Center Right Sensor</em>}' attribute.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @see #getFrontCenterRightSensor()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getFrontCenterRightSensor()
+   * @generated
+   * @ordered
+   */
   protected String frontCenterRightSensor = FRONT_CENTER_RIGHT_SENSOR_EDEFAULT;
 
   /**
-	 * The default value of the '{@link #getFrontRightSensor() <em>Front Right Sensor</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * The default value of the '{@link #getFrontRightSensor() <em>Front Right Sensor</em>}' attribute.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @see #getFrontRightSensor()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getFrontRightSensor()
+   * @generated
+   * @ordered
+   */
   protected static final String FRONT_RIGHT_SENSOR_EDEFAULT = null;
 
   /**
-	 * The cached value of the '{@link #getFrontRightSensor() <em>Front Right Sensor</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getFrontRightSensor() <em>Front Right Sensor</em>}' attribute.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @see #getFrontRightSensor()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getFrontRightSensor()
+   * @generated
+   * @ordered
+   */
   protected String frontRightSensor = FRONT_RIGHT_SENSOR_EDEFAULT;
 
   /**
-	 * The default value of the '{@link #getBackLeftSensor() <em>Back Left Sensor</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * The default value of the '{@link #getBackLeftSensor() <em>Back Left Sensor</em>}' attribute.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @see #getBackLeftSensor()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getBackLeftSensor()
+   * @generated
+   * @ordered
+   */
   protected static final String BACK_LEFT_SENSOR_EDEFAULT = null;
 
   /**
-	 * The cached value of the '{@link #getBackLeftSensor() <em>Back Left Sensor</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getBackLeftSensor() <em>Back Left Sensor</em>}' attribute.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @see #getBackLeftSensor()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getBackLeftSensor()
+   * @generated
+   * @ordered
+   */
   protected String backLeftSensor = BACK_LEFT_SENSOR_EDEFAULT;
 
   /**
-	 * The default value of the '{@link #getBackRightSensor() <em>Back Right Sensor</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * The default value of the '{@link #getBackRightSensor() <em>Back Right Sensor</em>}' attribute.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @see #getBackRightSensor()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getBackRightSensor()
+   * @generated
+   * @ordered
+   */
   protected static final String BACK_RIGHT_SENSOR_EDEFAULT = null;
 
   /**
-	 * The cached value of the '{@link #getBackRightSensor() <em>Back Right Sensor</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getBackRightSensor() <em>Back Right Sensor</em>}' attribute.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @see #getBackRightSensor()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getBackRightSensor()
+   * @generated
+   * @ordered
+   */
   protected String backRightSensor = BACK_RIGHT_SENSOR_EDEFAULT;
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   protected ProxSensorImpl()
   {
-		super();
-	}
+    super();
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   protected EClass eStaticClass()
   {
-		return ThymioDSLPackage.Literals.PROX_SENSOR;
-	}
+    return ThymioDSLPackage.Literals.PROX_SENSOR;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public String getFrontLeftSensor()
   {
-		return frontLeftSensor;
-	}
+    return frontLeftSensor;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public void setFrontLeftSensor(String newFrontLeftSensor)
   {
-		String oldFrontLeftSensor = frontLeftSensor;
-		frontLeftSensor = newFrontLeftSensor;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.PROX_SENSOR__FRONT_LEFT_SENSOR, oldFrontLeftSensor, frontLeftSensor));
-	}
+    String oldFrontLeftSensor = frontLeftSensor;
+    frontLeftSensor = newFrontLeftSensor;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.PROX_SENSOR__FRONT_LEFT_SENSOR, oldFrontLeftSensor, frontLeftSensor));
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public String getFrontCenterLeftSensor()
   {
-		return frontCenterLeftSensor;
-	}
+    return frontCenterLeftSensor;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public void setFrontCenterLeftSensor(String newFrontCenterLeftSensor)
   {
-		String oldFrontCenterLeftSensor = frontCenterLeftSensor;
-		frontCenterLeftSensor = newFrontCenterLeftSensor;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.PROX_SENSOR__FRONT_CENTER_LEFT_SENSOR, oldFrontCenterLeftSensor, frontCenterLeftSensor));
-	}
+    String oldFrontCenterLeftSensor = frontCenterLeftSensor;
+    frontCenterLeftSensor = newFrontCenterLeftSensor;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.PROX_SENSOR__FRONT_CENTER_LEFT_SENSOR, oldFrontCenterLeftSensor, frontCenterLeftSensor));
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public String getFrontCenterSensor()
   {
-		return frontCenterSensor;
-	}
+    return frontCenterSensor;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public void setFrontCenterSensor(String newFrontCenterSensor)
   {
-		String oldFrontCenterSensor = frontCenterSensor;
-		frontCenterSensor = newFrontCenterSensor;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.PROX_SENSOR__FRONT_CENTER_SENSOR, oldFrontCenterSensor, frontCenterSensor));
-	}
+    String oldFrontCenterSensor = frontCenterSensor;
+    frontCenterSensor = newFrontCenterSensor;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.PROX_SENSOR__FRONT_CENTER_SENSOR, oldFrontCenterSensor, frontCenterSensor));
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public String getFrontCenterRightSensor()
   {
-		return frontCenterRightSensor;
-	}
+    return frontCenterRightSensor;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public void setFrontCenterRightSensor(String newFrontCenterRightSensor)
   {
-		String oldFrontCenterRightSensor = frontCenterRightSensor;
-		frontCenterRightSensor = newFrontCenterRightSensor;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.PROX_SENSOR__FRONT_CENTER_RIGHT_SENSOR, oldFrontCenterRightSensor, frontCenterRightSensor));
-	}
+    String oldFrontCenterRightSensor = frontCenterRightSensor;
+    frontCenterRightSensor = newFrontCenterRightSensor;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.PROX_SENSOR__FRONT_CENTER_RIGHT_SENSOR, oldFrontCenterRightSensor, frontCenterRightSensor));
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public String getFrontRightSensor()
   {
-		return frontRightSensor;
-	}
+    return frontRightSensor;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public void setFrontRightSensor(String newFrontRightSensor)
   {
-		String oldFrontRightSensor = frontRightSensor;
-		frontRightSensor = newFrontRightSensor;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.PROX_SENSOR__FRONT_RIGHT_SENSOR, oldFrontRightSensor, frontRightSensor));
-	}
+    String oldFrontRightSensor = frontRightSensor;
+    frontRightSensor = newFrontRightSensor;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.PROX_SENSOR__FRONT_RIGHT_SENSOR, oldFrontRightSensor, frontRightSensor));
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public String getBackLeftSensor()
   {
-		return backLeftSensor;
-	}
+    return backLeftSensor;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public void setBackLeftSensor(String newBackLeftSensor)
   {
-		String oldBackLeftSensor = backLeftSensor;
-		backLeftSensor = newBackLeftSensor;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.PROX_SENSOR__BACK_LEFT_SENSOR, oldBackLeftSensor, backLeftSensor));
-	}
+    String oldBackLeftSensor = backLeftSensor;
+    backLeftSensor = newBackLeftSensor;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.PROX_SENSOR__BACK_LEFT_SENSOR, oldBackLeftSensor, backLeftSensor));
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public String getBackRightSensor()
   {
-		return backRightSensor;
-	}
+    return backRightSensor;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public void setBackRightSensor(String newBackRightSensor)
   {
-		String oldBackRightSensor = backRightSensor;
-		backRightSensor = newBackRightSensor;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.PROX_SENSOR__BACK_RIGHT_SENSOR, oldBackRightSensor, backRightSensor));
-	}
+    String oldBackRightSensor = backRightSensor;
+    backRightSensor = newBackRightSensor;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.PROX_SENSOR__BACK_RIGHT_SENSOR, oldBackRightSensor, backRightSensor));
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-		switch (featureID) {
-			case ThymioDSLPackage.PROX_SENSOR__FRONT_LEFT_SENSOR:
-				return getFrontLeftSensor();
-			case ThymioDSLPackage.PROX_SENSOR__FRONT_CENTER_LEFT_SENSOR:
-				return getFrontCenterLeftSensor();
-			case ThymioDSLPackage.PROX_SENSOR__FRONT_CENTER_SENSOR:
-				return getFrontCenterSensor();
-			case ThymioDSLPackage.PROX_SENSOR__FRONT_CENTER_RIGHT_SENSOR:
-				return getFrontCenterRightSensor();
-			case ThymioDSLPackage.PROX_SENSOR__FRONT_RIGHT_SENSOR:
-				return getFrontRightSensor();
-			case ThymioDSLPackage.PROX_SENSOR__BACK_LEFT_SENSOR:
-				return getBackLeftSensor();
-			case ThymioDSLPackage.PROX_SENSOR__BACK_RIGHT_SENSOR:
-				return getBackRightSensor();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+    switch (featureID)
+    {
+      case ThymioDSLPackage.PROX_SENSOR__FRONT_LEFT_SENSOR:
+        return getFrontLeftSensor();
+      case ThymioDSLPackage.PROX_SENSOR__FRONT_CENTER_LEFT_SENSOR:
+        return getFrontCenterLeftSensor();
+      case ThymioDSLPackage.PROX_SENSOR__FRONT_CENTER_SENSOR:
+        return getFrontCenterSensor();
+      case ThymioDSLPackage.PROX_SENSOR__FRONT_CENTER_RIGHT_SENSOR:
+        return getFrontCenterRightSensor();
+      case ThymioDSLPackage.PROX_SENSOR__FRONT_RIGHT_SENSOR:
+        return getFrontRightSensor();
+      case ThymioDSLPackage.PROX_SENSOR__BACK_LEFT_SENSOR:
+        return getBackLeftSensor();
+      case ThymioDSLPackage.PROX_SENSOR__BACK_RIGHT_SENSOR:
+        return getBackRightSensor();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public void eSet(int featureID, Object newValue)
   {
-		switch (featureID) {
-			case ThymioDSLPackage.PROX_SENSOR__FRONT_LEFT_SENSOR:
-				setFrontLeftSensor((String)newValue);
-				return;
-			case ThymioDSLPackage.PROX_SENSOR__FRONT_CENTER_LEFT_SENSOR:
-				setFrontCenterLeftSensor((String)newValue);
-				return;
-			case ThymioDSLPackage.PROX_SENSOR__FRONT_CENTER_SENSOR:
-				setFrontCenterSensor((String)newValue);
-				return;
-			case ThymioDSLPackage.PROX_SENSOR__FRONT_CENTER_RIGHT_SENSOR:
-				setFrontCenterRightSensor((String)newValue);
-				return;
-			case ThymioDSLPackage.PROX_SENSOR__FRONT_RIGHT_SENSOR:
-				setFrontRightSensor((String)newValue);
-				return;
-			case ThymioDSLPackage.PROX_SENSOR__BACK_LEFT_SENSOR:
-				setBackLeftSensor((String)newValue);
-				return;
-			case ThymioDSLPackage.PROX_SENSOR__BACK_RIGHT_SENSOR:
-				setBackRightSensor((String)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+    switch (featureID)
+    {
+      case ThymioDSLPackage.PROX_SENSOR__FRONT_LEFT_SENSOR:
+        setFrontLeftSensor((String)newValue);
+        return;
+      case ThymioDSLPackage.PROX_SENSOR__FRONT_CENTER_LEFT_SENSOR:
+        setFrontCenterLeftSensor((String)newValue);
+        return;
+      case ThymioDSLPackage.PROX_SENSOR__FRONT_CENTER_SENSOR:
+        setFrontCenterSensor((String)newValue);
+        return;
+      case ThymioDSLPackage.PROX_SENSOR__FRONT_CENTER_RIGHT_SENSOR:
+        setFrontCenterRightSensor((String)newValue);
+        return;
+      case ThymioDSLPackage.PROX_SENSOR__FRONT_RIGHT_SENSOR:
+        setFrontRightSensor((String)newValue);
+        return;
+      case ThymioDSLPackage.PROX_SENSOR__BACK_LEFT_SENSOR:
+        setBackLeftSensor((String)newValue);
+        return;
+      case ThymioDSLPackage.PROX_SENSOR__BACK_RIGHT_SENSOR:
+        setBackRightSensor((String)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public void eUnset(int featureID)
   {
-		switch (featureID) {
-			case ThymioDSLPackage.PROX_SENSOR__FRONT_LEFT_SENSOR:
-				setFrontLeftSensor(FRONT_LEFT_SENSOR_EDEFAULT);
-				return;
-			case ThymioDSLPackage.PROX_SENSOR__FRONT_CENTER_LEFT_SENSOR:
-				setFrontCenterLeftSensor(FRONT_CENTER_LEFT_SENSOR_EDEFAULT);
-				return;
-			case ThymioDSLPackage.PROX_SENSOR__FRONT_CENTER_SENSOR:
-				setFrontCenterSensor(FRONT_CENTER_SENSOR_EDEFAULT);
-				return;
-			case ThymioDSLPackage.PROX_SENSOR__FRONT_CENTER_RIGHT_SENSOR:
-				setFrontCenterRightSensor(FRONT_CENTER_RIGHT_SENSOR_EDEFAULT);
-				return;
-			case ThymioDSLPackage.PROX_SENSOR__FRONT_RIGHT_SENSOR:
-				setFrontRightSensor(FRONT_RIGHT_SENSOR_EDEFAULT);
-				return;
-			case ThymioDSLPackage.PROX_SENSOR__BACK_LEFT_SENSOR:
-				setBackLeftSensor(BACK_LEFT_SENSOR_EDEFAULT);
-				return;
-			case ThymioDSLPackage.PROX_SENSOR__BACK_RIGHT_SENSOR:
-				setBackRightSensor(BACK_RIGHT_SENSOR_EDEFAULT);
-				return;
-		}
-		super.eUnset(featureID);
-	}
+    switch (featureID)
+    {
+      case ThymioDSLPackage.PROX_SENSOR__FRONT_LEFT_SENSOR:
+        setFrontLeftSensor(FRONT_LEFT_SENSOR_EDEFAULT);
+        return;
+      case ThymioDSLPackage.PROX_SENSOR__FRONT_CENTER_LEFT_SENSOR:
+        setFrontCenterLeftSensor(FRONT_CENTER_LEFT_SENSOR_EDEFAULT);
+        return;
+      case ThymioDSLPackage.PROX_SENSOR__FRONT_CENTER_SENSOR:
+        setFrontCenterSensor(FRONT_CENTER_SENSOR_EDEFAULT);
+        return;
+      case ThymioDSLPackage.PROX_SENSOR__FRONT_CENTER_RIGHT_SENSOR:
+        setFrontCenterRightSensor(FRONT_CENTER_RIGHT_SENSOR_EDEFAULT);
+        return;
+      case ThymioDSLPackage.PROX_SENSOR__FRONT_RIGHT_SENSOR:
+        setFrontRightSensor(FRONT_RIGHT_SENSOR_EDEFAULT);
+        return;
+      case ThymioDSLPackage.PROX_SENSOR__BACK_LEFT_SENSOR:
+        setBackLeftSensor(BACK_LEFT_SENSOR_EDEFAULT);
+        return;
+      case ThymioDSLPackage.PROX_SENSOR__BACK_RIGHT_SENSOR:
+        setBackRightSensor(BACK_RIGHT_SENSOR_EDEFAULT);
+        return;
+    }
+    super.eUnset(featureID);
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public boolean eIsSet(int featureID)
   {
-		switch (featureID) {
-			case ThymioDSLPackage.PROX_SENSOR__FRONT_LEFT_SENSOR:
-				return FRONT_LEFT_SENSOR_EDEFAULT == null ? frontLeftSensor != null : !FRONT_LEFT_SENSOR_EDEFAULT.equals(frontLeftSensor);
-			case ThymioDSLPackage.PROX_SENSOR__FRONT_CENTER_LEFT_SENSOR:
-				return FRONT_CENTER_LEFT_SENSOR_EDEFAULT == null ? frontCenterLeftSensor != null : !FRONT_CENTER_LEFT_SENSOR_EDEFAULT.equals(frontCenterLeftSensor);
-			case ThymioDSLPackage.PROX_SENSOR__FRONT_CENTER_SENSOR:
-				return FRONT_CENTER_SENSOR_EDEFAULT == null ? frontCenterSensor != null : !FRONT_CENTER_SENSOR_EDEFAULT.equals(frontCenterSensor);
-			case ThymioDSLPackage.PROX_SENSOR__FRONT_CENTER_RIGHT_SENSOR:
-				return FRONT_CENTER_RIGHT_SENSOR_EDEFAULT == null ? frontCenterRightSensor != null : !FRONT_CENTER_RIGHT_SENSOR_EDEFAULT.equals(frontCenterRightSensor);
-			case ThymioDSLPackage.PROX_SENSOR__FRONT_RIGHT_SENSOR:
-				return FRONT_RIGHT_SENSOR_EDEFAULT == null ? frontRightSensor != null : !FRONT_RIGHT_SENSOR_EDEFAULT.equals(frontRightSensor);
-			case ThymioDSLPackage.PROX_SENSOR__BACK_LEFT_SENSOR:
-				return BACK_LEFT_SENSOR_EDEFAULT == null ? backLeftSensor != null : !BACK_LEFT_SENSOR_EDEFAULT.equals(backLeftSensor);
-			case ThymioDSLPackage.PROX_SENSOR__BACK_RIGHT_SENSOR:
-				return BACK_RIGHT_SENSOR_EDEFAULT == null ? backRightSensor != null : !BACK_RIGHT_SENSOR_EDEFAULT.equals(backRightSensor);
-		}
-		return super.eIsSet(featureID);
-	}
+    switch (featureID)
+    {
+      case ThymioDSLPackage.PROX_SENSOR__FRONT_LEFT_SENSOR:
+        return FRONT_LEFT_SENSOR_EDEFAULT == null ? frontLeftSensor != null : !FRONT_LEFT_SENSOR_EDEFAULT.equals(frontLeftSensor);
+      case ThymioDSLPackage.PROX_SENSOR__FRONT_CENTER_LEFT_SENSOR:
+        return FRONT_CENTER_LEFT_SENSOR_EDEFAULT == null ? frontCenterLeftSensor != null : !FRONT_CENTER_LEFT_SENSOR_EDEFAULT.equals(frontCenterLeftSensor);
+      case ThymioDSLPackage.PROX_SENSOR__FRONT_CENTER_SENSOR:
+        return FRONT_CENTER_SENSOR_EDEFAULT == null ? frontCenterSensor != null : !FRONT_CENTER_SENSOR_EDEFAULT.equals(frontCenterSensor);
+      case ThymioDSLPackage.PROX_SENSOR__FRONT_CENTER_RIGHT_SENSOR:
+        return FRONT_CENTER_RIGHT_SENSOR_EDEFAULT == null ? frontCenterRightSensor != null : !FRONT_CENTER_RIGHT_SENSOR_EDEFAULT.equals(frontCenterRightSensor);
+      case ThymioDSLPackage.PROX_SENSOR__FRONT_RIGHT_SENSOR:
+        return FRONT_RIGHT_SENSOR_EDEFAULT == null ? frontRightSensor != null : !FRONT_RIGHT_SENSOR_EDEFAULT.equals(frontRightSensor);
+      case ThymioDSLPackage.PROX_SENSOR__BACK_LEFT_SENSOR:
+        return BACK_LEFT_SENSOR_EDEFAULT == null ? backLeftSensor != null : !BACK_LEFT_SENSOR_EDEFAULT.equals(backLeftSensor);
+      case ThymioDSLPackage.PROX_SENSOR__BACK_RIGHT_SENSOR:
+        return BACK_RIGHT_SENSOR_EDEFAULT == null ? backRightSensor != null : !BACK_RIGHT_SENSOR_EDEFAULT.equals(backRightSensor);
+    }
+    return super.eIsSet(featureID);
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public String toString()
   {
-		if (eIsProxy()) return super.toString();
+    if (eIsProxy()) return super.toString();
 
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (frontLeftSensor: ");
-		result.append(frontLeftSensor);
-		result.append(", frontCenterLeftSensor: ");
-		result.append(frontCenterLeftSensor);
-		result.append(", frontCenterSensor: ");
-		result.append(frontCenterSensor);
-		result.append(", frontCenterRightSensor: ");
-		result.append(frontCenterRightSensor);
-		result.append(", frontRightSensor: ");
-		result.append(frontRightSensor);
-		result.append(", backLeftSensor: ");
-		result.append(backLeftSensor);
-		result.append(", backRightSensor: ");
-		result.append(backRightSensor);
-		result.append(')');
-		return result.toString();
-	}
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (frontLeftSensor: ");
+    result.append(frontLeftSensor);
+    result.append(", frontCenterLeftSensor: ");
+    result.append(frontCenterLeftSensor);
+    result.append(", frontCenterSensor: ");
+    result.append(frontCenterSensor);
+    result.append(", frontCenterRightSensor: ");
+    result.append(frontCenterRightSensor);
+    result.append(", frontRightSensor: ");
+    result.append(frontRightSensor);
+    result.append(", backLeftSensor: ");
+    result.append(backLeftSensor);
+    result.append(", backRightSensor: ");
+    result.append(backRightSensor);
+    result.append(')');
+    return result.toString();
+  }
 
 } //ProxSensorImpl

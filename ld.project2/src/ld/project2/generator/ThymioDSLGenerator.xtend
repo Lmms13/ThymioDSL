@@ -7,7 +7,6 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
-import ld.project2.thymioDSL.Procedure
 import ld.project2.thymioDSL.Model
 
 /**
@@ -18,11 +17,9 @@ import ld.project2.thymioDSL.Model
 class ThymioDSLGenerator extends AbstractGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-//		fsa.generateFile('my_procedures.aesl', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(Procedure)
-//				.map[name]
-//				.join(', '))
+		fsa.generateFile('my_procedures.aesl',
+			generateCode(resource.contents.head as Model)
+		)
 	}
 	
 	def generateCode(Model m){
@@ -76,15 +73,12 @@ class ThymioDSLGenerator extends AbstractGenerator {
 				<block type="event" name="«p.events.stimulus.equals("tap")?"acc":"clap"»"/>
 			«ENDIF»		
 			«IF p.events.proxSensor !== null»
-				<block type="event" name="prox" value0="«p.events.proxSensor.frontLeftSensor !== null?p.events.proxSensor.frontLeftSensor.equals("far")?0:p.events.proxSensor.frontLeftSensor.equals("very_close")?1:2:0»"value7="1000" value8="2000"/>
+				<block type="event" name="prox" value0="«p.events.proxSensor.frontLeftSensor !== null?p.events.proxSensor.frontLeftSensor.equals("far")?0:p.events.proxSensor.frontLeftSensor.equals("very_close")?1:2:0»" value1="«p.events.proxSensor.frontCenterLeftSensor !== null?p.events.proxSensor.frontCenterLeftSensor.equals("far")?0:p.events.proxSensor.frontCenterLeftSensor.equals("very_close")?1:2:0»" value2="«p.events.proxSensor.frontCenterSensor !== null?p.events.proxSensor.frontCenterSensor.equals("far")?0:p.events.proxSensor.frontCenterSensor.equals("very_close")?1:2:0»" value3="«p.events.proxSensor.frontCenterRightSensor !== null?p.events.proxSensor.frontCenterRightSensor.equals("far")?0:p.events.proxSensor.frontCenterRightSensor.equals("very_close")?1:2:0»" value4="«p.events.proxSensor.frontRightSensor !== null?p.events.proxSensor.frontRightSensor.equals("far")?0:p.events.proxSensor.frontRightSensor.equals("very_close")?1:2:0»" value5="«p.events.proxSensor.backLeftSensor !== null?p.events.proxSensor.backLeftSensor.equals("far")?0:p.events.proxSensor.backLeftSensor.equals("very_close")?1:2:0»" value6="«p.events.proxSensor.backRightSensor !== null?p.events.proxSensor.backRightSensor.equals("far")?0:p.events.proxSensor.backRightSensor.equals("very_close")?1:2:0»" value7="1000" value8="2000"/>
 			«ENDIF»
 			«IF p.events.bottomSensor !== null»
 				<block type="event" name="proxground" value0="«p.events.bottomSensor.bottomLeftSensor.equals("any")?0:p.events.bottomSensor.bottomLeftSensor.equals("white")?1:2»" value1="«p.events.bottomSensor.bottomRightSensor.equals("any")?0:p.events.bottomSensor.bottomRightSensor.equals("white")?1:2»" value2="400" value3="450"/>
 			«ENDIF»
-			
-			
 			«FOR a : p.actions»
-				
 			«ENDFOR»
 			</set>
 		«ENDFOR»	

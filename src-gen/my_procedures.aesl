@@ -1,0 +1,60 @@
+<!DOCTYPE aesl-source>
+<network>
+<node>
+var notes[6]
+var durations[6]
+var note_index = 6
+var note_count = 6
+var wave[142]
+var i
+var wave_phase
+var wave_intensity
+
+# compute a sinus wave for sound
+for i in 0:141 do
+	wave_phase = (i-70)*468
+	call math.cos(wave_intensity, wave_phase)
+	wave[i] = wave_intensity/256
+end
+call sound.wave(wave)
+# setup threshold for detecting claps
+mic.threshold = 250
+# reset outputs
+call sound.system(-1)
+call leds.top(0,0,0)
+call leds.bottom.left(0,0,0)
+call leds.bottom.right(0,0,0)
+call leds.circle(0,0,0,0,0,0,0,0)
+
+# when a note is finished, play the next note
+onevent sound.finished
+	if note_index != note_count then
+		call sound.freq(notes[note_index], durations[note_index])
+		note_index += 1
+	end
+	
+<toolsPlugins>
+<ThymioVisualProgramming>
+<vplroot xml-format-version="1">
+<program advanced_mode="0">
+
+<set>
+<block type="event" name="button" value0="1" value1="0" value2="0" value3="0" value4="0"/>
+</set>
+<set>
+<block type="event" name="prox" value0="2" value1="2" value2="0" value3="2" value4="0" value5="2" value6="1" value7="1000" value8="2000"/>
+</set>
+<set>
+<block type="event" name="proxground" value0="1" value1="2" value2="400" value3="450"/>
+</set>
+<set>
+<block type="event" name="acc"/>
+</set>
+
+<set/>
+</program>
+</vplroot>
+</ThymioVisualProgramming>
+</toolsPlugins>
+</node>
+</network>

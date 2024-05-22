@@ -27,91 +27,91 @@ import org.eclipse.emf.ecore.EObject;
 public interface Event extends EObject
 {
   /**
-	 * Returns the value of the '<em><b>Button</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+   * Returns the value of the '<em><b>Button</b></em>' attribute.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @return the value of the '<em>Button</em>' attribute.
-	 * @see #setButton(String)
-	 * @see ld.project2.thymioDSL.ThymioDSLPackage#getEvent_Button()
-	 * @model
-	 * @generated
-	 */
+   * @return the value of the '<em>Button</em>' attribute.
+   * @see #setButton(String)
+   * @see ld.project2.thymioDSL.ThymioDSLPackage#getEvent_Button()
+   * @model
+   * @generated
+   */
   String getButton();
 
   /**
-	 * Sets the value of the '{@link ld.project2.thymioDSL.Event#getButton <em>Button</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * Sets the value of the '{@link ld.project2.thymioDSL.Event#getButton <em>Button</em>}' attribute.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Button</em>' attribute.
-	 * @see #getButton()
-	 * @generated
-	 */
+   * @param value the new value of the '<em>Button</em>' attribute.
+   * @see #getButton()
+   * @generated
+   */
   void setButton(String value);
 
   /**
-	 * Returns the value of the '<em><b>Stimulus</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+   * Returns the value of the '<em><b>Stimulus</b></em>' attribute.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @return the value of the '<em>Stimulus</em>' attribute.
-	 * @see #setStimulus(String)
-	 * @see ld.project2.thymioDSL.ThymioDSLPackage#getEvent_Stimulus()
-	 * @model
-	 * @generated
-	 */
+   * @return the value of the '<em>Stimulus</em>' attribute.
+   * @see #setStimulus(String)
+   * @see ld.project2.thymioDSL.ThymioDSLPackage#getEvent_Stimulus()
+   * @model
+   * @generated
+   */
   String getStimulus();
 
   /**
-	 * Sets the value of the '{@link ld.project2.thymioDSL.Event#getStimulus <em>Stimulus</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * Sets the value of the '{@link ld.project2.thymioDSL.Event#getStimulus <em>Stimulus</em>}' attribute.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Stimulus</em>' attribute.
-	 * @see #getStimulus()
-	 * @generated
-	 */
+   * @param value the new value of the '<em>Stimulus</em>' attribute.
+   * @see #getStimulus()
+   * @generated
+   */
   void setStimulus(String value);
 
   /**
-	 * Returns the value of the '<em><b>Prox Sensor</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
+   * Returns the value of the '<em><b>Prox Sensor</b></em>' containment reference.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @return the value of the '<em>Prox Sensor</em>' containment reference.
-	 * @see #setProxSensor(ProxSensor)
-	 * @see ld.project2.thymioDSL.ThymioDSLPackage#getEvent_ProxSensor()
-	 * @model containment="true"
-	 * @generated
-	 */
+   * @return the value of the '<em>Prox Sensor</em>' containment reference.
+   * @see #setProxSensor(ProxSensor)
+   * @see ld.project2.thymioDSL.ThymioDSLPackage#getEvent_ProxSensor()
+   * @model containment="true"
+   * @generated
+   */
   ProxSensor getProxSensor();
 
   /**
-	 * Sets the value of the '{@link ld.project2.thymioDSL.Event#getProxSensor <em>Prox Sensor</em>}' containment reference.
-	 * <!-- begin-user-doc -->
+   * Sets the value of the '{@link ld.project2.thymioDSL.Event#getProxSensor <em>Prox Sensor</em>}' containment reference.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Prox Sensor</em>' containment reference.
-	 * @see #getProxSensor()
-	 * @generated
-	 */
+   * @param value the new value of the '<em>Prox Sensor</em>' containment reference.
+   * @see #getProxSensor()
+   * @generated
+   */
   void setProxSensor(ProxSensor value);
 
   /**
-	 * Returns the value of the '<em><b>Bottom Sensor</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
+   * Returns the value of the '<em><b>Bottom Sensor</b></em>' containment reference.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @return the value of the '<em>Bottom Sensor</em>' containment reference.
-	 * @see #setBottomSensor(BottomSensor)
-	 * @see ld.project2.thymioDSL.ThymioDSLPackage#getEvent_BottomSensor()
-	 * @model containment="true"
-	 * @generated
-	 */
+   * @return the value of the '<em>Bottom Sensor</em>' containment reference.
+   * @see #setBottomSensor(BottomSensor)
+   * @see ld.project2.thymioDSL.ThymioDSLPackage#getEvent_BottomSensor()
+   * @model containment="true"
+   * @generated
+   */
   BottomSensor getBottomSensor();
 
   /**
-	 * Sets the value of the '{@link ld.project2.thymioDSL.Event#getBottomSensor <em>Bottom Sensor</em>}' containment reference.
-	 * <!-- begin-user-doc -->
+   * Sets the value of the '{@link ld.project2.thymioDSL.Event#getBottomSensor <em>Bottom Sensor</em>}' containment reference.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Bottom Sensor</em>' containment reference.
-	 * @see #getBottomSensor()
-	 * @generated
-	 */
+   * @param value the new value of the '<em>Bottom Sensor</em>' containment reference.
+   * @see #getBottomSensor()
+   * @generated
+   */
   void setBottomSensor(BottomSensor value);
 
 } // Event

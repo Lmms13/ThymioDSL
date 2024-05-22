@@ -9,11 +9,13 @@ import ld.project2.thymioDSL.Model;
 import ld.project2.thymioDSL.Procedure;
 import ld.project2.thymioDSL.ProxSensor;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 /**
  * Generates code from your model files on save.
@@ -24,6 +26,9 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 public class ThymioDSLGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    EObject _head = IterableExtensions.<EObject>head(resource.getContents());
+    fsa.generateFile("my_procedures.aesl", 
+      this.generateCode(((Model) _head)));
   }
 
   public CharSequence generateCode(final Model m) {
@@ -215,57 +220,197 @@ public class ThymioDSLGenerator extends AbstractGenerator {
               _xifexpression_6 = 0;
             }
             _builder.append(_xifexpression_6);
-            _builder.append("\"value7=\"1000\" value8=\"2000\"/>");
+            _builder.append("\" value1=\"");
+            int _xifexpression_9 = (int) 0;
+            String _frontCenterLeftSensor = p.getEvents().getProxSensor().getFrontCenterLeftSensor();
+            boolean _tripleNotEquals_4 = (_frontCenterLeftSensor != null);
+            if (_tripleNotEquals_4) {
+              int _xifexpression_10 = (int) 0;
+              boolean _equals_8 = p.getEvents().getProxSensor().getFrontCenterLeftSensor().equals("far");
+              if (_equals_8) {
+                _xifexpression_10 = 0;
+              } else {
+                int _xifexpression_11 = (int) 0;
+                boolean _equals_9 = p.getEvents().getProxSensor().getFrontCenterLeftSensor().equals("very_close");
+                if (_equals_9) {
+                  _xifexpression_11 = 1;
+                } else {
+                  _xifexpression_11 = 2;
+                }
+                _xifexpression_10 = _xifexpression_11;
+              }
+              _xifexpression_9 = _xifexpression_10;
+            } else {
+              _xifexpression_9 = 0;
+            }
+            _builder.append(_xifexpression_9);
+            _builder.append("\" value2=\"");
+            int _xifexpression_12 = (int) 0;
+            String _frontCenterSensor = p.getEvents().getProxSensor().getFrontCenterSensor();
+            boolean _tripleNotEquals_5 = (_frontCenterSensor != null);
+            if (_tripleNotEquals_5) {
+              int _xifexpression_13 = (int) 0;
+              boolean _equals_10 = p.getEvents().getProxSensor().getFrontCenterSensor().equals("far");
+              if (_equals_10) {
+                _xifexpression_13 = 0;
+              } else {
+                int _xifexpression_14 = (int) 0;
+                boolean _equals_11 = p.getEvents().getProxSensor().getFrontCenterSensor().equals("very_close");
+                if (_equals_11) {
+                  _xifexpression_14 = 1;
+                } else {
+                  _xifexpression_14 = 2;
+                }
+                _xifexpression_13 = _xifexpression_14;
+              }
+              _xifexpression_12 = _xifexpression_13;
+            } else {
+              _xifexpression_12 = 0;
+            }
+            _builder.append(_xifexpression_12);
+            _builder.append("\" value3=\"");
+            int _xifexpression_15 = (int) 0;
+            String _frontCenterRightSensor = p.getEvents().getProxSensor().getFrontCenterRightSensor();
+            boolean _tripleNotEquals_6 = (_frontCenterRightSensor != null);
+            if (_tripleNotEquals_6) {
+              int _xifexpression_16 = (int) 0;
+              boolean _equals_12 = p.getEvents().getProxSensor().getFrontCenterRightSensor().equals("far");
+              if (_equals_12) {
+                _xifexpression_16 = 0;
+              } else {
+                int _xifexpression_17 = (int) 0;
+                boolean _equals_13 = p.getEvents().getProxSensor().getFrontCenterRightSensor().equals("very_close");
+                if (_equals_13) {
+                  _xifexpression_17 = 1;
+                } else {
+                  _xifexpression_17 = 2;
+                }
+                _xifexpression_16 = _xifexpression_17;
+              }
+              _xifexpression_15 = _xifexpression_16;
+            } else {
+              _xifexpression_15 = 0;
+            }
+            _builder.append(_xifexpression_15);
+            _builder.append("\" value4=\"");
+            int _xifexpression_18 = (int) 0;
+            String _frontRightSensor = p.getEvents().getProxSensor().getFrontRightSensor();
+            boolean _tripleNotEquals_7 = (_frontRightSensor != null);
+            if (_tripleNotEquals_7) {
+              int _xifexpression_19 = (int) 0;
+              boolean _equals_14 = p.getEvents().getProxSensor().getFrontRightSensor().equals("far");
+              if (_equals_14) {
+                _xifexpression_19 = 0;
+              } else {
+                int _xifexpression_20 = (int) 0;
+                boolean _equals_15 = p.getEvents().getProxSensor().getFrontRightSensor().equals("very_close");
+                if (_equals_15) {
+                  _xifexpression_20 = 1;
+                } else {
+                  _xifexpression_20 = 2;
+                }
+                _xifexpression_19 = _xifexpression_20;
+              }
+              _xifexpression_18 = _xifexpression_19;
+            } else {
+              _xifexpression_18 = 0;
+            }
+            _builder.append(_xifexpression_18);
+            _builder.append("\" value5=\"");
+            int _xifexpression_21 = (int) 0;
+            String _backLeftSensor = p.getEvents().getProxSensor().getBackLeftSensor();
+            boolean _tripleNotEquals_8 = (_backLeftSensor != null);
+            if (_tripleNotEquals_8) {
+              int _xifexpression_22 = (int) 0;
+              boolean _equals_16 = p.getEvents().getProxSensor().getBackLeftSensor().equals("far");
+              if (_equals_16) {
+                _xifexpression_22 = 0;
+              } else {
+                int _xifexpression_23 = (int) 0;
+                boolean _equals_17 = p.getEvents().getProxSensor().getBackLeftSensor().equals("very_close");
+                if (_equals_17) {
+                  _xifexpression_23 = 1;
+                } else {
+                  _xifexpression_23 = 2;
+                }
+                _xifexpression_22 = _xifexpression_23;
+              }
+              _xifexpression_21 = _xifexpression_22;
+            } else {
+              _xifexpression_21 = 0;
+            }
+            _builder.append(_xifexpression_21);
+            _builder.append("\" value6=\"");
+            int _xifexpression_24 = (int) 0;
+            String _backRightSensor = p.getEvents().getProxSensor().getBackRightSensor();
+            boolean _tripleNotEquals_9 = (_backRightSensor != null);
+            if (_tripleNotEquals_9) {
+              int _xifexpression_25 = (int) 0;
+              boolean _equals_18 = p.getEvents().getProxSensor().getBackRightSensor().equals("far");
+              if (_equals_18) {
+                _xifexpression_25 = 0;
+              } else {
+                int _xifexpression_26 = (int) 0;
+                boolean _equals_19 = p.getEvents().getProxSensor().getBackRightSensor().equals("very_close");
+                if (_equals_19) {
+                  _xifexpression_26 = 1;
+                } else {
+                  _xifexpression_26 = 2;
+                }
+                _xifexpression_25 = _xifexpression_26;
+              }
+              _xifexpression_24 = _xifexpression_25;
+            } else {
+              _xifexpression_24 = 0;
+            }
+            _builder.append(_xifexpression_24);
+            _builder.append("\" value7=\"1000\" value8=\"2000\"/>");
             _builder.newLineIfNotEmpty();
           }
         }
         {
           BottomSensor _bottomSensor = p.getEvents().getBottomSensor();
-          boolean _tripleNotEquals_4 = (_bottomSensor != null);
-          if (_tripleNotEquals_4) {
+          boolean _tripleNotEquals_10 = (_bottomSensor != null);
+          if (_tripleNotEquals_10) {
             _builder.append("<block type=\"event\" name=\"proxground\" value0=\"");
-            int _xifexpression_9 = (int) 0;
-            boolean _equals_8 = p.getEvents().getBottomSensor().getBottomLeftSensor().equals("any");
-            if (_equals_8) {
-              _xifexpression_9 = 0;
+            int _xifexpression_27 = (int) 0;
+            boolean _equals_20 = p.getEvents().getBottomSensor().getBottomLeftSensor().equals("any");
+            if (_equals_20) {
+              _xifexpression_27 = 0;
             } else {
-              int _xifexpression_10 = (int) 0;
-              boolean _equals_9 = p.getEvents().getBottomSensor().getBottomLeftSensor().equals("white");
-              if (_equals_9) {
-                _xifexpression_10 = 1;
+              int _xifexpression_28 = (int) 0;
+              boolean _equals_21 = p.getEvents().getBottomSensor().getBottomLeftSensor().equals("white");
+              if (_equals_21) {
+                _xifexpression_28 = 1;
               } else {
-                _xifexpression_10 = 2;
+                _xifexpression_28 = 2;
               }
-              _xifexpression_9 = _xifexpression_10;
+              _xifexpression_27 = _xifexpression_28;
             }
-            _builder.append(_xifexpression_9);
+            _builder.append(_xifexpression_27);
             _builder.append("\" value1=\"");
-            int _xifexpression_11 = (int) 0;
-            boolean _equals_10 = p.getEvents().getBottomSensor().getBottomRightSensor().equals("any");
-            if (_equals_10) {
-              _xifexpression_11 = 0;
+            int _xifexpression_29 = (int) 0;
+            boolean _equals_22 = p.getEvents().getBottomSensor().getBottomRightSensor().equals("any");
+            if (_equals_22) {
+              _xifexpression_29 = 0;
             } else {
-              int _xifexpression_12 = (int) 0;
-              boolean _equals_11 = p.getEvents().getBottomSensor().getBottomRightSensor().equals("white");
-              if (_equals_11) {
-                _xifexpression_12 = 1;
+              int _xifexpression_30 = (int) 0;
+              boolean _equals_23 = p.getEvents().getBottomSensor().getBottomRightSensor().equals("white");
+              if (_equals_23) {
+                _xifexpression_30 = 1;
               } else {
-                _xifexpression_12 = 2;
+                _xifexpression_30 = 2;
               }
-              _xifexpression_11 = _xifexpression_12;
+              _xifexpression_29 = _xifexpression_30;
             }
-            _builder.append(_xifexpression_11);
+            _builder.append(_xifexpression_29);
             _builder.append("\" value2=\"400\" value3=\"450\"/>");
             _builder.newLineIfNotEmpty();
           }
         }
-        _builder.newLine();
-        _builder.newLine();
         {
           EList<Action> _actions = p.getActions();
           for(final Action a : _actions) {
-            _builder.append("\t");
-            _builder.newLine();
           }
         }
         _builder.append("</set>");
