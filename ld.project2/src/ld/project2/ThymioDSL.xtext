@@ -24,25 +24,34 @@ Event returns Event:
 	(tap = EBoolean))|
 	('sound_is_detected:'
 	(mic = EBoolean))|
-	('sensor_is_activated:'
-	(sensor+= (Sensor)))+
+	('proximity_sensor_is_activated:'
+	(proxSensor+= (ProxSensor)+))|
+	('bottom_sensor_detects_color:'
+	(bottomSensor+= (BottomSensor)+))
 ;
 
-Sensor returns Sensor:
+ProxSensor returns ProxSensor:
 	('back_left:'
-	(backLeftSensor = BlackWhite))|
+	(backLeftSensor = SensorStatus))|
 	('back_right:'
-	(backRightSensor = BlackWhite))|
+	(backRightSensor = SensorStatus))|
 	('front_right:'
-	(frontRightSensor = EBoolean))|
+	(frontRightSensor = SensorStatus))|
 	('front_center_right:'
-	(frontCenterRightSensor = EBoolean))|
+	(frontCenterRightSensor = SensorStatus))|
 	('front_center:'
-	(frontCenterSensor = EBoolean))|
+	(frontCenterSensor = SensorStatus))|
 	('front_center_left:'
-	(frontCenterLeftSensor = EBoolean))|
+	(frontCenterLeftSensor = SensorStatus))|
 	('front_left:'
-	(frontLeftSensor = EBoolean))
+	(frontLeftSensor = SensorStatus))
+;
+
+BottomSensor returns BottomSensor:
+	('left:'
+	(bottomLeftSensor = BlackWhite))
+	('right:'
+	(bottomRightSensor = BlackWhite))
 ;
 
 Action returns Action:
@@ -101,10 +110,13 @@ NoteDuration returns ecore::EString:
 	'short' | 'long';
 
 Ortogonal returns ecore::EString:
-	'up' | 'down' | 'left' | 'right' | 'center';	
+	'up' | 'down' | 'left' | 'right' | 'center';
+	
+SensorStatus returns ecore::EString:
+	'very_close' | 'close' | 'far';
 	
 BlackWhite returns ecore::EString:
-	'black' | 'white';
+	'black' | 'white' | 'any';
 	
 Addition returns Expression:
   Multiplication ({Addition.left=current} operator=('+'|'-') right=Multiplication)*;

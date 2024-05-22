@@ -43,277 +43,267 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class ActionImpl extends MinimalEObjectImpl.Container implements Action
 {
   /**
-   * The cached value of the '{@link #getMove() <em>Move</em>}' containment reference.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getMove() <em>Move</em>}' containment reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getMove()
-   * @generated
-   * @ordered
-   */
+	 * @see #getMove()
+	 * @generated
+	 * @ordered
+	 */
   protected Motors move;
 
   /**
-   * The cached value of the '{@link #getLight() <em>Light</em>}' containment reference.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getLight() <em>Light</em>}' containment reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getLight()
-   * @generated
-   * @ordered
-   */
+	 * @see #getLight()
+	 * @generated
+	 * @ordered
+	 */
   protected Lights light;
 
   /**
-   * The cached value of the '{@link #getSound() <em>Sound</em>}' containment reference list.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getSound() <em>Sound</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getSound()
-   * @generated
-   * @ordered
-   */
+	 * @see #getSound()
+	 * @generated
+	 * @ordered
+	 */
   protected EList<Sound> sound;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected ActionImpl()
   {
-    super();
-  }
+		super();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected EClass eStaticClass()
   {
-    return ThymioDSLPackage.Literals.ACTION;
-  }
+		return ThymioDSLPackage.Literals.ACTION;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Motors getMove()
   {
-    return move;
-  }
+		return move;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public NotificationChain basicSetMove(Motors newMove, NotificationChain msgs)
   {
-    Motors oldMove = move;
-    move = newMove;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.ACTION__MOVE, oldMove, newMove);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
+		Motors oldMove = move;
+		move = newMove;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.ACTION__MOVE, oldMove, newMove);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void setMove(Motors newMove)
   {
-    if (newMove != move)
-    {
-      NotificationChain msgs = null;
-      if (move != null)
-        msgs = ((InternalEObject)move).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.ACTION__MOVE, null, msgs);
-      if (newMove != null)
-        msgs = ((InternalEObject)newMove).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.ACTION__MOVE, null, msgs);
-      msgs = basicSetMove(newMove, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.ACTION__MOVE, newMove, newMove));
-  }
+		if (newMove != move) {
+			NotificationChain msgs = null;
+			if (move != null)
+				msgs = ((InternalEObject)move).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.ACTION__MOVE, null, msgs);
+			if (newMove != null)
+				msgs = ((InternalEObject)newMove).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.ACTION__MOVE, null, msgs);
+			msgs = basicSetMove(newMove, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.ACTION__MOVE, newMove, newMove));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Lights getLight()
   {
-    return light;
-  }
+		return light;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public NotificationChain basicSetLight(Lights newLight, NotificationChain msgs)
   {
-    Lights oldLight = light;
-    light = newLight;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.ACTION__LIGHT, oldLight, newLight);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
+		Lights oldLight = light;
+		light = newLight;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.ACTION__LIGHT, oldLight, newLight);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void setLight(Lights newLight)
   {
-    if (newLight != light)
-    {
-      NotificationChain msgs = null;
-      if (light != null)
-        msgs = ((InternalEObject)light).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.ACTION__LIGHT, null, msgs);
-      if (newLight != null)
-        msgs = ((InternalEObject)newLight).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.ACTION__LIGHT, null, msgs);
-      msgs = basicSetLight(newLight, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.ACTION__LIGHT, newLight, newLight));
-  }
+		if (newLight != light) {
+			NotificationChain msgs = null;
+			if (light != null)
+				msgs = ((InternalEObject)light).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.ACTION__LIGHT, null, msgs);
+			if (newLight != null)
+				msgs = ((InternalEObject)newLight).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.ACTION__LIGHT, null, msgs);
+			msgs = basicSetLight(newLight, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.ACTION__LIGHT, newLight, newLight));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public EList<Sound> getSound()
   {
-    if (sound == null)
-    {
-      sound = new EObjectContainmentEList<Sound>(Sound.class, this, ThymioDSLPackage.ACTION__SOUND);
-    }
-    return sound;
-  }
+		if (sound == null) {
+			sound = new EObjectContainmentEList<Sound>(Sound.class, this, ThymioDSLPackage.ACTION__SOUND);
+		}
+		return sound;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    switch (featureID)
-    {
-      case ThymioDSLPackage.ACTION__MOVE:
-        return basicSetMove(null, msgs);
-      case ThymioDSLPackage.ACTION__LIGHT:
-        return basicSetLight(null, msgs);
-      case ThymioDSLPackage.ACTION__SOUND:
-        return ((InternalEList<?>)getSound()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
+		switch (featureID) {
+			case ThymioDSLPackage.ACTION__MOVE:
+				return basicSetMove(null, msgs);
+			case ThymioDSLPackage.ACTION__LIGHT:
+				return basicSetLight(null, msgs);
+			case ThymioDSLPackage.ACTION__SOUND:
+				return ((InternalEList<?>)getSound()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-    switch (featureID)
-    {
-      case ThymioDSLPackage.ACTION__MOVE:
-        return getMove();
-      case ThymioDSLPackage.ACTION__LIGHT:
-        return getLight();
-      case ThymioDSLPackage.ACTION__SOUND:
-        return getSound();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
+		switch (featureID) {
+			case ThymioDSLPackage.ACTION__MOVE:
+				return getMove();
+			case ThymioDSLPackage.ACTION__LIGHT:
+				return getLight();
+			case ThymioDSLPackage.ACTION__SOUND:
+				return getSound();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
-    switch (featureID)
-    {
-      case ThymioDSLPackage.ACTION__MOVE:
-        setMove((Motors)newValue);
-        return;
-      case ThymioDSLPackage.ACTION__LIGHT:
-        setLight((Lights)newValue);
-        return;
-      case ThymioDSLPackage.ACTION__SOUND:
-        getSound().clear();
-        getSound().addAll((Collection<? extends Sound>)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
+		switch (featureID) {
+			case ThymioDSLPackage.ACTION__MOVE:
+				setMove((Motors)newValue);
+				return;
+			case ThymioDSLPackage.ACTION__LIGHT:
+				setLight((Lights)newValue);
+				return;
+			case ThymioDSLPackage.ACTION__SOUND:
+				getSound().clear();
+				getSound().addAll((Collection<? extends Sound>)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eUnset(int featureID)
   {
-    switch (featureID)
-    {
-      case ThymioDSLPackage.ACTION__MOVE:
-        setMove((Motors)null);
-        return;
-      case ThymioDSLPackage.ACTION__LIGHT:
-        setLight((Lights)null);
-        return;
-      case ThymioDSLPackage.ACTION__SOUND:
-        getSound().clear();
-        return;
-    }
-    super.eUnset(featureID);
-  }
+		switch (featureID) {
+			case ThymioDSLPackage.ACTION__MOVE:
+				setMove((Motors)null);
+				return;
+			case ThymioDSLPackage.ACTION__LIGHT:
+				setLight((Lights)null);
+				return;
+			case ThymioDSLPackage.ACTION__SOUND:
+				getSound().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public boolean eIsSet(int featureID)
   {
-    switch (featureID)
-    {
-      case ThymioDSLPackage.ACTION__MOVE:
-        return move != null;
-      case ThymioDSLPackage.ACTION__LIGHT:
-        return light != null;
-      case ThymioDSLPackage.ACTION__SOUND:
-        return sound != null && !sound.isEmpty();
-    }
-    return super.eIsSet(featureID);
-  }
+		switch (featureID) {
+			case ThymioDSLPackage.ACTION__MOVE:
+				return move != null;
+			case ThymioDSLPackage.ACTION__LIGHT:
+				return light != null;
+			case ThymioDSLPackage.ACTION__SOUND:
+				return sound != null && !sound.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
 } //ActionImpl

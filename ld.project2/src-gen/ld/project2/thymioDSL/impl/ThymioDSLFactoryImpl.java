@@ -22,231 +22,240 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 public class ThymioDSLFactoryImpl extends EFactoryImpl implements ThymioDSLFactory
 {
   /**
-   * Creates the default factory implementation.
-   * <!-- begin-user-doc -->
+	 * Creates the default factory implementation.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public static ThymioDSLFactory init()
   {
-    try
-    {
-      ThymioDSLFactory theThymioDSLFactory = (ThymioDSLFactory)EPackage.Registry.INSTANCE.getEFactory(ThymioDSLPackage.eNS_URI);
-      if (theThymioDSLFactory != null)
-      {
-        return theThymioDSLFactory;
-      }
-    }
-    catch (Exception exception)
-    {
-      EcorePlugin.INSTANCE.log(exception);
-    }
-    return new ThymioDSLFactoryImpl();
-  }
+		try {
+			ThymioDSLFactory theThymioDSLFactory = (ThymioDSLFactory)EPackage.Registry.INSTANCE.getEFactory(ThymioDSLPackage.eNS_URI);
+			if (theThymioDSLFactory != null) {
+				return theThymioDSLFactory;
+			}
+		}
+		catch (Exception exception) {
+			EcorePlugin.INSTANCE.log(exception);
+		}
+		return new ThymioDSLFactoryImpl();
+	}
 
   /**
-   * Creates an instance of the factory.
-   * <!-- begin-user-doc -->
+	 * Creates an instance of the factory.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public ThymioDSLFactoryImpl()
   {
-    super();
-  }
+		super();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public EObject create(EClass eClass)
   {
-    switch (eClass.getClassifierID())
-    {
-      case ThymioDSLPackage.MODEL: return createModel();
-      case ThymioDSLPackage.PROCEDURE: return createProcedure();
-      case ThymioDSLPackage.EVENT: return createEvent();
-      case ThymioDSLPackage.SENSOR: return createSensor();
-      case ThymioDSLPackage.ACTION: return createAction();
-      case ThymioDSLPackage.MOTORS: return createMotors();
-      case ThymioDSLPackage.LIGHTS: return createLights();
-      case ThymioDSLPackage.RGB: return createRGB();
-      case ThymioDSLPackage.SOUND: return createSound();
-      case ThymioDSLPackage.EXPRESSION: return createExpression();
-      case ThymioDSLPackage.ADDITION: return createAddition();
-      case ThymioDSLPackage.MULTIPLICATION: return createMultiplication();
-      default:
-        throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
-    }
-  }
+		switch (eClass.getClassifierID()) {
+			case ThymioDSLPackage.MODEL: return createModel();
+			case ThymioDSLPackage.PROCEDURE: return createProcedure();
+			case ThymioDSLPackage.EVENT: return createEvent();
+			case ThymioDSLPackage.PROX_SENSOR: return createProxSensor();
+			case ThymioDSLPackage.BOTTOM_SENSOR: return createBottomSensor();
+			case ThymioDSLPackage.ACTION: return createAction();
+			case ThymioDSLPackage.MOTORS: return createMotors();
+			case ThymioDSLPackage.LIGHTS: return createLights();
+			case ThymioDSLPackage.RGB: return createRGB();
+			case ThymioDSLPackage.SOUND: return createSound();
+			case ThymioDSLPackage.EXPRESSION: return createExpression();
+			case ThymioDSLPackage.ADDITION: return createAddition();
+			case ThymioDSLPackage.MULTIPLICATION: return createMultiplication();
+			default:
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Model createModel()
   {
-    ModelImpl model = new ModelImpl();
-    return model;
-  }
+		ModelImpl model = new ModelImpl();
+		return model;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Procedure createProcedure()
   {
-    ProcedureImpl procedure = new ProcedureImpl();
-    return procedure;
-  }
+		ProcedureImpl procedure = new ProcedureImpl();
+		return procedure;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Event createEvent()
   {
-    EventImpl event = new EventImpl();
-    return event;
-  }
+		EventImpl event = new EventImpl();
+		return event;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
-  public Sensor createSensor()
+  public ProxSensor createProxSensor()
   {
-    SensorImpl sensor = new SensorImpl();
-    return sensor;
-  }
+		ProxSensorImpl proxSensor = new ProxSensorImpl();
+		return proxSensor;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
+  @Override
+  public BottomSensor createBottomSensor()
+  {
+		BottomSensorImpl bottomSensor = new BottomSensorImpl();
+		return bottomSensor;
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 */
   @Override
   public Action createAction()
   {
-    ActionImpl action = new ActionImpl();
-    return action;
-  }
+		ActionImpl action = new ActionImpl();
+		return action;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Motors createMotors()
   {
-    MotorsImpl motors = new MotorsImpl();
-    return motors;
-  }
+		MotorsImpl motors = new MotorsImpl();
+		return motors;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Lights createLights()
   {
-    LightsImpl lights = new LightsImpl();
-    return lights;
-  }
+		LightsImpl lights = new LightsImpl();
+		return lights;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public RGB createRGB()
   {
-    RGBImpl rgb = new RGBImpl();
-    return rgb;
-  }
+		RGBImpl rgb = new RGBImpl();
+		return rgb;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Sound createSound()
   {
-    SoundImpl sound = new SoundImpl();
-    return sound;
-  }
+		SoundImpl sound = new SoundImpl();
+		return sound;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Expression createExpression()
   {
-    ExpressionImpl expression = new ExpressionImpl();
-    return expression;
-  }
+		ExpressionImpl expression = new ExpressionImpl();
+		return expression;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Addition createAddition()
   {
-    AdditionImpl addition = new AdditionImpl();
-    return addition;
-  }
+		AdditionImpl addition = new AdditionImpl();
+		return addition;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Multiplication createMultiplication()
   {
-    MultiplicationImpl multiplication = new MultiplicationImpl();
-    return multiplication;
-  }
+		MultiplicationImpl multiplication = new MultiplicationImpl();
+		return multiplication;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public ThymioDSLPackage getThymioDSLPackage()
   {
-    return (ThymioDSLPackage)getEPackage();
-  }
+		return (ThymioDSLPackage)getEPackage();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @deprecated
-   * @generated
-   */
+	 * @deprecated
+	 * @generated
+	 */
   @Deprecated
   public static ThymioDSLPackage getPackage()
   {
-    return ThymioDSLPackage.eINSTANCE;
-  }
+		return ThymioDSLPackage.eINSTANCE;
+	}
 
 } //ThymioDSLFactoryImpl

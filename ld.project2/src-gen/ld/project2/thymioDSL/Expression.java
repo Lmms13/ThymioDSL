@@ -27,91 +27,91 @@ import org.eclipse.emf.ecore.EObject;
 public interface Expression extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Value</b></em>' attribute.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Value</em>' attribute.
-   * @see #setValue(int)
-   * @see ld.project2.thymioDSL.ThymioDSLPackage#getExpression_Value()
-   * @model
-   * @generated
-   */
+	 * @return the value of the '<em>Value</em>' attribute.
+	 * @see #setValue(int)
+	 * @see ld.project2.thymioDSL.ThymioDSLPackage#getExpression_Value()
+	 * @model
+	 * @generated
+	 */
   int getValue();
 
   /**
-   * Sets the value of the '{@link ld.project2.thymioDSL.Expression#getValue <em>Value</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link ld.project2.thymioDSL.Expression#getValue <em>Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Value</em>' attribute.
-   * @see #getValue()
-   * @generated
-   */
+	 * @param value the new value of the '<em>Value</em>' attribute.
+	 * @see #getValue()
+	 * @generated
+	 */
   void setValue(int value);
 
   /**
-   * Returns the value of the '<em><b>Left</b></em>' containment reference.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Left</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Left</em>' containment reference.
-   * @see #setLeft(Expression)
-   * @see ld.project2.thymioDSL.ThymioDSLPackage#getExpression_Left()
-   * @model containment="true"
-   * @generated
-   */
+	 * @return the value of the '<em>Left</em>' containment reference.
+	 * @see #setLeft(Expression)
+	 * @see ld.project2.thymioDSL.ThymioDSLPackage#getExpression_Left()
+	 * @model containment="true"
+	 * @generated
+	 */
   Expression getLeft();
 
   /**
-   * Sets the value of the '{@link ld.project2.thymioDSL.Expression#getLeft <em>Left</em>}' containment reference.
-   * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link ld.project2.thymioDSL.Expression#getLeft <em>Left</em>}' containment reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Left</em>' containment reference.
-   * @see #getLeft()
-   * @generated
-   */
+	 * @param value the new value of the '<em>Left</em>' containment reference.
+	 * @see #getLeft()
+	 * @generated
+	 */
   void setLeft(Expression value);
 
   /**
-   * Returns the value of the '<em><b>Operator</b></em>' attribute.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Operator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Operator</em>' attribute.
-   * @see #setOperator(String)
-   * @see ld.project2.thymioDSL.ThymioDSLPackage#getExpression_Operator()
-   * @model
-   * @generated
-   */
+	 * @return the value of the '<em>Operator</em>' attribute.
+	 * @see #setOperator(String)
+	 * @see ld.project2.thymioDSL.ThymioDSLPackage#getExpression_Operator()
+	 * @model
+	 * @generated
+	 */
   String getOperator();
 
   /**
-   * Sets the value of the '{@link ld.project2.thymioDSL.Expression#getOperator <em>Operator</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link ld.project2.thymioDSL.Expression#getOperator <em>Operator</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Operator</em>' attribute.
-   * @see #getOperator()
-   * @generated
-   */
+	 * @param value the new value of the '<em>Operator</em>' attribute.
+	 * @see #getOperator()
+	 * @generated
+	 */
   void setOperator(String value);
 
   /**
-   * Returns the value of the '<em><b>Right</b></em>' containment reference.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Right</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Right</em>' containment reference.
-   * @see #setRight(Expression)
-   * @see ld.project2.thymioDSL.ThymioDSLPackage#getExpression_Right()
-   * @model containment="true"
-   * @generated
-   */
+	 * @return the value of the '<em>Right</em>' containment reference.
+	 * @see #setRight(Expression)
+	 * @see ld.project2.thymioDSL.ThymioDSLPackage#getExpression_Right()
+	 * @model containment="true"
+	 * @generated
+	 */
   Expression getRight();
 
   /**
-   * Sets the value of the '{@link ld.project2.thymioDSL.Expression#getRight <em>Right</em>}' containment reference.
-   * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link ld.project2.thymioDSL.Expression#getRight <em>Right</em>}' containment reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Right</em>' containment reference.
-   * @see #getRight()
-   * @generated
-   */
+	 * @param value the new value of the '<em>Right</em>' containment reference.
+	 * @see #getRight()
+	 * @generated
+	 */
   void setRight(Expression value);
 
 } // Expression

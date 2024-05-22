@@ -37,133 +37,127 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 {
   /**
-   * The cached value of the '{@link #getProcedures() <em>Procedures</em>}' containment reference list.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getProcedures() <em>Procedures</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getProcedures()
-   * @generated
-   * @ordered
-   */
+	 * @see #getProcedures()
+	 * @generated
+	 * @ordered
+	 */
   protected EList<Procedure> procedures;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected ModelImpl()
   {
-    super();
-  }
+		super();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected EClass eStaticClass()
   {
-    return ThymioDSLPackage.Literals.MODEL;
-  }
+		return ThymioDSLPackage.Literals.MODEL;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public EList<Procedure> getProcedures()
   {
-    if (procedures == null)
-    {
-      procedures = new EObjectContainmentEList<Procedure>(Procedure.class, this, ThymioDSLPackage.MODEL__PROCEDURES);
-    }
-    return procedures;
-  }
+		if (procedures == null) {
+			procedures = new EObjectContainmentEList<Procedure>(Procedure.class, this, ThymioDSLPackage.MODEL__PROCEDURES);
+		}
+		return procedures;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    switch (featureID)
-    {
-      case ThymioDSLPackage.MODEL__PROCEDURES:
-        return ((InternalEList<?>)getProcedures()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
+		switch (featureID) {
+			case ThymioDSLPackage.MODEL__PROCEDURES:
+				return ((InternalEList<?>)getProcedures()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-    switch (featureID)
-    {
-      case ThymioDSLPackage.MODEL__PROCEDURES:
-        return getProcedures();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
+		switch (featureID) {
+			case ThymioDSLPackage.MODEL__PROCEDURES:
+				return getProcedures();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
-    switch (featureID)
-    {
-      case ThymioDSLPackage.MODEL__PROCEDURES:
-        getProcedures().clear();
-        getProcedures().addAll((Collection<? extends Procedure>)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
+		switch (featureID) {
+			case ThymioDSLPackage.MODEL__PROCEDURES:
+				getProcedures().clear();
+				getProcedures().addAll((Collection<? extends Procedure>)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eUnset(int featureID)
   {
-    switch (featureID)
-    {
-      case ThymioDSLPackage.MODEL__PROCEDURES:
-        getProcedures().clear();
-        return;
-    }
-    super.eUnset(featureID);
-  }
+		switch (featureID) {
+			case ThymioDSLPackage.MODEL__PROCEDURES:
+				getProcedures().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public boolean eIsSet(int featureID)
   {
-    switch (featureID)
-    {
-      case ThymioDSLPackage.MODEL__PROCEDURES:
-        return procedures != null && !procedures.isEmpty();
-    }
-    return super.eIsSet(featureID);
-  }
+		switch (featureID) {
+			case ThymioDSLPackage.MODEL__PROCEDURES:
+				return procedures != null && !procedures.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
 } //ModelImpl

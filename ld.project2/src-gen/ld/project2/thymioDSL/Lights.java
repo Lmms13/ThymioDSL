@@ -25,47 +25,47 @@ import org.eclipse.emf.ecore.EObject;
 public interface Lights extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Top Light</b></em>' containment reference.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Top Light</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Top Light</em>' containment reference.
-   * @see #setTopLight(RGB)
-   * @see ld.project2.thymioDSL.ThymioDSLPackage#getLights_TopLight()
-   * @model containment="true"
-   * @generated
-   */
+	 * @return the value of the '<em>Top Light</em>' containment reference.
+	 * @see #setTopLight(RGB)
+	 * @see ld.project2.thymioDSL.ThymioDSLPackage#getLights_TopLight()
+	 * @model containment="true"
+	 * @generated
+	 */
   RGB getTopLight();
 
   /**
-   * Sets the value of the '{@link ld.project2.thymioDSL.Lights#getTopLight <em>Top Light</em>}' containment reference.
-   * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link ld.project2.thymioDSL.Lights#getTopLight <em>Top Light</em>}' containment reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Top Light</em>' containment reference.
-   * @see #getTopLight()
-   * @generated
-   */
+	 * @param value the new value of the '<em>Top Light</em>' containment reference.
+	 * @see #getTopLight()
+	 * @generated
+	 */
   void setTopLight(RGB value);
 
   /**
-   * Returns the value of the '<em><b>Bottom Light</b></em>' containment reference.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Bottom Light</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Bottom Light</em>' containment reference.
-   * @see #setBottomLight(RGB)
-   * @see ld.project2.thymioDSL.ThymioDSLPackage#getLights_BottomLight()
-   * @model containment="true"
-   * @generated
-   */
+	 * @return the value of the '<em>Bottom Light</em>' containment reference.
+	 * @see #setBottomLight(RGB)
+	 * @see ld.project2.thymioDSL.ThymioDSLPackage#getLights_BottomLight()
+	 * @model containment="true"
+	 * @generated
+	 */
   RGB getBottomLight();
 
   /**
-   * Sets the value of the '{@link ld.project2.thymioDSL.Lights#getBottomLight <em>Bottom Light</em>}' containment reference.
-   * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link ld.project2.thymioDSL.Lights#getBottomLight <em>Bottom Light</em>}' containment reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Bottom Light</em>' containment reference.
-   * @see #getBottomLight()
-   * @generated
-   */
+	 * @param value the new value of the '<em>Bottom Light</em>' containment reference.
+	 * @see #getBottomLight()
+	 * @generated
+	 */
   void setBottomLight(RGB value);
 
 } // Lights

@@ -18,24 +18,24 @@ import org.eclipse.emf.ecore.EClass;
 public class AdditionImpl extends ExpressionImpl implements Addition
 {
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected AdditionImpl()
   {
-    super();
-  }
+		super();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected EClass eStaticClass()
   {
-    return ThymioDSLPackage.Literals.ADDITION;
-  }
+		return ThymioDSLPackage.Literals.ADDITION;
+	}
 
 } //AdditionImpl

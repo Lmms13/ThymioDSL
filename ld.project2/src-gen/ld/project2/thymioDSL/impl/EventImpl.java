@@ -5,8 +5,9 @@ package ld.project2.thymioDSL.impl;
 
 import java.util.Collection;
 
+import ld.project2.thymioDSL.BottomSensor;
 import ld.project2.thymioDSL.Event;
-import ld.project2.thymioDSL.Sensor;
+import ld.project2.thymioDSL.ProxSensor;
 import ld.project2.thymioDSL.ThymioDSLPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -34,7 +35,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link ld.project2.thymioDSL.impl.EventImpl#getButton <em>Button</em>}</li>
  *   <li>{@link ld.project2.thymioDSL.impl.EventImpl#isTap <em>Tap</em>}</li>
  *   <li>{@link ld.project2.thymioDSL.impl.EventImpl#isMic <em>Mic</em>}</li>
- *   <li>{@link ld.project2.thymioDSL.impl.EventImpl#getSensor <em>Sensor</em>}</li>
+ *   <li>{@link ld.project2.thymioDSL.impl.EventImpl#getProxSensor <em>Prox Sensor</em>}</li>
+ *   <li>{@link ld.project2.thymioDSL.impl.EventImpl#getBottomSensor <em>Bottom Sensor</em>}</li>
  * </ul>
  *
  * @generated
@@ -42,319 +44,350 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class EventImpl extends MinimalEObjectImpl.Container implements Event
 {
   /**
-   * The default value of the '{@link #getButton() <em>Button</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getButton() <em>Button</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getButton()
-   * @generated
-   * @ordered
-   */
+	 * @see #getButton()
+	 * @generated
+	 * @ordered
+	 */
   protected static final String BUTTON_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getButton() <em>Button</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getButton() <em>Button</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getButton()
-   * @generated
-   * @ordered
-   */
+	 * @see #getButton()
+	 * @generated
+	 * @ordered
+	 */
   protected String button = BUTTON_EDEFAULT;
 
   /**
-   * The default value of the '{@link #isTap() <em>Tap</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The default value of the '{@link #isTap() <em>Tap</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isTap()
-   * @generated
-   * @ordered
-   */
+	 * @see #isTap()
+	 * @generated
+	 * @ordered
+	 */
   protected static final boolean TAP_EDEFAULT = false;
 
   /**
-   * The cached value of the '{@link #isTap() <em>Tap</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #isTap() <em>Tap</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isTap()
-   * @generated
-   * @ordered
-   */
+	 * @see #isTap()
+	 * @generated
+	 * @ordered
+	 */
   protected boolean tap = TAP_EDEFAULT;
 
   /**
-   * The default value of the '{@link #isMic() <em>Mic</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The default value of the '{@link #isMic() <em>Mic</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isMic()
-   * @generated
-   * @ordered
-   */
+	 * @see #isMic()
+	 * @generated
+	 * @ordered
+	 */
   protected static final boolean MIC_EDEFAULT = false;
 
   /**
-   * The cached value of the '{@link #isMic() <em>Mic</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #isMic() <em>Mic</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isMic()
-   * @generated
-   * @ordered
-   */
+	 * @see #isMic()
+	 * @generated
+	 * @ordered
+	 */
   protected boolean mic = MIC_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getSensor() <em>Sensor</em>}' containment reference list.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getProxSensor() <em>Prox Sensor</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getSensor()
-   * @generated
-   * @ordered
-   */
-  protected EList<Sensor> sensor;
+	 * @see #getProxSensor()
+	 * @generated
+	 * @ordered
+	 */
+  protected EList<ProxSensor> proxSensor;
 
   /**
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getBottomSensor() <em>Bottom Sensor</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @see #getBottomSensor()
+	 * @generated
+	 * @ordered
+	 */
+  protected EList<BottomSensor> bottomSensor;
+
+  /**
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 */
   protected EventImpl()
   {
-    super();
-  }
+		super();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected EClass eStaticClass()
   {
-    return ThymioDSLPackage.Literals.EVENT;
-  }
+		return ThymioDSLPackage.Literals.EVENT;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public String getButton()
   {
-    return button;
-  }
+		return button;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void setButton(String newButton)
   {
-    String oldButton = button;
-    button = newButton;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.EVENT__BUTTON, oldButton, button));
-  }
+		String oldButton = button;
+		button = newButton;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.EVENT__BUTTON, oldButton, button));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public boolean isTap()
   {
-    return tap;
-  }
+		return tap;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void setTap(boolean newTap)
   {
-    boolean oldTap = tap;
-    tap = newTap;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.EVENT__TAP, oldTap, tap));
-  }
+		boolean oldTap = tap;
+		tap = newTap;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.EVENT__TAP, oldTap, tap));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public boolean isMic()
   {
-    return mic;
-  }
+		return mic;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void setMic(boolean newMic)
   {
-    boolean oldMic = mic;
-    mic = newMic;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.EVENT__MIC, oldMic, mic));
-  }
+		boolean oldMic = mic;
+		mic = newMic;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.EVENT__MIC, oldMic, mic));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
-  public EList<Sensor> getSensor()
+  public EList<ProxSensor> getProxSensor()
   {
-    if (sensor == null)
-    {
-      sensor = new EObjectContainmentEList<Sensor>(Sensor.class, this, ThymioDSLPackage.EVENT__SENSOR);
-    }
-    return sensor;
-  }
+		if (proxSensor == null) {
+			proxSensor = new EObjectContainmentEList<ProxSensor>(ProxSensor.class, this, ThymioDSLPackage.EVENT__PROX_SENSOR);
+		}
+		return proxSensor;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
+  @Override
+  public EList<BottomSensor> getBottomSensor()
+  {
+		if (bottomSensor == null) {
+			bottomSensor = new EObjectContainmentEList<BottomSensor>(BottomSensor.class, this, ThymioDSLPackage.EVENT__BOTTOM_SENSOR);
+		}
+		return bottomSensor;
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    switch (featureID)
-    {
-      case ThymioDSLPackage.EVENT__SENSOR:
-        return ((InternalEList<?>)getSensor()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
+		switch (featureID) {
+			case ThymioDSLPackage.EVENT__PROX_SENSOR:
+				return ((InternalEList<?>)getProxSensor()).basicRemove(otherEnd, msgs);
+			case ThymioDSLPackage.EVENT__BOTTOM_SENSOR:
+				return ((InternalEList<?>)getBottomSensor()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-    switch (featureID)
-    {
-      case ThymioDSLPackage.EVENT__BUTTON:
-        return getButton();
-      case ThymioDSLPackage.EVENT__TAP:
-        return isTap();
-      case ThymioDSLPackage.EVENT__MIC:
-        return isMic();
-      case ThymioDSLPackage.EVENT__SENSOR:
-        return getSensor();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
+		switch (featureID) {
+			case ThymioDSLPackage.EVENT__BUTTON:
+				return getButton();
+			case ThymioDSLPackage.EVENT__TAP:
+				return isTap();
+			case ThymioDSLPackage.EVENT__MIC:
+				return isMic();
+			case ThymioDSLPackage.EVENT__PROX_SENSOR:
+				return getProxSensor();
+			case ThymioDSLPackage.EVENT__BOTTOM_SENSOR:
+				return getBottomSensor();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
-    switch (featureID)
-    {
-      case ThymioDSLPackage.EVENT__BUTTON:
-        setButton((String)newValue);
-        return;
-      case ThymioDSLPackage.EVENT__TAP:
-        setTap((Boolean)newValue);
-        return;
-      case ThymioDSLPackage.EVENT__MIC:
-        setMic((Boolean)newValue);
-        return;
-      case ThymioDSLPackage.EVENT__SENSOR:
-        getSensor().clear();
-        getSensor().addAll((Collection<? extends Sensor>)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
+		switch (featureID) {
+			case ThymioDSLPackage.EVENT__BUTTON:
+				setButton((String)newValue);
+				return;
+			case ThymioDSLPackage.EVENT__TAP:
+				setTap((Boolean)newValue);
+				return;
+			case ThymioDSLPackage.EVENT__MIC:
+				setMic((Boolean)newValue);
+				return;
+			case ThymioDSLPackage.EVENT__PROX_SENSOR:
+				getProxSensor().clear();
+				getProxSensor().addAll((Collection<? extends ProxSensor>)newValue);
+				return;
+			case ThymioDSLPackage.EVENT__BOTTOM_SENSOR:
+				getBottomSensor().clear();
+				getBottomSensor().addAll((Collection<? extends BottomSensor>)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eUnset(int featureID)
   {
-    switch (featureID)
-    {
-      case ThymioDSLPackage.EVENT__BUTTON:
-        setButton(BUTTON_EDEFAULT);
-        return;
-      case ThymioDSLPackage.EVENT__TAP:
-        setTap(TAP_EDEFAULT);
-        return;
-      case ThymioDSLPackage.EVENT__MIC:
-        setMic(MIC_EDEFAULT);
-        return;
-      case ThymioDSLPackage.EVENT__SENSOR:
-        getSensor().clear();
-        return;
-    }
-    super.eUnset(featureID);
-  }
+		switch (featureID) {
+			case ThymioDSLPackage.EVENT__BUTTON:
+				setButton(BUTTON_EDEFAULT);
+				return;
+			case ThymioDSLPackage.EVENT__TAP:
+				setTap(TAP_EDEFAULT);
+				return;
+			case ThymioDSLPackage.EVENT__MIC:
+				setMic(MIC_EDEFAULT);
+				return;
+			case ThymioDSLPackage.EVENT__PROX_SENSOR:
+				getProxSensor().clear();
+				return;
+			case ThymioDSLPackage.EVENT__BOTTOM_SENSOR:
+				getBottomSensor().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public boolean eIsSet(int featureID)
   {
-    switch (featureID)
-    {
-      case ThymioDSLPackage.EVENT__BUTTON:
-        return BUTTON_EDEFAULT == null ? button != null : !BUTTON_EDEFAULT.equals(button);
-      case ThymioDSLPackage.EVENT__TAP:
-        return tap != TAP_EDEFAULT;
-      case ThymioDSLPackage.EVENT__MIC:
-        return mic != MIC_EDEFAULT;
-      case ThymioDSLPackage.EVENT__SENSOR:
-        return sensor != null && !sensor.isEmpty();
-    }
-    return super.eIsSet(featureID);
-  }
+		switch (featureID) {
+			case ThymioDSLPackage.EVENT__BUTTON:
+				return BUTTON_EDEFAULT == null ? button != null : !BUTTON_EDEFAULT.equals(button);
+			case ThymioDSLPackage.EVENT__TAP:
+				return tap != TAP_EDEFAULT;
+			case ThymioDSLPackage.EVENT__MIC:
+				return mic != MIC_EDEFAULT;
+			case ThymioDSLPackage.EVENT__PROX_SENSOR:
+				return proxSensor != null && !proxSensor.isEmpty();
+			case ThymioDSLPackage.EVENT__BOTTOM_SENSOR:
+				return bottomSensor != null && !bottomSensor.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public String toString()
   {
-    if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (button: ");
-    result.append(button);
-    result.append(", tap: ");
-    result.append(tap);
-    result.append(", mic: ");
-    result.append(mic);
-    result.append(')');
-    return result.toString();
-  }
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (button: ");
+		result.append(button);
+		result.append(", tap: ");
+		result.append(tap);
+		result.append(", mic: ");
+		result.append(mic);
+		result.append(')');
+		return result.toString();
+	}
 
 } //EventImpl

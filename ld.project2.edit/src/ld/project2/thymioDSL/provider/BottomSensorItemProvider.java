@@ -7,16 +7,13 @@ package ld.project2.thymioDSL.provider;
 import java.util.Collection;
 import java.util.List;
 
-import ld.project2.thymioDSL.Event;
-import ld.project2.thymioDSL.ThymioDSLFactory;
+import ld.project2.thymioDSL.BottomSensor;
 import ld.project2.thymioDSL.ThymioDSLPackage;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
-import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -30,12 +27,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link ld.project2.thymioDSL.Event} object.
+ * This is the item provider adapter for a {@link ld.project2.thymioDSL.BottomSensor} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class EventItemProvider 
+public class BottomSensorItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -49,7 +46,7 @@ public class EventItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EventItemProvider(AdapterFactory adapterFactory) {
+	public BottomSensorItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -64,27 +61,26 @@ public class EventItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addButtonPropertyDescriptor(object);
-			addTapPropertyDescriptor(object);
-			addMicPropertyDescriptor(object);
+			addBottomLeftSensorPropertyDescriptor(object);
+			addBottomRightSensorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Button feature.
+	 * This adds a property descriptor for the Bottom Left Sensor feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addButtonPropertyDescriptor(Object object) {
+	protected void addBottomLeftSensorPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Event_button_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Event_button_feature", "_UI_Event_type"),
-				 ThymioDSLPackage.Literals.EVENT__BUTTON,
+				 getString("_UI_BottomSensor_bottomLeftSensor_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BottomSensor_bottomLeftSensor_feature", "_UI_BottomSensor_type"),
+				 ThymioDSLPackage.Literals.BOTTOM_SENSOR__BOTTOM_LEFT_SENSOR,
 				 true,
 				 false,
 				 false,
@@ -94,89 +90,36 @@ public class EventItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Tap feature.
+	 * This adds a property descriptor for the Bottom Right Sensor feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addTapPropertyDescriptor(Object object) {
+	protected void addBottomRightSensorPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Event_tap_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Event_tap_feature", "_UI_Event_type"),
-				 ThymioDSLPackage.Literals.EVENT__TAP,
+				 getString("_UI_BottomSensor_bottomRightSensor_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BottomSensor_bottomRightSensor_feature", "_UI_BottomSensor_type"),
+				 ThymioDSLPackage.Literals.BOTTOM_SENSOR__BOTTOM_RIGHT_SENSOR,
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Mic feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addMicPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Event_mic_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Event_mic_feature", "_UI_Event_type"),
-				 ThymioDSLPackage.Literals.EVENT__MIC,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(ThymioDSLPackage.Literals.EVENT__PROX_SENSOR);
-			childrenFeatures.add(ThymioDSLPackage.Literals.EVENT__BOTTOM_SENSOR);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
-	}
-
-	/**
-	 * This returns Event.gif.
+	 * This returns BottomSensor.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Event"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/BottomSensor"));
 	}
 
 	/**
@@ -187,10 +130,10 @@ public class EventItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Event)object).getButton();
+		String label = ((BottomSensor)object).getBottomLeftSensor();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Event_type") :
-			getString("_UI_Event_type") + " " + label;
+			getString("_UI_BottomSensor_type") :
+			getString("_UI_BottomSensor_type") + " " + label;
 	}
 
 
@@ -205,15 +148,10 @@ public class EventItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Event.class)) {
-			case ThymioDSLPackage.EVENT__BUTTON:
-			case ThymioDSLPackage.EVENT__TAP:
-			case ThymioDSLPackage.EVENT__MIC:
+		switch (notification.getFeatureID(BottomSensor.class)) {
+			case ThymioDSLPackage.BOTTOM_SENSOR__BOTTOM_LEFT_SENSOR:
+			case ThymioDSLPackage.BOTTOM_SENSOR__BOTTOM_RIGHT_SENSOR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case ThymioDSLPackage.EVENT__PROX_SENSOR:
-			case ThymioDSLPackage.EVENT__BOTTOM_SENSOR:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -229,16 +167,6 @@ public class EventItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ThymioDSLPackage.Literals.EVENT__PROX_SENSOR,
-				 ThymioDSLFactory.eINSTANCE.createProxSensor()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ThymioDSLPackage.Literals.EVENT__BOTTOM_SENSOR,
-				 ThymioDSLFactory.eINSTANCE.createBottomSensor()));
 	}
 
 	/**

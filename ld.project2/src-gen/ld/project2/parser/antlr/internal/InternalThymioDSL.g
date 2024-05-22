@@ -279,42 +279,68 @@ ruleEvent returns [EObject current=null]
 		)
 		    |
 		(
-			otherlv_6='sensor_is_activated:'
+			otherlv_6='proximity_sensor_is_activated:'
 			{
-				newLeafNode(otherlv_6, grammarAccess.getEventAccess().getSensor_is_activatedKeyword_3_0());
+				newLeafNode(otherlv_6, grammarAccess.getEventAccess().getProximity_sensor_is_activatedKeyword_3_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getEventAccess().getSensorSensorParserRuleCall_3_1_0());
+						newCompositeNode(grammarAccess.getEventAccess().getProxSensorProxSensorParserRuleCall_3_1_0());
 					}
-					lv_sensor_7_0=ruleSensor
+					lv_proxSensor_7_0=ruleProxSensor
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getEventRule());
 						}
 						add(
 							$current,
-							"sensor",
-							lv_sensor_7_0,
-							"ld.project2.ThymioDSL.Sensor");
+							"proxSensor",
+							lv_proxSensor_7_0,
+							"ld.project2.ThymioDSL.ProxSensor");
 						afterParserOrEnumRuleCall();
 					}
 				)
-			)
-		)+
+			)+
+		)
+		    |
+		(
+			otherlv_8='bottom_sensor_detects_color:'
+			{
+				newLeafNode(otherlv_8, grammarAccess.getEventAccess().getBottom_sensor_detects_colorKeyword_4_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getEventAccess().getBottomSensorBottomSensorParserRuleCall_4_1_0());
+					}
+					lv_bottomSensor_9_0=ruleBottomSensor
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getEventRule());
+						}
+						add(
+							$current,
+							"bottomSensor",
+							lv_bottomSensor_9_0,
+							"ld.project2.ThymioDSL.BottomSensor");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)+
+		)
 	)
 ;
 
-// Entry rule entryRuleSensor
-entryRuleSensor returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getSensorRule()); }
-	iv_ruleSensor=ruleSensor
-	{ $current=$iv_ruleSensor.current; }
+// Entry rule entryRuleProxSensor
+entryRuleProxSensor returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getProxSensorRule()); }
+	iv_ruleProxSensor=ruleProxSensor
+	{ $current=$iv_ruleProxSensor.current; }
 	EOF;
 
-// Rule Sensor
-ruleSensor returns [EObject current=null]
+// Rule ProxSensor
+ruleProxSensor returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -325,23 +351,23 @@ ruleSensor returns [EObject current=null]
 		(
 			otherlv_0='back_left:'
 			{
-				newLeafNode(otherlv_0, grammarAccess.getSensorAccess().getBack_leftKeyword_0_0());
+				newLeafNode(otherlv_0, grammarAccess.getProxSensorAccess().getBack_leftKeyword_0_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getSensorAccess().getBackLeftSensorBlackWhiteParserRuleCall_0_1_0());
+						newCompositeNode(grammarAccess.getProxSensorAccess().getBackLeftSensorSensorStatusParserRuleCall_0_1_0());
 					}
-					lv_backLeftSensor_1_0=ruleBlackWhite
+					lv_backLeftSensor_1_0=ruleSensorStatus
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getSensorRule());
+							$current = createModelElementForParent(grammarAccess.getProxSensorRule());
 						}
 						set(
 							$current,
 							"backLeftSensor",
 							lv_backLeftSensor_1_0,
-							"ld.project2.ThymioDSL.BlackWhite");
+							"ld.project2.ThymioDSL.SensorStatus");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -351,23 +377,23 @@ ruleSensor returns [EObject current=null]
 		(
 			otherlv_2='back_right:'
 			{
-				newLeafNode(otherlv_2, grammarAccess.getSensorAccess().getBack_rightKeyword_1_0());
+				newLeafNode(otherlv_2, grammarAccess.getProxSensorAccess().getBack_rightKeyword_1_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getSensorAccess().getBackRightSensorBlackWhiteParserRuleCall_1_1_0());
+						newCompositeNode(grammarAccess.getProxSensorAccess().getBackRightSensorSensorStatusParserRuleCall_1_1_0());
 					}
-					lv_backRightSensor_3_0=ruleBlackWhite
+					lv_backRightSensor_3_0=ruleSensorStatus
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getSensorRule());
+							$current = createModelElementForParent(grammarAccess.getProxSensorRule());
 						}
 						set(
 							$current,
 							"backRightSensor",
 							lv_backRightSensor_3_0,
-							"ld.project2.ThymioDSL.BlackWhite");
+							"ld.project2.ThymioDSL.SensorStatus");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -377,23 +403,23 @@ ruleSensor returns [EObject current=null]
 		(
 			otherlv_4='front_right:'
 			{
-				newLeafNode(otherlv_4, grammarAccess.getSensorAccess().getFront_rightKeyword_2_0());
+				newLeafNode(otherlv_4, grammarAccess.getProxSensorAccess().getFront_rightKeyword_2_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getSensorAccess().getFrontRightSensorEBooleanParserRuleCall_2_1_0());
+						newCompositeNode(grammarAccess.getProxSensorAccess().getFrontRightSensorSensorStatusParserRuleCall_2_1_0());
 					}
-					lv_frontRightSensor_5_0=ruleEBoolean
+					lv_frontRightSensor_5_0=ruleSensorStatus
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getSensorRule());
+							$current = createModelElementForParent(grammarAccess.getProxSensorRule());
 						}
 						set(
 							$current,
 							"frontRightSensor",
 							lv_frontRightSensor_5_0,
-							"ld.project2.ThymioDSL.EBoolean");
+							"ld.project2.ThymioDSL.SensorStatus");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -403,23 +429,23 @@ ruleSensor returns [EObject current=null]
 		(
 			otherlv_6='front_center_right:'
 			{
-				newLeafNode(otherlv_6, grammarAccess.getSensorAccess().getFront_center_rightKeyword_3_0());
+				newLeafNode(otherlv_6, grammarAccess.getProxSensorAccess().getFront_center_rightKeyword_3_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getSensorAccess().getFrontCenterRightSensorEBooleanParserRuleCall_3_1_0());
+						newCompositeNode(grammarAccess.getProxSensorAccess().getFrontCenterRightSensorSensorStatusParserRuleCall_3_1_0());
 					}
-					lv_frontCenterRightSensor_7_0=ruleEBoolean
+					lv_frontCenterRightSensor_7_0=ruleSensorStatus
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getSensorRule());
+							$current = createModelElementForParent(grammarAccess.getProxSensorRule());
 						}
 						set(
 							$current,
 							"frontCenterRightSensor",
 							lv_frontCenterRightSensor_7_0,
-							"ld.project2.ThymioDSL.EBoolean");
+							"ld.project2.ThymioDSL.SensorStatus");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -429,23 +455,23 @@ ruleSensor returns [EObject current=null]
 		(
 			otherlv_8='front_center:'
 			{
-				newLeafNode(otherlv_8, grammarAccess.getSensorAccess().getFront_centerKeyword_4_0());
+				newLeafNode(otherlv_8, grammarAccess.getProxSensorAccess().getFront_centerKeyword_4_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getSensorAccess().getFrontCenterSensorEBooleanParserRuleCall_4_1_0());
+						newCompositeNode(grammarAccess.getProxSensorAccess().getFrontCenterSensorSensorStatusParserRuleCall_4_1_0());
 					}
-					lv_frontCenterSensor_9_0=ruleEBoolean
+					lv_frontCenterSensor_9_0=ruleSensorStatus
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getSensorRule());
+							$current = createModelElementForParent(grammarAccess.getProxSensorRule());
 						}
 						set(
 							$current,
 							"frontCenterSensor",
 							lv_frontCenterSensor_9_0,
-							"ld.project2.ThymioDSL.EBoolean");
+							"ld.project2.ThymioDSL.SensorStatus");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -455,23 +481,23 @@ ruleSensor returns [EObject current=null]
 		(
 			otherlv_10='front_center_left:'
 			{
-				newLeafNode(otherlv_10, grammarAccess.getSensorAccess().getFront_center_leftKeyword_5_0());
+				newLeafNode(otherlv_10, grammarAccess.getProxSensorAccess().getFront_center_leftKeyword_5_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getSensorAccess().getFrontCenterLeftSensorEBooleanParserRuleCall_5_1_0());
+						newCompositeNode(grammarAccess.getProxSensorAccess().getFrontCenterLeftSensorSensorStatusParserRuleCall_5_1_0());
 					}
-					lv_frontCenterLeftSensor_11_0=ruleEBoolean
+					lv_frontCenterLeftSensor_11_0=ruleSensorStatus
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getSensorRule());
+							$current = createModelElementForParent(grammarAccess.getProxSensorRule());
 						}
 						set(
 							$current,
 							"frontCenterLeftSensor",
 							lv_frontCenterLeftSensor_11_0,
-							"ld.project2.ThymioDSL.EBoolean");
+							"ld.project2.ThymioDSL.SensorStatus");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -481,23 +507,92 @@ ruleSensor returns [EObject current=null]
 		(
 			otherlv_12='front_left:'
 			{
-				newLeafNode(otherlv_12, grammarAccess.getSensorAccess().getFront_leftKeyword_6_0());
+				newLeafNode(otherlv_12, grammarAccess.getProxSensorAccess().getFront_leftKeyword_6_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getSensorAccess().getFrontLeftSensorEBooleanParserRuleCall_6_1_0());
+						newCompositeNode(grammarAccess.getProxSensorAccess().getFrontLeftSensorSensorStatusParserRuleCall_6_1_0());
 					}
-					lv_frontLeftSensor_13_0=ruleEBoolean
+					lv_frontLeftSensor_13_0=ruleSensorStatus
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getSensorRule());
+							$current = createModelElementForParent(grammarAccess.getProxSensorRule());
 						}
 						set(
 							$current,
 							"frontLeftSensor",
 							lv_frontLeftSensor_13_0,
-							"ld.project2.ThymioDSL.EBoolean");
+							"ld.project2.ThymioDSL.SensorStatus");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleBottomSensor
+entryRuleBottomSensor returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getBottomSensorRule()); }
+	iv_ruleBottomSensor=ruleBottomSensor
+	{ $current=$iv_ruleBottomSensor.current; }
+	EOF;
+
+// Rule BottomSensor
+ruleBottomSensor returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			otherlv_0='left:'
+			{
+				newLeafNode(otherlv_0, grammarAccess.getBottomSensorAccess().getLeftKeyword_0_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getBottomSensorAccess().getBottomLeftSensorBlackWhiteParserRuleCall_0_1_0());
+					}
+					lv_bottomLeftSensor_1_0=ruleBlackWhite
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getBottomSensorRule());
+						}
+						set(
+							$current,
+							"bottomLeftSensor",
+							lv_bottomLeftSensor_1_0,
+							"ld.project2.ThymioDSL.BlackWhite");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)
+		(
+			otherlv_2='right:'
+			{
+				newLeafNode(otherlv_2, grammarAccess.getBottomSensorAccess().getRightKeyword_1_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getBottomSensorAccess().getBottomRightSensorBlackWhiteParserRuleCall_1_1_0());
+					}
+					lv_bottomRightSensor_3_0=ruleBlackWhite
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getBottomSensorRule());
+						}
+						set(
+							$current,
+							"bottomRightSensor",
+							lv_bottomRightSensor_3_0,
+							"ld.project2.ThymioDSL.BlackWhite");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -1097,6 +1192,42 @@ ruleOrtogonal returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken
 	)
 ;
 
+// Entry rule entryRuleSensorStatus
+entryRuleSensorStatus returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getSensorStatusRule()); }
+	iv_ruleSensorStatus=ruleSensorStatus
+	{ $current=$iv_ruleSensorStatus.current.getText(); }
+	EOF;
+
+// Rule SensorStatus
+ruleSensorStatus returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		kw='very_close'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getSensorStatusAccess().getVery_closeKeyword_0());
+		}
+		    |
+		kw='close'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getSensorStatusAccess().getCloseKeyword_1());
+		}
+		    |
+		kw='far'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getSensorStatusAccess().getFarKeyword_2());
+		}
+	)
+;
+
 // Entry rule entryRuleBlackWhite
 entryRuleBlackWhite returns [String current=null]:
 	{ newCompositeNode(grammarAccess.getBlackWhiteRule()); }
@@ -1123,6 +1254,12 @@ ruleBlackWhite returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToke
 		{
 			$current.merge(kw);
 			newLeafNode(kw, grammarAccess.getBlackWhiteAccess().getWhiteKeyword_1());
+		}
+		    |
+		kw='any'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getBlackWhiteAccess().getAnyKeyword_2());
 		}
 	)
 ;

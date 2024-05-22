@@ -7,6 +7,7 @@ import com.google.inject.Inject;
 import java.util.Set;
 import ld.project2.services.ThymioDSLGrammarAccess;
 import ld.project2.thymioDSL.Addition;
+import ld.project2.thymioDSL.BottomSensor;
 import ld.project2.thymioDSL.Event;
 import ld.project2.thymioDSL.Expression;
 import ld.project2.thymioDSL.Lights;
@@ -14,8 +15,8 @@ import ld.project2.thymioDSL.Model;
 import ld.project2.thymioDSL.Motors;
 import ld.project2.thymioDSL.Multiplication;
 import ld.project2.thymioDSL.Procedure;
+import ld.project2.thymioDSL.ProxSensor;
 import ld.project2.thymioDSL.RGB;
-import ld.project2.thymioDSL.Sensor;
 import ld.project2.thymioDSL.Sound;
 import ld.project2.thymioDSL.ThymioDSLPackage;
 import org.eclipse.emf.ecore.EObject;
@@ -48,6 +49,9 @@ public class ThymioDSLSemanticSequencer extends AbstractDelegatingSemanticSequen
 			case ThymioDSLPackage.ADDITION:
 				sequence_Addition(context, (Addition) semanticObject); 
 				return; 
+			case ThymioDSLPackage.BOTTOM_SENSOR:
+				sequence_BottomSensor(context, (BottomSensor) semanticObject); 
+				return; 
 			case ThymioDSLPackage.EVENT:
 				sequence_Event(context, (Event) semanticObject); 
 				return; 
@@ -69,11 +73,11 @@ public class ThymioDSLSemanticSequencer extends AbstractDelegatingSemanticSequen
 			case ThymioDSLPackage.PROCEDURE:
 				sequence_Procedure(context, (Procedure) semanticObject); 
 				return; 
+			case ThymioDSLPackage.PROX_SENSOR:
+				sequence_ProxSensor(context, (ProxSensor) semanticObject); 
+				return; 
 			case ThymioDSLPackage.RGB:
 				sequence_RGB(context, (RGB) semanticObject); 
-				return; 
-			case ThymioDSLPackage.SENSOR:
-				sequence_Sensor(context, (Sensor) semanticObject); 
 				return; 
 			case ThymioDSLPackage.SOUND:
 				sequence_Sound(context, (Sound) semanticObject); 
@@ -118,10 +122,33 @@ public class ThymioDSLSemanticSequencer extends AbstractDelegatingSemanticSequen
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     BottomSensor returns BottomSensor
+	 *
+	 * Constraint:
+	 *     (bottomLeftSensor=BlackWhite bottomRightSensor=BlackWhite)
+	 * </pre>
+	 */
+	protected void sequence_BottomSensor(ISerializationContext context, BottomSensor semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, ThymioDSLPackage.Literals.BOTTOM_SENSOR__BOTTOM_LEFT_SENSOR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ThymioDSLPackage.Literals.BOTTOM_SENSOR__BOTTOM_LEFT_SENSOR));
+			if (transientValues.isValueTransient(semanticObject, ThymioDSLPackage.Literals.BOTTOM_SENSOR__BOTTOM_RIGHT_SENSOR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ThymioDSLPackage.Literals.BOTTOM_SENSOR__BOTTOM_RIGHT_SENSOR));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getBottomSensorAccess().getBottomLeftSensorBlackWhiteParserRuleCall_0_1_0(), semanticObject.getBottomLeftSensor());
+		feeder.accept(grammarAccess.getBottomSensorAccess().getBottomRightSensorBlackWhiteParserRuleCall_1_1_0(), semanticObject.getBottomRightSensor());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     Event returns Event
 	 *
 	 * Constraint:
-	 *     (button=Ortogonal | tap=EBoolean | mic=EBoolean | sensor+=Sensor+)
+	 *     (button=Ortogonal | tap=EBoolean | mic=EBoolean | proxSensor+=ProxSensor+ | bottomSensor+=BottomSensor+)
 	 * </pre>
 	 */
 	protected void sequence_Event(ISerializationContext context, Event semanticObject) {
@@ -239,6 +266,28 @@ public class ThymioDSLSemanticSequencer extends AbstractDelegatingSemanticSequen
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     ProxSensor returns ProxSensor
+	 *
+	 * Constraint:
+	 *     (
+	 *         backLeftSensor=SensorStatus | 
+	 *         backRightSensor=SensorStatus | 
+	 *         frontRightSensor=SensorStatus | 
+	 *         frontCenterRightSensor=SensorStatus | 
+	 *         frontCenterSensor=SensorStatus | 
+	 *         frontCenterLeftSensor=SensorStatus | 
+	 *         frontLeftSensor=SensorStatus
+	 *     )
+	 * </pre>
+	 */
+	protected void sequence_ProxSensor(ISerializationContext context, ProxSensor semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     RGB returns RGB
 	 *
 	 * Constraint:
@@ -259,28 +308,6 @@ public class ThymioDSLSemanticSequencer extends AbstractDelegatingSemanticSequen
 		feeder.accept(grammarAccess.getRGBAccess().getGreenAdditionParserRuleCall_3_0(), semanticObject.getGreen());
 		feeder.accept(grammarAccess.getRGBAccess().getBlueAdditionParserRuleCall_5_0(), semanticObject.getBlue());
 		feeder.finish();
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     Sensor returns Sensor
-	 *
-	 * Constraint:
-	 *     (
-	 *         backLeftSensor=BlackWhite | 
-	 *         backRightSensor=BlackWhite | 
-	 *         frontRightSensor=EBoolean | 
-	 *         frontCenterRightSensor=EBoolean | 
-	 *         frontCenterSensor=EBoolean | 
-	 *         frontCenterLeftSensor=EBoolean | 
-	 *         frontLeftSensor=EBoolean
-	 *     )
-	 * </pre>
-	 */
-	protected void sequence_Sensor(ISerializationContext context, Sensor semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

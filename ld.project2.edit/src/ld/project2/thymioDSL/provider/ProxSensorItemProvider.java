@@ -7,7 +7,7 @@ package ld.project2.thymioDSL.provider;
 import java.util.Collection;
 import java.util.List;
 
-import ld.project2.thymioDSL.Sensor;
+import ld.project2.thymioDSL.ProxSensor;
 import ld.project2.thymioDSL.ThymioDSLPackage;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -27,12 +27,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link ld.project2.thymioDSL.Sensor} object.
+ * This is the item provider adapter for a {@link ld.project2.thymioDSL.ProxSensor} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class SensorItemProvider 
+public class ProxSensorItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -46,7 +46,7 @@ public class SensorItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SensorItemProvider(AdapterFactory adapterFactory) {
+	public ProxSensorItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -61,8 +61,6 @@ public class SensorItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addBottomLeftSensorPropertyDescriptor(object);
-			addBottomRightSensorPropertyDescriptor(object);
 			addBackLeftSensorPropertyDescriptor(object);
 			addBackRightSensorPropertyDescriptor(object);
 			addFrontRightSensorPropertyDescriptor(object);
@@ -72,50 +70,6 @@ public class SensorItemProvider
 			addFrontLeftSensorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Bottom Left Sensor feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addBottomLeftSensorPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Sensor_bottomLeftSensor_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Sensor_bottomLeftSensor_feature", "_UI_Sensor_type"),
-				 ThymioDSLPackage.Literals.SENSOR__BOTTOM_LEFT_SENSOR,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Bottom Right Sensor feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addBottomRightSensorPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Sensor_bottomRightSensor_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Sensor_bottomRightSensor_feature", "_UI_Sensor_type"),
-				 ThymioDSLPackage.Literals.SENSOR__BOTTOM_RIGHT_SENSOR,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -129,13 +83,13 @@ public class SensorItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Sensor_backLeftSensor_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Sensor_backLeftSensor_feature", "_UI_Sensor_type"),
-				 ThymioDSLPackage.Literals.SENSOR__BACK_LEFT_SENSOR,
+				 getString("_UI_ProxSensor_backLeftSensor_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProxSensor_backLeftSensor_feature", "_UI_ProxSensor_type"),
+				 ThymioDSLPackage.Literals.PROX_SENSOR__BACK_LEFT_SENSOR,
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -151,13 +105,13 @@ public class SensorItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Sensor_backRightSensor_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Sensor_backRightSensor_feature", "_UI_Sensor_type"),
-				 ThymioDSLPackage.Literals.SENSOR__BACK_RIGHT_SENSOR,
+				 getString("_UI_ProxSensor_backRightSensor_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProxSensor_backRightSensor_feature", "_UI_ProxSensor_type"),
+				 ThymioDSLPackage.Literals.PROX_SENSOR__BACK_RIGHT_SENSOR,
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -173,13 +127,13 @@ public class SensorItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Sensor_frontRightSensor_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Sensor_frontRightSensor_feature", "_UI_Sensor_type"),
-				 ThymioDSLPackage.Literals.SENSOR__FRONT_RIGHT_SENSOR,
+				 getString("_UI_ProxSensor_frontRightSensor_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProxSensor_frontRightSensor_feature", "_UI_ProxSensor_type"),
+				 ThymioDSLPackage.Literals.PROX_SENSOR__FRONT_RIGHT_SENSOR,
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -195,13 +149,13 @@ public class SensorItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Sensor_frontCenterRightSensor_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Sensor_frontCenterRightSensor_feature", "_UI_Sensor_type"),
-				 ThymioDSLPackage.Literals.SENSOR__FRONT_CENTER_RIGHT_SENSOR,
+				 getString("_UI_ProxSensor_frontCenterRightSensor_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProxSensor_frontCenterRightSensor_feature", "_UI_ProxSensor_type"),
+				 ThymioDSLPackage.Literals.PROX_SENSOR__FRONT_CENTER_RIGHT_SENSOR,
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -217,13 +171,13 @@ public class SensorItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Sensor_frontCenterSensor_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Sensor_frontCenterSensor_feature", "_UI_Sensor_type"),
-				 ThymioDSLPackage.Literals.SENSOR__FRONT_CENTER_SENSOR,
+				 getString("_UI_ProxSensor_frontCenterSensor_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProxSensor_frontCenterSensor_feature", "_UI_ProxSensor_type"),
+				 ThymioDSLPackage.Literals.PROX_SENSOR__FRONT_CENTER_SENSOR,
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -239,13 +193,13 @@ public class SensorItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Sensor_frontCenterLeftSensor_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Sensor_frontCenterLeftSensor_feature", "_UI_Sensor_type"),
-				 ThymioDSLPackage.Literals.SENSOR__FRONT_CENTER_LEFT_SENSOR,
+				 getString("_UI_ProxSensor_frontCenterLeftSensor_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProxSensor_frontCenterLeftSensor_feature", "_UI_ProxSensor_type"),
+				 ThymioDSLPackage.Literals.PROX_SENSOR__FRONT_CENTER_LEFT_SENSOR,
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -261,26 +215,26 @@ public class SensorItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Sensor_frontLeftSensor_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Sensor_frontLeftSensor_feature", "_UI_Sensor_type"),
-				 ThymioDSLPackage.Literals.SENSOR__FRONT_LEFT_SENSOR,
+				 getString("_UI_ProxSensor_frontLeftSensor_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProxSensor_frontLeftSensor_feature", "_UI_ProxSensor_type"),
+				 ThymioDSLPackage.Literals.PROX_SENSOR__FRONT_LEFT_SENSOR,
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
 
 	/**
-	 * This returns Sensor.gif.
+	 * This returns ProxSensor.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Sensor"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ProxSensor"));
 	}
 
 	/**
@@ -291,10 +245,10 @@ public class SensorItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Sensor)object).getBottomLeftSensor();
+		String label = ((ProxSensor)object).getBackLeftSensor();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Sensor_type") :
-			getString("_UI_Sensor_type") + " " + label;
+			getString("_UI_ProxSensor_type") :
+			getString("_UI_ProxSensor_type") + " " + label;
 	}
 
 
@@ -309,16 +263,14 @@ public class SensorItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Sensor.class)) {
-			case ThymioDSLPackage.SENSOR__BOTTOM_LEFT_SENSOR:
-			case ThymioDSLPackage.SENSOR__BOTTOM_RIGHT_SENSOR:
-			case ThymioDSLPackage.SENSOR__BACK_LEFT_SENSOR:
-			case ThymioDSLPackage.SENSOR__BACK_RIGHT_SENSOR:
-			case ThymioDSLPackage.SENSOR__FRONT_RIGHT_SENSOR:
-			case ThymioDSLPackage.SENSOR__FRONT_CENTER_RIGHT_SENSOR:
-			case ThymioDSLPackage.SENSOR__FRONT_CENTER_SENSOR:
-			case ThymioDSLPackage.SENSOR__FRONT_CENTER_LEFT_SENSOR:
-			case ThymioDSLPackage.SENSOR__FRONT_LEFT_SENSOR:
+		switch (notification.getFeatureID(ProxSensor.class)) {
+			case ThymioDSLPackage.PROX_SENSOR__BACK_LEFT_SENSOR:
+			case ThymioDSLPackage.PROX_SENSOR__BACK_RIGHT_SENSOR:
+			case ThymioDSLPackage.PROX_SENSOR__FRONT_RIGHT_SENSOR:
+			case ThymioDSLPackage.PROX_SENSOR__FRONT_CENTER_RIGHT_SENSOR:
+			case ThymioDSLPackage.PROX_SENSOR__FRONT_CENTER_SENSOR:
+			case ThymioDSLPackage.PROX_SENSOR__FRONT_CENTER_LEFT_SENSOR:
+			case ThymioDSLPackage.PROX_SENSOR__FRONT_LEFT_SENSOR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

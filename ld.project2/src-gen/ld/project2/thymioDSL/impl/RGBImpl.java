@@ -34,310 +34,299 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class RGBImpl extends MinimalEObjectImpl.Container implements RGB
 {
   /**
-   * The cached value of the '{@link #getRed() <em>Red</em>}' containment reference.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getRed() <em>Red</em>}' containment reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRed()
-   * @generated
-   * @ordered
-   */
+	 * @see #getRed()
+	 * @generated
+	 * @ordered
+	 */
   protected Expression red;
 
   /**
-   * The cached value of the '{@link #getGreen() <em>Green</em>}' containment reference.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getGreen() <em>Green</em>}' containment reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getGreen()
-   * @generated
-   * @ordered
-   */
+	 * @see #getGreen()
+	 * @generated
+	 * @ordered
+	 */
   protected Expression green;
 
   /**
-   * The cached value of the '{@link #getBlue() <em>Blue</em>}' containment reference.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getBlue() <em>Blue</em>}' containment reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getBlue()
-   * @generated
-   * @ordered
-   */
+	 * @see #getBlue()
+	 * @generated
+	 * @ordered
+	 */
   protected Expression blue;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected RGBImpl()
   {
-    super();
-  }
+		super();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected EClass eStaticClass()
   {
-    return ThymioDSLPackage.Literals.RGB;
-  }
+		return ThymioDSLPackage.Literals.RGB;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Expression getRed()
   {
-    return red;
-  }
+		return red;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public NotificationChain basicSetRed(Expression newRed, NotificationChain msgs)
   {
-    Expression oldRed = red;
-    red = newRed;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.RGB__RED, oldRed, newRed);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
+		Expression oldRed = red;
+		red = newRed;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.RGB__RED, oldRed, newRed);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void setRed(Expression newRed)
   {
-    if (newRed != red)
-    {
-      NotificationChain msgs = null;
-      if (red != null)
-        msgs = ((InternalEObject)red).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.RGB__RED, null, msgs);
-      if (newRed != null)
-        msgs = ((InternalEObject)newRed).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.RGB__RED, null, msgs);
-      msgs = basicSetRed(newRed, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.RGB__RED, newRed, newRed));
-  }
+		if (newRed != red) {
+			NotificationChain msgs = null;
+			if (red != null)
+				msgs = ((InternalEObject)red).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.RGB__RED, null, msgs);
+			if (newRed != null)
+				msgs = ((InternalEObject)newRed).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.RGB__RED, null, msgs);
+			msgs = basicSetRed(newRed, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.RGB__RED, newRed, newRed));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Expression getGreen()
   {
-    return green;
-  }
+		return green;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public NotificationChain basicSetGreen(Expression newGreen, NotificationChain msgs)
   {
-    Expression oldGreen = green;
-    green = newGreen;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.RGB__GREEN, oldGreen, newGreen);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
+		Expression oldGreen = green;
+		green = newGreen;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.RGB__GREEN, oldGreen, newGreen);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void setGreen(Expression newGreen)
   {
-    if (newGreen != green)
-    {
-      NotificationChain msgs = null;
-      if (green != null)
-        msgs = ((InternalEObject)green).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.RGB__GREEN, null, msgs);
-      if (newGreen != null)
-        msgs = ((InternalEObject)newGreen).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.RGB__GREEN, null, msgs);
-      msgs = basicSetGreen(newGreen, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.RGB__GREEN, newGreen, newGreen));
-  }
+		if (newGreen != green) {
+			NotificationChain msgs = null;
+			if (green != null)
+				msgs = ((InternalEObject)green).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.RGB__GREEN, null, msgs);
+			if (newGreen != null)
+				msgs = ((InternalEObject)newGreen).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.RGB__GREEN, null, msgs);
+			msgs = basicSetGreen(newGreen, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.RGB__GREEN, newGreen, newGreen));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Expression getBlue()
   {
-    return blue;
-  }
+		return blue;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public NotificationChain basicSetBlue(Expression newBlue, NotificationChain msgs)
   {
-    Expression oldBlue = blue;
-    blue = newBlue;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.RGB__BLUE, oldBlue, newBlue);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
+		Expression oldBlue = blue;
+		blue = newBlue;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.RGB__BLUE, oldBlue, newBlue);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void setBlue(Expression newBlue)
   {
-    if (newBlue != blue)
-    {
-      NotificationChain msgs = null;
-      if (blue != null)
-        msgs = ((InternalEObject)blue).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.RGB__BLUE, null, msgs);
-      if (newBlue != null)
-        msgs = ((InternalEObject)newBlue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.RGB__BLUE, null, msgs);
-      msgs = basicSetBlue(newBlue, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.RGB__BLUE, newBlue, newBlue));
-  }
+		if (newBlue != blue) {
+			NotificationChain msgs = null;
+			if (blue != null)
+				msgs = ((InternalEObject)blue).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.RGB__BLUE, null, msgs);
+			if (newBlue != null)
+				msgs = ((InternalEObject)newBlue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.RGB__BLUE, null, msgs);
+			msgs = basicSetBlue(newBlue, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.RGB__BLUE, newBlue, newBlue));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    switch (featureID)
-    {
-      case ThymioDSLPackage.RGB__RED:
-        return basicSetRed(null, msgs);
-      case ThymioDSLPackage.RGB__GREEN:
-        return basicSetGreen(null, msgs);
-      case ThymioDSLPackage.RGB__BLUE:
-        return basicSetBlue(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
+		switch (featureID) {
+			case ThymioDSLPackage.RGB__RED:
+				return basicSetRed(null, msgs);
+			case ThymioDSLPackage.RGB__GREEN:
+				return basicSetGreen(null, msgs);
+			case ThymioDSLPackage.RGB__BLUE:
+				return basicSetBlue(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-    switch (featureID)
-    {
-      case ThymioDSLPackage.RGB__RED:
-        return getRed();
-      case ThymioDSLPackage.RGB__GREEN:
-        return getGreen();
-      case ThymioDSLPackage.RGB__BLUE:
-        return getBlue();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
+		switch (featureID) {
+			case ThymioDSLPackage.RGB__RED:
+				return getRed();
+			case ThymioDSLPackage.RGB__GREEN:
+				return getGreen();
+			case ThymioDSLPackage.RGB__BLUE:
+				return getBlue();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eSet(int featureID, Object newValue)
   {
-    switch (featureID)
-    {
-      case ThymioDSLPackage.RGB__RED:
-        setRed((Expression)newValue);
-        return;
-      case ThymioDSLPackage.RGB__GREEN:
-        setGreen((Expression)newValue);
-        return;
-      case ThymioDSLPackage.RGB__BLUE:
-        setBlue((Expression)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
+		switch (featureID) {
+			case ThymioDSLPackage.RGB__RED:
+				setRed((Expression)newValue);
+				return;
+			case ThymioDSLPackage.RGB__GREEN:
+				setGreen((Expression)newValue);
+				return;
+			case ThymioDSLPackage.RGB__BLUE:
+				setBlue((Expression)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eUnset(int featureID)
   {
-    switch (featureID)
-    {
-      case ThymioDSLPackage.RGB__RED:
-        setRed((Expression)null);
-        return;
-      case ThymioDSLPackage.RGB__GREEN:
-        setGreen((Expression)null);
-        return;
-      case ThymioDSLPackage.RGB__BLUE:
-        setBlue((Expression)null);
-        return;
-    }
-    super.eUnset(featureID);
-  }
+		switch (featureID) {
+			case ThymioDSLPackage.RGB__RED:
+				setRed((Expression)null);
+				return;
+			case ThymioDSLPackage.RGB__GREEN:
+				setGreen((Expression)null);
+				return;
+			case ThymioDSLPackage.RGB__BLUE:
+				setBlue((Expression)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public boolean eIsSet(int featureID)
   {
-    switch (featureID)
-    {
-      case ThymioDSLPackage.RGB__RED:
-        return red != null;
-      case ThymioDSLPackage.RGB__GREEN:
-        return green != null;
-      case ThymioDSLPackage.RGB__BLUE:
-        return blue != null;
-    }
-    return super.eIsSet(featureID);
-  }
+		switch (featureID) {
+			case ThymioDSLPackage.RGB__RED:
+				return red != null;
+			case ThymioDSLPackage.RGB__GREEN:
+				return green != null;
+			case ThymioDSLPackage.RGB__BLUE:
+				return blue != null;
+		}
+		return super.eIsSet(featureID);
+	}
 
 } //RGBImpl

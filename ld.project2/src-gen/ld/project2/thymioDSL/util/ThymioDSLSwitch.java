@@ -26,350 +26,358 @@ import org.eclipse.emf.ecore.util.Switch;
 public class ThymioDSLSwitch<T> extends Switch<T>
 {
   /**
-   * The cached model package
-   * <!-- begin-user-doc -->
+	 * The cached model package
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected static ThymioDSLPackage modelPackage;
 
   /**
-   * Creates an instance of the switch.
-   * <!-- begin-user-doc -->
+	 * Creates an instance of the switch.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public ThymioDSLSwitch()
   {
-    if (modelPackage == null)
-    {
-      modelPackage = ThymioDSLPackage.eINSTANCE;
-    }
-  }
+		if (modelPackage == null) {
+			modelPackage = ThymioDSLPackage.eINSTANCE;
+		}
+	}
 
   /**
-   * Checks whether this is a switch for the given package.
-   * <!-- begin-user-doc -->
+	 * Checks whether this is a switch for the given package.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param ePackage the package in question.
-   * @return whether this is a switch for the given package.
-   * @generated
-   */
+	 * @param ePackage the package in question.
+	 * @return whether this is a switch for the given package.
+	 * @generated
+	 */
   @Override
   protected boolean isSwitchFor(EPackage ePackage)
   {
-    return ePackage == modelPackage;
-  }
+		return ePackage == modelPackage;
+	}
 
   /**
-   * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
-   * <!-- begin-user-doc -->
+	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the first non-null result returned by a <code>caseXXX</code> call.
-   * @generated
-   */
+	 * @return the first non-null result returned by a <code>caseXXX</code> call.
+	 * @generated
+	 */
   @Override
   protected T doSwitch(int classifierID, EObject theEObject)
   {
-    switch (classifierID)
-    {
-      case ThymioDSLPackage.MODEL:
-      {
-        Model model = (Model)theEObject;
-        T result = caseModel(model);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case ThymioDSLPackage.PROCEDURE:
-      {
-        Procedure procedure = (Procedure)theEObject;
-        T result = caseProcedure(procedure);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case ThymioDSLPackage.EVENT:
-      {
-        Event event = (Event)theEObject;
-        T result = caseEvent(event);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case ThymioDSLPackage.SENSOR:
-      {
-        Sensor sensor = (Sensor)theEObject;
-        T result = caseSensor(sensor);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case ThymioDSLPackage.ACTION:
-      {
-        Action action = (Action)theEObject;
-        T result = caseAction(action);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case ThymioDSLPackage.MOTORS:
-      {
-        Motors motors = (Motors)theEObject;
-        T result = caseMotors(motors);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case ThymioDSLPackage.LIGHTS:
-      {
-        Lights lights = (Lights)theEObject;
-        T result = caseLights(lights);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case ThymioDSLPackage.RGB:
-      {
-        RGB rgb = (RGB)theEObject;
-        T result = caseRGB(rgb);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case ThymioDSLPackage.SOUND:
-      {
-        Sound sound = (Sound)theEObject;
-        T result = caseSound(sound);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case ThymioDSLPackage.EXPRESSION:
-      {
-        Expression expression = (Expression)theEObject;
-        T result = caseExpression(expression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case ThymioDSLPackage.ADDITION:
-      {
-        Addition addition = (Addition)theEObject;
-        T result = caseAddition(addition);
-        if (result == null) result = caseExpression(addition);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case ThymioDSLPackage.MULTIPLICATION:
-      {
-        Multiplication multiplication = (Multiplication)theEObject;
-        T result = caseMultiplication(multiplication);
-        if (result == null) result = caseExpression(multiplication);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      default: return defaultCase(theEObject);
-    }
-  }
+		switch (classifierID) {
+			case ThymioDSLPackage.MODEL: {
+				Model model = (Model)theEObject;
+				T result = caseModel(model);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ThymioDSLPackage.PROCEDURE: {
+				Procedure procedure = (Procedure)theEObject;
+				T result = caseProcedure(procedure);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ThymioDSLPackage.EVENT: {
+				Event event = (Event)theEObject;
+				T result = caseEvent(event);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ThymioDSLPackage.PROX_SENSOR: {
+				ProxSensor proxSensor = (ProxSensor)theEObject;
+				T result = caseProxSensor(proxSensor);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ThymioDSLPackage.BOTTOM_SENSOR: {
+				BottomSensor bottomSensor = (BottomSensor)theEObject;
+				T result = caseBottomSensor(bottomSensor);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ThymioDSLPackage.ACTION: {
+				Action action = (Action)theEObject;
+				T result = caseAction(action);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ThymioDSLPackage.MOTORS: {
+				Motors motors = (Motors)theEObject;
+				T result = caseMotors(motors);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ThymioDSLPackage.LIGHTS: {
+				Lights lights = (Lights)theEObject;
+				T result = caseLights(lights);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ThymioDSLPackage.RGB: {
+				RGB rgb = (RGB)theEObject;
+				T result = caseRGB(rgb);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ThymioDSLPackage.SOUND: {
+				Sound sound = (Sound)theEObject;
+				T result = caseSound(sound);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ThymioDSLPackage.EXPRESSION: {
+				Expression expression = (Expression)theEObject;
+				T result = caseExpression(expression);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ThymioDSLPackage.ADDITION: {
+				Addition addition = (Addition)theEObject;
+				T result = caseAddition(addition);
+				if (result == null) result = caseExpression(addition);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ThymioDSLPackage.MULTIPLICATION: {
+				Multiplication multiplication = (Multiplication)theEObject;
+				T result = caseMultiplication(multiplication);
+				if (result == null) result = caseExpression(multiplication);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			default: return defaultCase(theEObject);
+		}
+	}
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Model</em>'.
-   * <!-- begin-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '<em>Model</em>'.
+	 * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Model</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Model</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
   public T caseModel(Model object)
   {
-    return null;
-  }
+		return null;
+	}
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Procedure</em>'.
-   * <!-- begin-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '<em>Procedure</em>'.
+	 * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Procedure</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Procedure</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
   public T caseProcedure(Procedure object)
   {
-    return null;
-  }
+		return null;
+	}
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Event</em>'.
-   * <!-- begin-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '<em>Event</em>'.
+	 * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Event</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Event</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
   public T caseEvent(Event object)
   {
-    return null;
-  }
+		return null;
+	}
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Sensor</em>'.
-   * <!-- begin-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '<em>Prox Sensor</em>'.
+	 * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Sensor</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSensor(Sensor object)
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Prox Sensor</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+  public T caseProxSensor(ProxSensor object)
   {
-    return null;
-  }
+		return null;
+	}
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Action</em>'.
-   * <!-- begin-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '<em>Bottom Sensor</em>'.
+	 * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Action</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Bottom Sensor</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+  public T caseBottomSensor(BottomSensor object)
+  {
+		return null;
+	}
+
+  /**
+	 * Returns the result of interpreting the object as an instance of '<em>Action</em>'.
+	 * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Action</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
   public T caseAction(Action object)
   {
-    return null;
-  }
+		return null;
+	}
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Motors</em>'.
-   * <!-- begin-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '<em>Motors</em>'.
+	 * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Motors</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Motors</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
   public T caseMotors(Motors object)
   {
-    return null;
-  }
+		return null;
+	}
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Lights</em>'.
-   * <!-- begin-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '<em>Lights</em>'.
+	 * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Lights</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Lights</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
   public T caseLights(Lights object)
   {
-    return null;
-  }
+		return null;
+	}
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>RGB</em>'.
-   * <!-- begin-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '<em>RGB</em>'.
+	 * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>RGB</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>RGB</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
   public T caseRGB(RGB object)
   {
-    return null;
-  }
+		return null;
+	}
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Sound</em>'.
-   * <!-- begin-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '<em>Sound</em>'.
+	 * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Sound</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Sound</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
   public T caseSound(Sound object)
   {
-    return null;
-  }
+		return null;
+	}
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Expression</em>'.
-   * <!-- begin-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '<em>Expression</em>'.
+	 * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Expression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
   public T caseExpression(Expression object)
   {
-    return null;
-  }
+		return null;
+	}
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Addition</em>'.
-   * <!-- begin-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '<em>Addition</em>'.
+	 * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Addition</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Addition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
   public T caseAddition(Addition object)
   {
-    return null;
-  }
+		return null;
+	}
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Multiplication</em>'.
-   * <!-- begin-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '<em>Multiplication</em>'.
+	 * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Multiplication</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Multiplication</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
   public T caseMultiplication(Multiplication object)
   {
-    return null;
-  }
+		return null;
+	}
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
-   * <!-- begin-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
+	 * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch, but this is the last case anyway.
    * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject)
-   * @generated
-   */
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject)
+	 * @generated
+	 */
   @Override
   public T defaultCase(EObject object)
   {
-    return null;
-  }
+		return null;
+	}
 
 } //ThymioDSLSwitch

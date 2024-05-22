@@ -28,59 +28,59 @@ import org.eclipse.emf.ecore.EObject;
 public interface Action extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Move</b></em>' containment reference.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Move</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Move</em>' containment reference.
-   * @see #setMove(Motors)
-   * @see ld.project2.thymioDSL.ThymioDSLPackage#getAction_Move()
-   * @model containment="true"
-   * @generated
-   */
+	 * @return the value of the '<em>Move</em>' containment reference.
+	 * @see #setMove(Motors)
+	 * @see ld.project2.thymioDSL.ThymioDSLPackage#getAction_Move()
+	 * @model containment="true"
+	 * @generated
+	 */
   Motors getMove();
 
   /**
-   * Sets the value of the '{@link ld.project2.thymioDSL.Action#getMove <em>Move</em>}' containment reference.
-   * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link ld.project2.thymioDSL.Action#getMove <em>Move</em>}' containment reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Move</em>' containment reference.
-   * @see #getMove()
-   * @generated
-   */
+	 * @param value the new value of the '<em>Move</em>' containment reference.
+	 * @see #getMove()
+	 * @generated
+	 */
   void setMove(Motors value);
 
   /**
-   * Returns the value of the '<em><b>Light</b></em>' containment reference.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Light</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Light</em>' containment reference.
-   * @see #setLight(Lights)
-   * @see ld.project2.thymioDSL.ThymioDSLPackage#getAction_Light()
-   * @model containment="true"
-   * @generated
-   */
+	 * @return the value of the '<em>Light</em>' containment reference.
+	 * @see #setLight(Lights)
+	 * @see ld.project2.thymioDSL.ThymioDSLPackage#getAction_Light()
+	 * @model containment="true"
+	 * @generated
+	 */
   Lights getLight();
 
   /**
-   * Sets the value of the '{@link ld.project2.thymioDSL.Action#getLight <em>Light</em>}' containment reference.
-   * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link ld.project2.thymioDSL.Action#getLight <em>Light</em>}' containment reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Light</em>' containment reference.
-   * @see #getLight()
-   * @generated
-   */
+	 * @param value the new value of the '<em>Light</em>' containment reference.
+	 * @see #getLight()
+	 * @generated
+	 */
   void setLight(Lights value);
 
   /**
-   * Returns the value of the '<em><b>Sound</b></em>' containment reference list.
-   * The list contents are of type {@link ld.project2.thymioDSL.Sound}.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Sound</b></em>' containment reference list.
+	 * The list contents are of type {@link ld.project2.thymioDSL.Sound}.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Sound</em>' containment reference list.
-   * @see ld.project2.thymioDSL.ThymioDSLPackage#getAction_Sound()
-   * @model containment="true"
-   * @generated
-   */
+	 * @return the value of the '<em>Sound</em>' containment reference list.
+	 * @see ld.project2.thymioDSL.ThymioDSLPackage#getAction_Sound()
+	 * @model containment="true"
+	 * @generated
+	 */
   EList<Sound> getSound();
 
 } // Action

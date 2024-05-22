@@ -142,26 +142,49 @@ public class ThymioDSLItemProviderAdapterFactory extends ThymioDSLAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link ld.project2.thymioDSL.Sensor} instances.
+	 * This keeps track of the one adapter used for all {@link ld.project2.thymioDSL.ProxSensor} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SensorItemProvider sensorItemProvider;
+	protected ProxSensorItemProvider proxSensorItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link ld.project2.thymioDSL.Sensor}.
+	 * This creates an adapter for a {@link ld.project2.thymioDSL.ProxSensor}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createSensorAdapter() {
-		if (sensorItemProvider == null) {
-			sensorItemProvider = new SensorItemProvider(this);
+	public Adapter createProxSensorAdapter() {
+		if (proxSensorItemProvider == null) {
+			proxSensorItemProvider = new ProxSensorItemProvider(this);
 		}
 
-		return sensorItemProvider;
+		return proxSensorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ld.project2.thymioDSL.BottomSensor} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BottomSensorItemProvider bottomSensorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ld.project2.thymioDSL.BottomSensor}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBottomSensorAdapter() {
+		if (bottomSensorItemProvider == null) {
+			bottomSensorItemProvider = new BottomSensorItemProvider(this);
+		}
+
+		return bottomSensorItemProvider;
 	}
 
 	/**
@@ -456,7 +479,8 @@ public class ThymioDSLItemProviderAdapterFactory extends ThymioDSLAdapterFactory
 		if (modelItemProvider != null) modelItemProvider.dispose();
 		if (procedureItemProvider != null) procedureItemProvider.dispose();
 		if (eventItemProvider != null) eventItemProvider.dispose();
-		if (sensorItemProvider != null) sensorItemProvider.dispose();
+		if (proxSensorItemProvider != null) proxSensorItemProvider.dispose();
+		if (bottomSensorItemProvider != null) bottomSensorItemProvider.dispose();
 		if (actionItemProvider != null) actionItemProvider.dispose();
 		if (motorsItemProvider != null) motorsItemProvider.dispose();
 		if (lightsItemProvider != null) lightsItemProvider.dispose();

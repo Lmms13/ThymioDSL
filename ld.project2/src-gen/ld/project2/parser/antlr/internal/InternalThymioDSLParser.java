@@ -21,20 +21,27 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INT", "RULE_STRING", "RULE_ID", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Procedure:'", "'Event:'", "'Actions:'", "'button_is_clicked:'", "'robot_is_tapped:'", "'sound_is_detected:'", "'sensor_is_activated:'", "'back_left:'", "'back_right:'", "'front_right:'", "'front_center_right:'", "'front_center:'", "'front_center_left:'", "'front_left:'", "'move:'", "'lights:'", "'sound:'", "'left_motor:'", "'right_motor:'", "'top_light:'", "'on'", "'off'", "'bottom_light:'", "'('", "','", "')'", "'note:'", "'-'", "'true'", "'false'", "'short'", "'long'", "'up'", "'down'", "'left'", "'right'", "'center'", "'black'", "'white'", "'+'", "'*'", "'/'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INT", "RULE_STRING", "RULE_ID", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Procedure:'", "'Event:'", "'Actions:'", "'button_is_clicked:'", "'robot_is_tapped:'", "'sound_is_detected:'", "'proximity_sensor_is_activated:'", "'bottom_sensor_detects_color:'", "'back_left:'", "'back_right:'", "'front_right:'", "'front_center_right:'", "'front_center:'", "'front_center_left:'", "'front_left:'", "'left:'", "'right:'", "'move:'", "'lights:'", "'sound:'", "'left_motor:'", "'right_motor:'", "'top_light:'", "'on'", "'off'", "'bottom_light:'", "'('", "','", "')'", "'note:'", "'-'", "'true'", "'false'", "'short'", "'long'", "'up'", "'down'", "'left'", "'right'", "'center'", "'very_close'", "'close'", "'far'", "'black'", "'white'", "'any'", "'+'", "'*'", "'/'"
     };
     public static final int T__50=50;
     public static final int T__19=19;
     public static final int T__15=15;
+    public static final int T__59=59;
     public static final int T__16=16;
     public static final int T__17=17;
     public static final int T__18=18;
     public static final int T__11=11;
+    public static final int T__55=55;
     public static final int T__12=12;
+    public static final int T__56=56;
     public static final int T__13=13;
+    public static final int T__57=57;
     public static final int T__14=14;
+    public static final int T__58=58;
     public static final int T__51=51;
     public static final int T__52=52;
+    public static final int T__53=53;
+    public static final int T__54=54;
     public static final int RULE_ID=6;
     public static final int T__26=26;
     public static final int T__27=27;
@@ -379,7 +386,7 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
                 int alt2=2;
                 int LA2_0 = input.LA(1);
 
-                if ( ((LA2_0>=25 && LA2_0<=27)) ) {
+                if ( ((LA2_0>=28 && LA2_0<=30)) ) {
                     alt2=1;
                 }
 
@@ -485,7 +492,7 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEvent"
-    // InternalThymioDSL.g:195:1: ruleEvent returns [EObject current=null] : ( (otherlv_0= 'button_is_clicked:' ( (lv_button_1_0= ruleOrtogonal ) ) ) | (otherlv_2= 'robot_is_tapped:' ( (lv_tap_3_0= ruleEBoolean ) ) ) | (otherlv_4= 'sound_is_detected:' ( (lv_mic_5_0= ruleEBoolean ) ) ) | (otherlv_6= 'sensor_is_activated:' ( (lv_sensor_7_0= ruleSensor ) ) )+ ) ;
+    // InternalThymioDSL.g:195:1: ruleEvent returns [EObject current=null] : ( (otherlv_0= 'button_is_clicked:' ( (lv_button_1_0= ruleOrtogonal ) ) ) | (otherlv_2= 'robot_is_tapped:' ( (lv_tap_3_0= ruleEBoolean ) ) ) | (otherlv_4= 'sound_is_detected:' ( (lv_mic_5_0= ruleEBoolean ) ) ) | (otherlv_6= 'proximity_sensor_is_activated:' ( (lv_proxSensor_7_0= ruleProxSensor ) )+ ) | (otherlv_8= 'bottom_sensor_detects_color:' ( (lv_bottomSensor_9_0= ruleBottomSensor ) )+ ) ) ;
     public final EObject ruleEvent() throws RecognitionException {
         EObject current = null;
 
@@ -493,53 +500,61 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
         Token otherlv_2=null;
         Token otherlv_4=null;
         Token otherlv_6=null;
+        Token otherlv_8=null;
         AntlrDatatypeRuleToken lv_button_1_0 = null;
 
         AntlrDatatypeRuleToken lv_tap_3_0 = null;
 
         AntlrDatatypeRuleToken lv_mic_5_0 = null;
 
-        EObject lv_sensor_7_0 = null;
+        EObject lv_proxSensor_7_0 = null;
+
+        EObject lv_bottomSensor_9_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalThymioDSL.g:201:2: ( ( (otherlv_0= 'button_is_clicked:' ( (lv_button_1_0= ruleOrtogonal ) ) ) | (otherlv_2= 'robot_is_tapped:' ( (lv_tap_3_0= ruleEBoolean ) ) ) | (otherlv_4= 'sound_is_detected:' ( (lv_mic_5_0= ruleEBoolean ) ) ) | (otherlv_6= 'sensor_is_activated:' ( (lv_sensor_7_0= ruleSensor ) ) )+ ) )
-            // InternalThymioDSL.g:202:2: ( (otherlv_0= 'button_is_clicked:' ( (lv_button_1_0= ruleOrtogonal ) ) ) | (otherlv_2= 'robot_is_tapped:' ( (lv_tap_3_0= ruleEBoolean ) ) ) | (otherlv_4= 'sound_is_detected:' ( (lv_mic_5_0= ruleEBoolean ) ) ) | (otherlv_6= 'sensor_is_activated:' ( (lv_sensor_7_0= ruleSensor ) ) )+ )
+            // InternalThymioDSL.g:201:2: ( ( (otherlv_0= 'button_is_clicked:' ( (lv_button_1_0= ruleOrtogonal ) ) ) | (otherlv_2= 'robot_is_tapped:' ( (lv_tap_3_0= ruleEBoolean ) ) ) | (otherlv_4= 'sound_is_detected:' ( (lv_mic_5_0= ruleEBoolean ) ) ) | (otherlv_6= 'proximity_sensor_is_activated:' ( (lv_proxSensor_7_0= ruleProxSensor ) )+ ) | (otherlv_8= 'bottom_sensor_detects_color:' ( (lv_bottomSensor_9_0= ruleBottomSensor ) )+ ) ) )
+            // InternalThymioDSL.g:202:2: ( (otherlv_0= 'button_is_clicked:' ( (lv_button_1_0= ruleOrtogonal ) ) ) | (otherlv_2= 'robot_is_tapped:' ( (lv_tap_3_0= ruleEBoolean ) ) ) | (otherlv_4= 'sound_is_detected:' ( (lv_mic_5_0= ruleEBoolean ) ) ) | (otherlv_6= 'proximity_sensor_is_activated:' ( (lv_proxSensor_7_0= ruleProxSensor ) )+ ) | (otherlv_8= 'bottom_sensor_detects_color:' ( (lv_bottomSensor_9_0= ruleBottomSensor ) )+ ) )
             {
-            // InternalThymioDSL.g:202:2: ( (otherlv_0= 'button_is_clicked:' ( (lv_button_1_0= ruleOrtogonal ) ) ) | (otherlv_2= 'robot_is_tapped:' ( (lv_tap_3_0= ruleEBoolean ) ) ) | (otherlv_4= 'sound_is_detected:' ( (lv_mic_5_0= ruleEBoolean ) ) ) | (otherlv_6= 'sensor_is_activated:' ( (lv_sensor_7_0= ruleSensor ) ) )+ )
-            int alt4=4;
+            // InternalThymioDSL.g:202:2: ( (otherlv_0= 'button_is_clicked:' ( (lv_button_1_0= ruleOrtogonal ) ) ) | (otherlv_2= 'robot_is_tapped:' ( (lv_tap_3_0= ruleEBoolean ) ) ) | (otherlv_4= 'sound_is_detected:' ( (lv_mic_5_0= ruleEBoolean ) ) ) | (otherlv_6= 'proximity_sensor_is_activated:' ( (lv_proxSensor_7_0= ruleProxSensor ) )+ ) | (otherlv_8= 'bottom_sensor_detects_color:' ( (lv_bottomSensor_9_0= ruleBottomSensor ) )+ ) )
+            int alt5=5;
             switch ( input.LA(1) ) {
             case 14:
                 {
-                alt4=1;
+                alt5=1;
                 }
                 break;
             case 15:
                 {
-                alt4=2;
+                alt5=2;
                 }
                 break;
             case 16:
                 {
-                alt4=3;
+                alt5=3;
                 }
                 break;
             case 17:
                 {
-                alt4=4;
+                alt5=4;
+                }
+                break;
+            case 18:
+                {
+                alt5=5;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 4, 0, input);
+                    new NoViableAltException("", 5, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt4) {
+            switch (alt5) {
                 case 1 :
                     // InternalThymioDSL.g:203:3: (otherlv_0= 'button_is_clicked:' ( (lv_button_1_0= ruleOrtogonal ) ) )
                     {
@@ -682,39 +697,39 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalThymioDSL.g:281:3: (otherlv_6= 'sensor_is_activated:' ( (lv_sensor_7_0= ruleSensor ) ) )+
+                    // InternalThymioDSL.g:281:3: (otherlv_6= 'proximity_sensor_is_activated:' ( (lv_proxSensor_7_0= ruleProxSensor ) )+ )
                     {
-                    // InternalThymioDSL.g:281:3: (otherlv_6= 'sensor_is_activated:' ( (lv_sensor_7_0= ruleSensor ) ) )+
+                    // InternalThymioDSL.g:281:3: (otherlv_6= 'proximity_sensor_is_activated:' ( (lv_proxSensor_7_0= ruleProxSensor ) )+ )
+                    // InternalThymioDSL.g:282:4: otherlv_6= 'proximity_sensor_is_activated:' ( (lv_proxSensor_7_0= ruleProxSensor ) )+
+                    {
+                    otherlv_6=(Token)match(input,17,FOLLOW_12); 
+
+                    				newLeafNode(otherlv_6, grammarAccess.getEventAccess().getProximity_sensor_is_activatedKeyword_3_0());
+                    			
+                    // InternalThymioDSL.g:286:4: ( (lv_proxSensor_7_0= ruleProxSensor ) )+
                     int cnt3=0;
                     loop3:
                     do {
                         int alt3=2;
                         int LA3_0 = input.LA(1);
 
-                        if ( (LA3_0==17) ) {
+                        if ( ((LA3_0>=19 && LA3_0<=25)) ) {
                             alt3=1;
                         }
 
 
                         switch (alt3) {
                     	case 1 :
-                    	    // InternalThymioDSL.g:282:4: otherlv_6= 'sensor_is_activated:' ( (lv_sensor_7_0= ruleSensor ) )
+                    	    // InternalThymioDSL.g:287:5: (lv_proxSensor_7_0= ruleProxSensor )
                     	    {
-                    	    otherlv_6=(Token)match(input,17,FOLLOW_12); 
-
-                    	    				newLeafNode(otherlv_6, grammarAccess.getEventAccess().getSensor_is_activatedKeyword_3_0());
-                    	    			
-                    	    // InternalThymioDSL.g:286:4: ( (lv_sensor_7_0= ruleSensor ) )
-                    	    // InternalThymioDSL.g:287:5: (lv_sensor_7_0= ruleSensor )
-                    	    {
-                    	    // InternalThymioDSL.g:287:5: (lv_sensor_7_0= ruleSensor )
-                    	    // InternalThymioDSL.g:288:6: lv_sensor_7_0= ruleSensor
+                    	    // InternalThymioDSL.g:287:5: (lv_proxSensor_7_0= ruleProxSensor )
+                    	    // InternalThymioDSL.g:288:6: lv_proxSensor_7_0= ruleProxSensor
                     	    {
 
-                    	    						newCompositeNode(grammarAccess.getEventAccess().getSensorSensorParserRuleCall_3_1_0());
+                    	    						newCompositeNode(grammarAccess.getEventAccess().getProxSensorProxSensorParserRuleCall_3_1_0());
                     	    					
                     	    pushFollow(FOLLOW_13);
-                    	    lv_sensor_7_0=ruleSensor();
+                    	    lv_proxSensor_7_0=ruleProxSensor();
 
                     	    state._fsp--;
 
@@ -724,14 +739,11 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
                     	    						}
                     	    						add(
                     	    							current,
-                    	    							"sensor",
-                    	    							lv_sensor_7_0,
-                    	    							"ld.project2.ThymioDSL.Sensor");
+                    	    							"proxSensor",
+                    	    							lv_proxSensor_7_0,
+                    	    							"ld.project2.ThymioDSL.ProxSensor");
                     	    						afterParserOrEnumRuleCall();
                     	    					
-
-                    	    }
-
 
                     	    }
 
@@ -747,6 +759,79 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
                         }
                         cnt3++;
                     } while (true);
+
+
+                    }
+
+
+                    }
+                    break;
+                case 5 :
+                    // InternalThymioDSL.g:307:3: (otherlv_8= 'bottom_sensor_detects_color:' ( (lv_bottomSensor_9_0= ruleBottomSensor ) )+ )
+                    {
+                    // InternalThymioDSL.g:307:3: (otherlv_8= 'bottom_sensor_detects_color:' ( (lv_bottomSensor_9_0= ruleBottomSensor ) )+ )
+                    // InternalThymioDSL.g:308:4: otherlv_8= 'bottom_sensor_detects_color:' ( (lv_bottomSensor_9_0= ruleBottomSensor ) )+
+                    {
+                    otherlv_8=(Token)match(input,18,FOLLOW_14); 
+
+                    				newLeafNode(otherlv_8, grammarAccess.getEventAccess().getBottom_sensor_detects_colorKeyword_4_0());
+                    			
+                    // InternalThymioDSL.g:312:4: ( (lv_bottomSensor_9_0= ruleBottomSensor ) )+
+                    int cnt4=0;
+                    loop4:
+                    do {
+                        int alt4=2;
+                        int LA4_0 = input.LA(1);
+
+                        if ( (LA4_0==26) ) {
+                            alt4=1;
+                        }
+
+
+                        switch (alt4) {
+                    	case 1 :
+                    	    // InternalThymioDSL.g:313:5: (lv_bottomSensor_9_0= ruleBottomSensor )
+                    	    {
+                    	    // InternalThymioDSL.g:313:5: (lv_bottomSensor_9_0= ruleBottomSensor )
+                    	    // InternalThymioDSL.g:314:6: lv_bottomSensor_9_0= ruleBottomSensor
+                    	    {
+
+                    	    						newCompositeNode(grammarAccess.getEventAccess().getBottomSensorBottomSensorParserRuleCall_4_1_0());
+                    	    					
+                    	    pushFollow(FOLLOW_15);
+                    	    lv_bottomSensor_9_0=ruleBottomSensor();
+
+                    	    state._fsp--;
+
+
+                    	    						if (current==null) {
+                    	    							current = createModelElementForParent(grammarAccess.getEventRule());
+                    	    						}
+                    	    						add(
+                    	    							current,
+                    	    							"bottomSensor",
+                    	    							lv_bottomSensor_9_0,
+                    	    							"ld.project2.ThymioDSL.BottomSensor");
+                    	    						afterParserOrEnumRuleCall();
+                    	    					
+
+                    	    }
+
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    if ( cnt4 >= 1 ) break loop4;
+                                EarlyExitException eee =
+                                    new EarlyExitException(4, input);
+                                throw eee;
+                        }
+                        cnt4++;
+                    } while (true);
+
+
+                    }
 
 
                     }
@@ -773,25 +858,25 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleEvent"
 
 
-    // $ANTLR start "entryRuleSensor"
-    // InternalThymioDSL.g:310:1: entryRuleSensor returns [EObject current=null] : iv_ruleSensor= ruleSensor EOF ;
-    public final EObject entryRuleSensor() throws RecognitionException {
+    // $ANTLR start "entryRuleProxSensor"
+    // InternalThymioDSL.g:336:1: entryRuleProxSensor returns [EObject current=null] : iv_ruleProxSensor= ruleProxSensor EOF ;
+    public final EObject entryRuleProxSensor() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleSensor = null;
+        EObject iv_ruleProxSensor = null;
 
 
         try {
-            // InternalThymioDSL.g:310:47: (iv_ruleSensor= ruleSensor EOF )
-            // InternalThymioDSL.g:311:2: iv_ruleSensor= ruleSensor EOF
+            // InternalThymioDSL.g:336:51: (iv_ruleProxSensor= ruleProxSensor EOF )
+            // InternalThymioDSL.g:337:2: iv_ruleProxSensor= ruleProxSensor EOF
             {
-             newCompositeNode(grammarAccess.getSensorRule()); 
+             newCompositeNode(grammarAccess.getProxSensorRule()); 
             pushFollow(FOLLOW_1);
-            iv_ruleSensor=ruleSensor();
+            iv_ruleProxSensor=ruleProxSensor();
 
             state._fsp--;
 
-             current =iv_ruleSensor; 
+             current =iv_ruleProxSensor; 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -806,12 +891,12 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleSensor"
+    // $ANTLR end "entryRuleProxSensor"
 
 
-    // $ANTLR start "ruleSensor"
-    // InternalThymioDSL.g:317:1: ruleSensor returns [EObject current=null] : ( (otherlv_0= 'back_left:' ( (lv_backLeftSensor_1_0= ruleBlackWhite ) ) ) | (otherlv_2= 'back_right:' ( (lv_backRightSensor_3_0= ruleBlackWhite ) ) ) | (otherlv_4= 'front_right:' ( (lv_frontRightSensor_5_0= ruleEBoolean ) ) ) | (otherlv_6= 'front_center_right:' ( (lv_frontCenterRightSensor_7_0= ruleEBoolean ) ) ) | (otherlv_8= 'front_center:' ( (lv_frontCenterSensor_9_0= ruleEBoolean ) ) ) | (otherlv_10= 'front_center_left:' ( (lv_frontCenterLeftSensor_11_0= ruleEBoolean ) ) ) | (otherlv_12= 'front_left:' ( (lv_frontLeftSensor_13_0= ruleEBoolean ) ) ) ) ;
-    public final EObject ruleSensor() throws RecognitionException {
+    // $ANTLR start "ruleProxSensor"
+    // InternalThymioDSL.g:343:1: ruleProxSensor returns [EObject current=null] : ( (otherlv_0= 'back_left:' ( (lv_backLeftSensor_1_0= ruleSensorStatus ) ) ) | (otherlv_2= 'back_right:' ( (lv_backRightSensor_3_0= ruleSensorStatus ) ) ) | (otherlv_4= 'front_right:' ( (lv_frontRightSensor_5_0= ruleSensorStatus ) ) ) | (otherlv_6= 'front_center_right:' ( (lv_frontCenterRightSensor_7_0= ruleSensorStatus ) ) ) | (otherlv_8= 'front_center:' ( (lv_frontCenterSensor_9_0= ruleSensorStatus ) ) ) | (otherlv_10= 'front_center_left:' ( (lv_frontCenterLeftSensor_11_0= ruleSensorStatus ) ) ) | (otherlv_12= 'front_left:' ( (lv_frontLeftSensor_13_0= ruleSensorStatus ) ) ) ) ;
+    public final EObject ruleProxSensor() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
@@ -840,88 +925,88 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalThymioDSL.g:323:2: ( ( (otherlv_0= 'back_left:' ( (lv_backLeftSensor_1_0= ruleBlackWhite ) ) ) | (otherlv_2= 'back_right:' ( (lv_backRightSensor_3_0= ruleBlackWhite ) ) ) | (otherlv_4= 'front_right:' ( (lv_frontRightSensor_5_0= ruleEBoolean ) ) ) | (otherlv_6= 'front_center_right:' ( (lv_frontCenterRightSensor_7_0= ruleEBoolean ) ) ) | (otherlv_8= 'front_center:' ( (lv_frontCenterSensor_9_0= ruleEBoolean ) ) ) | (otherlv_10= 'front_center_left:' ( (lv_frontCenterLeftSensor_11_0= ruleEBoolean ) ) ) | (otherlv_12= 'front_left:' ( (lv_frontLeftSensor_13_0= ruleEBoolean ) ) ) ) )
-            // InternalThymioDSL.g:324:2: ( (otherlv_0= 'back_left:' ( (lv_backLeftSensor_1_0= ruleBlackWhite ) ) ) | (otherlv_2= 'back_right:' ( (lv_backRightSensor_3_0= ruleBlackWhite ) ) ) | (otherlv_4= 'front_right:' ( (lv_frontRightSensor_5_0= ruleEBoolean ) ) ) | (otherlv_6= 'front_center_right:' ( (lv_frontCenterRightSensor_7_0= ruleEBoolean ) ) ) | (otherlv_8= 'front_center:' ( (lv_frontCenterSensor_9_0= ruleEBoolean ) ) ) | (otherlv_10= 'front_center_left:' ( (lv_frontCenterLeftSensor_11_0= ruleEBoolean ) ) ) | (otherlv_12= 'front_left:' ( (lv_frontLeftSensor_13_0= ruleEBoolean ) ) ) )
+            // InternalThymioDSL.g:349:2: ( ( (otherlv_0= 'back_left:' ( (lv_backLeftSensor_1_0= ruleSensorStatus ) ) ) | (otherlv_2= 'back_right:' ( (lv_backRightSensor_3_0= ruleSensorStatus ) ) ) | (otherlv_4= 'front_right:' ( (lv_frontRightSensor_5_0= ruleSensorStatus ) ) ) | (otherlv_6= 'front_center_right:' ( (lv_frontCenterRightSensor_7_0= ruleSensorStatus ) ) ) | (otherlv_8= 'front_center:' ( (lv_frontCenterSensor_9_0= ruleSensorStatus ) ) ) | (otherlv_10= 'front_center_left:' ( (lv_frontCenterLeftSensor_11_0= ruleSensorStatus ) ) ) | (otherlv_12= 'front_left:' ( (lv_frontLeftSensor_13_0= ruleSensorStatus ) ) ) ) )
+            // InternalThymioDSL.g:350:2: ( (otherlv_0= 'back_left:' ( (lv_backLeftSensor_1_0= ruleSensorStatus ) ) ) | (otherlv_2= 'back_right:' ( (lv_backRightSensor_3_0= ruleSensorStatus ) ) ) | (otherlv_4= 'front_right:' ( (lv_frontRightSensor_5_0= ruleSensorStatus ) ) ) | (otherlv_6= 'front_center_right:' ( (lv_frontCenterRightSensor_7_0= ruleSensorStatus ) ) ) | (otherlv_8= 'front_center:' ( (lv_frontCenterSensor_9_0= ruleSensorStatus ) ) ) | (otherlv_10= 'front_center_left:' ( (lv_frontCenterLeftSensor_11_0= ruleSensorStatus ) ) ) | (otherlv_12= 'front_left:' ( (lv_frontLeftSensor_13_0= ruleSensorStatus ) ) ) )
             {
-            // InternalThymioDSL.g:324:2: ( (otherlv_0= 'back_left:' ( (lv_backLeftSensor_1_0= ruleBlackWhite ) ) ) | (otherlv_2= 'back_right:' ( (lv_backRightSensor_3_0= ruleBlackWhite ) ) ) | (otherlv_4= 'front_right:' ( (lv_frontRightSensor_5_0= ruleEBoolean ) ) ) | (otherlv_6= 'front_center_right:' ( (lv_frontCenterRightSensor_7_0= ruleEBoolean ) ) ) | (otherlv_8= 'front_center:' ( (lv_frontCenterSensor_9_0= ruleEBoolean ) ) ) | (otherlv_10= 'front_center_left:' ( (lv_frontCenterLeftSensor_11_0= ruleEBoolean ) ) ) | (otherlv_12= 'front_left:' ( (lv_frontLeftSensor_13_0= ruleEBoolean ) ) ) )
-            int alt5=7;
+            // InternalThymioDSL.g:350:2: ( (otherlv_0= 'back_left:' ( (lv_backLeftSensor_1_0= ruleSensorStatus ) ) ) | (otherlv_2= 'back_right:' ( (lv_backRightSensor_3_0= ruleSensorStatus ) ) ) | (otherlv_4= 'front_right:' ( (lv_frontRightSensor_5_0= ruleSensorStatus ) ) ) | (otherlv_6= 'front_center_right:' ( (lv_frontCenterRightSensor_7_0= ruleSensorStatus ) ) ) | (otherlv_8= 'front_center:' ( (lv_frontCenterSensor_9_0= ruleSensorStatus ) ) ) | (otherlv_10= 'front_center_left:' ( (lv_frontCenterLeftSensor_11_0= ruleSensorStatus ) ) ) | (otherlv_12= 'front_left:' ( (lv_frontLeftSensor_13_0= ruleSensorStatus ) ) ) )
+            int alt6=7;
             switch ( input.LA(1) ) {
-            case 18:
-                {
-                alt5=1;
-                }
-                break;
             case 19:
                 {
-                alt5=2;
+                alt6=1;
                 }
                 break;
             case 20:
                 {
-                alt5=3;
+                alt6=2;
                 }
                 break;
             case 21:
                 {
-                alt5=4;
+                alt6=3;
                 }
                 break;
             case 22:
                 {
-                alt5=5;
+                alt6=4;
                 }
                 break;
             case 23:
                 {
-                alt5=6;
+                alt6=5;
                 }
                 break;
             case 24:
                 {
-                alt5=7;
+                alt6=6;
+                }
+                break;
+            case 25:
+                {
+                alt6=7;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 5, 0, input);
+                    new NoViableAltException("", 6, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt5) {
+            switch (alt6) {
                 case 1 :
-                    // InternalThymioDSL.g:325:3: (otherlv_0= 'back_left:' ( (lv_backLeftSensor_1_0= ruleBlackWhite ) ) )
+                    // InternalThymioDSL.g:351:3: (otherlv_0= 'back_left:' ( (lv_backLeftSensor_1_0= ruleSensorStatus ) ) )
                     {
-                    // InternalThymioDSL.g:325:3: (otherlv_0= 'back_left:' ( (lv_backLeftSensor_1_0= ruleBlackWhite ) ) )
-                    // InternalThymioDSL.g:326:4: otherlv_0= 'back_left:' ( (lv_backLeftSensor_1_0= ruleBlackWhite ) )
+                    // InternalThymioDSL.g:351:3: (otherlv_0= 'back_left:' ( (lv_backLeftSensor_1_0= ruleSensorStatus ) ) )
+                    // InternalThymioDSL.g:352:4: otherlv_0= 'back_left:' ( (lv_backLeftSensor_1_0= ruleSensorStatus ) )
                     {
-                    otherlv_0=(Token)match(input,18,FOLLOW_14); 
+                    otherlv_0=(Token)match(input,19,FOLLOW_16); 
 
-                    				newLeafNode(otherlv_0, grammarAccess.getSensorAccess().getBack_leftKeyword_0_0());
+                    				newLeafNode(otherlv_0, grammarAccess.getProxSensorAccess().getBack_leftKeyword_0_0());
                     			
-                    // InternalThymioDSL.g:330:4: ( (lv_backLeftSensor_1_0= ruleBlackWhite ) )
-                    // InternalThymioDSL.g:331:5: (lv_backLeftSensor_1_0= ruleBlackWhite )
+                    // InternalThymioDSL.g:356:4: ( (lv_backLeftSensor_1_0= ruleSensorStatus ) )
+                    // InternalThymioDSL.g:357:5: (lv_backLeftSensor_1_0= ruleSensorStatus )
                     {
-                    // InternalThymioDSL.g:331:5: (lv_backLeftSensor_1_0= ruleBlackWhite )
-                    // InternalThymioDSL.g:332:6: lv_backLeftSensor_1_0= ruleBlackWhite
+                    // InternalThymioDSL.g:357:5: (lv_backLeftSensor_1_0= ruleSensorStatus )
+                    // InternalThymioDSL.g:358:6: lv_backLeftSensor_1_0= ruleSensorStatus
                     {
 
-                    						newCompositeNode(grammarAccess.getSensorAccess().getBackLeftSensorBlackWhiteParserRuleCall_0_1_0());
+                    						newCompositeNode(grammarAccess.getProxSensorAccess().getBackLeftSensorSensorStatusParserRuleCall_0_1_0());
                     					
                     pushFollow(FOLLOW_2);
-                    lv_backLeftSensor_1_0=ruleBlackWhite();
+                    lv_backLeftSensor_1_0=ruleSensorStatus();
 
                     state._fsp--;
 
 
                     						if (current==null) {
-                    							current = createModelElementForParent(grammarAccess.getSensorRule());
+                    							current = createModelElementForParent(grammarAccess.getProxSensorRule());
                     						}
                     						set(
                     							current,
                     							"backLeftSensor",
                     							lv_backLeftSensor_1_0,
-                    							"ld.project2.ThymioDSL.BlackWhite");
+                    							"ld.project2.ThymioDSL.SensorStatus");
                     						afterParserOrEnumRuleCall();
                     					
 
@@ -937,38 +1022,38 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalThymioDSL.g:351:3: (otherlv_2= 'back_right:' ( (lv_backRightSensor_3_0= ruleBlackWhite ) ) )
+                    // InternalThymioDSL.g:377:3: (otherlv_2= 'back_right:' ( (lv_backRightSensor_3_0= ruleSensorStatus ) ) )
                     {
-                    // InternalThymioDSL.g:351:3: (otherlv_2= 'back_right:' ( (lv_backRightSensor_3_0= ruleBlackWhite ) ) )
-                    // InternalThymioDSL.g:352:4: otherlv_2= 'back_right:' ( (lv_backRightSensor_3_0= ruleBlackWhite ) )
+                    // InternalThymioDSL.g:377:3: (otherlv_2= 'back_right:' ( (lv_backRightSensor_3_0= ruleSensorStatus ) ) )
+                    // InternalThymioDSL.g:378:4: otherlv_2= 'back_right:' ( (lv_backRightSensor_3_0= ruleSensorStatus ) )
                     {
-                    otherlv_2=(Token)match(input,19,FOLLOW_14); 
+                    otherlv_2=(Token)match(input,20,FOLLOW_16); 
 
-                    				newLeafNode(otherlv_2, grammarAccess.getSensorAccess().getBack_rightKeyword_1_0());
+                    				newLeafNode(otherlv_2, grammarAccess.getProxSensorAccess().getBack_rightKeyword_1_0());
                     			
-                    // InternalThymioDSL.g:356:4: ( (lv_backRightSensor_3_0= ruleBlackWhite ) )
-                    // InternalThymioDSL.g:357:5: (lv_backRightSensor_3_0= ruleBlackWhite )
+                    // InternalThymioDSL.g:382:4: ( (lv_backRightSensor_3_0= ruleSensorStatus ) )
+                    // InternalThymioDSL.g:383:5: (lv_backRightSensor_3_0= ruleSensorStatus )
                     {
-                    // InternalThymioDSL.g:357:5: (lv_backRightSensor_3_0= ruleBlackWhite )
-                    // InternalThymioDSL.g:358:6: lv_backRightSensor_3_0= ruleBlackWhite
+                    // InternalThymioDSL.g:383:5: (lv_backRightSensor_3_0= ruleSensorStatus )
+                    // InternalThymioDSL.g:384:6: lv_backRightSensor_3_0= ruleSensorStatus
                     {
 
-                    						newCompositeNode(grammarAccess.getSensorAccess().getBackRightSensorBlackWhiteParserRuleCall_1_1_0());
+                    						newCompositeNode(grammarAccess.getProxSensorAccess().getBackRightSensorSensorStatusParserRuleCall_1_1_0());
                     					
                     pushFollow(FOLLOW_2);
-                    lv_backRightSensor_3_0=ruleBlackWhite();
+                    lv_backRightSensor_3_0=ruleSensorStatus();
 
                     state._fsp--;
 
 
                     						if (current==null) {
-                    							current = createModelElementForParent(grammarAccess.getSensorRule());
+                    							current = createModelElementForParent(grammarAccess.getProxSensorRule());
                     						}
                     						set(
                     							current,
                     							"backRightSensor",
                     							lv_backRightSensor_3_0,
-                    							"ld.project2.ThymioDSL.BlackWhite");
+                    							"ld.project2.ThymioDSL.SensorStatus");
                     						afterParserOrEnumRuleCall();
                     					
 
@@ -984,38 +1069,38 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalThymioDSL.g:377:3: (otherlv_4= 'front_right:' ( (lv_frontRightSensor_5_0= ruleEBoolean ) ) )
+                    // InternalThymioDSL.g:403:3: (otherlv_4= 'front_right:' ( (lv_frontRightSensor_5_0= ruleSensorStatus ) ) )
                     {
-                    // InternalThymioDSL.g:377:3: (otherlv_4= 'front_right:' ( (lv_frontRightSensor_5_0= ruleEBoolean ) ) )
-                    // InternalThymioDSL.g:378:4: otherlv_4= 'front_right:' ( (lv_frontRightSensor_5_0= ruleEBoolean ) )
+                    // InternalThymioDSL.g:403:3: (otherlv_4= 'front_right:' ( (lv_frontRightSensor_5_0= ruleSensorStatus ) ) )
+                    // InternalThymioDSL.g:404:4: otherlv_4= 'front_right:' ( (lv_frontRightSensor_5_0= ruleSensorStatus ) )
                     {
-                    otherlv_4=(Token)match(input,20,FOLLOW_11); 
+                    otherlv_4=(Token)match(input,21,FOLLOW_16); 
 
-                    				newLeafNode(otherlv_4, grammarAccess.getSensorAccess().getFront_rightKeyword_2_0());
+                    				newLeafNode(otherlv_4, grammarAccess.getProxSensorAccess().getFront_rightKeyword_2_0());
                     			
-                    // InternalThymioDSL.g:382:4: ( (lv_frontRightSensor_5_0= ruleEBoolean ) )
-                    // InternalThymioDSL.g:383:5: (lv_frontRightSensor_5_0= ruleEBoolean )
+                    // InternalThymioDSL.g:408:4: ( (lv_frontRightSensor_5_0= ruleSensorStatus ) )
+                    // InternalThymioDSL.g:409:5: (lv_frontRightSensor_5_0= ruleSensorStatus )
                     {
-                    // InternalThymioDSL.g:383:5: (lv_frontRightSensor_5_0= ruleEBoolean )
-                    // InternalThymioDSL.g:384:6: lv_frontRightSensor_5_0= ruleEBoolean
+                    // InternalThymioDSL.g:409:5: (lv_frontRightSensor_5_0= ruleSensorStatus )
+                    // InternalThymioDSL.g:410:6: lv_frontRightSensor_5_0= ruleSensorStatus
                     {
 
-                    						newCompositeNode(grammarAccess.getSensorAccess().getFrontRightSensorEBooleanParserRuleCall_2_1_0());
+                    						newCompositeNode(grammarAccess.getProxSensorAccess().getFrontRightSensorSensorStatusParserRuleCall_2_1_0());
                     					
                     pushFollow(FOLLOW_2);
-                    lv_frontRightSensor_5_0=ruleEBoolean();
+                    lv_frontRightSensor_5_0=ruleSensorStatus();
 
                     state._fsp--;
 
 
                     						if (current==null) {
-                    							current = createModelElementForParent(grammarAccess.getSensorRule());
+                    							current = createModelElementForParent(grammarAccess.getProxSensorRule());
                     						}
                     						set(
                     							current,
                     							"frontRightSensor",
                     							lv_frontRightSensor_5_0,
-                    							"ld.project2.ThymioDSL.EBoolean");
+                    							"ld.project2.ThymioDSL.SensorStatus");
                     						afterParserOrEnumRuleCall();
                     					
 
@@ -1031,38 +1116,38 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalThymioDSL.g:403:3: (otherlv_6= 'front_center_right:' ( (lv_frontCenterRightSensor_7_0= ruleEBoolean ) ) )
+                    // InternalThymioDSL.g:429:3: (otherlv_6= 'front_center_right:' ( (lv_frontCenterRightSensor_7_0= ruleSensorStatus ) ) )
                     {
-                    // InternalThymioDSL.g:403:3: (otherlv_6= 'front_center_right:' ( (lv_frontCenterRightSensor_7_0= ruleEBoolean ) ) )
-                    // InternalThymioDSL.g:404:4: otherlv_6= 'front_center_right:' ( (lv_frontCenterRightSensor_7_0= ruleEBoolean ) )
+                    // InternalThymioDSL.g:429:3: (otherlv_6= 'front_center_right:' ( (lv_frontCenterRightSensor_7_0= ruleSensorStatus ) ) )
+                    // InternalThymioDSL.g:430:4: otherlv_6= 'front_center_right:' ( (lv_frontCenterRightSensor_7_0= ruleSensorStatus ) )
                     {
-                    otherlv_6=(Token)match(input,21,FOLLOW_11); 
+                    otherlv_6=(Token)match(input,22,FOLLOW_16); 
 
-                    				newLeafNode(otherlv_6, grammarAccess.getSensorAccess().getFront_center_rightKeyword_3_0());
+                    				newLeafNode(otherlv_6, grammarAccess.getProxSensorAccess().getFront_center_rightKeyword_3_0());
                     			
-                    // InternalThymioDSL.g:408:4: ( (lv_frontCenterRightSensor_7_0= ruleEBoolean ) )
-                    // InternalThymioDSL.g:409:5: (lv_frontCenterRightSensor_7_0= ruleEBoolean )
+                    // InternalThymioDSL.g:434:4: ( (lv_frontCenterRightSensor_7_0= ruleSensorStatus ) )
+                    // InternalThymioDSL.g:435:5: (lv_frontCenterRightSensor_7_0= ruleSensorStatus )
                     {
-                    // InternalThymioDSL.g:409:5: (lv_frontCenterRightSensor_7_0= ruleEBoolean )
-                    // InternalThymioDSL.g:410:6: lv_frontCenterRightSensor_7_0= ruleEBoolean
+                    // InternalThymioDSL.g:435:5: (lv_frontCenterRightSensor_7_0= ruleSensorStatus )
+                    // InternalThymioDSL.g:436:6: lv_frontCenterRightSensor_7_0= ruleSensorStatus
                     {
 
-                    						newCompositeNode(grammarAccess.getSensorAccess().getFrontCenterRightSensorEBooleanParserRuleCall_3_1_0());
+                    						newCompositeNode(grammarAccess.getProxSensorAccess().getFrontCenterRightSensorSensorStatusParserRuleCall_3_1_0());
                     					
                     pushFollow(FOLLOW_2);
-                    lv_frontCenterRightSensor_7_0=ruleEBoolean();
+                    lv_frontCenterRightSensor_7_0=ruleSensorStatus();
 
                     state._fsp--;
 
 
                     						if (current==null) {
-                    							current = createModelElementForParent(grammarAccess.getSensorRule());
+                    							current = createModelElementForParent(grammarAccess.getProxSensorRule());
                     						}
                     						set(
                     							current,
                     							"frontCenterRightSensor",
                     							lv_frontCenterRightSensor_7_0,
-                    							"ld.project2.ThymioDSL.EBoolean");
+                    							"ld.project2.ThymioDSL.SensorStatus");
                     						afterParserOrEnumRuleCall();
                     					
 
@@ -1078,38 +1163,38 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalThymioDSL.g:429:3: (otherlv_8= 'front_center:' ( (lv_frontCenterSensor_9_0= ruleEBoolean ) ) )
+                    // InternalThymioDSL.g:455:3: (otherlv_8= 'front_center:' ( (lv_frontCenterSensor_9_0= ruleSensorStatus ) ) )
                     {
-                    // InternalThymioDSL.g:429:3: (otherlv_8= 'front_center:' ( (lv_frontCenterSensor_9_0= ruleEBoolean ) ) )
-                    // InternalThymioDSL.g:430:4: otherlv_8= 'front_center:' ( (lv_frontCenterSensor_9_0= ruleEBoolean ) )
+                    // InternalThymioDSL.g:455:3: (otherlv_8= 'front_center:' ( (lv_frontCenterSensor_9_0= ruleSensorStatus ) ) )
+                    // InternalThymioDSL.g:456:4: otherlv_8= 'front_center:' ( (lv_frontCenterSensor_9_0= ruleSensorStatus ) )
                     {
-                    otherlv_8=(Token)match(input,22,FOLLOW_11); 
+                    otherlv_8=(Token)match(input,23,FOLLOW_16); 
 
-                    				newLeafNode(otherlv_8, grammarAccess.getSensorAccess().getFront_centerKeyword_4_0());
+                    				newLeafNode(otherlv_8, grammarAccess.getProxSensorAccess().getFront_centerKeyword_4_0());
                     			
-                    // InternalThymioDSL.g:434:4: ( (lv_frontCenterSensor_9_0= ruleEBoolean ) )
-                    // InternalThymioDSL.g:435:5: (lv_frontCenterSensor_9_0= ruleEBoolean )
+                    // InternalThymioDSL.g:460:4: ( (lv_frontCenterSensor_9_0= ruleSensorStatus ) )
+                    // InternalThymioDSL.g:461:5: (lv_frontCenterSensor_9_0= ruleSensorStatus )
                     {
-                    // InternalThymioDSL.g:435:5: (lv_frontCenterSensor_9_0= ruleEBoolean )
-                    // InternalThymioDSL.g:436:6: lv_frontCenterSensor_9_0= ruleEBoolean
+                    // InternalThymioDSL.g:461:5: (lv_frontCenterSensor_9_0= ruleSensorStatus )
+                    // InternalThymioDSL.g:462:6: lv_frontCenterSensor_9_0= ruleSensorStatus
                     {
 
-                    						newCompositeNode(grammarAccess.getSensorAccess().getFrontCenterSensorEBooleanParserRuleCall_4_1_0());
+                    						newCompositeNode(grammarAccess.getProxSensorAccess().getFrontCenterSensorSensorStatusParserRuleCall_4_1_0());
                     					
                     pushFollow(FOLLOW_2);
-                    lv_frontCenterSensor_9_0=ruleEBoolean();
+                    lv_frontCenterSensor_9_0=ruleSensorStatus();
 
                     state._fsp--;
 
 
                     						if (current==null) {
-                    							current = createModelElementForParent(grammarAccess.getSensorRule());
+                    							current = createModelElementForParent(grammarAccess.getProxSensorRule());
                     						}
                     						set(
                     							current,
                     							"frontCenterSensor",
                     							lv_frontCenterSensor_9_0,
-                    							"ld.project2.ThymioDSL.EBoolean");
+                    							"ld.project2.ThymioDSL.SensorStatus");
                     						afterParserOrEnumRuleCall();
                     					
 
@@ -1125,38 +1210,38 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // InternalThymioDSL.g:455:3: (otherlv_10= 'front_center_left:' ( (lv_frontCenterLeftSensor_11_0= ruleEBoolean ) ) )
+                    // InternalThymioDSL.g:481:3: (otherlv_10= 'front_center_left:' ( (lv_frontCenterLeftSensor_11_0= ruleSensorStatus ) ) )
                     {
-                    // InternalThymioDSL.g:455:3: (otherlv_10= 'front_center_left:' ( (lv_frontCenterLeftSensor_11_0= ruleEBoolean ) ) )
-                    // InternalThymioDSL.g:456:4: otherlv_10= 'front_center_left:' ( (lv_frontCenterLeftSensor_11_0= ruleEBoolean ) )
+                    // InternalThymioDSL.g:481:3: (otherlv_10= 'front_center_left:' ( (lv_frontCenterLeftSensor_11_0= ruleSensorStatus ) ) )
+                    // InternalThymioDSL.g:482:4: otherlv_10= 'front_center_left:' ( (lv_frontCenterLeftSensor_11_0= ruleSensorStatus ) )
                     {
-                    otherlv_10=(Token)match(input,23,FOLLOW_11); 
+                    otherlv_10=(Token)match(input,24,FOLLOW_16); 
 
-                    				newLeafNode(otherlv_10, grammarAccess.getSensorAccess().getFront_center_leftKeyword_5_0());
+                    				newLeafNode(otherlv_10, grammarAccess.getProxSensorAccess().getFront_center_leftKeyword_5_0());
                     			
-                    // InternalThymioDSL.g:460:4: ( (lv_frontCenterLeftSensor_11_0= ruleEBoolean ) )
-                    // InternalThymioDSL.g:461:5: (lv_frontCenterLeftSensor_11_0= ruleEBoolean )
+                    // InternalThymioDSL.g:486:4: ( (lv_frontCenterLeftSensor_11_0= ruleSensorStatus ) )
+                    // InternalThymioDSL.g:487:5: (lv_frontCenterLeftSensor_11_0= ruleSensorStatus )
                     {
-                    // InternalThymioDSL.g:461:5: (lv_frontCenterLeftSensor_11_0= ruleEBoolean )
-                    // InternalThymioDSL.g:462:6: lv_frontCenterLeftSensor_11_0= ruleEBoolean
+                    // InternalThymioDSL.g:487:5: (lv_frontCenterLeftSensor_11_0= ruleSensorStatus )
+                    // InternalThymioDSL.g:488:6: lv_frontCenterLeftSensor_11_0= ruleSensorStatus
                     {
 
-                    						newCompositeNode(grammarAccess.getSensorAccess().getFrontCenterLeftSensorEBooleanParserRuleCall_5_1_0());
+                    						newCompositeNode(grammarAccess.getProxSensorAccess().getFrontCenterLeftSensorSensorStatusParserRuleCall_5_1_0());
                     					
                     pushFollow(FOLLOW_2);
-                    lv_frontCenterLeftSensor_11_0=ruleEBoolean();
+                    lv_frontCenterLeftSensor_11_0=ruleSensorStatus();
 
                     state._fsp--;
 
 
                     						if (current==null) {
-                    							current = createModelElementForParent(grammarAccess.getSensorRule());
+                    							current = createModelElementForParent(grammarAccess.getProxSensorRule());
                     						}
                     						set(
                     							current,
                     							"frontCenterLeftSensor",
                     							lv_frontCenterLeftSensor_11_0,
-                    							"ld.project2.ThymioDSL.EBoolean");
+                    							"ld.project2.ThymioDSL.SensorStatus");
                     						afterParserOrEnumRuleCall();
                     					
 
@@ -1172,38 +1257,38 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // InternalThymioDSL.g:481:3: (otherlv_12= 'front_left:' ( (lv_frontLeftSensor_13_0= ruleEBoolean ) ) )
+                    // InternalThymioDSL.g:507:3: (otherlv_12= 'front_left:' ( (lv_frontLeftSensor_13_0= ruleSensorStatus ) ) )
                     {
-                    // InternalThymioDSL.g:481:3: (otherlv_12= 'front_left:' ( (lv_frontLeftSensor_13_0= ruleEBoolean ) ) )
-                    // InternalThymioDSL.g:482:4: otherlv_12= 'front_left:' ( (lv_frontLeftSensor_13_0= ruleEBoolean ) )
+                    // InternalThymioDSL.g:507:3: (otherlv_12= 'front_left:' ( (lv_frontLeftSensor_13_0= ruleSensorStatus ) ) )
+                    // InternalThymioDSL.g:508:4: otherlv_12= 'front_left:' ( (lv_frontLeftSensor_13_0= ruleSensorStatus ) )
                     {
-                    otherlv_12=(Token)match(input,24,FOLLOW_11); 
+                    otherlv_12=(Token)match(input,25,FOLLOW_16); 
 
-                    				newLeafNode(otherlv_12, grammarAccess.getSensorAccess().getFront_leftKeyword_6_0());
+                    				newLeafNode(otherlv_12, grammarAccess.getProxSensorAccess().getFront_leftKeyword_6_0());
                     			
-                    // InternalThymioDSL.g:486:4: ( (lv_frontLeftSensor_13_0= ruleEBoolean ) )
-                    // InternalThymioDSL.g:487:5: (lv_frontLeftSensor_13_0= ruleEBoolean )
+                    // InternalThymioDSL.g:512:4: ( (lv_frontLeftSensor_13_0= ruleSensorStatus ) )
+                    // InternalThymioDSL.g:513:5: (lv_frontLeftSensor_13_0= ruleSensorStatus )
                     {
-                    // InternalThymioDSL.g:487:5: (lv_frontLeftSensor_13_0= ruleEBoolean )
-                    // InternalThymioDSL.g:488:6: lv_frontLeftSensor_13_0= ruleEBoolean
+                    // InternalThymioDSL.g:513:5: (lv_frontLeftSensor_13_0= ruleSensorStatus )
+                    // InternalThymioDSL.g:514:6: lv_frontLeftSensor_13_0= ruleSensorStatus
                     {
 
-                    						newCompositeNode(grammarAccess.getSensorAccess().getFrontLeftSensorEBooleanParserRuleCall_6_1_0());
+                    						newCompositeNode(grammarAccess.getProxSensorAccess().getFrontLeftSensorSensorStatusParserRuleCall_6_1_0());
                     					
                     pushFollow(FOLLOW_2);
-                    lv_frontLeftSensor_13_0=ruleEBoolean();
+                    lv_frontLeftSensor_13_0=ruleSensorStatus();
 
                     state._fsp--;
 
 
                     						if (current==null) {
-                    							current = createModelElementForParent(grammarAccess.getSensorRule());
+                    							current = createModelElementForParent(grammarAccess.getProxSensorRule());
                     						}
                     						set(
                     							current,
                     							"frontLeftSensor",
                     							lv_frontLeftSensor_13_0,
-                    							"ld.project2.ThymioDSL.EBoolean");
+                    							"ld.project2.ThymioDSL.SensorStatus");
                     						afterParserOrEnumRuleCall();
                     					
 
@@ -1237,11 +1322,173 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleSensor"
+    // $ANTLR end "ruleProxSensor"
+
+
+    // $ANTLR start "entryRuleBottomSensor"
+    // InternalThymioDSL.g:536:1: entryRuleBottomSensor returns [EObject current=null] : iv_ruleBottomSensor= ruleBottomSensor EOF ;
+    public final EObject entryRuleBottomSensor() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleBottomSensor = null;
+
+
+        try {
+            // InternalThymioDSL.g:536:53: (iv_ruleBottomSensor= ruleBottomSensor EOF )
+            // InternalThymioDSL.g:537:2: iv_ruleBottomSensor= ruleBottomSensor EOF
+            {
+             newCompositeNode(grammarAccess.getBottomSensorRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleBottomSensor=ruleBottomSensor();
+
+            state._fsp--;
+
+             current =iv_ruleBottomSensor; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleBottomSensor"
+
+
+    // $ANTLR start "ruleBottomSensor"
+    // InternalThymioDSL.g:543:1: ruleBottomSensor returns [EObject current=null] : ( (otherlv_0= 'left:' ( (lv_bottomLeftSensor_1_0= ruleBlackWhite ) ) ) (otherlv_2= 'right:' ( (lv_bottomRightSensor_3_0= ruleBlackWhite ) ) ) ) ;
+    public final EObject ruleBottomSensor() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_0=null;
+        Token otherlv_2=null;
+        AntlrDatatypeRuleToken lv_bottomLeftSensor_1_0 = null;
+
+        AntlrDatatypeRuleToken lv_bottomRightSensor_3_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalThymioDSL.g:549:2: ( ( (otherlv_0= 'left:' ( (lv_bottomLeftSensor_1_0= ruleBlackWhite ) ) ) (otherlv_2= 'right:' ( (lv_bottomRightSensor_3_0= ruleBlackWhite ) ) ) ) )
+            // InternalThymioDSL.g:550:2: ( (otherlv_0= 'left:' ( (lv_bottomLeftSensor_1_0= ruleBlackWhite ) ) ) (otherlv_2= 'right:' ( (lv_bottomRightSensor_3_0= ruleBlackWhite ) ) ) )
+            {
+            // InternalThymioDSL.g:550:2: ( (otherlv_0= 'left:' ( (lv_bottomLeftSensor_1_0= ruleBlackWhite ) ) ) (otherlv_2= 'right:' ( (lv_bottomRightSensor_3_0= ruleBlackWhite ) ) ) )
+            // InternalThymioDSL.g:551:3: (otherlv_0= 'left:' ( (lv_bottomLeftSensor_1_0= ruleBlackWhite ) ) ) (otherlv_2= 'right:' ( (lv_bottomRightSensor_3_0= ruleBlackWhite ) ) )
+            {
+            // InternalThymioDSL.g:551:3: (otherlv_0= 'left:' ( (lv_bottomLeftSensor_1_0= ruleBlackWhite ) ) )
+            // InternalThymioDSL.g:552:4: otherlv_0= 'left:' ( (lv_bottomLeftSensor_1_0= ruleBlackWhite ) )
+            {
+            otherlv_0=(Token)match(input,26,FOLLOW_17); 
+
+            				newLeafNode(otherlv_0, grammarAccess.getBottomSensorAccess().getLeftKeyword_0_0());
+            			
+            // InternalThymioDSL.g:556:4: ( (lv_bottomLeftSensor_1_0= ruleBlackWhite ) )
+            // InternalThymioDSL.g:557:5: (lv_bottomLeftSensor_1_0= ruleBlackWhite )
+            {
+            // InternalThymioDSL.g:557:5: (lv_bottomLeftSensor_1_0= ruleBlackWhite )
+            // InternalThymioDSL.g:558:6: lv_bottomLeftSensor_1_0= ruleBlackWhite
+            {
+
+            						newCompositeNode(grammarAccess.getBottomSensorAccess().getBottomLeftSensorBlackWhiteParserRuleCall_0_1_0());
+            					
+            pushFollow(FOLLOW_18);
+            lv_bottomLeftSensor_1_0=ruleBlackWhite();
+
+            state._fsp--;
+
+
+            						if (current==null) {
+            							current = createModelElementForParent(grammarAccess.getBottomSensorRule());
+            						}
+            						set(
+            							current,
+            							"bottomLeftSensor",
+            							lv_bottomLeftSensor_1_0,
+            							"ld.project2.ThymioDSL.BlackWhite");
+            						afterParserOrEnumRuleCall();
+            					
+
+            }
+
+
+            }
+
+
+            }
+
+            // InternalThymioDSL.g:576:3: (otherlv_2= 'right:' ( (lv_bottomRightSensor_3_0= ruleBlackWhite ) ) )
+            // InternalThymioDSL.g:577:4: otherlv_2= 'right:' ( (lv_bottomRightSensor_3_0= ruleBlackWhite ) )
+            {
+            otherlv_2=(Token)match(input,27,FOLLOW_17); 
+
+            				newLeafNode(otherlv_2, grammarAccess.getBottomSensorAccess().getRightKeyword_1_0());
+            			
+            // InternalThymioDSL.g:581:4: ( (lv_bottomRightSensor_3_0= ruleBlackWhite ) )
+            // InternalThymioDSL.g:582:5: (lv_bottomRightSensor_3_0= ruleBlackWhite )
+            {
+            // InternalThymioDSL.g:582:5: (lv_bottomRightSensor_3_0= ruleBlackWhite )
+            // InternalThymioDSL.g:583:6: lv_bottomRightSensor_3_0= ruleBlackWhite
+            {
+
+            						newCompositeNode(grammarAccess.getBottomSensorAccess().getBottomRightSensorBlackWhiteParserRuleCall_1_1_0());
+            					
+            pushFollow(FOLLOW_2);
+            lv_bottomRightSensor_3_0=ruleBlackWhite();
+
+            state._fsp--;
+
+
+            						if (current==null) {
+            							current = createModelElementForParent(grammarAccess.getBottomSensorRule());
+            						}
+            						set(
+            							current,
+            							"bottomRightSensor",
+            							lv_bottomRightSensor_3_0,
+            							"ld.project2.ThymioDSL.BlackWhite");
+            						afterParserOrEnumRuleCall();
+            					
+
+            }
+
+
+            }
+
+
+            }
+
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleBottomSensor"
 
 
     // $ANTLR start "entryRuleAction"
-    // InternalThymioDSL.g:510:1: entryRuleAction returns [EObject current=null] : iv_ruleAction= ruleAction EOF ;
+    // InternalThymioDSL.g:605:1: entryRuleAction returns [EObject current=null] : iv_ruleAction= ruleAction EOF ;
     public final EObject entryRuleAction() throws RecognitionException {
         EObject current = null;
 
@@ -1249,8 +1496,8 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalThymioDSL.g:510:47: (iv_ruleAction= ruleAction EOF )
-            // InternalThymioDSL.g:511:2: iv_ruleAction= ruleAction EOF
+            // InternalThymioDSL.g:605:47: (iv_ruleAction= ruleAction EOF )
+            // InternalThymioDSL.g:606:2: iv_ruleAction= ruleAction EOF
             {
              newCompositeNode(grammarAccess.getActionRule()); 
             pushFollow(FOLLOW_1);
@@ -1277,7 +1524,7 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAction"
-    // InternalThymioDSL.g:517:1: ruleAction returns [EObject current=null] : ( (otherlv_0= 'move:' ( (lv_move_1_0= ruleMotors ) ) ) | (otherlv_2= 'lights:' ( (lv_light_3_0= ruleLights ) ) ) | (otherlv_4= 'sound:' ( (lv_sound_5_0= ruleSound ) )+ ) ) ;
+    // InternalThymioDSL.g:612:1: ruleAction returns [EObject current=null] : ( (otherlv_0= 'move:' ( (lv_move_1_0= ruleMotors ) ) ) | (otherlv_2= 'lights:' ( (lv_light_3_0= ruleLights ) ) ) | (otherlv_4= 'sound:' ( (lv_sound_5_0= ruleSound ) )+ ) ) ;
     public final EObject ruleAction() throws RecognitionException {
         EObject current = null;
 
@@ -1295,50 +1542,50 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalThymioDSL.g:523:2: ( ( (otherlv_0= 'move:' ( (lv_move_1_0= ruleMotors ) ) ) | (otherlv_2= 'lights:' ( (lv_light_3_0= ruleLights ) ) ) | (otherlv_4= 'sound:' ( (lv_sound_5_0= ruleSound ) )+ ) ) )
-            // InternalThymioDSL.g:524:2: ( (otherlv_0= 'move:' ( (lv_move_1_0= ruleMotors ) ) ) | (otherlv_2= 'lights:' ( (lv_light_3_0= ruleLights ) ) ) | (otherlv_4= 'sound:' ( (lv_sound_5_0= ruleSound ) )+ ) )
+            // InternalThymioDSL.g:618:2: ( ( (otherlv_0= 'move:' ( (lv_move_1_0= ruleMotors ) ) ) | (otherlv_2= 'lights:' ( (lv_light_3_0= ruleLights ) ) ) | (otherlv_4= 'sound:' ( (lv_sound_5_0= ruleSound ) )+ ) ) )
+            // InternalThymioDSL.g:619:2: ( (otherlv_0= 'move:' ( (lv_move_1_0= ruleMotors ) ) ) | (otherlv_2= 'lights:' ( (lv_light_3_0= ruleLights ) ) ) | (otherlv_4= 'sound:' ( (lv_sound_5_0= ruleSound ) )+ ) )
             {
-            // InternalThymioDSL.g:524:2: ( (otherlv_0= 'move:' ( (lv_move_1_0= ruleMotors ) ) ) | (otherlv_2= 'lights:' ( (lv_light_3_0= ruleLights ) ) ) | (otherlv_4= 'sound:' ( (lv_sound_5_0= ruleSound ) )+ ) )
-            int alt7=3;
+            // InternalThymioDSL.g:619:2: ( (otherlv_0= 'move:' ( (lv_move_1_0= ruleMotors ) ) ) | (otherlv_2= 'lights:' ( (lv_light_3_0= ruleLights ) ) ) | (otherlv_4= 'sound:' ( (lv_sound_5_0= ruleSound ) )+ ) )
+            int alt8=3;
             switch ( input.LA(1) ) {
-            case 25:
+            case 28:
                 {
-                alt7=1;
+                alt8=1;
                 }
                 break;
-            case 26:
+            case 29:
                 {
-                alt7=2;
+                alt8=2;
                 }
                 break;
-            case 27:
+            case 30:
                 {
-                alt7=3;
+                alt8=3;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 7, 0, input);
+                    new NoViableAltException("", 8, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt7) {
+            switch (alt8) {
                 case 1 :
-                    // InternalThymioDSL.g:525:3: (otherlv_0= 'move:' ( (lv_move_1_0= ruleMotors ) ) )
+                    // InternalThymioDSL.g:620:3: (otherlv_0= 'move:' ( (lv_move_1_0= ruleMotors ) ) )
                     {
-                    // InternalThymioDSL.g:525:3: (otherlv_0= 'move:' ( (lv_move_1_0= ruleMotors ) ) )
-                    // InternalThymioDSL.g:526:4: otherlv_0= 'move:' ( (lv_move_1_0= ruleMotors ) )
+                    // InternalThymioDSL.g:620:3: (otherlv_0= 'move:' ( (lv_move_1_0= ruleMotors ) ) )
+                    // InternalThymioDSL.g:621:4: otherlv_0= 'move:' ( (lv_move_1_0= ruleMotors ) )
                     {
-                    otherlv_0=(Token)match(input,25,FOLLOW_15); 
+                    otherlv_0=(Token)match(input,28,FOLLOW_19); 
 
                     				newLeafNode(otherlv_0, grammarAccess.getActionAccess().getMoveKeyword_0_0());
                     			
-                    // InternalThymioDSL.g:530:4: ( (lv_move_1_0= ruleMotors ) )
-                    // InternalThymioDSL.g:531:5: (lv_move_1_0= ruleMotors )
+                    // InternalThymioDSL.g:625:4: ( (lv_move_1_0= ruleMotors ) )
+                    // InternalThymioDSL.g:626:5: (lv_move_1_0= ruleMotors )
                     {
-                    // InternalThymioDSL.g:531:5: (lv_move_1_0= ruleMotors )
-                    // InternalThymioDSL.g:532:6: lv_move_1_0= ruleMotors
+                    // InternalThymioDSL.g:626:5: (lv_move_1_0= ruleMotors )
+                    // InternalThymioDSL.g:627:6: lv_move_1_0= ruleMotors
                     {
 
                     						newCompositeNode(grammarAccess.getActionAccess().getMoveMotorsParserRuleCall_0_1_0());
@@ -1372,20 +1619,20 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalThymioDSL.g:551:3: (otherlv_2= 'lights:' ( (lv_light_3_0= ruleLights ) ) )
+                    // InternalThymioDSL.g:646:3: (otherlv_2= 'lights:' ( (lv_light_3_0= ruleLights ) ) )
                     {
-                    // InternalThymioDSL.g:551:3: (otherlv_2= 'lights:' ( (lv_light_3_0= ruleLights ) ) )
-                    // InternalThymioDSL.g:552:4: otherlv_2= 'lights:' ( (lv_light_3_0= ruleLights ) )
+                    // InternalThymioDSL.g:646:3: (otherlv_2= 'lights:' ( (lv_light_3_0= ruleLights ) ) )
+                    // InternalThymioDSL.g:647:4: otherlv_2= 'lights:' ( (lv_light_3_0= ruleLights ) )
                     {
-                    otherlv_2=(Token)match(input,26,FOLLOW_16); 
+                    otherlv_2=(Token)match(input,29,FOLLOW_20); 
 
                     				newLeafNode(otherlv_2, grammarAccess.getActionAccess().getLightsKeyword_1_0());
                     			
-                    // InternalThymioDSL.g:556:4: ( (lv_light_3_0= ruleLights ) )
-                    // InternalThymioDSL.g:557:5: (lv_light_3_0= ruleLights )
+                    // InternalThymioDSL.g:651:4: ( (lv_light_3_0= ruleLights ) )
+                    // InternalThymioDSL.g:652:5: (lv_light_3_0= ruleLights )
                     {
-                    // InternalThymioDSL.g:557:5: (lv_light_3_0= ruleLights )
-                    // InternalThymioDSL.g:558:6: lv_light_3_0= ruleLights
+                    // InternalThymioDSL.g:652:5: (lv_light_3_0= ruleLights )
+                    // InternalThymioDSL.g:653:6: lv_light_3_0= ruleLights
                     {
 
                     						newCompositeNode(grammarAccess.getActionAccess().getLightLightsParserRuleCall_1_1_0());
@@ -1419,38 +1666,38 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalThymioDSL.g:577:3: (otherlv_4= 'sound:' ( (lv_sound_5_0= ruleSound ) )+ )
+                    // InternalThymioDSL.g:672:3: (otherlv_4= 'sound:' ( (lv_sound_5_0= ruleSound ) )+ )
                     {
-                    // InternalThymioDSL.g:577:3: (otherlv_4= 'sound:' ( (lv_sound_5_0= ruleSound ) )+ )
-                    // InternalThymioDSL.g:578:4: otherlv_4= 'sound:' ( (lv_sound_5_0= ruleSound ) )+
+                    // InternalThymioDSL.g:672:3: (otherlv_4= 'sound:' ( (lv_sound_5_0= ruleSound ) )+ )
+                    // InternalThymioDSL.g:673:4: otherlv_4= 'sound:' ( (lv_sound_5_0= ruleSound ) )+
                     {
-                    otherlv_4=(Token)match(input,27,FOLLOW_17); 
+                    otherlv_4=(Token)match(input,30,FOLLOW_21); 
 
                     				newLeafNode(otherlv_4, grammarAccess.getActionAccess().getSoundKeyword_2_0());
                     			
-                    // InternalThymioDSL.g:582:4: ( (lv_sound_5_0= ruleSound ) )+
-                    int cnt6=0;
-                    loop6:
+                    // InternalThymioDSL.g:677:4: ( (lv_sound_5_0= ruleSound ) )+
+                    int cnt7=0;
+                    loop7:
                     do {
-                        int alt6=2;
-                        int LA6_0 = input.LA(1);
+                        int alt7=2;
+                        int LA7_0 = input.LA(1);
 
-                        if ( (LA6_0==37) ) {
-                            alt6=1;
+                        if ( (LA7_0==40) ) {
+                            alt7=1;
                         }
 
 
-                        switch (alt6) {
+                        switch (alt7) {
                     	case 1 :
-                    	    // InternalThymioDSL.g:583:5: (lv_sound_5_0= ruleSound )
+                    	    // InternalThymioDSL.g:678:5: (lv_sound_5_0= ruleSound )
                     	    {
-                    	    // InternalThymioDSL.g:583:5: (lv_sound_5_0= ruleSound )
-                    	    // InternalThymioDSL.g:584:6: lv_sound_5_0= ruleSound
+                    	    // InternalThymioDSL.g:678:5: (lv_sound_5_0= ruleSound )
+                    	    // InternalThymioDSL.g:679:6: lv_sound_5_0= ruleSound
                     	    {
 
                     	    						newCompositeNode(grammarAccess.getActionAccess().getSoundSoundParserRuleCall_2_1_0());
                     	    					
-                    	    pushFollow(FOLLOW_18);
+                    	    pushFollow(FOLLOW_22);
                     	    lv_sound_5_0=ruleSound();
 
                     	    state._fsp--;
@@ -1474,12 +1721,12 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    if ( cnt6 >= 1 ) break loop6;
+                    	    if ( cnt7 >= 1 ) break loop7;
                                 EarlyExitException eee =
-                                    new EarlyExitException(6, input);
+                                    new EarlyExitException(7, input);
                                 throw eee;
                         }
-                        cnt6++;
+                        cnt7++;
                     } while (true);
 
 
@@ -1511,7 +1758,7 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleMotors"
-    // InternalThymioDSL.g:606:1: entryRuleMotors returns [EObject current=null] : iv_ruleMotors= ruleMotors EOF ;
+    // InternalThymioDSL.g:701:1: entryRuleMotors returns [EObject current=null] : iv_ruleMotors= ruleMotors EOF ;
     public final EObject entryRuleMotors() throws RecognitionException {
         EObject current = null;
 
@@ -1519,8 +1766,8 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalThymioDSL.g:606:47: (iv_ruleMotors= ruleMotors EOF )
-            // InternalThymioDSL.g:607:2: iv_ruleMotors= ruleMotors EOF
+            // InternalThymioDSL.g:701:47: (iv_ruleMotors= ruleMotors EOF )
+            // InternalThymioDSL.g:702:2: iv_ruleMotors= ruleMotors EOF
             {
              newCompositeNode(grammarAccess.getMotorsRule()); 
             pushFollow(FOLLOW_1);
@@ -1547,7 +1794,7 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMotors"
-    // InternalThymioDSL.g:613:1: ruleMotors returns [EObject current=null] : (otherlv_0= 'left_motor:' ( (lv_left_1_0= ruleAddition ) ) otherlv_2= 'right_motor:' ( (lv_right_3_0= ruleAddition ) ) ) ;
+    // InternalThymioDSL.g:708:1: ruleMotors returns [EObject current=null] : (otherlv_0= 'left_motor:' ( (lv_left_1_0= ruleAddition ) ) otherlv_2= 'right_motor:' ( (lv_right_3_0= ruleAddition ) ) ) ;
     public final EObject ruleMotors() throws RecognitionException {
         EObject current = null;
 
@@ -1562,26 +1809,26 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalThymioDSL.g:619:2: ( (otherlv_0= 'left_motor:' ( (lv_left_1_0= ruleAddition ) ) otherlv_2= 'right_motor:' ( (lv_right_3_0= ruleAddition ) ) ) )
-            // InternalThymioDSL.g:620:2: (otherlv_0= 'left_motor:' ( (lv_left_1_0= ruleAddition ) ) otherlv_2= 'right_motor:' ( (lv_right_3_0= ruleAddition ) ) )
+            // InternalThymioDSL.g:714:2: ( (otherlv_0= 'left_motor:' ( (lv_left_1_0= ruleAddition ) ) otherlv_2= 'right_motor:' ( (lv_right_3_0= ruleAddition ) ) ) )
+            // InternalThymioDSL.g:715:2: (otherlv_0= 'left_motor:' ( (lv_left_1_0= ruleAddition ) ) otherlv_2= 'right_motor:' ( (lv_right_3_0= ruleAddition ) ) )
             {
-            // InternalThymioDSL.g:620:2: (otherlv_0= 'left_motor:' ( (lv_left_1_0= ruleAddition ) ) otherlv_2= 'right_motor:' ( (lv_right_3_0= ruleAddition ) ) )
-            // InternalThymioDSL.g:621:3: otherlv_0= 'left_motor:' ( (lv_left_1_0= ruleAddition ) ) otherlv_2= 'right_motor:' ( (lv_right_3_0= ruleAddition ) )
+            // InternalThymioDSL.g:715:2: (otherlv_0= 'left_motor:' ( (lv_left_1_0= ruleAddition ) ) otherlv_2= 'right_motor:' ( (lv_right_3_0= ruleAddition ) ) )
+            // InternalThymioDSL.g:716:3: otherlv_0= 'left_motor:' ( (lv_left_1_0= ruleAddition ) ) otherlv_2= 'right_motor:' ( (lv_right_3_0= ruleAddition ) )
             {
-            otherlv_0=(Token)match(input,28,FOLLOW_19); 
+            otherlv_0=(Token)match(input,31,FOLLOW_23); 
 
             			newLeafNode(otherlv_0, grammarAccess.getMotorsAccess().getLeft_motorKeyword_0());
             		
-            // InternalThymioDSL.g:625:3: ( (lv_left_1_0= ruleAddition ) )
-            // InternalThymioDSL.g:626:4: (lv_left_1_0= ruleAddition )
+            // InternalThymioDSL.g:720:3: ( (lv_left_1_0= ruleAddition ) )
+            // InternalThymioDSL.g:721:4: (lv_left_1_0= ruleAddition )
             {
-            // InternalThymioDSL.g:626:4: (lv_left_1_0= ruleAddition )
-            // InternalThymioDSL.g:627:5: lv_left_1_0= ruleAddition
+            // InternalThymioDSL.g:721:4: (lv_left_1_0= ruleAddition )
+            // InternalThymioDSL.g:722:5: lv_left_1_0= ruleAddition
             {
 
             					newCompositeNode(grammarAccess.getMotorsAccess().getLeftAdditionParserRuleCall_1_0());
             				
-            pushFollow(FOLLOW_20);
+            pushFollow(FOLLOW_24);
             lv_left_1_0=ruleAddition();
 
             state._fsp--;
@@ -1603,15 +1850,15 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,29,FOLLOW_19); 
+            otherlv_2=(Token)match(input,32,FOLLOW_23); 
 
             			newLeafNode(otherlv_2, grammarAccess.getMotorsAccess().getRight_motorKeyword_2());
             		
-            // InternalThymioDSL.g:648:3: ( (lv_right_3_0= ruleAddition ) )
-            // InternalThymioDSL.g:649:4: (lv_right_3_0= ruleAddition )
+            // InternalThymioDSL.g:743:3: ( (lv_right_3_0= ruleAddition ) )
+            // InternalThymioDSL.g:744:4: (lv_right_3_0= ruleAddition )
             {
-            // InternalThymioDSL.g:649:4: (lv_right_3_0= ruleAddition )
-            // InternalThymioDSL.g:650:5: lv_right_3_0= ruleAddition
+            // InternalThymioDSL.g:744:4: (lv_right_3_0= ruleAddition )
+            // InternalThymioDSL.g:745:5: lv_right_3_0= ruleAddition
             {
 
             					newCompositeNode(grammarAccess.getMotorsAccess().getRightAdditionParserRuleCall_3_0());
@@ -1661,7 +1908,7 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleLights"
-    // InternalThymioDSL.g:671:1: entryRuleLights returns [EObject current=null] : iv_ruleLights= ruleLights EOF ;
+    // InternalThymioDSL.g:766:1: entryRuleLights returns [EObject current=null] : iv_ruleLights= ruleLights EOF ;
     public final EObject entryRuleLights() throws RecognitionException {
         EObject current = null;
 
@@ -1669,8 +1916,8 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalThymioDSL.g:671:47: (iv_ruleLights= ruleLights EOF )
-            // InternalThymioDSL.g:672:2: iv_ruleLights= ruleLights EOF
+            // InternalThymioDSL.g:766:47: (iv_ruleLights= ruleLights EOF )
+            // InternalThymioDSL.g:767:2: iv_ruleLights= ruleLights EOF
             {
              newCompositeNode(grammarAccess.getLightsRule()); 
             pushFollow(FOLLOW_1);
@@ -1697,7 +1944,7 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleLights"
-    // InternalThymioDSL.g:678:1: ruleLights returns [EObject current=null] : ( () (otherlv_1= 'top_light:' ( (otherlv_2= 'on' ( (lv_topLight_3_0= ruleRGB ) ) ) | otherlv_4= 'off' ) ) (otherlv_5= 'bottom_light:' ( (otherlv_6= 'on' ( (lv_bottomLight_7_0= ruleRGB ) ) ) | otherlv_8= 'off' ) ) ) ;
+    // InternalThymioDSL.g:773:1: ruleLights returns [EObject current=null] : ( () (otherlv_1= 'top_light:' ( (otherlv_2= 'on' ( (lv_topLight_3_0= ruleRGB ) ) ) | otherlv_4= 'off' ) ) (otherlv_5= 'bottom_light:' ( (otherlv_6= 'on' ( (lv_bottomLight_7_0= ruleRGB ) ) ) | otherlv_8= 'off' ) ) ) ;
     public final EObject ruleLights() throws RecognitionException {
         EObject current = null;
 
@@ -1716,14 +1963,14 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalThymioDSL.g:684:2: ( ( () (otherlv_1= 'top_light:' ( (otherlv_2= 'on' ( (lv_topLight_3_0= ruleRGB ) ) ) | otherlv_4= 'off' ) ) (otherlv_5= 'bottom_light:' ( (otherlv_6= 'on' ( (lv_bottomLight_7_0= ruleRGB ) ) ) | otherlv_8= 'off' ) ) ) )
-            // InternalThymioDSL.g:685:2: ( () (otherlv_1= 'top_light:' ( (otherlv_2= 'on' ( (lv_topLight_3_0= ruleRGB ) ) ) | otherlv_4= 'off' ) ) (otherlv_5= 'bottom_light:' ( (otherlv_6= 'on' ( (lv_bottomLight_7_0= ruleRGB ) ) ) | otherlv_8= 'off' ) ) )
+            // InternalThymioDSL.g:779:2: ( ( () (otherlv_1= 'top_light:' ( (otherlv_2= 'on' ( (lv_topLight_3_0= ruleRGB ) ) ) | otherlv_4= 'off' ) ) (otherlv_5= 'bottom_light:' ( (otherlv_6= 'on' ( (lv_bottomLight_7_0= ruleRGB ) ) ) | otherlv_8= 'off' ) ) ) )
+            // InternalThymioDSL.g:780:2: ( () (otherlv_1= 'top_light:' ( (otherlv_2= 'on' ( (lv_topLight_3_0= ruleRGB ) ) ) | otherlv_4= 'off' ) ) (otherlv_5= 'bottom_light:' ( (otherlv_6= 'on' ( (lv_bottomLight_7_0= ruleRGB ) ) ) | otherlv_8= 'off' ) ) )
             {
-            // InternalThymioDSL.g:685:2: ( () (otherlv_1= 'top_light:' ( (otherlv_2= 'on' ( (lv_topLight_3_0= ruleRGB ) ) ) | otherlv_4= 'off' ) ) (otherlv_5= 'bottom_light:' ( (otherlv_6= 'on' ( (lv_bottomLight_7_0= ruleRGB ) ) ) | otherlv_8= 'off' ) ) )
-            // InternalThymioDSL.g:686:3: () (otherlv_1= 'top_light:' ( (otherlv_2= 'on' ( (lv_topLight_3_0= ruleRGB ) ) ) | otherlv_4= 'off' ) ) (otherlv_5= 'bottom_light:' ( (otherlv_6= 'on' ( (lv_bottomLight_7_0= ruleRGB ) ) ) | otherlv_8= 'off' ) )
+            // InternalThymioDSL.g:780:2: ( () (otherlv_1= 'top_light:' ( (otherlv_2= 'on' ( (lv_topLight_3_0= ruleRGB ) ) ) | otherlv_4= 'off' ) ) (otherlv_5= 'bottom_light:' ( (otherlv_6= 'on' ( (lv_bottomLight_7_0= ruleRGB ) ) ) | otherlv_8= 'off' ) ) )
+            // InternalThymioDSL.g:781:3: () (otherlv_1= 'top_light:' ( (otherlv_2= 'on' ( (lv_topLight_3_0= ruleRGB ) ) ) | otherlv_4= 'off' ) ) (otherlv_5= 'bottom_light:' ( (otherlv_6= 'on' ( (lv_bottomLight_7_0= ruleRGB ) ) ) | otherlv_8= 'off' ) )
             {
-            // InternalThymioDSL.g:686:3: ()
-            // InternalThymioDSL.g:687:4: 
+            // InternalThymioDSL.g:781:3: ()
+            // InternalThymioDSL.g:782:4: 
             {
 
             				current = forceCreateModelElement(
@@ -1733,50 +1980,50 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalThymioDSL.g:693:3: (otherlv_1= 'top_light:' ( (otherlv_2= 'on' ( (lv_topLight_3_0= ruleRGB ) ) ) | otherlv_4= 'off' ) )
-            // InternalThymioDSL.g:694:4: otherlv_1= 'top_light:' ( (otherlv_2= 'on' ( (lv_topLight_3_0= ruleRGB ) ) ) | otherlv_4= 'off' )
+            // InternalThymioDSL.g:788:3: (otherlv_1= 'top_light:' ( (otherlv_2= 'on' ( (lv_topLight_3_0= ruleRGB ) ) ) | otherlv_4= 'off' ) )
+            // InternalThymioDSL.g:789:4: otherlv_1= 'top_light:' ( (otherlv_2= 'on' ( (lv_topLight_3_0= ruleRGB ) ) ) | otherlv_4= 'off' )
             {
-            otherlv_1=(Token)match(input,30,FOLLOW_21); 
+            otherlv_1=(Token)match(input,33,FOLLOW_25); 
 
             				newLeafNode(otherlv_1, grammarAccess.getLightsAccess().getTop_lightKeyword_1_0());
             			
-            // InternalThymioDSL.g:698:4: ( (otherlv_2= 'on' ( (lv_topLight_3_0= ruleRGB ) ) ) | otherlv_4= 'off' )
-            int alt8=2;
-            int LA8_0 = input.LA(1);
+            // InternalThymioDSL.g:793:4: ( (otherlv_2= 'on' ( (lv_topLight_3_0= ruleRGB ) ) ) | otherlv_4= 'off' )
+            int alt9=2;
+            int LA9_0 = input.LA(1);
 
-            if ( (LA8_0==31) ) {
-                alt8=1;
+            if ( (LA9_0==34) ) {
+                alt9=1;
             }
-            else if ( (LA8_0==32) ) {
-                alt8=2;
+            else if ( (LA9_0==35) ) {
+                alt9=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 8, 0, input);
+                    new NoViableAltException("", 9, 0, input);
 
                 throw nvae;
             }
-            switch (alt8) {
+            switch (alt9) {
                 case 1 :
-                    // InternalThymioDSL.g:699:5: (otherlv_2= 'on' ( (lv_topLight_3_0= ruleRGB ) ) )
+                    // InternalThymioDSL.g:794:5: (otherlv_2= 'on' ( (lv_topLight_3_0= ruleRGB ) ) )
                     {
-                    // InternalThymioDSL.g:699:5: (otherlv_2= 'on' ( (lv_topLight_3_0= ruleRGB ) ) )
-                    // InternalThymioDSL.g:700:6: otherlv_2= 'on' ( (lv_topLight_3_0= ruleRGB ) )
+                    // InternalThymioDSL.g:794:5: (otherlv_2= 'on' ( (lv_topLight_3_0= ruleRGB ) ) )
+                    // InternalThymioDSL.g:795:6: otherlv_2= 'on' ( (lv_topLight_3_0= ruleRGB ) )
                     {
-                    otherlv_2=(Token)match(input,31,FOLLOW_22); 
+                    otherlv_2=(Token)match(input,34,FOLLOW_26); 
 
                     						newLeafNode(otherlv_2, grammarAccess.getLightsAccess().getOnKeyword_1_1_0_0());
                     					
-                    // InternalThymioDSL.g:704:6: ( (lv_topLight_3_0= ruleRGB ) )
-                    // InternalThymioDSL.g:705:7: (lv_topLight_3_0= ruleRGB )
+                    // InternalThymioDSL.g:799:6: ( (lv_topLight_3_0= ruleRGB ) )
+                    // InternalThymioDSL.g:800:7: (lv_topLight_3_0= ruleRGB )
                     {
-                    // InternalThymioDSL.g:705:7: (lv_topLight_3_0= ruleRGB )
-                    // InternalThymioDSL.g:706:8: lv_topLight_3_0= ruleRGB
+                    // InternalThymioDSL.g:800:7: (lv_topLight_3_0= ruleRGB )
+                    // InternalThymioDSL.g:801:8: lv_topLight_3_0= ruleRGB
                     {
 
                     								newCompositeNode(grammarAccess.getLightsAccess().getTopLightRGBParserRuleCall_1_1_0_1_0());
                     							
-                    pushFollow(FOLLOW_23);
+                    pushFollow(FOLLOW_27);
                     lv_topLight_3_0=ruleRGB();
 
                     state._fsp--;
@@ -1805,9 +2052,9 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalThymioDSL.g:725:5: otherlv_4= 'off'
+                    // InternalThymioDSL.g:820:5: otherlv_4= 'off'
                     {
-                    otherlv_4=(Token)match(input,32,FOLLOW_23); 
+                    otherlv_4=(Token)match(input,35,FOLLOW_27); 
 
                     					newLeafNode(otherlv_4, grammarAccess.getLightsAccess().getOffKeyword_1_1_1());
                     				
@@ -1820,45 +2067,45 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalThymioDSL.g:731:3: (otherlv_5= 'bottom_light:' ( (otherlv_6= 'on' ( (lv_bottomLight_7_0= ruleRGB ) ) ) | otherlv_8= 'off' ) )
-            // InternalThymioDSL.g:732:4: otherlv_5= 'bottom_light:' ( (otherlv_6= 'on' ( (lv_bottomLight_7_0= ruleRGB ) ) ) | otherlv_8= 'off' )
+            // InternalThymioDSL.g:826:3: (otherlv_5= 'bottom_light:' ( (otherlv_6= 'on' ( (lv_bottomLight_7_0= ruleRGB ) ) ) | otherlv_8= 'off' ) )
+            // InternalThymioDSL.g:827:4: otherlv_5= 'bottom_light:' ( (otherlv_6= 'on' ( (lv_bottomLight_7_0= ruleRGB ) ) ) | otherlv_8= 'off' )
             {
-            otherlv_5=(Token)match(input,33,FOLLOW_21); 
+            otherlv_5=(Token)match(input,36,FOLLOW_25); 
 
             				newLeafNode(otherlv_5, grammarAccess.getLightsAccess().getBottom_lightKeyword_2_0());
             			
-            // InternalThymioDSL.g:736:4: ( (otherlv_6= 'on' ( (lv_bottomLight_7_0= ruleRGB ) ) ) | otherlv_8= 'off' )
-            int alt9=2;
-            int LA9_0 = input.LA(1);
+            // InternalThymioDSL.g:831:4: ( (otherlv_6= 'on' ( (lv_bottomLight_7_0= ruleRGB ) ) ) | otherlv_8= 'off' )
+            int alt10=2;
+            int LA10_0 = input.LA(1);
 
-            if ( (LA9_0==31) ) {
-                alt9=1;
+            if ( (LA10_0==34) ) {
+                alt10=1;
             }
-            else if ( (LA9_0==32) ) {
-                alt9=2;
+            else if ( (LA10_0==35) ) {
+                alt10=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 9, 0, input);
+                    new NoViableAltException("", 10, 0, input);
 
                 throw nvae;
             }
-            switch (alt9) {
+            switch (alt10) {
                 case 1 :
-                    // InternalThymioDSL.g:737:5: (otherlv_6= 'on' ( (lv_bottomLight_7_0= ruleRGB ) ) )
+                    // InternalThymioDSL.g:832:5: (otherlv_6= 'on' ( (lv_bottomLight_7_0= ruleRGB ) ) )
                     {
-                    // InternalThymioDSL.g:737:5: (otherlv_6= 'on' ( (lv_bottomLight_7_0= ruleRGB ) ) )
-                    // InternalThymioDSL.g:738:6: otherlv_6= 'on' ( (lv_bottomLight_7_0= ruleRGB ) )
+                    // InternalThymioDSL.g:832:5: (otherlv_6= 'on' ( (lv_bottomLight_7_0= ruleRGB ) ) )
+                    // InternalThymioDSL.g:833:6: otherlv_6= 'on' ( (lv_bottomLight_7_0= ruleRGB ) )
                     {
-                    otherlv_6=(Token)match(input,31,FOLLOW_22); 
+                    otherlv_6=(Token)match(input,34,FOLLOW_26); 
 
                     						newLeafNode(otherlv_6, grammarAccess.getLightsAccess().getOnKeyword_2_1_0_0());
                     					
-                    // InternalThymioDSL.g:742:6: ( (lv_bottomLight_7_0= ruleRGB ) )
-                    // InternalThymioDSL.g:743:7: (lv_bottomLight_7_0= ruleRGB )
+                    // InternalThymioDSL.g:837:6: ( (lv_bottomLight_7_0= ruleRGB ) )
+                    // InternalThymioDSL.g:838:7: (lv_bottomLight_7_0= ruleRGB )
                     {
-                    // InternalThymioDSL.g:743:7: (lv_bottomLight_7_0= ruleRGB )
-                    // InternalThymioDSL.g:744:8: lv_bottomLight_7_0= ruleRGB
+                    // InternalThymioDSL.g:838:7: (lv_bottomLight_7_0= ruleRGB )
+                    // InternalThymioDSL.g:839:8: lv_bottomLight_7_0= ruleRGB
                     {
 
                     								newCompositeNode(grammarAccess.getLightsAccess().getBottomLightRGBParserRuleCall_2_1_0_1_0());
@@ -1892,9 +2139,9 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalThymioDSL.g:763:5: otherlv_8= 'off'
+                    // InternalThymioDSL.g:858:5: otherlv_8= 'off'
                     {
-                    otherlv_8=(Token)match(input,32,FOLLOW_2); 
+                    otherlv_8=(Token)match(input,35,FOLLOW_2); 
 
                     					newLeafNode(otherlv_8, grammarAccess.getLightsAccess().getOffKeyword_2_1_1());
                     				
@@ -1930,7 +2177,7 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleRGB"
-    // InternalThymioDSL.g:773:1: entryRuleRGB returns [EObject current=null] : iv_ruleRGB= ruleRGB EOF ;
+    // InternalThymioDSL.g:868:1: entryRuleRGB returns [EObject current=null] : iv_ruleRGB= ruleRGB EOF ;
     public final EObject entryRuleRGB() throws RecognitionException {
         EObject current = null;
 
@@ -1938,8 +2185,8 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalThymioDSL.g:773:44: (iv_ruleRGB= ruleRGB EOF )
-            // InternalThymioDSL.g:774:2: iv_ruleRGB= ruleRGB EOF
+            // InternalThymioDSL.g:868:44: (iv_ruleRGB= ruleRGB EOF )
+            // InternalThymioDSL.g:869:2: iv_ruleRGB= ruleRGB EOF
             {
              newCompositeNode(grammarAccess.getRGBRule()); 
             pushFollow(FOLLOW_1);
@@ -1966,7 +2213,7 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleRGB"
-    // InternalThymioDSL.g:780:1: ruleRGB returns [EObject current=null] : (otherlv_0= '(' ( (lv_red_1_0= ruleAddition ) ) otherlv_2= ',' ( (lv_green_3_0= ruleAddition ) ) otherlv_4= ',' ( (lv_blue_5_0= ruleAddition ) ) otherlv_6= ')' ) ;
+    // InternalThymioDSL.g:875:1: ruleRGB returns [EObject current=null] : (otherlv_0= '(' ( (lv_red_1_0= ruleAddition ) ) otherlv_2= ',' ( (lv_green_3_0= ruleAddition ) ) otherlv_4= ',' ( (lv_blue_5_0= ruleAddition ) ) otherlv_6= ')' ) ;
     public final EObject ruleRGB() throws RecognitionException {
         EObject current = null;
 
@@ -1985,26 +2232,26 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalThymioDSL.g:786:2: ( (otherlv_0= '(' ( (lv_red_1_0= ruleAddition ) ) otherlv_2= ',' ( (lv_green_3_0= ruleAddition ) ) otherlv_4= ',' ( (lv_blue_5_0= ruleAddition ) ) otherlv_6= ')' ) )
-            // InternalThymioDSL.g:787:2: (otherlv_0= '(' ( (lv_red_1_0= ruleAddition ) ) otherlv_2= ',' ( (lv_green_3_0= ruleAddition ) ) otherlv_4= ',' ( (lv_blue_5_0= ruleAddition ) ) otherlv_6= ')' )
+            // InternalThymioDSL.g:881:2: ( (otherlv_0= '(' ( (lv_red_1_0= ruleAddition ) ) otherlv_2= ',' ( (lv_green_3_0= ruleAddition ) ) otherlv_4= ',' ( (lv_blue_5_0= ruleAddition ) ) otherlv_6= ')' ) )
+            // InternalThymioDSL.g:882:2: (otherlv_0= '(' ( (lv_red_1_0= ruleAddition ) ) otherlv_2= ',' ( (lv_green_3_0= ruleAddition ) ) otherlv_4= ',' ( (lv_blue_5_0= ruleAddition ) ) otherlv_6= ')' )
             {
-            // InternalThymioDSL.g:787:2: (otherlv_0= '(' ( (lv_red_1_0= ruleAddition ) ) otherlv_2= ',' ( (lv_green_3_0= ruleAddition ) ) otherlv_4= ',' ( (lv_blue_5_0= ruleAddition ) ) otherlv_6= ')' )
-            // InternalThymioDSL.g:788:3: otherlv_0= '(' ( (lv_red_1_0= ruleAddition ) ) otherlv_2= ',' ( (lv_green_3_0= ruleAddition ) ) otherlv_4= ',' ( (lv_blue_5_0= ruleAddition ) ) otherlv_6= ')'
+            // InternalThymioDSL.g:882:2: (otherlv_0= '(' ( (lv_red_1_0= ruleAddition ) ) otherlv_2= ',' ( (lv_green_3_0= ruleAddition ) ) otherlv_4= ',' ( (lv_blue_5_0= ruleAddition ) ) otherlv_6= ')' )
+            // InternalThymioDSL.g:883:3: otherlv_0= '(' ( (lv_red_1_0= ruleAddition ) ) otherlv_2= ',' ( (lv_green_3_0= ruleAddition ) ) otherlv_4= ',' ( (lv_blue_5_0= ruleAddition ) ) otherlv_6= ')'
             {
-            otherlv_0=(Token)match(input,34,FOLLOW_19); 
+            otherlv_0=(Token)match(input,37,FOLLOW_23); 
 
             			newLeafNode(otherlv_0, grammarAccess.getRGBAccess().getLeftParenthesisKeyword_0());
             		
-            // InternalThymioDSL.g:792:3: ( (lv_red_1_0= ruleAddition ) )
-            // InternalThymioDSL.g:793:4: (lv_red_1_0= ruleAddition )
+            // InternalThymioDSL.g:887:3: ( (lv_red_1_0= ruleAddition ) )
+            // InternalThymioDSL.g:888:4: (lv_red_1_0= ruleAddition )
             {
-            // InternalThymioDSL.g:793:4: (lv_red_1_0= ruleAddition )
-            // InternalThymioDSL.g:794:5: lv_red_1_0= ruleAddition
+            // InternalThymioDSL.g:888:4: (lv_red_1_0= ruleAddition )
+            // InternalThymioDSL.g:889:5: lv_red_1_0= ruleAddition
             {
 
             					newCompositeNode(grammarAccess.getRGBAccess().getRedAdditionParserRuleCall_1_0());
             				
-            pushFollow(FOLLOW_24);
+            pushFollow(FOLLOW_28);
             lv_red_1_0=ruleAddition();
 
             state._fsp--;
@@ -2026,20 +2273,20 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,35,FOLLOW_19); 
+            otherlv_2=(Token)match(input,38,FOLLOW_23); 
 
             			newLeafNode(otherlv_2, grammarAccess.getRGBAccess().getCommaKeyword_2());
             		
-            // InternalThymioDSL.g:815:3: ( (lv_green_3_0= ruleAddition ) )
-            // InternalThymioDSL.g:816:4: (lv_green_3_0= ruleAddition )
+            // InternalThymioDSL.g:910:3: ( (lv_green_3_0= ruleAddition ) )
+            // InternalThymioDSL.g:911:4: (lv_green_3_0= ruleAddition )
             {
-            // InternalThymioDSL.g:816:4: (lv_green_3_0= ruleAddition )
-            // InternalThymioDSL.g:817:5: lv_green_3_0= ruleAddition
+            // InternalThymioDSL.g:911:4: (lv_green_3_0= ruleAddition )
+            // InternalThymioDSL.g:912:5: lv_green_3_0= ruleAddition
             {
 
             					newCompositeNode(grammarAccess.getRGBAccess().getGreenAdditionParserRuleCall_3_0());
             				
-            pushFollow(FOLLOW_24);
+            pushFollow(FOLLOW_28);
             lv_green_3_0=ruleAddition();
 
             state._fsp--;
@@ -2061,20 +2308,20 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,35,FOLLOW_19); 
+            otherlv_4=(Token)match(input,38,FOLLOW_23); 
 
             			newLeafNode(otherlv_4, grammarAccess.getRGBAccess().getCommaKeyword_4());
             		
-            // InternalThymioDSL.g:838:3: ( (lv_blue_5_0= ruleAddition ) )
-            // InternalThymioDSL.g:839:4: (lv_blue_5_0= ruleAddition )
+            // InternalThymioDSL.g:933:3: ( (lv_blue_5_0= ruleAddition ) )
+            // InternalThymioDSL.g:934:4: (lv_blue_5_0= ruleAddition )
             {
-            // InternalThymioDSL.g:839:4: (lv_blue_5_0= ruleAddition )
-            // InternalThymioDSL.g:840:5: lv_blue_5_0= ruleAddition
+            // InternalThymioDSL.g:934:4: (lv_blue_5_0= ruleAddition )
+            // InternalThymioDSL.g:935:5: lv_blue_5_0= ruleAddition
             {
 
             					newCompositeNode(grammarAccess.getRGBAccess().getBlueAdditionParserRuleCall_5_0());
             				
-            pushFollow(FOLLOW_25);
+            pushFollow(FOLLOW_29);
             lv_blue_5_0=ruleAddition();
 
             state._fsp--;
@@ -2096,7 +2343,7 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_6=(Token)match(input,36,FOLLOW_2); 
+            otherlv_6=(Token)match(input,39,FOLLOW_2); 
 
             			newLeafNode(otherlv_6, grammarAccess.getRGBAccess().getRightParenthesisKeyword_6());
             		
@@ -2123,7 +2370,7 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSound"
-    // InternalThymioDSL.g:865:1: entryRuleSound returns [EObject current=null] : iv_ruleSound= ruleSound EOF ;
+    // InternalThymioDSL.g:960:1: entryRuleSound returns [EObject current=null] : iv_ruleSound= ruleSound EOF ;
     public final EObject entryRuleSound() throws RecognitionException {
         EObject current = null;
 
@@ -2131,8 +2378,8 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalThymioDSL.g:865:46: (iv_ruleSound= ruleSound EOF )
-            // InternalThymioDSL.g:866:2: iv_ruleSound= ruleSound EOF
+            // InternalThymioDSL.g:960:46: (iv_ruleSound= ruleSound EOF )
+            // InternalThymioDSL.g:961:2: iv_ruleSound= ruleSound EOF
             {
              newCompositeNode(grammarAccess.getSoundRule()); 
             pushFollow(FOLLOW_1);
@@ -2159,7 +2406,7 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSound"
-    // InternalThymioDSL.g:872:1: ruleSound returns [EObject current=null] : (otherlv_0= 'note:' ( (lv_pitch_1_0= ruleAddition ) ) ( (lv_duration_2_0= ruleNoteDuration ) ) ) ;
+    // InternalThymioDSL.g:967:1: ruleSound returns [EObject current=null] : (otherlv_0= 'note:' ( (lv_pitch_1_0= ruleAddition ) ) ( (lv_duration_2_0= ruleNoteDuration ) ) ) ;
     public final EObject ruleSound() throws RecognitionException {
         EObject current = null;
 
@@ -2173,26 +2420,26 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalThymioDSL.g:878:2: ( (otherlv_0= 'note:' ( (lv_pitch_1_0= ruleAddition ) ) ( (lv_duration_2_0= ruleNoteDuration ) ) ) )
-            // InternalThymioDSL.g:879:2: (otherlv_0= 'note:' ( (lv_pitch_1_0= ruleAddition ) ) ( (lv_duration_2_0= ruleNoteDuration ) ) )
+            // InternalThymioDSL.g:973:2: ( (otherlv_0= 'note:' ( (lv_pitch_1_0= ruleAddition ) ) ( (lv_duration_2_0= ruleNoteDuration ) ) ) )
+            // InternalThymioDSL.g:974:2: (otherlv_0= 'note:' ( (lv_pitch_1_0= ruleAddition ) ) ( (lv_duration_2_0= ruleNoteDuration ) ) )
             {
-            // InternalThymioDSL.g:879:2: (otherlv_0= 'note:' ( (lv_pitch_1_0= ruleAddition ) ) ( (lv_duration_2_0= ruleNoteDuration ) ) )
-            // InternalThymioDSL.g:880:3: otherlv_0= 'note:' ( (lv_pitch_1_0= ruleAddition ) ) ( (lv_duration_2_0= ruleNoteDuration ) )
+            // InternalThymioDSL.g:974:2: (otherlv_0= 'note:' ( (lv_pitch_1_0= ruleAddition ) ) ( (lv_duration_2_0= ruleNoteDuration ) ) )
+            // InternalThymioDSL.g:975:3: otherlv_0= 'note:' ( (lv_pitch_1_0= ruleAddition ) ) ( (lv_duration_2_0= ruleNoteDuration ) )
             {
-            otherlv_0=(Token)match(input,37,FOLLOW_19); 
+            otherlv_0=(Token)match(input,40,FOLLOW_23); 
 
             			newLeafNode(otherlv_0, grammarAccess.getSoundAccess().getNoteKeyword_0());
             		
-            // InternalThymioDSL.g:884:3: ( (lv_pitch_1_0= ruleAddition ) )
-            // InternalThymioDSL.g:885:4: (lv_pitch_1_0= ruleAddition )
+            // InternalThymioDSL.g:979:3: ( (lv_pitch_1_0= ruleAddition ) )
+            // InternalThymioDSL.g:980:4: (lv_pitch_1_0= ruleAddition )
             {
-            // InternalThymioDSL.g:885:4: (lv_pitch_1_0= ruleAddition )
-            // InternalThymioDSL.g:886:5: lv_pitch_1_0= ruleAddition
+            // InternalThymioDSL.g:980:4: (lv_pitch_1_0= ruleAddition )
+            // InternalThymioDSL.g:981:5: lv_pitch_1_0= ruleAddition
             {
 
             					newCompositeNode(grammarAccess.getSoundAccess().getPitchAdditionParserRuleCall_1_0());
             				
-            pushFollow(FOLLOW_26);
+            pushFollow(FOLLOW_30);
             lv_pitch_1_0=ruleAddition();
 
             state._fsp--;
@@ -2214,11 +2461,11 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalThymioDSL.g:903:3: ( (lv_duration_2_0= ruleNoteDuration ) )
-            // InternalThymioDSL.g:904:4: (lv_duration_2_0= ruleNoteDuration )
+            // InternalThymioDSL.g:998:3: ( (lv_duration_2_0= ruleNoteDuration ) )
+            // InternalThymioDSL.g:999:4: (lv_duration_2_0= ruleNoteDuration )
             {
-            // InternalThymioDSL.g:904:4: (lv_duration_2_0= ruleNoteDuration )
-            // InternalThymioDSL.g:905:5: lv_duration_2_0= ruleNoteDuration
+            // InternalThymioDSL.g:999:4: (lv_duration_2_0= ruleNoteDuration )
+            // InternalThymioDSL.g:1000:5: lv_duration_2_0= ruleNoteDuration
             {
 
             					newCompositeNode(grammarAccess.getSoundAccess().getDurationNoteDurationParserRuleCall_2_0());
@@ -2268,7 +2515,7 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleEInt"
-    // InternalThymioDSL.g:926:1: entryRuleEInt returns [String current=null] : iv_ruleEInt= ruleEInt EOF ;
+    // InternalThymioDSL.g:1021:1: entryRuleEInt returns [String current=null] : iv_ruleEInt= ruleEInt EOF ;
     public final String entryRuleEInt() throws RecognitionException {
         String current = null;
 
@@ -2276,8 +2523,8 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalThymioDSL.g:926:44: (iv_ruleEInt= ruleEInt EOF )
-            // InternalThymioDSL.g:927:2: iv_ruleEInt= ruleEInt EOF
+            // InternalThymioDSL.g:1021:44: (iv_ruleEInt= ruleEInt EOF )
+            // InternalThymioDSL.g:1022:2: iv_ruleEInt= ruleEInt EOF
             {
              newCompositeNode(grammarAccess.getEIntRule()); 
             pushFollow(FOLLOW_1);
@@ -2304,7 +2551,7 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEInt"
-    // InternalThymioDSL.g:933:1: ruleEInt returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (kw= '-' )? this_INT_1= RULE_INT ) ;
+    // InternalThymioDSL.g:1028:1: ruleEInt returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (kw= '-' )? this_INT_1= RULE_INT ) ;
     public final AntlrDatatypeRuleToken ruleEInt() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -2315,24 +2562,24 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalThymioDSL.g:939:2: ( ( (kw= '-' )? this_INT_1= RULE_INT ) )
-            // InternalThymioDSL.g:940:2: ( (kw= '-' )? this_INT_1= RULE_INT )
+            // InternalThymioDSL.g:1034:2: ( ( (kw= '-' )? this_INT_1= RULE_INT ) )
+            // InternalThymioDSL.g:1035:2: ( (kw= '-' )? this_INT_1= RULE_INT )
             {
-            // InternalThymioDSL.g:940:2: ( (kw= '-' )? this_INT_1= RULE_INT )
-            // InternalThymioDSL.g:941:3: (kw= '-' )? this_INT_1= RULE_INT
+            // InternalThymioDSL.g:1035:2: ( (kw= '-' )? this_INT_1= RULE_INT )
+            // InternalThymioDSL.g:1036:3: (kw= '-' )? this_INT_1= RULE_INT
             {
-            // InternalThymioDSL.g:941:3: (kw= '-' )?
-            int alt10=2;
-            int LA10_0 = input.LA(1);
+            // InternalThymioDSL.g:1036:3: (kw= '-' )?
+            int alt11=2;
+            int LA11_0 = input.LA(1);
 
-            if ( (LA10_0==38) ) {
-                alt10=1;
+            if ( (LA11_0==41) ) {
+                alt11=1;
             }
-            switch (alt10) {
+            switch (alt11) {
                 case 1 :
-                    // InternalThymioDSL.g:942:4: kw= '-'
+                    // InternalThymioDSL.g:1037:4: kw= '-'
                     {
-                    kw=(Token)match(input,38,FOLLOW_27); 
+                    kw=(Token)match(input,41,FOLLOW_31); 
 
                     				current.merge(kw);
                     				newLeafNode(kw, grammarAccess.getEIntAccess().getHyphenMinusKeyword_0());
@@ -2373,7 +2620,7 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleEString"
-    // InternalThymioDSL.g:959:1: entryRuleEString returns [String current=null] : iv_ruleEString= ruleEString EOF ;
+    // InternalThymioDSL.g:1054:1: entryRuleEString returns [String current=null] : iv_ruleEString= ruleEString EOF ;
     public final String entryRuleEString() throws RecognitionException {
         String current = null;
 
@@ -2381,8 +2628,8 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalThymioDSL.g:959:47: (iv_ruleEString= ruleEString EOF )
-            // InternalThymioDSL.g:960:2: iv_ruleEString= ruleEString EOF
+            // InternalThymioDSL.g:1054:47: (iv_ruleEString= ruleEString EOF )
+            // InternalThymioDSL.g:1055:2: iv_ruleEString= ruleEString EOF
             {
              newCompositeNode(grammarAccess.getEStringRule()); 
             pushFollow(FOLLOW_1);
@@ -2409,7 +2656,7 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEString"
-    // InternalThymioDSL.g:966:1: ruleEString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) ;
+    // InternalThymioDSL.g:1061:1: ruleEString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) ;
     public final AntlrDatatypeRuleToken ruleEString() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -2420,28 +2667,28 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalThymioDSL.g:972:2: ( (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) )
-            // InternalThymioDSL.g:973:2: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
+            // InternalThymioDSL.g:1067:2: ( (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) )
+            // InternalThymioDSL.g:1068:2: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
             {
-            // InternalThymioDSL.g:973:2: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
-            int alt11=2;
-            int LA11_0 = input.LA(1);
+            // InternalThymioDSL.g:1068:2: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
+            int alt12=2;
+            int LA12_0 = input.LA(1);
 
-            if ( (LA11_0==RULE_STRING) ) {
-                alt11=1;
+            if ( (LA12_0==RULE_STRING) ) {
+                alt12=1;
             }
-            else if ( (LA11_0==RULE_ID) ) {
-                alt11=2;
+            else if ( (LA12_0==RULE_ID) ) {
+                alt12=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 11, 0, input);
+                    new NoViableAltException("", 12, 0, input);
 
                 throw nvae;
             }
-            switch (alt11) {
+            switch (alt12) {
                 case 1 :
-                    // InternalThymioDSL.g:974:3: this_STRING_0= RULE_STRING
+                    // InternalThymioDSL.g:1069:3: this_STRING_0= RULE_STRING
                     {
                     this_STRING_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
 
@@ -2454,7 +2701,7 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalThymioDSL.g:982:3: this_ID_1= RULE_ID
+                    // InternalThymioDSL.g:1077:3: this_ID_1= RULE_ID
                     {
                     this_ID_1=(Token)match(input,RULE_ID,FOLLOW_2); 
 
@@ -2489,7 +2736,7 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleEBoolean"
-    // InternalThymioDSL.g:993:1: entryRuleEBoolean returns [String current=null] : iv_ruleEBoolean= ruleEBoolean EOF ;
+    // InternalThymioDSL.g:1088:1: entryRuleEBoolean returns [String current=null] : iv_ruleEBoolean= ruleEBoolean EOF ;
     public final String entryRuleEBoolean() throws RecognitionException {
         String current = null;
 
@@ -2497,8 +2744,8 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalThymioDSL.g:993:48: (iv_ruleEBoolean= ruleEBoolean EOF )
-            // InternalThymioDSL.g:994:2: iv_ruleEBoolean= ruleEBoolean EOF
+            // InternalThymioDSL.g:1088:48: (iv_ruleEBoolean= ruleEBoolean EOF )
+            // InternalThymioDSL.g:1089:2: iv_ruleEBoolean= ruleEBoolean EOF
             {
              newCompositeNode(grammarAccess.getEBooleanRule()); 
             pushFollow(FOLLOW_1);
@@ -2525,7 +2772,7 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEBoolean"
-    // InternalThymioDSL.g:1000:1: ruleEBoolean returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'true' | kw= 'false' ) ;
+    // InternalThymioDSL.g:1095:1: ruleEBoolean returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'true' | kw= 'false' ) ;
     public final AntlrDatatypeRuleToken ruleEBoolean() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -2535,30 +2782,30 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalThymioDSL.g:1006:2: ( (kw= 'true' | kw= 'false' ) )
-            // InternalThymioDSL.g:1007:2: (kw= 'true' | kw= 'false' )
+            // InternalThymioDSL.g:1101:2: ( (kw= 'true' | kw= 'false' ) )
+            // InternalThymioDSL.g:1102:2: (kw= 'true' | kw= 'false' )
             {
-            // InternalThymioDSL.g:1007:2: (kw= 'true' | kw= 'false' )
-            int alt12=2;
-            int LA12_0 = input.LA(1);
+            // InternalThymioDSL.g:1102:2: (kw= 'true' | kw= 'false' )
+            int alt13=2;
+            int LA13_0 = input.LA(1);
 
-            if ( (LA12_0==39) ) {
-                alt12=1;
+            if ( (LA13_0==42) ) {
+                alt13=1;
             }
-            else if ( (LA12_0==40) ) {
-                alt12=2;
+            else if ( (LA13_0==43) ) {
+                alt13=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 12, 0, input);
+                    new NoViableAltException("", 13, 0, input);
 
                 throw nvae;
             }
-            switch (alt12) {
+            switch (alt13) {
                 case 1 :
-                    // InternalThymioDSL.g:1008:3: kw= 'true'
+                    // InternalThymioDSL.g:1103:3: kw= 'true'
                     {
-                    kw=(Token)match(input,39,FOLLOW_2); 
+                    kw=(Token)match(input,42,FOLLOW_2); 
 
                     			current.merge(kw);
                     			newLeafNode(kw, grammarAccess.getEBooleanAccess().getTrueKeyword_0());
@@ -2567,9 +2814,9 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalThymioDSL.g:1014:3: kw= 'false'
+                    // InternalThymioDSL.g:1109:3: kw= 'false'
                     {
-                    kw=(Token)match(input,40,FOLLOW_2); 
+                    kw=(Token)match(input,43,FOLLOW_2); 
 
                     			current.merge(kw);
                     			newLeafNode(kw, grammarAccess.getEBooleanAccess().getFalseKeyword_1());
@@ -2600,7 +2847,7 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleNoteDuration"
-    // InternalThymioDSL.g:1023:1: entryRuleNoteDuration returns [String current=null] : iv_ruleNoteDuration= ruleNoteDuration EOF ;
+    // InternalThymioDSL.g:1118:1: entryRuleNoteDuration returns [String current=null] : iv_ruleNoteDuration= ruleNoteDuration EOF ;
     public final String entryRuleNoteDuration() throws RecognitionException {
         String current = null;
 
@@ -2608,8 +2855,8 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalThymioDSL.g:1023:52: (iv_ruleNoteDuration= ruleNoteDuration EOF )
-            // InternalThymioDSL.g:1024:2: iv_ruleNoteDuration= ruleNoteDuration EOF
+            // InternalThymioDSL.g:1118:52: (iv_ruleNoteDuration= ruleNoteDuration EOF )
+            // InternalThymioDSL.g:1119:2: iv_ruleNoteDuration= ruleNoteDuration EOF
             {
              newCompositeNode(grammarAccess.getNoteDurationRule()); 
             pushFollow(FOLLOW_1);
@@ -2636,7 +2883,7 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNoteDuration"
-    // InternalThymioDSL.g:1030:1: ruleNoteDuration returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'short' | kw= 'long' ) ;
+    // InternalThymioDSL.g:1125:1: ruleNoteDuration returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'short' | kw= 'long' ) ;
     public final AntlrDatatypeRuleToken ruleNoteDuration() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -2646,30 +2893,30 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalThymioDSL.g:1036:2: ( (kw= 'short' | kw= 'long' ) )
-            // InternalThymioDSL.g:1037:2: (kw= 'short' | kw= 'long' )
+            // InternalThymioDSL.g:1131:2: ( (kw= 'short' | kw= 'long' ) )
+            // InternalThymioDSL.g:1132:2: (kw= 'short' | kw= 'long' )
             {
-            // InternalThymioDSL.g:1037:2: (kw= 'short' | kw= 'long' )
-            int alt13=2;
-            int LA13_0 = input.LA(1);
+            // InternalThymioDSL.g:1132:2: (kw= 'short' | kw= 'long' )
+            int alt14=2;
+            int LA14_0 = input.LA(1);
 
-            if ( (LA13_0==41) ) {
-                alt13=1;
+            if ( (LA14_0==44) ) {
+                alt14=1;
             }
-            else if ( (LA13_0==42) ) {
-                alt13=2;
+            else if ( (LA14_0==45) ) {
+                alt14=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 13, 0, input);
+                    new NoViableAltException("", 14, 0, input);
 
                 throw nvae;
             }
-            switch (alt13) {
+            switch (alt14) {
                 case 1 :
-                    // InternalThymioDSL.g:1038:3: kw= 'short'
+                    // InternalThymioDSL.g:1133:3: kw= 'short'
                     {
-                    kw=(Token)match(input,41,FOLLOW_2); 
+                    kw=(Token)match(input,44,FOLLOW_2); 
 
                     			current.merge(kw);
                     			newLeafNode(kw, grammarAccess.getNoteDurationAccess().getShortKeyword_0());
@@ -2678,9 +2925,9 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalThymioDSL.g:1044:3: kw= 'long'
+                    // InternalThymioDSL.g:1139:3: kw= 'long'
                     {
-                    kw=(Token)match(input,42,FOLLOW_2); 
+                    kw=(Token)match(input,45,FOLLOW_2); 
 
                     			current.merge(kw);
                     			newLeafNode(kw, grammarAccess.getNoteDurationAccess().getLongKeyword_1());
@@ -2711,7 +2958,7 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleOrtogonal"
-    // InternalThymioDSL.g:1053:1: entryRuleOrtogonal returns [String current=null] : iv_ruleOrtogonal= ruleOrtogonal EOF ;
+    // InternalThymioDSL.g:1148:1: entryRuleOrtogonal returns [String current=null] : iv_ruleOrtogonal= ruleOrtogonal EOF ;
     public final String entryRuleOrtogonal() throws RecognitionException {
         String current = null;
 
@@ -2719,8 +2966,8 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalThymioDSL.g:1053:49: (iv_ruleOrtogonal= ruleOrtogonal EOF )
-            // InternalThymioDSL.g:1054:2: iv_ruleOrtogonal= ruleOrtogonal EOF
+            // InternalThymioDSL.g:1148:49: (iv_ruleOrtogonal= ruleOrtogonal EOF )
+            // InternalThymioDSL.g:1149:2: iv_ruleOrtogonal= ruleOrtogonal EOF
             {
              newCompositeNode(grammarAccess.getOrtogonalRule()); 
             pushFollow(FOLLOW_1);
@@ -2747,7 +2994,7 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleOrtogonal"
-    // InternalThymioDSL.g:1060:1: ruleOrtogonal returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'up' | kw= 'down' | kw= 'left' | kw= 'right' | kw= 'center' ) ;
+    // InternalThymioDSL.g:1155:1: ruleOrtogonal returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'up' | kw= 'down' | kw= 'left' | kw= 'right' | kw= 'center' ) ;
     public final AntlrDatatypeRuleToken ruleOrtogonal() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -2757,49 +3004,49 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalThymioDSL.g:1066:2: ( (kw= 'up' | kw= 'down' | kw= 'left' | kw= 'right' | kw= 'center' ) )
-            // InternalThymioDSL.g:1067:2: (kw= 'up' | kw= 'down' | kw= 'left' | kw= 'right' | kw= 'center' )
+            // InternalThymioDSL.g:1161:2: ( (kw= 'up' | kw= 'down' | kw= 'left' | kw= 'right' | kw= 'center' ) )
+            // InternalThymioDSL.g:1162:2: (kw= 'up' | kw= 'down' | kw= 'left' | kw= 'right' | kw= 'center' )
             {
-            // InternalThymioDSL.g:1067:2: (kw= 'up' | kw= 'down' | kw= 'left' | kw= 'right' | kw= 'center' )
-            int alt14=5;
+            // InternalThymioDSL.g:1162:2: (kw= 'up' | kw= 'down' | kw= 'left' | kw= 'right' | kw= 'center' )
+            int alt15=5;
             switch ( input.LA(1) ) {
-            case 43:
-                {
-                alt14=1;
-                }
-                break;
-            case 44:
-                {
-                alt14=2;
-                }
-                break;
-            case 45:
-                {
-                alt14=3;
-                }
-                break;
             case 46:
                 {
-                alt14=4;
+                alt15=1;
                 }
                 break;
             case 47:
                 {
-                alt14=5;
+                alt15=2;
+                }
+                break;
+            case 48:
+                {
+                alt15=3;
+                }
+                break;
+            case 49:
+                {
+                alt15=4;
+                }
+                break;
+            case 50:
+                {
+                alt15=5;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 14, 0, input);
+                    new NoViableAltException("", 15, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt14) {
+            switch (alt15) {
                 case 1 :
-                    // InternalThymioDSL.g:1068:3: kw= 'up'
+                    // InternalThymioDSL.g:1163:3: kw= 'up'
                     {
-                    kw=(Token)match(input,43,FOLLOW_2); 
+                    kw=(Token)match(input,46,FOLLOW_2); 
 
                     			current.merge(kw);
                     			newLeafNode(kw, grammarAccess.getOrtogonalAccess().getUpKeyword_0());
@@ -2808,9 +3055,9 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalThymioDSL.g:1074:3: kw= 'down'
+                    // InternalThymioDSL.g:1169:3: kw= 'down'
                     {
-                    kw=(Token)match(input,44,FOLLOW_2); 
+                    kw=(Token)match(input,47,FOLLOW_2); 
 
                     			current.merge(kw);
                     			newLeafNode(kw, grammarAccess.getOrtogonalAccess().getDownKeyword_1());
@@ -2819,9 +3066,9 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalThymioDSL.g:1080:3: kw= 'left'
+                    // InternalThymioDSL.g:1175:3: kw= 'left'
                     {
-                    kw=(Token)match(input,45,FOLLOW_2); 
+                    kw=(Token)match(input,48,FOLLOW_2); 
 
                     			current.merge(kw);
                     			newLeafNode(kw, grammarAccess.getOrtogonalAccess().getLeftKeyword_2());
@@ -2830,9 +3077,9 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalThymioDSL.g:1086:3: kw= 'right'
+                    // InternalThymioDSL.g:1181:3: kw= 'right'
                     {
-                    kw=(Token)match(input,46,FOLLOW_2); 
+                    kw=(Token)match(input,49,FOLLOW_2); 
 
                     			current.merge(kw);
                     			newLeafNode(kw, grammarAccess.getOrtogonalAccess().getRightKeyword_3());
@@ -2841,9 +3088,9 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalThymioDSL.g:1092:3: kw= 'center'
+                    // InternalThymioDSL.g:1187:3: kw= 'center'
                     {
-                    kw=(Token)match(input,47,FOLLOW_2); 
+                    kw=(Token)match(input,50,FOLLOW_2); 
 
                     			current.merge(kw);
                     			newLeafNode(kw, grammarAccess.getOrtogonalAccess().getCenterKeyword_4());
@@ -2873,8 +3120,139 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleOrtogonal"
 
 
+    // $ANTLR start "entryRuleSensorStatus"
+    // InternalThymioDSL.g:1196:1: entryRuleSensorStatus returns [String current=null] : iv_ruleSensorStatus= ruleSensorStatus EOF ;
+    public final String entryRuleSensorStatus() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleSensorStatus = null;
+
+
+        try {
+            // InternalThymioDSL.g:1196:52: (iv_ruleSensorStatus= ruleSensorStatus EOF )
+            // InternalThymioDSL.g:1197:2: iv_ruleSensorStatus= ruleSensorStatus EOF
+            {
+             newCompositeNode(grammarAccess.getSensorStatusRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleSensorStatus=ruleSensorStatus();
+
+            state._fsp--;
+
+             current =iv_ruleSensorStatus.getText(); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleSensorStatus"
+
+
+    // $ANTLR start "ruleSensorStatus"
+    // InternalThymioDSL.g:1203:1: ruleSensorStatus returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'very_close' | kw= 'close' | kw= 'far' ) ;
+    public final AntlrDatatypeRuleToken ruleSensorStatus() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+        Token kw=null;
+
+
+        	enterRule();
+
+        try {
+            // InternalThymioDSL.g:1209:2: ( (kw= 'very_close' | kw= 'close' | kw= 'far' ) )
+            // InternalThymioDSL.g:1210:2: (kw= 'very_close' | kw= 'close' | kw= 'far' )
+            {
+            // InternalThymioDSL.g:1210:2: (kw= 'very_close' | kw= 'close' | kw= 'far' )
+            int alt16=3;
+            switch ( input.LA(1) ) {
+            case 51:
+                {
+                alt16=1;
+                }
+                break;
+            case 52:
+                {
+                alt16=2;
+                }
+                break;
+            case 53:
+                {
+                alt16=3;
+                }
+                break;
+            default:
+                NoViableAltException nvae =
+                    new NoViableAltException("", 16, 0, input);
+
+                throw nvae;
+            }
+
+            switch (alt16) {
+                case 1 :
+                    // InternalThymioDSL.g:1211:3: kw= 'very_close'
+                    {
+                    kw=(Token)match(input,51,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getSensorStatusAccess().getVery_closeKeyword_0());
+                    		
+
+                    }
+                    break;
+                case 2 :
+                    // InternalThymioDSL.g:1217:3: kw= 'close'
+                    {
+                    kw=(Token)match(input,52,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getSensorStatusAccess().getCloseKeyword_1());
+                    		
+
+                    }
+                    break;
+                case 3 :
+                    // InternalThymioDSL.g:1223:3: kw= 'far'
+                    {
+                    kw=(Token)match(input,53,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getSensorStatusAccess().getFarKeyword_2());
+                    		
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleSensorStatus"
+
+
     // $ANTLR start "entryRuleBlackWhite"
-    // InternalThymioDSL.g:1101:1: entryRuleBlackWhite returns [String current=null] : iv_ruleBlackWhite= ruleBlackWhite EOF ;
+    // InternalThymioDSL.g:1232:1: entryRuleBlackWhite returns [String current=null] : iv_ruleBlackWhite= ruleBlackWhite EOF ;
     public final String entryRuleBlackWhite() throws RecognitionException {
         String current = null;
 
@@ -2882,8 +3260,8 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalThymioDSL.g:1101:50: (iv_ruleBlackWhite= ruleBlackWhite EOF )
-            // InternalThymioDSL.g:1102:2: iv_ruleBlackWhite= ruleBlackWhite EOF
+            // InternalThymioDSL.g:1232:50: (iv_ruleBlackWhite= ruleBlackWhite EOF )
+            // InternalThymioDSL.g:1233:2: iv_ruleBlackWhite= ruleBlackWhite EOF
             {
              newCompositeNode(grammarAccess.getBlackWhiteRule()); 
             pushFollow(FOLLOW_1);
@@ -2910,7 +3288,7 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleBlackWhite"
-    // InternalThymioDSL.g:1108:1: ruleBlackWhite returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'black' | kw= 'white' ) ;
+    // InternalThymioDSL.g:1239:1: ruleBlackWhite returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'black' | kw= 'white' | kw= 'any' ) ;
     public final AntlrDatatypeRuleToken ruleBlackWhite() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -2920,30 +3298,39 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalThymioDSL.g:1114:2: ( (kw= 'black' | kw= 'white' ) )
-            // InternalThymioDSL.g:1115:2: (kw= 'black' | kw= 'white' )
+            // InternalThymioDSL.g:1245:2: ( (kw= 'black' | kw= 'white' | kw= 'any' ) )
+            // InternalThymioDSL.g:1246:2: (kw= 'black' | kw= 'white' | kw= 'any' )
             {
-            // InternalThymioDSL.g:1115:2: (kw= 'black' | kw= 'white' )
-            int alt15=2;
-            int LA15_0 = input.LA(1);
-
-            if ( (LA15_0==48) ) {
-                alt15=1;
-            }
-            else if ( (LA15_0==49) ) {
-                alt15=2;
-            }
-            else {
+            // InternalThymioDSL.g:1246:2: (kw= 'black' | kw= 'white' | kw= 'any' )
+            int alt17=3;
+            switch ( input.LA(1) ) {
+            case 54:
+                {
+                alt17=1;
+                }
+                break;
+            case 55:
+                {
+                alt17=2;
+                }
+                break;
+            case 56:
+                {
+                alt17=3;
+                }
+                break;
+            default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 15, 0, input);
+                    new NoViableAltException("", 17, 0, input);
 
                 throw nvae;
             }
-            switch (alt15) {
+
+            switch (alt17) {
                 case 1 :
-                    // InternalThymioDSL.g:1116:3: kw= 'black'
+                    // InternalThymioDSL.g:1247:3: kw= 'black'
                     {
-                    kw=(Token)match(input,48,FOLLOW_2); 
+                    kw=(Token)match(input,54,FOLLOW_2); 
 
                     			current.merge(kw);
                     			newLeafNode(kw, grammarAccess.getBlackWhiteAccess().getBlackKeyword_0());
@@ -2952,12 +3339,23 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalThymioDSL.g:1122:3: kw= 'white'
+                    // InternalThymioDSL.g:1253:3: kw= 'white'
                     {
-                    kw=(Token)match(input,49,FOLLOW_2); 
+                    kw=(Token)match(input,55,FOLLOW_2); 
 
                     			current.merge(kw);
                     			newLeafNode(kw, grammarAccess.getBlackWhiteAccess().getWhiteKeyword_1());
+                    		
+
+                    }
+                    break;
+                case 3 :
+                    // InternalThymioDSL.g:1259:3: kw= 'any'
+                    {
+                    kw=(Token)match(input,56,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getBlackWhiteAccess().getAnyKeyword_2());
                     		
 
                     }
@@ -2985,7 +3383,7 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleAddition"
-    // InternalThymioDSL.g:1131:1: entryRuleAddition returns [EObject current=null] : iv_ruleAddition= ruleAddition EOF ;
+    // InternalThymioDSL.g:1268:1: entryRuleAddition returns [EObject current=null] : iv_ruleAddition= ruleAddition EOF ;
     public final EObject entryRuleAddition() throws RecognitionException {
         EObject current = null;
 
@@ -2993,8 +3391,8 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalThymioDSL.g:1131:49: (iv_ruleAddition= ruleAddition EOF )
-            // InternalThymioDSL.g:1132:2: iv_ruleAddition= ruleAddition EOF
+            // InternalThymioDSL.g:1268:49: (iv_ruleAddition= ruleAddition EOF )
+            // InternalThymioDSL.g:1269:2: iv_ruleAddition= ruleAddition EOF
             {
              newCompositeNode(grammarAccess.getAdditionRule()); 
             pushFollow(FOLLOW_1);
@@ -3021,7 +3419,7 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAddition"
-    // InternalThymioDSL.g:1138:1: ruleAddition returns [EObject current=null] : (this_Multiplication_0= ruleMultiplication ( () ( ( (lv_operator_2_1= '+' | lv_operator_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultiplication ) ) )* ) ;
+    // InternalThymioDSL.g:1275:1: ruleAddition returns [EObject current=null] : (this_Multiplication_0= ruleMultiplication ( () ( ( (lv_operator_2_1= '+' | lv_operator_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultiplication ) ) )* ) ;
     public final EObject ruleAddition() throws RecognitionException {
         EObject current = null;
 
@@ -3036,16 +3434,16 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalThymioDSL.g:1144:2: ( (this_Multiplication_0= ruleMultiplication ( () ( ( (lv_operator_2_1= '+' | lv_operator_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultiplication ) ) )* ) )
-            // InternalThymioDSL.g:1145:2: (this_Multiplication_0= ruleMultiplication ( () ( ( (lv_operator_2_1= '+' | lv_operator_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultiplication ) ) )* )
+            // InternalThymioDSL.g:1281:2: ( (this_Multiplication_0= ruleMultiplication ( () ( ( (lv_operator_2_1= '+' | lv_operator_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultiplication ) ) )* ) )
+            // InternalThymioDSL.g:1282:2: (this_Multiplication_0= ruleMultiplication ( () ( ( (lv_operator_2_1= '+' | lv_operator_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultiplication ) ) )* )
             {
-            // InternalThymioDSL.g:1145:2: (this_Multiplication_0= ruleMultiplication ( () ( ( (lv_operator_2_1= '+' | lv_operator_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultiplication ) ) )* )
-            // InternalThymioDSL.g:1146:3: this_Multiplication_0= ruleMultiplication ( () ( ( (lv_operator_2_1= '+' | lv_operator_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultiplication ) ) )*
+            // InternalThymioDSL.g:1282:2: (this_Multiplication_0= ruleMultiplication ( () ( ( (lv_operator_2_1= '+' | lv_operator_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultiplication ) ) )* )
+            // InternalThymioDSL.g:1283:3: this_Multiplication_0= ruleMultiplication ( () ( ( (lv_operator_2_1= '+' | lv_operator_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultiplication ) ) )*
             {
 
             			newCompositeNode(grammarAccess.getAdditionAccess().getMultiplicationParserRuleCall_0());
             		
-            pushFollow(FOLLOW_28);
+            pushFollow(FOLLOW_32);
             this_Multiplication_0=ruleMultiplication();
 
             state._fsp--;
@@ -3054,23 +3452,23 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
             			current = this_Multiplication_0;
             			afterParserOrEnumRuleCall();
             		
-            // InternalThymioDSL.g:1154:3: ( () ( ( (lv_operator_2_1= '+' | lv_operator_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultiplication ) ) )*
-            loop17:
+            // InternalThymioDSL.g:1291:3: ( () ( ( (lv_operator_2_1= '+' | lv_operator_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultiplication ) ) )*
+            loop19:
             do {
-                int alt17=2;
-                int LA17_0 = input.LA(1);
+                int alt19=2;
+                int LA19_0 = input.LA(1);
 
-                if ( (LA17_0==38||LA17_0==50) ) {
-                    alt17=1;
+                if ( (LA19_0==41||LA19_0==57) ) {
+                    alt19=1;
                 }
 
 
-                switch (alt17) {
+                switch (alt19) {
             	case 1 :
-            	    // InternalThymioDSL.g:1155:4: () ( ( (lv_operator_2_1= '+' | lv_operator_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultiplication ) )
+            	    // InternalThymioDSL.g:1292:4: () ( ( (lv_operator_2_1= '+' | lv_operator_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultiplication ) )
             	    {
-            	    // InternalThymioDSL.g:1155:4: ()
-            	    // InternalThymioDSL.g:1156:5: 
+            	    // InternalThymioDSL.g:1292:4: ()
+            	    // InternalThymioDSL.g:1293:5: 
             	    {
 
             	    					current = forceCreateModelElementAndSet(
@@ -3080,33 +3478,33 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // InternalThymioDSL.g:1162:4: ( ( (lv_operator_2_1= '+' | lv_operator_2_2= '-' ) ) )
-            	    // InternalThymioDSL.g:1163:5: ( (lv_operator_2_1= '+' | lv_operator_2_2= '-' ) )
+            	    // InternalThymioDSL.g:1299:4: ( ( (lv_operator_2_1= '+' | lv_operator_2_2= '-' ) ) )
+            	    // InternalThymioDSL.g:1300:5: ( (lv_operator_2_1= '+' | lv_operator_2_2= '-' ) )
             	    {
-            	    // InternalThymioDSL.g:1163:5: ( (lv_operator_2_1= '+' | lv_operator_2_2= '-' ) )
-            	    // InternalThymioDSL.g:1164:6: (lv_operator_2_1= '+' | lv_operator_2_2= '-' )
+            	    // InternalThymioDSL.g:1300:5: ( (lv_operator_2_1= '+' | lv_operator_2_2= '-' ) )
+            	    // InternalThymioDSL.g:1301:6: (lv_operator_2_1= '+' | lv_operator_2_2= '-' )
             	    {
-            	    // InternalThymioDSL.g:1164:6: (lv_operator_2_1= '+' | lv_operator_2_2= '-' )
-            	    int alt16=2;
-            	    int LA16_0 = input.LA(1);
+            	    // InternalThymioDSL.g:1301:6: (lv_operator_2_1= '+' | lv_operator_2_2= '-' )
+            	    int alt18=2;
+            	    int LA18_0 = input.LA(1);
 
-            	    if ( (LA16_0==50) ) {
-            	        alt16=1;
+            	    if ( (LA18_0==57) ) {
+            	        alt18=1;
             	    }
-            	    else if ( (LA16_0==38) ) {
-            	        alt16=2;
+            	    else if ( (LA18_0==41) ) {
+            	        alt18=2;
             	    }
             	    else {
             	        NoViableAltException nvae =
-            	            new NoViableAltException("", 16, 0, input);
+            	            new NoViableAltException("", 18, 0, input);
 
             	        throw nvae;
             	    }
-            	    switch (alt16) {
+            	    switch (alt18) {
             	        case 1 :
-            	            // InternalThymioDSL.g:1165:7: lv_operator_2_1= '+'
+            	            // InternalThymioDSL.g:1302:7: lv_operator_2_1= '+'
             	            {
-            	            lv_operator_2_1=(Token)match(input,50,FOLLOW_19); 
+            	            lv_operator_2_1=(Token)match(input,57,FOLLOW_23); 
 
             	            							newLeafNode(lv_operator_2_1, grammarAccess.getAdditionAccess().getOperatorPlusSignKeyword_1_1_0_0());
             	            						
@@ -3120,9 +3518,9 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
             	            }
             	            break;
             	        case 2 :
-            	            // InternalThymioDSL.g:1176:7: lv_operator_2_2= '-'
+            	            // InternalThymioDSL.g:1313:7: lv_operator_2_2= '-'
             	            {
-            	            lv_operator_2_2=(Token)match(input,38,FOLLOW_19); 
+            	            lv_operator_2_2=(Token)match(input,41,FOLLOW_23); 
 
             	            							newLeafNode(lv_operator_2_2, grammarAccess.getAdditionAccess().getOperatorHyphenMinusKeyword_1_1_0_1());
             	            						
@@ -3144,16 +3542,16 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // InternalThymioDSL.g:1189:4: ( (lv_right_3_0= ruleMultiplication ) )
-            	    // InternalThymioDSL.g:1190:5: (lv_right_3_0= ruleMultiplication )
+            	    // InternalThymioDSL.g:1326:4: ( (lv_right_3_0= ruleMultiplication ) )
+            	    // InternalThymioDSL.g:1327:5: (lv_right_3_0= ruleMultiplication )
             	    {
-            	    // InternalThymioDSL.g:1190:5: (lv_right_3_0= ruleMultiplication )
-            	    // InternalThymioDSL.g:1191:6: lv_right_3_0= ruleMultiplication
+            	    // InternalThymioDSL.g:1327:5: (lv_right_3_0= ruleMultiplication )
+            	    // InternalThymioDSL.g:1328:6: lv_right_3_0= ruleMultiplication
             	    {
 
             	    						newCompositeNode(grammarAccess.getAdditionAccess().getRightMultiplicationParserRuleCall_1_2_0());
             	    					
-            	    pushFollow(FOLLOW_28);
+            	    pushFollow(FOLLOW_32);
             	    lv_right_3_0=ruleMultiplication();
 
             	    state._fsp--;
@@ -3167,228 +3565,6 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
             	    							"right",
             	    							lv_right_3_0,
             	    							"ld.project2.ThymioDSL.Multiplication");
-            	    						afterParserOrEnumRuleCall();
-            	    					
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop17;
-                }
-            } while (true);
-
-
-            }
-
-
-            }
-
-
-            	leaveRule();
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleAddition"
-
-
-    // $ANTLR start "entryRuleMultiplication"
-    // InternalThymioDSL.g:1213:1: entryRuleMultiplication returns [EObject current=null] : iv_ruleMultiplication= ruleMultiplication EOF ;
-    public final EObject entryRuleMultiplication() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleMultiplication = null;
-
-
-        try {
-            // InternalThymioDSL.g:1213:55: (iv_ruleMultiplication= ruleMultiplication EOF )
-            // InternalThymioDSL.g:1214:2: iv_ruleMultiplication= ruleMultiplication EOF
-            {
-             newCompositeNode(grammarAccess.getMultiplicationRule()); 
-            pushFollow(FOLLOW_1);
-            iv_ruleMultiplication=ruleMultiplication();
-
-            state._fsp--;
-
-             current =iv_ruleMultiplication; 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleMultiplication"
-
-
-    // $ANTLR start "ruleMultiplication"
-    // InternalThymioDSL.g:1220:1: ruleMultiplication returns [EObject current=null] : (this_Number_0= ruleNumber ( () ( ( (lv_operator_2_1= '*' | lv_operator_2_2= '/' ) ) ) ( (lv_right_3_0= ruleNumber ) ) )* ) ;
-    public final EObject ruleMultiplication() throws RecognitionException {
-        EObject current = null;
-
-        Token lv_operator_2_1=null;
-        Token lv_operator_2_2=null;
-        EObject this_Number_0 = null;
-
-        EObject lv_right_3_0 = null;
-
-
-
-        	enterRule();
-
-        try {
-            // InternalThymioDSL.g:1226:2: ( (this_Number_0= ruleNumber ( () ( ( (lv_operator_2_1= '*' | lv_operator_2_2= '/' ) ) ) ( (lv_right_3_0= ruleNumber ) ) )* ) )
-            // InternalThymioDSL.g:1227:2: (this_Number_0= ruleNumber ( () ( ( (lv_operator_2_1= '*' | lv_operator_2_2= '/' ) ) ) ( (lv_right_3_0= ruleNumber ) ) )* )
-            {
-            // InternalThymioDSL.g:1227:2: (this_Number_0= ruleNumber ( () ( ( (lv_operator_2_1= '*' | lv_operator_2_2= '/' ) ) ) ( (lv_right_3_0= ruleNumber ) ) )* )
-            // InternalThymioDSL.g:1228:3: this_Number_0= ruleNumber ( () ( ( (lv_operator_2_1= '*' | lv_operator_2_2= '/' ) ) ) ( (lv_right_3_0= ruleNumber ) ) )*
-            {
-
-            			newCompositeNode(grammarAccess.getMultiplicationAccess().getNumberParserRuleCall_0());
-            		
-            pushFollow(FOLLOW_29);
-            this_Number_0=ruleNumber();
-
-            state._fsp--;
-
-
-            			current = this_Number_0;
-            			afterParserOrEnumRuleCall();
-            		
-            // InternalThymioDSL.g:1236:3: ( () ( ( (lv_operator_2_1= '*' | lv_operator_2_2= '/' ) ) ) ( (lv_right_3_0= ruleNumber ) ) )*
-            loop19:
-            do {
-                int alt19=2;
-                int LA19_0 = input.LA(1);
-
-                if ( ((LA19_0>=51 && LA19_0<=52)) ) {
-                    alt19=1;
-                }
-
-
-                switch (alt19) {
-            	case 1 :
-            	    // InternalThymioDSL.g:1237:4: () ( ( (lv_operator_2_1= '*' | lv_operator_2_2= '/' ) ) ) ( (lv_right_3_0= ruleNumber ) )
-            	    {
-            	    // InternalThymioDSL.g:1237:4: ()
-            	    // InternalThymioDSL.g:1238:5: 
-            	    {
-
-            	    					current = forceCreateModelElementAndSet(
-            	    						grammarAccess.getMultiplicationAccess().getMultiplicationLeftAction_1_0(),
-            	    						current);
-            	    				
-
-            	    }
-
-            	    // InternalThymioDSL.g:1244:4: ( ( (lv_operator_2_1= '*' | lv_operator_2_2= '/' ) ) )
-            	    // InternalThymioDSL.g:1245:5: ( (lv_operator_2_1= '*' | lv_operator_2_2= '/' ) )
-            	    {
-            	    // InternalThymioDSL.g:1245:5: ( (lv_operator_2_1= '*' | lv_operator_2_2= '/' ) )
-            	    // InternalThymioDSL.g:1246:6: (lv_operator_2_1= '*' | lv_operator_2_2= '/' )
-            	    {
-            	    // InternalThymioDSL.g:1246:6: (lv_operator_2_1= '*' | lv_operator_2_2= '/' )
-            	    int alt18=2;
-            	    int LA18_0 = input.LA(1);
-
-            	    if ( (LA18_0==51) ) {
-            	        alt18=1;
-            	    }
-            	    else if ( (LA18_0==52) ) {
-            	        alt18=2;
-            	    }
-            	    else {
-            	        NoViableAltException nvae =
-            	            new NoViableAltException("", 18, 0, input);
-
-            	        throw nvae;
-            	    }
-            	    switch (alt18) {
-            	        case 1 :
-            	            // InternalThymioDSL.g:1247:7: lv_operator_2_1= '*'
-            	            {
-            	            lv_operator_2_1=(Token)match(input,51,FOLLOW_19); 
-
-            	            							newLeafNode(lv_operator_2_1, grammarAccess.getMultiplicationAccess().getOperatorAsteriskKeyword_1_1_0_0());
-            	            						
-
-            	            							if (current==null) {
-            	            								current = createModelElement(grammarAccess.getMultiplicationRule());
-            	            							}
-            	            							setWithLastConsumed(current, "operator", lv_operator_2_1, null);
-            	            						
-
-            	            }
-            	            break;
-            	        case 2 :
-            	            // InternalThymioDSL.g:1258:7: lv_operator_2_2= '/'
-            	            {
-            	            lv_operator_2_2=(Token)match(input,52,FOLLOW_19); 
-
-            	            							newLeafNode(lv_operator_2_2, grammarAccess.getMultiplicationAccess().getOperatorSolidusKeyword_1_1_0_1());
-            	            						
-
-            	            							if (current==null) {
-            	            								current = createModelElement(grammarAccess.getMultiplicationRule());
-            	            							}
-            	            							setWithLastConsumed(current, "operator", lv_operator_2_2, null);
-            	            						
-
-            	            }
-            	            break;
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-
-            	    // InternalThymioDSL.g:1271:4: ( (lv_right_3_0= ruleNumber ) )
-            	    // InternalThymioDSL.g:1272:5: (lv_right_3_0= ruleNumber )
-            	    {
-            	    // InternalThymioDSL.g:1272:5: (lv_right_3_0= ruleNumber )
-            	    // InternalThymioDSL.g:1273:6: lv_right_3_0= ruleNumber
-            	    {
-
-            	    						newCompositeNode(grammarAccess.getMultiplicationAccess().getRightNumberParserRuleCall_1_2_0());
-            	    					
-            	    pushFollow(FOLLOW_29);
-            	    lv_right_3_0=ruleNumber();
-
-            	    state._fsp--;
-
-
-            	    						if (current==null) {
-            	    							current = createModelElementForParent(grammarAccess.getMultiplicationRule());
-            	    						}
-            	    						set(
-            	    							current,
-            	    							"right",
-            	    							lv_right_3_0,
-            	    							"ld.project2.ThymioDSL.Number");
             	    						afterParserOrEnumRuleCall();
             	    					
 
@@ -3425,11 +3601,233 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
+    // $ANTLR end "ruleAddition"
+
+
+    // $ANTLR start "entryRuleMultiplication"
+    // InternalThymioDSL.g:1350:1: entryRuleMultiplication returns [EObject current=null] : iv_ruleMultiplication= ruleMultiplication EOF ;
+    public final EObject entryRuleMultiplication() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleMultiplication = null;
+
+
+        try {
+            // InternalThymioDSL.g:1350:55: (iv_ruleMultiplication= ruleMultiplication EOF )
+            // InternalThymioDSL.g:1351:2: iv_ruleMultiplication= ruleMultiplication EOF
+            {
+             newCompositeNode(grammarAccess.getMultiplicationRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleMultiplication=ruleMultiplication();
+
+            state._fsp--;
+
+             current =iv_ruleMultiplication; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleMultiplication"
+
+
+    // $ANTLR start "ruleMultiplication"
+    // InternalThymioDSL.g:1357:1: ruleMultiplication returns [EObject current=null] : (this_Number_0= ruleNumber ( () ( ( (lv_operator_2_1= '*' | lv_operator_2_2= '/' ) ) ) ( (lv_right_3_0= ruleNumber ) ) )* ) ;
+    public final EObject ruleMultiplication() throws RecognitionException {
+        EObject current = null;
+
+        Token lv_operator_2_1=null;
+        Token lv_operator_2_2=null;
+        EObject this_Number_0 = null;
+
+        EObject lv_right_3_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalThymioDSL.g:1363:2: ( (this_Number_0= ruleNumber ( () ( ( (lv_operator_2_1= '*' | lv_operator_2_2= '/' ) ) ) ( (lv_right_3_0= ruleNumber ) ) )* ) )
+            // InternalThymioDSL.g:1364:2: (this_Number_0= ruleNumber ( () ( ( (lv_operator_2_1= '*' | lv_operator_2_2= '/' ) ) ) ( (lv_right_3_0= ruleNumber ) ) )* )
+            {
+            // InternalThymioDSL.g:1364:2: (this_Number_0= ruleNumber ( () ( ( (lv_operator_2_1= '*' | lv_operator_2_2= '/' ) ) ) ( (lv_right_3_0= ruleNumber ) ) )* )
+            // InternalThymioDSL.g:1365:3: this_Number_0= ruleNumber ( () ( ( (lv_operator_2_1= '*' | lv_operator_2_2= '/' ) ) ) ( (lv_right_3_0= ruleNumber ) ) )*
+            {
+
+            			newCompositeNode(grammarAccess.getMultiplicationAccess().getNumberParserRuleCall_0());
+            		
+            pushFollow(FOLLOW_33);
+            this_Number_0=ruleNumber();
+
+            state._fsp--;
+
+
+            			current = this_Number_0;
+            			afterParserOrEnumRuleCall();
+            		
+            // InternalThymioDSL.g:1373:3: ( () ( ( (lv_operator_2_1= '*' | lv_operator_2_2= '/' ) ) ) ( (lv_right_3_0= ruleNumber ) ) )*
+            loop21:
+            do {
+                int alt21=2;
+                int LA21_0 = input.LA(1);
+
+                if ( ((LA21_0>=58 && LA21_0<=59)) ) {
+                    alt21=1;
+                }
+
+
+                switch (alt21) {
+            	case 1 :
+            	    // InternalThymioDSL.g:1374:4: () ( ( (lv_operator_2_1= '*' | lv_operator_2_2= '/' ) ) ) ( (lv_right_3_0= ruleNumber ) )
+            	    {
+            	    // InternalThymioDSL.g:1374:4: ()
+            	    // InternalThymioDSL.g:1375:5: 
+            	    {
+
+            	    					current = forceCreateModelElementAndSet(
+            	    						grammarAccess.getMultiplicationAccess().getMultiplicationLeftAction_1_0(),
+            	    						current);
+            	    				
+
+            	    }
+
+            	    // InternalThymioDSL.g:1381:4: ( ( (lv_operator_2_1= '*' | lv_operator_2_2= '/' ) ) )
+            	    // InternalThymioDSL.g:1382:5: ( (lv_operator_2_1= '*' | lv_operator_2_2= '/' ) )
+            	    {
+            	    // InternalThymioDSL.g:1382:5: ( (lv_operator_2_1= '*' | lv_operator_2_2= '/' ) )
+            	    // InternalThymioDSL.g:1383:6: (lv_operator_2_1= '*' | lv_operator_2_2= '/' )
+            	    {
+            	    // InternalThymioDSL.g:1383:6: (lv_operator_2_1= '*' | lv_operator_2_2= '/' )
+            	    int alt20=2;
+            	    int LA20_0 = input.LA(1);
+
+            	    if ( (LA20_0==58) ) {
+            	        alt20=1;
+            	    }
+            	    else if ( (LA20_0==59) ) {
+            	        alt20=2;
+            	    }
+            	    else {
+            	        NoViableAltException nvae =
+            	            new NoViableAltException("", 20, 0, input);
+
+            	        throw nvae;
+            	    }
+            	    switch (alt20) {
+            	        case 1 :
+            	            // InternalThymioDSL.g:1384:7: lv_operator_2_1= '*'
+            	            {
+            	            lv_operator_2_1=(Token)match(input,58,FOLLOW_23); 
+
+            	            							newLeafNode(lv_operator_2_1, grammarAccess.getMultiplicationAccess().getOperatorAsteriskKeyword_1_1_0_0());
+            	            						
+
+            	            							if (current==null) {
+            	            								current = createModelElement(grammarAccess.getMultiplicationRule());
+            	            							}
+            	            							setWithLastConsumed(current, "operator", lv_operator_2_1, null);
+            	            						
+
+            	            }
+            	            break;
+            	        case 2 :
+            	            // InternalThymioDSL.g:1395:7: lv_operator_2_2= '/'
+            	            {
+            	            lv_operator_2_2=(Token)match(input,59,FOLLOW_23); 
+
+            	            							newLeafNode(lv_operator_2_2, grammarAccess.getMultiplicationAccess().getOperatorSolidusKeyword_1_1_0_1());
+            	            						
+
+            	            							if (current==null) {
+            	            								current = createModelElement(grammarAccess.getMultiplicationRule());
+            	            							}
+            	            							setWithLastConsumed(current, "operator", lv_operator_2_2, null);
+            	            						
+
+            	            }
+            	            break;
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+
+            	    // InternalThymioDSL.g:1408:4: ( (lv_right_3_0= ruleNumber ) )
+            	    // InternalThymioDSL.g:1409:5: (lv_right_3_0= ruleNumber )
+            	    {
+            	    // InternalThymioDSL.g:1409:5: (lv_right_3_0= ruleNumber )
+            	    // InternalThymioDSL.g:1410:6: lv_right_3_0= ruleNumber
+            	    {
+
+            	    						newCompositeNode(grammarAccess.getMultiplicationAccess().getRightNumberParserRuleCall_1_2_0());
+            	    					
+            	    pushFollow(FOLLOW_33);
+            	    lv_right_3_0=ruleNumber();
+
+            	    state._fsp--;
+
+
+            	    						if (current==null) {
+            	    							current = createModelElementForParent(grammarAccess.getMultiplicationRule());
+            	    						}
+            	    						set(
+            	    							current,
+            	    							"right",
+            	    							lv_right_3_0,
+            	    							"ld.project2.ThymioDSL.Number");
+            	    						afterParserOrEnumRuleCall();
+            	    					
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop21;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
     // $ANTLR end "ruleMultiplication"
 
 
     // $ANTLR start "entryRuleNumber"
-    // InternalThymioDSL.g:1295:1: entryRuleNumber returns [EObject current=null] : iv_ruleNumber= ruleNumber EOF ;
+    // InternalThymioDSL.g:1432:1: entryRuleNumber returns [EObject current=null] : iv_ruleNumber= ruleNumber EOF ;
     public final EObject entryRuleNumber() throws RecognitionException {
         EObject current = null;
 
@@ -3437,8 +3835,8 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalThymioDSL.g:1295:47: (iv_ruleNumber= ruleNumber EOF )
-            // InternalThymioDSL.g:1296:2: iv_ruleNumber= ruleNumber EOF
+            // InternalThymioDSL.g:1432:47: (iv_ruleNumber= ruleNumber EOF )
+            // InternalThymioDSL.g:1433:2: iv_ruleNumber= ruleNumber EOF
             {
              newCompositeNode(grammarAccess.getNumberRule()); 
             pushFollow(FOLLOW_1);
@@ -3465,7 +3863,7 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNumber"
-    // InternalThymioDSL.g:1302:1: ruleNumber returns [EObject current=null] : ( ( (lv_value_0_0= ruleEInt ) ) | (otherlv_1= '(' this_Addition_2= ruleAddition otherlv_3= ')' ) ) ;
+    // InternalThymioDSL.g:1439:1: ruleNumber returns [EObject current=null] : ( ( (lv_value_0_0= ruleEInt ) ) | (otherlv_1= '(' this_Addition_2= ruleAddition otherlv_3= ')' ) ) ;
     public final EObject ruleNumber() throws RecognitionException {
         EObject current = null;
 
@@ -3480,34 +3878,34 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalThymioDSL.g:1308:2: ( ( ( (lv_value_0_0= ruleEInt ) ) | (otherlv_1= '(' this_Addition_2= ruleAddition otherlv_3= ')' ) ) )
-            // InternalThymioDSL.g:1309:2: ( ( (lv_value_0_0= ruleEInt ) ) | (otherlv_1= '(' this_Addition_2= ruleAddition otherlv_3= ')' ) )
+            // InternalThymioDSL.g:1445:2: ( ( ( (lv_value_0_0= ruleEInt ) ) | (otherlv_1= '(' this_Addition_2= ruleAddition otherlv_3= ')' ) ) )
+            // InternalThymioDSL.g:1446:2: ( ( (lv_value_0_0= ruleEInt ) ) | (otherlv_1= '(' this_Addition_2= ruleAddition otherlv_3= ')' ) )
             {
-            // InternalThymioDSL.g:1309:2: ( ( (lv_value_0_0= ruleEInt ) ) | (otherlv_1= '(' this_Addition_2= ruleAddition otherlv_3= ')' ) )
-            int alt20=2;
-            int LA20_0 = input.LA(1);
+            // InternalThymioDSL.g:1446:2: ( ( (lv_value_0_0= ruleEInt ) ) | (otherlv_1= '(' this_Addition_2= ruleAddition otherlv_3= ')' ) )
+            int alt22=2;
+            int LA22_0 = input.LA(1);
 
-            if ( (LA20_0==RULE_INT||LA20_0==38) ) {
-                alt20=1;
+            if ( (LA22_0==RULE_INT||LA22_0==41) ) {
+                alt22=1;
             }
-            else if ( (LA20_0==34) ) {
-                alt20=2;
+            else if ( (LA22_0==37) ) {
+                alt22=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 20, 0, input);
+                    new NoViableAltException("", 22, 0, input);
 
                 throw nvae;
             }
-            switch (alt20) {
+            switch (alt22) {
                 case 1 :
-                    // InternalThymioDSL.g:1310:3: ( (lv_value_0_0= ruleEInt ) )
+                    // InternalThymioDSL.g:1447:3: ( (lv_value_0_0= ruleEInt ) )
                     {
-                    // InternalThymioDSL.g:1310:3: ( (lv_value_0_0= ruleEInt ) )
-                    // InternalThymioDSL.g:1311:4: (lv_value_0_0= ruleEInt )
+                    // InternalThymioDSL.g:1447:3: ( (lv_value_0_0= ruleEInt ) )
+                    // InternalThymioDSL.g:1448:4: (lv_value_0_0= ruleEInt )
                     {
-                    // InternalThymioDSL.g:1311:4: (lv_value_0_0= ruleEInt )
-                    // InternalThymioDSL.g:1312:5: lv_value_0_0= ruleEInt
+                    // InternalThymioDSL.g:1448:4: (lv_value_0_0= ruleEInt )
+                    // InternalThymioDSL.g:1449:5: lv_value_0_0= ruleEInt
                     {
 
                     					newCompositeNode(grammarAccess.getNumberAccess().getValueEIntParserRuleCall_0_0());
@@ -3538,19 +3936,19 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalThymioDSL.g:1330:3: (otherlv_1= '(' this_Addition_2= ruleAddition otherlv_3= ')' )
+                    // InternalThymioDSL.g:1467:3: (otherlv_1= '(' this_Addition_2= ruleAddition otherlv_3= ')' )
                     {
-                    // InternalThymioDSL.g:1330:3: (otherlv_1= '(' this_Addition_2= ruleAddition otherlv_3= ')' )
-                    // InternalThymioDSL.g:1331:4: otherlv_1= '(' this_Addition_2= ruleAddition otherlv_3= ')'
+                    // InternalThymioDSL.g:1467:3: (otherlv_1= '(' this_Addition_2= ruleAddition otherlv_3= ')' )
+                    // InternalThymioDSL.g:1468:4: otherlv_1= '(' this_Addition_2= ruleAddition otherlv_3= ')'
                     {
-                    otherlv_1=(Token)match(input,34,FOLLOW_19); 
+                    otherlv_1=(Token)match(input,37,FOLLOW_23); 
 
                     				newLeafNode(otherlv_1, grammarAccess.getNumberAccess().getLeftParenthesisKeyword_1_0());
                     			
 
                     				newCompositeNode(grammarAccess.getNumberAccess().getAdditionParserRuleCall_1_1());
                     			
-                    pushFollow(FOLLOW_25);
+                    pushFollow(FOLLOW_29);
                     this_Addition_2=ruleAddition();
 
                     state._fsp--;
@@ -3559,7 +3957,7 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
                     				current = this_Addition_2;
                     				afterParserOrEnumRuleCall();
                     			
-                    otherlv_3=(Token)match(input,36,FOLLOW_2); 
+                    otherlv_3=(Token)match(input,39,FOLLOW_2); 
 
                     				newLeafNode(otherlv_3, grammarAccess.getNumberAccess().getRightParenthesisKeyword_1_2());
                     			
@@ -3600,29 +3998,33 @@ public class InternalThymioDSLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000000802L});
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000000060L});
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x000000000003C000L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x000000000007C000L});
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x000000000E000000L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x000000000E000002L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000F80000000000L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000018000000000L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000001FC0000L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000020002L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0003000000000000L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000040000000L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000002000000000L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000002000000002L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000004400000010L});
-    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000180000000L});
-    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000400000000L});
-    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000200000000L});
-    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000800000000L});
-    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000001000000000L});
-    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000060000000000L});
-    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0004004000000002L});
-    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0018000000000002L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000070000000L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000070000002L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0007C00000000000L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x00000C0000000000L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000003F80000L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000003F80002L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000004000000L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000004000002L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0038000000000000L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x01C0000000000000L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000200000000L});
+    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000010000000000L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000010000000002L});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000022000000010L});
+    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000100000000L});
+    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000C00000000L});
+    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000002000000000L});
+    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000004000000000L});
+    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000008000000000L});
+    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000300000000000L});
+    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0200020000000002L});
+    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0C00000000000002L});
 
 }

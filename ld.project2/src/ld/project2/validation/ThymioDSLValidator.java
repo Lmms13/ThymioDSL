@@ -9,12 +9,14 @@ import org.eclipse.xtext.validation.CheckType;
 
 import ld.project2.thymioDSL.Action;
 import ld.project2.thymioDSL.Addition;
+import ld.project2.thymioDSL.Event;
 import ld.project2.thymioDSL.Expression;
 import ld.project2.thymioDSL.Lights;
 import ld.project2.thymioDSL.Model;
 import ld.project2.thymioDSL.Motors;
 import ld.project2.thymioDSL.Multiplication;
 import ld.project2.thymioDSL.Procedure;
+import ld.project2.thymioDSL.ProxSensor;
 import ld.project2.thymioDSL.Sound;
 import ld.project2.thymioDSL.ThymioDSLPackage;
 
@@ -57,40 +59,40 @@ public class ThymioDSLValidator extends AbstractThymioDSLValidator {
 			Lights lights = action.getLight();
 			if(lights.getTopLight() != null) {
 				int r = evaluateExpression(lights.getTopLight().getRed());
-				if(r < 0 || r > 255)
-					error("red must be between 0 and 255"
+				if(r < 0 || r > 32)
+					error("red must be between 0 and 32"
 							, action.getLight()
 							, ThymioDSLPackage.eINSTANCE.getLights_TopLight()
 							, INVALID_RGB);
 				int g = evaluateExpression(lights.getTopLight().getGreen());
-				if(g < 0 || g > 255)
-					error("green must be between 0 and 255"
+				if(g < 0 || g > 32)
+					error("green must be between 0 and 32"
 							, action.getLight()
 							, ThymioDSLPackage.eINSTANCE.getLights_TopLight()
 							, INVALID_RGB);
 				int b = evaluateExpression(lights.getTopLight().getBlue());
-				if(b < 0 || b > 255)
-					error("blue must be between 0 and 255"
+				if(b < 0 || b > 32)
+					error("blue must be between 0 and 32"
 							, action.getLight()
 							, ThymioDSLPackage.eINSTANCE.getLights_TopLight()
 							, INVALID_RGB);
 			}
 			else if(lights.getBottomLight() != null) {
 				int r = evaluateExpression(lights.getBottomLight().getRed());
-				if(r < 0 || r > 255)
-					error("red must be between 0 and 255"
+				if(r < 0 || r > 32)
+					error("red must be between 0 and 32"
 							, action.getLight()
 							, ThymioDSLPackage.eINSTANCE.getLights_BottomLight()
 							, INVALID_RGB);
 				int g = evaluateExpression(lights.getBottomLight().getGreen());
-				if(g < 0 || g > 255)
-					error("green must be between 0 and 255"
+				if(g < 0 || g > 32)
+					error("green must be between 0 and 32"
 							, action.getLight()
 							, ThymioDSLPackage.eINSTANCE.getLights_BottomLight()
 							, INVALID_RGB);
 				int b = evaluateExpression(lights.getBottomLight().getBlue());
-				if(b < 0 || b > 255)
-					error("blue must be between 0 and 255"
+				if(b < 0 || b > 32)
+					error("blue must be between 0 and 32"
 							, action.getLight()
 							, ThymioDSLPackage.eINSTANCE.getLights_BottomLight()
 							, INVALID_RGB);
@@ -189,11 +191,54 @@ public class ThymioDSLValidator extends AbstractThymioDSLValidator {
 			for(Procedure p2: model.getProcedures()) {
 				if(!p1.equals(p2) && p1.getName().equals(p2.getName()))
 					error("different procedures can't have the same name"
-							, model
-							,ThymioDSLPackage.eINSTANCE.getModel_Procedures()
+							, p2
+							, ThymioDSLPackage.eINSTANCE.getProcedure_Name()
 							, DUPLICATE_PROCEDURE);
 			}
 		}
 	}
+	
+	private boolean duplicateSensors(ProxSensor s1, ProxSensor s2) {
+		if(s1.getBackLeftSensor() != null && s2.getBackLeftSensor() != null) {
+			return true;
+		}
+		else if(s1.getBackRightSensor() != null && s2.getBackRightSensor() != null) {
+			return true;
+		}
+		else if(s1.getFrontLeftSensor() != null && s2.getFrontLeftSensor() != null) {
+			return true;
+		}
+		else if(s1.getFrontCenterLeftSensor() != null && s2.getBackRightSensor() != null) {
+			return true;
+		}
+		else if(s1.getFrontCenterSensor() != null && s2.getFrontCenterSensor() != null) {
+			return true;
+		}
+		else if(s1.getFrontCenterRightSensor() != null && s2.getFrontCenterRightSensor() != null) {
+			return true;
+		}
+		else if(s1.getFrontRightSensor() != null && s2.getFrontRightSensor() != null) {
+			return true;
+		}
+		return false;
+	}
+	
+	public static final String DUPLICATE_SENSOR = "duplicateSensor";
+	
+	@Check(CheckType.NORMAL)
+	public void checkDuplicateProcedure(Event event) {
+		if(!event.getProxSensor().isEmpty()) {
+			for(ProxSensor s1: event.getProxSensor()) {
+				for(ProxSensor s2: event.getProxSensor()) {
+					if(!s1.equals(s2) && duplicateSensors(s1, s2))
+						error("can't set behavior for the same sensor twice"
+								, s2
+								, ThymioDSLPackage.eINSTANCE.getProxSensor_BackLeftSensor()
+								, DUPLICATE_SENSOR);
+				}
+			}
+		}
+	}
+	
 	
 }

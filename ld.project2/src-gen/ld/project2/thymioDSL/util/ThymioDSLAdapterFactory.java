@@ -23,331 +23,333 @@ import org.eclipse.emf.ecore.EObject;
 public class ThymioDSLAdapterFactory extends AdapterFactoryImpl
 {
   /**
-   * The cached model package.
-   * <!-- begin-user-doc -->
+	 * The cached model package.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected static ThymioDSLPackage modelPackage;
 
   /**
-   * Creates an instance of the adapter factory.
-   * <!-- begin-user-doc -->
+	 * Creates an instance of the adapter factory.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public ThymioDSLAdapterFactory()
   {
-    if (modelPackage == null)
-    {
-      modelPackage = ThymioDSLPackage.eINSTANCE;
-    }
-  }
+		if (modelPackage == null) {
+			modelPackage = ThymioDSLPackage.eINSTANCE;
+		}
+	}
 
   /**
-   * Returns whether this factory is applicable for the type of the object.
-   * <!-- begin-user-doc -->
+	 * Returns whether this factory is applicable for the type of the object.
+	 * <!-- begin-user-doc -->
    * This implementation returns <code>true</code> if the object is either the model's package or is an instance object of the model.
    * <!-- end-user-doc -->
-   * @return whether this factory is applicable for the type of the object.
-   * @generated
-   */
+	 * @return whether this factory is applicable for the type of the object.
+	 * @generated
+	 */
   @Override
   public boolean isFactoryForType(Object object)
   {
-    if (object == modelPackage)
-    {
-      return true;
-    }
-    if (object instanceof EObject)
-    {
-      return ((EObject)object).eClass().getEPackage() == modelPackage;
-    }
-    return false;
-  }
+		if (object == modelPackage) {
+			return true;
+		}
+		if (object instanceof EObject) {
+			return ((EObject)object).eClass().getEPackage() == modelPackage;
+		}
+		return false;
+	}
 
   /**
-   * The switch that delegates to the <code>createXXX</code> methods.
-   * <!-- begin-user-doc -->
+	 * The switch that delegates to the <code>createXXX</code> methods.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected ThymioDSLSwitch<Adapter> modelSwitch =
-    new ThymioDSLSwitch<Adapter>()
-    {
-      @Override
-      public Adapter caseModel(Model object)
-      {
-        return createModelAdapter();
-      }
-      @Override
-      public Adapter caseProcedure(Procedure object)
-      {
-        return createProcedureAdapter();
-      }
-      @Override
-      public Adapter caseEvent(Event object)
-      {
-        return createEventAdapter();
-      }
-      @Override
-      public Adapter caseSensor(Sensor object)
-      {
-        return createSensorAdapter();
-      }
-      @Override
-      public Adapter caseAction(Action object)
-      {
-        return createActionAdapter();
-      }
-      @Override
-      public Adapter caseMotors(Motors object)
-      {
-        return createMotorsAdapter();
-      }
-      @Override
-      public Adapter caseLights(Lights object)
-      {
-        return createLightsAdapter();
-      }
-      @Override
-      public Adapter caseRGB(RGB object)
-      {
-        return createRGBAdapter();
-      }
-      @Override
-      public Adapter caseSound(Sound object)
-      {
-        return createSoundAdapter();
-      }
-      @Override
-      public Adapter caseExpression(Expression object)
-      {
-        return createExpressionAdapter();
-      }
-      @Override
-      public Adapter caseAddition(Addition object)
-      {
-        return createAdditionAdapter();
-      }
-      @Override
-      public Adapter caseMultiplication(Multiplication object)
-      {
-        return createMultiplicationAdapter();
-      }
-      @Override
-      public Adapter defaultCase(EObject object)
-      {
-        return createEObjectAdapter();
-      }
-    };
+    new ThymioDSLSwitch<Adapter>() {
+			@Override
+			public Adapter caseModel(Model object) {
+				return createModelAdapter();
+			}
+			@Override
+			public Adapter caseProcedure(Procedure object) {
+				return createProcedureAdapter();
+			}
+			@Override
+			public Adapter caseEvent(Event object) {
+				return createEventAdapter();
+			}
+			@Override
+			public Adapter caseProxSensor(ProxSensor object) {
+				return createProxSensorAdapter();
+			}
+			@Override
+			public Adapter caseBottomSensor(BottomSensor object) {
+				return createBottomSensorAdapter();
+			}
+			@Override
+			public Adapter caseAction(Action object) {
+				return createActionAdapter();
+			}
+			@Override
+			public Adapter caseMotors(Motors object) {
+				return createMotorsAdapter();
+			}
+			@Override
+			public Adapter caseLights(Lights object) {
+				return createLightsAdapter();
+			}
+			@Override
+			public Adapter caseRGB(RGB object) {
+				return createRGBAdapter();
+			}
+			@Override
+			public Adapter caseSound(Sound object) {
+				return createSoundAdapter();
+			}
+			@Override
+			public Adapter caseExpression(Expression object) {
+				return createExpressionAdapter();
+			}
+			@Override
+			public Adapter caseAddition(Addition object) {
+				return createAdditionAdapter();
+			}
+			@Override
+			public Adapter caseMultiplication(Multiplication object) {
+				return createMultiplicationAdapter();
+			}
+			@Override
+			public Adapter defaultCase(EObject object) {
+				return createEObjectAdapter();
+			}
+		};
 
   /**
-   * Creates an adapter for the <code>target</code>.
-   * <!-- begin-user-doc -->
+	 * Creates an adapter for the <code>target</code>.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param target the object to adapt.
-   * @return the adapter for the <code>target</code>.
-   * @generated
-   */
+	 * @param target the object to adapt.
+	 * @return the adapter for the <code>target</code>.
+	 * @generated
+	 */
   @Override
   public Adapter createAdapter(Notifier target)
   {
-    return modelSwitch.doSwitch((EObject)target);
-  }
+		return modelSwitch.doSwitch((EObject)target);
+	}
 
 
   /**
-   * Creates a new adapter for an object of class '{@link ld.project2.thymioDSL.Model <em>Model</em>}'.
-   * <!-- begin-user-doc -->
+	 * Creates a new adapter for an object of class '{@link ld.project2.thymioDSL.Model <em>Model</em>}'.
+	 * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see ld.project2.thymioDSL.Model
-   * @generated
-   */
+	 * @return the new adapter.
+	 * @see ld.project2.thymioDSL.Model
+	 * @generated
+	 */
   public Adapter createModelAdapter()
   {
-    return null;
-  }
+		return null;
+	}
 
   /**
-   * Creates a new adapter for an object of class '{@link ld.project2.thymioDSL.Procedure <em>Procedure</em>}'.
-   * <!-- begin-user-doc -->
+	 * Creates a new adapter for an object of class '{@link ld.project2.thymioDSL.Procedure <em>Procedure</em>}'.
+	 * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see ld.project2.thymioDSL.Procedure
-   * @generated
-   */
+	 * @return the new adapter.
+	 * @see ld.project2.thymioDSL.Procedure
+	 * @generated
+	 */
   public Adapter createProcedureAdapter()
   {
-    return null;
-  }
+		return null;
+	}
 
   /**
-   * Creates a new adapter for an object of class '{@link ld.project2.thymioDSL.Event <em>Event</em>}'.
-   * <!-- begin-user-doc -->
+	 * Creates a new adapter for an object of class '{@link ld.project2.thymioDSL.Event <em>Event</em>}'.
+	 * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see ld.project2.thymioDSL.Event
-   * @generated
-   */
+	 * @return the new adapter.
+	 * @see ld.project2.thymioDSL.Event
+	 * @generated
+	 */
   public Adapter createEventAdapter()
   {
-    return null;
-  }
+		return null;
+	}
 
   /**
-   * Creates a new adapter for an object of class '{@link ld.project2.thymioDSL.Sensor <em>Sensor</em>}'.
-   * <!-- begin-user-doc -->
+	 * Creates a new adapter for an object of class '{@link ld.project2.thymioDSL.ProxSensor <em>Prox Sensor</em>}'.
+	 * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see ld.project2.thymioDSL.Sensor
-   * @generated
-   */
-  public Adapter createSensorAdapter()
+	 * @return the new adapter.
+	 * @see ld.project2.thymioDSL.ProxSensor
+	 * @generated
+	 */
+  public Adapter createProxSensorAdapter()
   {
-    return null;
-  }
+		return null;
+	}
 
   /**
-   * Creates a new adapter for an object of class '{@link ld.project2.thymioDSL.Action <em>Action</em>}'.
-   * <!-- begin-user-doc -->
+	 * Creates a new adapter for an object of class '{@link ld.project2.thymioDSL.BottomSensor <em>Bottom Sensor</em>}'.
+	 * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see ld.project2.thymioDSL.Action
-   * @generated
-   */
+	 * @return the new adapter.
+	 * @see ld.project2.thymioDSL.BottomSensor
+	 * @generated
+	 */
+  public Adapter createBottomSensorAdapter()
+  {
+		return null;
+	}
+
+  /**
+	 * Creates a new adapter for an object of class '{@link ld.project2.thymioDSL.Action <em>Action</em>}'.
+	 * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ld.project2.thymioDSL.Action
+	 * @generated
+	 */
   public Adapter createActionAdapter()
   {
-    return null;
-  }
+		return null;
+	}
 
   /**
-   * Creates a new adapter for an object of class '{@link ld.project2.thymioDSL.Motors <em>Motors</em>}'.
-   * <!-- begin-user-doc -->
+	 * Creates a new adapter for an object of class '{@link ld.project2.thymioDSL.Motors <em>Motors</em>}'.
+	 * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see ld.project2.thymioDSL.Motors
-   * @generated
-   */
+	 * @return the new adapter.
+	 * @see ld.project2.thymioDSL.Motors
+	 * @generated
+	 */
   public Adapter createMotorsAdapter()
   {
-    return null;
-  }
+		return null;
+	}
 
   /**
-   * Creates a new adapter for an object of class '{@link ld.project2.thymioDSL.Lights <em>Lights</em>}'.
-   * <!-- begin-user-doc -->
+	 * Creates a new adapter for an object of class '{@link ld.project2.thymioDSL.Lights <em>Lights</em>}'.
+	 * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see ld.project2.thymioDSL.Lights
-   * @generated
-   */
+	 * @return the new adapter.
+	 * @see ld.project2.thymioDSL.Lights
+	 * @generated
+	 */
   public Adapter createLightsAdapter()
   {
-    return null;
-  }
+		return null;
+	}
 
   /**
-   * Creates a new adapter for an object of class '{@link ld.project2.thymioDSL.RGB <em>RGB</em>}'.
-   * <!-- begin-user-doc -->
+	 * Creates a new adapter for an object of class '{@link ld.project2.thymioDSL.RGB <em>RGB</em>}'.
+	 * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see ld.project2.thymioDSL.RGB
-   * @generated
-   */
+	 * @return the new adapter.
+	 * @see ld.project2.thymioDSL.RGB
+	 * @generated
+	 */
   public Adapter createRGBAdapter()
   {
-    return null;
-  }
+		return null;
+	}
 
   /**
-   * Creates a new adapter for an object of class '{@link ld.project2.thymioDSL.Sound <em>Sound</em>}'.
-   * <!-- begin-user-doc -->
+	 * Creates a new adapter for an object of class '{@link ld.project2.thymioDSL.Sound <em>Sound</em>}'.
+	 * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see ld.project2.thymioDSL.Sound
-   * @generated
-   */
+	 * @return the new adapter.
+	 * @see ld.project2.thymioDSL.Sound
+	 * @generated
+	 */
   public Adapter createSoundAdapter()
   {
-    return null;
-  }
+		return null;
+	}
 
   /**
-   * Creates a new adapter for an object of class '{@link ld.project2.thymioDSL.Expression <em>Expression</em>}'.
-   * <!-- begin-user-doc -->
+	 * Creates a new adapter for an object of class '{@link ld.project2.thymioDSL.Expression <em>Expression</em>}'.
+	 * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see ld.project2.thymioDSL.Expression
-   * @generated
-   */
+	 * @return the new adapter.
+	 * @see ld.project2.thymioDSL.Expression
+	 * @generated
+	 */
   public Adapter createExpressionAdapter()
   {
-    return null;
-  }
+		return null;
+	}
 
   /**
-   * Creates a new adapter for an object of class '{@link ld.project2.thymioDSL.Addition <em>Addition</em>}'.
-   * <!-- begin-user-doc -->
+	 * Creates a new adapter for an object of class '{@link ld.project2.thymioDSL.Addition <em>Addition</em>}'.
+	 * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see ld.project2.thymioDSL.Addition
-   * @generated
-   */
+	 * @return the new adapter.
+	 * @see ld.project2.thymioDSL.Addition
+	 * @generated
+	 */
   public Adapter createAdditionAdapter()
   {
-    return null;
-  }
+		return null;
+	}
 
   /**
-   * Creates a new adapter for an object of class '{@link ld.project2.thymioDSL.Multiplication <em>Multiplication</em>}'.
-   * <!-- begin-user-doc -->
+	 * Creates a new adapter for an object of class '{@link ld.project2.thymioDSL.Multiplication <em>Multiplication</em>}'.
+	 * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see ld.project2.thymioDSL.Multiplication
-   * @generated
-   */
+	 * @return the new adapter.
+	 * @see ld.project2.thymioDSL.Multiplication
+	 * @generated
+	 */
   public Adapter createMultiplicationAdapter()
   {
-    return null;
-  }
+		return null;
+	}
 
   /**
-   * Creates a new adapter for the default case.
-   * <!-- begin-user-doc -->
+	 * Creates a new adapter for the default case.
+	 * <!-- begin-user-doc -->
    * This default implementation returns null.
    * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @generated
-   */
+	 * @return the new adapter.
+	 * @generated
+	 */
   public Adapter createEObjectAdapter()
   {
-    return null;
-  }
+		return null;
+	}
 
 } //ThymioDSLAdapterFactory
