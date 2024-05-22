@@ -101,9 +101,19 @@ public class ThymioDSLAdapterFactory extends AdapterFactoryImpl
         return createActionAdapter();
       }
       @Override
-      public Adapter caseMotor(Motor object)
+      public Adapter caseMotors(Motors object)
       {
-        return createMotorAdapter();
+        return createMotorsAdapter();
+      }
+      @Override
+      public Adapter caseLights(Lights object)
+      {
+        return createLightsAdapter();
+      }
+      @Override
+      public Adapter caseRGB(RGB object)
+      {
+        return createRGBAdapter();
       }
       @Override
       public Adapter caseSound(Sound object)
@@ -223,16 +233,46 @@ public class ThymioDSLAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link ld.project2.thymioDSL.Motor <em>Motor</em>}'.
+   * Creates a new adapter for an object of class '{@link ld.project2.thymioDSL.Motors <em>Motors</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see ld.project2.thymioDSL.Motor
+   * @see ld.project2.thymioDSL.Motors
    * @generated
    */
-  public Adapter createMotorAdapter()
+  public Adapter createMotorsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link ld.project2.thymioDSL.Lights <em>Lights</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see ld.project2.thymioDSL.Lights
+   * @generated
+   */
+  public Adapter createLightsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link ld.project2.thymioDSL.RGB <em>RGB</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see ld.project2.thymioDSL.RGB
+   * @generated
+   */
+  public Adapter createRGBAdapter()
   {
     return null;
   }

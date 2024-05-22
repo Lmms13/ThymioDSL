@@ -7,8 +7,9 @@ import ld.project2.thymioDSL.Action;
 import ld.project2.thymioDSL.Addition;
 import ld.project2.thymioDSL.Event;
 import ld.project2.thymioDSL.Expression;
+import ld.project2.thymioDSL.Lights;
 import ld.project2.thymioDSL.Model;
-import ld.project2.thymioDSL.Motor;
+import ld.project2.thymioDSL.Motors;
 import ld.project2.thymioDSL.Multiplication;
 import ld.project2.thymioDSL.Procedure;
 import ld.project2.thymioDSL.Sensor;
@@ -71,7 +72,21 @@ public class ThymioDSLPackageImpl extends EPackageImpl implements ThymioDSLPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass motorEClass = null;
+  private EClass motorsEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass lightsEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass rgbEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -400,20 +415,9 @@ public class ThymioDSLPackageImpl extends EPackageImpl implements ThymioDSLPacka
    * @generated
    */
   @Override
-  public EAttribute getAction_TopLight()
+  public EReference getAction_Light()
   {
-    return (EAttribute)actionEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getAction_BottomLight()
-  {
-    return (EAttribute)actionEClass.getEStructuralFeatures().get(2);
+    return (EReference)actionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -424,7 +428,7 @@ public class ThymioDSLPackageImpl extends EPackageImpl implements ThymioDSLPacka
   @Override
   public EReference getAction_Sound()
   {
-    return (EReference)actionEClass.getEStructuralFeatures().get(3);
+    return (EReference)actionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -433,9 +437,9 @@ public class ThymioDSLPackageImpl extends EPackageImpl implements ThymioDSLPacka
    * @generated
    */
   @Override
-  public EClass getMotor()
+  public EClass getMotors()
   {
-    return motorEClass;
+    return motorsEClass;
   }
 
   /**
@@ -444,9 +448,9 @@ public class ThymioDSLPackageImpl extends EPackageImpl implements ThymioDSLPacka
    * @generated
    */
   @Override
-  public EReference getMotor_Left()
+  public EReference getMotors_Left()
   {
-    return (EReference)motorEClass.getEStructuralFeatures().get(0);
+    return (EReference)motorsEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -455,9 +459,86 @@ public class ThymioDSLPackageImpl extends EPackageImpl implements ThymioDSLPacka
    * @generated
    */
   @Override
-  public EReference getMotor_Right()
+  public EReference getMotors_Right()
   {
-    return (EReference)motorEClass.getEStructuralFeatures().get(1);
+    return (EReference)motorsEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getLights()
+  {
+    return lightsEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getLights_TopLight()
+  {
+    return (EReference)lightsEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getLights_BottomLight()
+  {
+    return (EReference)lightsEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getRGB()
+  {
+    return rgbEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getRGB_Red()
+  {
+    return (EReference)rgbEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getRGB_Green()
+  {
+    return (EReference)rgbEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getRGB_Blue()
+  {
+    return (EReference)rgbEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -532,9 +613,20 @@ public class ThymioDSLPackageImpl extends EPackageImpl implements ThymioDSLPacka
    * @generated
    */
   @Override
+  public EAttribute getExpression_Operator()
+  {
+    return (EAttribute)expressionEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EReference getExpression_Right()
   {
-    return (EReference)expressionEClass.getEStructuralFeatures().get(2);
+    return (EReference)expressionEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -615,13 +707,21 @@ public class ThymioDSLPackageImpl extends EPackageImpl implements ThymioDSLPacka
 
     actionEClass = createEClass(ACTION);
     createEReference(actionEClass, ACTION__MOVE);
-    createEAttribute(actionEClass, ACTION__TOP_LIGHT);
-    createEAttribute(actionEClass, ACTION__BOTTOM_LIGHT);
+    createEReference(actionEClass, ACTION__LIGHT);
     createEReference(actionEClass, ACTION__SOUND);
 
-    motorEClass = createEClass(MOTOR);
-    createEReference(motorEClass, MOTOR__LEFT);
-    createEReference(motorEClass, MOTOR__RIGHT);
+    motorsEClass = createEClass(MOTORS);
+    createEReference(motorsEClass, MOTORS__LEFT);
+    createEReference(motorsEClass, MOTORS__RIGHT);
+
+    lightsEClass = createEClass(LIGHTS);
+    createEReference(lightsEClass, LIGHTS__TOP_LIGHT);
+    createEReference(lightsEClass, LIGHTS__BOTTOM_LIGHT);
+
+    rgbEClass = createEClass(RGB);
+    createEReference(rgbEClass, RGB__RED);
+    createEReference(rgbEClass, RGB__GREEN);
+    createEReference(rgbEClass, RGB__BLUE);
 
     soundEClass = createEClass(SOUND);
     createEReference(soundEClass, SOUND__PITCH);
@@ -630,6 +730,7 @@ public class ThymioDSLPackageImpl extends EPackageImpl implements ThymioDSLPacka
     expressionEClass = createEClass(EXPRESSION);
     createEAttribute(expressionEClass, EXPRESSION__VALUE);
     createEReference(expressionEClass, EXPRESSION__LEFT);
+    createEAttribute(expressionEClass, EXPRESSION__OPERATOR);
     createEReference(expressionEClass, EXPRESSION__RIGHT);
 
     additionEClass = createEClass(ADDITION);
@@ -675,7 +776,7 @@ public class ThymioDSLPackageImpl extends EPackageImpl implements ThymioDSLPacka
 
     initEClass(procedureEClass, Procedure.class, "Procedure", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getProcedure_Name(), ecorePackage.getEString(), "name", null, 0, 1, Procedure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getProcedure_Events(), this.getEvent(), null, "events", null, 0, -1, Procedure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getProcedure_Events(), this.getEvent(), null, "events", null, 0, 1, Procedure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getProcedure_Actions(), this.getAction(), null, "actions", null, 0, -1, Procedure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(eventEClass, Event.class, "Event", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -687,29 +788,38 @@ public class ThymioDSLPackageImpl extends EPackageImpl implements ThymioDSLPacka
     initEClass(sensorEClass, Sensor.class, "Sensor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSensor_BackLeftSensor(), ecorePackage.getEString(), "backLeftSensor", null, 0, 1, Sensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getSensor_BackRightSensor(), ecorePackage.getEString(), "backRightSensor", null, 0, 1, Sensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getSensor_FrontRightSensor(), ecorePackage.getEString(), "frontRightSensor", null, 0, 1, Sensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getSensor_FrontCenterRightSensor(), ecorePackage.getEString(), "frontCenterRightSensor", null, 0, 1, Sensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getSensor_FrontCenterSensor(), ecorePackage.getEString(), "frontCenterSensor", null, 0, 1, Sensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getSensor_FrontCenterLeftSensor(), ecorePackage.getEString(), "frontCenterLeftSensor", null, 0, 1, Sensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getSensor_FrontLeftSensor(), ecorePackage.getEString(), "frontLeftSensor", null, 0, 1, Sensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSensor_FrontRightSensor(), ecorePackage.getEBoolean(), "frontRightSensor", null, 0, 1, Sensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSensor_FrontCenterRightSensor(), ecorePackage.getEBoolean(), "frontCenterRightSensor", null, 0, 1, Sensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSensor_FrontCenterSensor(), ecorePackage.getEBoolean(), "frontCenterSensor", null, 0, 1, Sensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSensor_FrontCenterLeftSensor(), ecorePackage.getEBoolean(), "frontCenterLeftSensor", null, 0, 1, Sensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSensor_FrontLeftSensor(), ecorePackage.getEBoolean(), "frontLeftSensor", null, 0, 1, Sensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(actionEClass, Action.class, "Action", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getAction_Move(), this.getMotor(), null, "move", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getAction_TopLight(), ecorePackage.getEString(), "topLight", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getAction_BottomLight(), ecorePackage.getEString(), "bottomLight", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAction_Move(), this.getMotors(), null, "move", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAction_Light(), this.getLights(), null, "light", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAction_Sound(), this.getSound(), null, "sound", null, 0, -1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(motorEClass, Motor.class, "Motor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getMotor_Left(), this.getExpression(), null, "left", null, 0, 1, Motor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getMotor_Right(), this.getExpression(), null, "right", null, 0, 1, Motor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(motorsEClass, Motors.class, "Motors", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMotors_Left(), this.getExpression(), null, "left", null, 0, 1, Motors.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMotors_Right(), this.getExpression(), null, "right", null, 0, 1, Motors.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(lightsEClass, Lights.class, "Lights", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLights_TopLight(), this.getRGB(), null, "topLight", null, 0, 1, Lights.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLights_BottomLight(), this.getRGB(), null, "bottomLight", null, 0, 1, Lights.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(rgbEClass, ld.project2.thymioDSL.RGB.class, "RGB", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getRGB_Red(), this.getExpression(), null, "red", null, 0, 1, ld.project2.thymioDSL.RGB.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRGB_Green(), this.getExpression(), null, "green", null, 0, 1, ld.project2.thymioDSL.RGB.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRGB_Blue(), this.getExpression(), null, "blue", null, 0, 1, ld.project2.thymioDSL.RGB.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(soundEClass, Sound.class, "Sound", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getSound_Pitch(), this.getExpression(), null, "pitch", null, 0, -1, Sound.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getSound_Duration(), ecorePackage.getEString(), "duration", null, 0, -1, Sound.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSound_Pitch(), this.getExpression(), null, "pitch", null, 0, 1, Sound.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSound_Duration(), ecorePackage.getEString(), "duration", null, 0, 1, Sound.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getExpression_Value(), ecorePackage.getEInt(), "value", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExpression_Left(), this.getExpression(), null, "left", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getExpression_Operator(), ecorePackage.getEString(), "operator", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExpression_Right(), this.getExpression(), null, "right", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(additionEClass, Addition.class, "Addition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

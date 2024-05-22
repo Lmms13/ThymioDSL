@@ -16,11 +16,11 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link ld.project2.thymioDSL.Sensor#getBackLeftSensor <em>Back Left Sensor</em>}</li>
  *   <li>{@link ld.project2.thymioDSL.Sensor#getBackRightSensor <em>Back Right Sensor</em>}</li>
- *   <li>{@link ld.project2.thymioDSL.Sensor#getFrontRightSensor <em>Front Right Sensor</em>}</li>
- *   <li>{@link ld.project2.thymioDSL.Sensor#getFrontCenterRightSensor <em>Front Center Right Sensor</em>}</li>
- *   <li>{@link ld.project2.thymioDSL.Sensor#getFrontCenterSensor <em>Front Center Sensor</em>}</li>
- *   <li>{@link ld.project2.thymioDSL.Sensor#getFrontCenterLeftSensor <em>Front Center Left Sensor</em>}</li>
- *   <li>{@link ld.project2.thymioDSL.Sensor#getFrontLeftSensor <em>Front Left Sensor</em>}</li>
+ *   <li>{@link ld.project2.thymioDSL.Sensor#isFrontRightSensor <em>Front Right Sensor</em>}</li>
+ *   <li>{@link ld.project2.thymioDSL.Sensor#isFrontCenterRightSensor <em>Front Center Right Sensor</em>}</li>
+ *   <li>{@link ld.project2.thymioDSL.Sensor#isFrontCenterSensor <em>Front Center Sensor</em>}</li>
+ *   <li>{@link ld.project2.thymioDSL.Sensor#isFrontCenterLeftSensor <em>Front Center Left Sensor</em>}</li>
+ *   <li>{@link ld.project2.thymioDSL.Sensor#isFrontLeftSensor <em>Front Left Sensor</em>}</li>
  * </ul>
  *
  * @see ld.project2.thymioDSL.ThymioDSLPackage#getSensor()
@@ -78,109 +78,109 @@ public interface Sensor extends EObject
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Front Right Sensor</em>' attribute.
-   * @see #setFrontRightSensor(String)
+   * @see #setFrontRightSensor(boolean)
    * @see ld.project2.thymioDSL.ThymioDSLPackage#getSensor_FrontRightSensor()
    * @model
    * @generated
    */
-  String getFrontRightSensor();
+  boolean isFrontRightSensor();
 
   /**
-   * Sets the value of the '{@link ld.project2.thymioDSL.Sensor#getFrontRightSensor <em>Front Right Sensor</em>}' attribute.
+   * Sets the value of the '{@link ld.project2.thymioDSL.Sensor#isFrontRightSensor <em>Front Right Sensor</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Front Right Sensor</em>' attribute.
-   * @see #getFrontRightSensor()
+   * @see #isFrontRightSensor()
    * @generated
    */
-  void setFrontRightSensor(String value);
+  void setFrontRightSensor(boolean value);
 
   /**
    * Returns the value of the '<em><b>Front Center Right Sensor</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Front Center Right Sensor</em>' attribute.
-   * @see #setFrontCenterRightSensor(String)
+   * @see #setFrontCenterRightSensor(boolean)
    * @see ld.project2.thymioDSL.ThymioDSLPackage#getSensor_FrontCenterRightSensor()
    * @model
    * @generated
    */
-  String getFrontCenterRightSensor();
+  boolean isFrontCenterRightSensor();
 
   /**
-   * Sets the value of the '{@link ld.project2.thymioDSL.Sensor#getFrontCenterRightSensor <em>Front Center Right Sensor</em>}' attribute.
+   * Sets the value of the '{@link ld.project2.thymioDSL.Sensor#isFrontCenterRightSensor <em>Front Center Right Sensor</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Front Center Right Sensor</em>' attribute.
-   * @see #getFrontCenterRightSensor()
+   * @see #isFrontCenterRightSensor()
    * @generated
    */
-  void setFrontCenterRightSensor(String value);
+  void setFrontCenterRightSensor(boolean value);
 
   /**
    * Returns the value of the '<em><b>Front Center Sensor</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Front Center Sensor</em>' attribute.
-   * @see #setFrontCenterSensor(String)
+   * @see #setFrontCenterSensor(boolean)
    * @see ld.project2.thymioDSL.ThymioDSLPackage#getSensor_FrontCenterSensor()
    * @model
    * @generated
    */
-  String getFrontCenterSensor();
+  boolean isFrontCenterSensor();
 
   /**
-   * Sets the value of the '{@link ld.project2.thymioDSL.Sensor#getFrontCenterSensor <em>Front Center Sensor</em>}' attribute.
+   * Sets the value of the '{@link ld.project2.thymioDSL.Sensor#isFrontCenterSensor <em>Front Center Sensor</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Front Center Sensor</em>' attribute.
-   * @see #getFrontCenterSensor()
+   * @see #isFrontCenterSensor()
    * @generated
    */
-  void setFrontCenterSensor(String value);
+  void setFrontCenterSensor(boolean value);
 
   /**
    * Returns the value of the '<em><b>Front Center Left Sensor</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Front Center Left Sensor</em>' attribute.
-   * @see #setFrontCenterLeftSensor(String)
+   * @see #setFrontCenterLeftSensor(boolean)
    * @see ld.project2.thymioDSL.ThymioDSLPackage#getSensor_FrontCenterLeftSensor()
    * @model
    * @generated
    */
-  String getFrontCenterLeftSensor();
+  boolean isFrontCenterLeftSensor();
 
   /**
-   * Sets the value of the '{@link ld.project2.thymioDSL.Sensor#getFrontCenterLeftSensor <em>Front Center Left Sensor</em>}' attribute.
+   * Sets the value of the '{@link ld.project2.thymioDSL.Sensor#isFrontCenterLeftSensor <em>Front Center Left Sensor</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Front Center Left Sensor</em>' attribute.
-   * @see #getFrontCenterLeftSensor()
+   * @see #isFrontCenterLeftSensor()
    * @generated
    */
-  void setFrontCenterLeftSensor(String value);
+  void setFrontCenterLeftSensor(boolean value);
 
   /**
    * Returns the value of the '<em><b>Front Left Sensor</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Front Left Sensor</em>' attribute.
-   * @see #setFrontLeftSensor(String)
+   * @see #setFrontLeftSensor(boolean)
    * @see ld.project2.thymioDSL.ThymioDSLPackage#getSensor_FrontLeftSensor()
    * @model
    * @generated
    */
-  String getFrontLeftSensor();
+  boolean isFrontLeftSensor();
 
   /**
-   * Sets the value of the '{@link ld.project2.thymioDSL.Sensor#getFrontLeftSensor <em>Front Left Sensor</em>}' attribute.
+   * Sets the value of the '{@link ld.project2.thymioDSL.Sensor#isFrontLeftSensor <em>Front Left Sensor</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Front Left Sensor</em>' attribute.
-   * @see #getFrontLeftSensor()
+   * @see #isFrontLeftSensor()
    * @generated
    */
-  void setFrontLeftSensor(String value);
+  void setFrontLeftSensor(boolean value);
 
 } // Sensor

@@ -6,7 +6,8 @@ package ld.project2.thymioDSL.impl;
 import java.util.Collection;
 
 import ld.project2.thymioDSL.Action;
-import ld.project2.thymioDSL.Motor;
+import ld.project2.thymioDSL.Lights;
+import ld.project2.thymioDSL.Motors;
 import ld.project2.thymioDSL.Sound;
 import ld.project2.thymioDSL.ThymioDSLPackage;
 
@@ -33,8 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link ld.project2.thymioDSL.impl.ActionImpl#getMove <em>Move</em>}</li>
- *   <li>{@link ld.project2.thymioDSL.impl.ActionImpl#getTopLight <em>Top Light</em>}</li>
- *   <li>{@link ld.project2.thymioDSL.impl.ActionImpl#getBottomLight <em>Bottom Light</em>}</li>
+ *   <li>{@link ld.project2.thymioDSL.impl.ActionImpl#getLight <em>Light</em>}</li>
  *   <li>{@link ld.project2.thymioDSL.impl.ActionImpl#getSound <em>Sound</em>}</li>
  * </ul>
  *
@@ -50,47 +50,17 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
    * @generated
    * @ordered
    */
-  protected Motor move;
+  protected Motors move;
 
   /**
-   * The default value of the '{@link #getTopLight() <em>Top Light</em>}' attribute.
+   * The cached value of the '{@link #getLight() <em>Light</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTopLight()
+   * @see #getLight()
    * @generated
    * @ordered
    */
-  protected static final String TOP_LIGHT_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getTopLight() <em>Top Light</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getTopLight()
-   * @generated
-   * @ordered
-   */
-  protected String topLight = TOP_LIGHT_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getBottomLight() <em>Bottom Light</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getBottomLight()
-   * @generated
-   * @ordered
-   */
-  protected static final String BOTTOM_LIGHT_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getBottomLight() <em>Bottom Light</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getBottomLight()
-   * @generated
-   * @ordered
-   */
-  protected String bottomLight = BOTTOM_LIGHT_EDEFAULT;
+  protected Lights light;
 
   /**
    * The cached value of the '{@link #getSound() <em>Sound</em>}' containment reference list.
@@ -129,7 +99,7 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
    * @generated
    */
   @Override
-  public Motor getMove()
+  public Motors getMove()
   {
     return move;
   }
@@ -139,9 +109,9 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetMove(Motor newMove, NotificationChain msgs)
+  public NotificationChain basicSetMove(Motors newMove, NotificationChain msgs)
   {
-    Motor oldMove = move;
+    Motors oldMove = move;
     move = newMove;
     if (eNotificationRequired())
     {
@@ -157,7 +127,7 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
    * @generated
    */
   @Override
-  public void setMove(Motor newMove)
+  public void setMove(Motors newMove)
   {
     if (newMove != move)
     {
@@ -179,9 +149,9 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
    * @generated
    */
   @Override
-  public String getTopLight()
+  public Lights getLight()
   {
-    return topLight;
+    return light;
   }
 
   /**
@@ -189,13 +159,16 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public void setTopLight(String newTopLight)
+  public NotificationChain basicSetLight(Lights newLight, NotificationChain msgs)
   {
-    String oldTopLight = topLight;
-    topLight = newTopLight;
+    Lights oldLight = light;
+    light = newLight;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.ACTION__TOP_LIGHT, oldTopLight, topLight));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.ACTION__LIGHT, oldLight, newLight);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
   }
 
   /**
@@ -204,23 +177,20 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
    * @generated
    */
   @Override
-  public String getBottomLight()
+  public void setLight(Lights newLight)
   {
-    return bottomLight;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setBottomLight(String newBottomLight)
-  {
-    String oldBottomLight = bottomLight;
-    bottomLight = newBottomLight;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.ACTION__BOTTOM_LIGHT, oldBottomLight, bottomLight));
+    if (newLight != light)
+    {
+      NotificationChain msgs = null;
+      if (light != null)
+        msgs = ((InternalEObject)light).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.ACTION__LIGHT, null, msgs);
+      if (newLight != null)
+        msgs = ((InternalEObject)newLight).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.ACTION__LIGHT, null, msgs);
+      msgs = basicSetLight(newLight, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.ACTION__LIGHT, newLight, newLight));
   }
 
   /**
@@ -250,6 +220,8 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
     {
       case ThymioDSLPackage.ACTION__MOVE:
         return basicSetMove(null, msgs);
+      case ThymioDSLPackage.ACTION__LIGHT:
+        return basicSetLight(null, msgs);
       case ThymioDSLPackage.ACTION__SOUND:
         return ((InternalEList<?>)getSound()).basicRemove(otherEnd, msgs);
     }
@@ -268,10 +240,8 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
     {
       case ThymioDSLPackage.ACTION__MOVE:
         return getMove();
-      case ThymioDSLPackage.ACTION__TOP_LIGHT:
-        return getTopLight();
-      case ThymioDSLPackage.ACTION__BOTTOM_LIGHT:
-        return getBottomLight();
+      case ThymioDSLPackage.ACTION__LIGHT:
+        return getLight();
       case ThymioDSLPackage.ACTION__SOUND:
         return getSound();
     }
@@ -290,13 +260,10 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
     switch (featureID)
     {
       case ThymioDSLPackage.ACTION__MOVE:
-        setMove((Motor)newValue);
+        setMove((Motors)newValue);
         return;
-      case ThymioDSLPackage.ACTION__TOP_LIGHT:
-        setTopLight((String)newValue);
-        return;
-      case ThymioDSLPackage.ACTION__BOTTOM_LIGHT:
-        setBottomLight((String)newValue);
+      case ThymioDSLPackage.ACTION__LIGHT:
+        setLight((Lights)newValue);
         return;
       case ThymioDSLPackage.ACTION__SOUND:
         getSound().clear();
@@ -317,13 +284,10 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
     switch (featureID)
     {
       case ThymioDSLPackage.ACTION__MOVE:
-        setMove((Motor)null);
+        setMove((Motors)null);
         return;
-      case ThymioDSLPackage.ACTION__TOP_LIGHT:
-        setTopLight(TOP_LIGHT_EDEFAULT);
-        return;
-      case ThymioDSLPackage.ACTION__BOTTOM_LIGHT:
-        setBottomLight(BOTTOM_LIGHT_EDEFAULT);
+      case ThymioDSLPackage.ACTION__LIGHT:
+        setLight((Lights)null);
         return;
       case ThymioDSLPackage.ACTION__SOUND:
         getSound().clear();
@@ -344,33 +308,12 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
     {
       case ThymioDSLPackage.ACTION__MOVE:
         return move != null;
-      case ThymioDSLPackage.ACTION__TOP_LIGHT:
-        return TOP_LIGHT_EDEFAULT == null ? topLight != null : !TOP_LIGHT_EDEFAULT.equals(topLight);
-      case ThymioDSLPackage.ACTION__BOTTOM_LIGHT:
-        return BOTTOM_LIGHT_EDEFAULT == null ? bottomLight != null : !BOTTOM_LIGHT_EDEFAULT.equals(bottomLight);
+      case ThymioDSLPackage.ACTION__LIGHT:
+        return light != null;
       case ThymioDSLPackage.ACTION__SOUND:
         return sound != null && !sound.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (topLight: ");
-    result.append(topLight);
-    result.append(", bottomLight: ");
-    result.append(bottomLight);
-    result.append(')');
-    return result.toString();
   }
 
 } //ActionImpl

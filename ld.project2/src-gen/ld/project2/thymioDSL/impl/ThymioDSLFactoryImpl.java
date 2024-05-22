@@ -70,7 +70,9 @@ public class ThymioDSLFactoryImpl extends EFactoryImpl implements ThymioDSLFacto
       case ThymioDSLPackage.EVENT: return createEvent();
       case ThymioDSLPackage.SENSOR: return createSensor();
       case ThymioDSLPackage.ACTION: return createAction();
-      case ThymioDSLPackage.MOTOR: return createMotor();
+      case ThymioDSLPackage.MOTORS: return createMotors();
+      case ThymioDSLPackage.LIGHTS: return createLights();
+      case ThymioDSLPackage.RGB: return createRGB();
       case ThymioDSLPackage.SOUND: return createSound();
       case ThymioDSLPackage.EXPRESSION: return createExpression();
       case ThymioDSLPackage.ADDITION: return createAddition();
@@ -146,10 +148,34 @@ public class ThymioDSLFactoryImpl extends EFactoryImpl implements ThymioDSLFacto
    * @generated
    */
   @Override
-  public Motor createMotor()
+  public Motors createMotors()
   {
-    MotorImpl motor = new MotorImpl();
-    return motor;
+    MotorsImpl motors = new MotorsImpl();
+    return motors;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Lights createLights()
+  {
+    LightsImpl lights = new LightsImpl();
+    return lights;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public RGB createRGB()
+  {
+    RGBImpl rgb = new RGBImpl();
+    return rgb;
   }
 
   /**

@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link ld.project2.thymioDSL.Expression#getValue <em>Value</em>}</li>
  *   <li>{@link ld.project2.thymioDSL.Expression#getLeft <em>Left</em>}</li>
+ *   <li>{@link ld.project2.thymioDSL.Expression#getOperator <em>Operator</em>}</li>
  *   <li>{@link ld.project2.thymioDSL.Expression#getRight <em>Right</em>}</li>
  * </ul>
  *
@@ -68,6 +69,28 @@ public interface Expression extends EObject
    * @generated
    */
   void setLeft(Expression value);
+
+  /**
+   * Returns the value of the '<em><b>Operator</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Operator</em>' attribute.
+   * @see #setOperator(String)
+   * @see ld.project2.thymioDSL.ThymioDSLPackage#getExpression_Operator()
+   * @model
+   * @generated
+   */
+  String getOperator();
+
+  /**
+   * Sets the value of the '{@link ld.project2.thymioDSL.Expression#getOperator <em>Operator</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Operator</em>' attribute.
+   * @see #getOperator()
+   * @generated
+   */
+  void setOperator(String value);
 
   /**
    * Returns the value of the '<em><b>Right</b></em>' containment reference.

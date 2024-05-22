@@ -105,7 +105,7 @@ public interface ThymioDSLPackage extends EPackage
   int PROCEDURE__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Events</b></em>' containment reference list.
+   * The feature id for the '<em><b>Events</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -288,22 +288,13 @@ public interface ThymioDSLPackage extends EPackage
   int ACTION__MOVE = 0;
 
   /**
-   * The feature id for the '<em><b>Top Light</b></em>' attribute.
+   * The feature id for the '<em><b>Light</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ACTION__TOP_LIGHT = 1;
-
-  /**
-   * The feature id for the '<em><b>Bottom Light</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ACTION__BOTTOM_LIGHT = 2;
+  int ACTION__LIGHT = 1;
 
   /**
    * The feature id for the '<em><b>Sound</b></em>' containment reference list.
@@ -312,7 +303,7 @@ public interface ThymioDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ACTION__SOUND = 3;
+  int ACTION__SOUND = 2;
 
   /**
    * The number of structural features of the '<em>Action</em>' class.
@@ -321,17 +312,17 @@ public interface ThymioDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ACTION_FEATURE_COUNT = 4;
+  int ACTION_FEATURE_COUNT = 3;
 
   /**
-   * The meta object id for the '{@link ld.project2.thymioDSL.impl.MotorImpl <em>Motor</em>}' class.
+   * The meta object id for the '{@link ld.project2.thymioDSL.impl.MotorsImpl <em>Motors</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see ld.project2.thymioDSL.impl.MotorImpl
-   * @see ld.project2.thymioDSL.impl.ThymioDSLPackageImpl#getMotor()
+   * @see ld.project2.thymioDSL.impl.MotorsImpl
+   * @see ld.project2.thymioDSL.impl.ThymioDSLPackageImpl#getMotors()
    * @generated
    */
-  int MOTOR = 5;
+  int MOTORS = 5;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -340,7 +331,7 @@ public interface ThymioDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MOTOR__LEFT = 0;
+  int MOTORS__LEFT = 0;
 
   /**
    * The feature id for the '<em><b>Right</b></em>' containment reference.
@@ -349,16 +340,99 @@ public interface ThymioDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MOTOR__RIGHT = 1;
+  int MOTORS__RIGHT = 1;
 
   /**
-   * The number of structural features of the '<em>Motor</em>' class.
+   * The number of structural features of the '<em>Motors</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MOTOR_FEATURE_COUNT = 2;
+  int MOTORS_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link ld.project2.thymioDSL.impl.LightsImpl <em>Lights</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see ld.project2.thymioDSL.impl.LightsImpl
+   * @see ld.project2.thymioDSL.impl.ThymioDSLPackageImpl#getLights()
+   * @generated
+   */
+  int LIGHTS = 6;
+
+  /**
+   * The feature id for the '<em><b>Top Light</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LIGHTS__TOP_LIGHT = 0;
+
+  /**
+   * The feature id for the '<em><b>Bottom Light</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LIGHTS__BOTTOM_LIGHT = 1;
+
+  /**
+   * The number of structural features of the '<em>Lights</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LIGHTS_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link ld.project2.thymioDSL.impl.RGBImpl <em>RGB</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see ld.project2.thymioDSL.impl.RGBImpl
+   * @see ld.project2.thymioDSL.impl.ThymioDSLPackageImpl#getRGB()
+   * @generated
+   */
+  int RGB = 7;
+
+  /**
+   * The feature id for the '<em><b>Red</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RGB__RED = 0;
+
+  /**
+   * The feature id for the '<em><b>Green</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RGB__GREEN = 1;
+
+  /**
+   * The feature id for the '<em><b>Blue</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RGB__BLUE = 2;
+
+  /**
+   * The number of structural features of the '<em>RGB</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RGB_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link ld.project2.thymioDSL.impl.SoundImpl <em>Sound</em>}' class.
@@ -368,10 +442,10 @@ public interface ThymioDSLPackage extends EPackage
    * @see ld.project2.thymioDSL.impl.ThymioDSLPackageImpl#getSound()
    * @generated
    */
-  int SOUND = 6;
+  int SOUND = 8;
 
   /**
-   * The feature id for the '<em><b>Pitch</b></em>' containment reference list.
+   * The feature id for the '<em><b>Pitch</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -380,7 +454,7 @@ public interface ThymioDSLPackage extends EPackage
   int SOUND__PITCH = 0;
 
   /**
-   * The feature id for the '<em><b>Duration</b></em>' attribute list.
+   * The feature id for the '<em><b>Duration</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -405,7 +479,7 @@ public interface ThymioDSLPackage extends EPackage
    * @see ld.project2.thymioDSL.impl.ThymioDSLPackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 7;
+  int EXPRESSION = 9;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -426,13 +500,22 @@ public interface ThymioDSLPackage extends EPackage
   int EXPRESSION__LEFT = 1;
 
   /**
+   * The feature id for the '<em><b>Operator</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION__OPERATOR = 2;
+
+  /**
    * The feature id for the '<em><b>Right</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPRESSION__RIGHT = 2;
+  int EXPRESSION__RIGHT = 3;
 
   /**
    * The number of structural features of the '<em>Expression</em>' class.
@@ -441,7 +524,7 @@ public interface ThymioDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION_FEATURE_COUNT = 3;
+  int EXPRESSION_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link ld.project2.thymioDSL.impl.AdditionImpl <em>Addition</em>}' class.
@@ -451,7 +534,7 @@ public interface ThymioDSLPackage extends EPackage
    * @see ld.project2.thymioDSL.impl.ThymioDSLPackageImpl#getAddition()
    * @generated
    */
-  int ADDITION = 8;
+  int ADDITION = 10;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -470,6 +553,15 @@ public interface ThymioDSLPackage extends EPackage
    * @ordered
    */
   int ADDITION__LEFT = EXPRESSION__LEFT;
+
+  /**
+   * The feature id for the '<em><b>Operator</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ADDITION__OPERATOR = EXPRESSION__OPERATOR;
 
   /**
    * The feature id for the '<em><b>Right</b></em>' containment reference.
@@ -497,7 +589,7 @@ public interface ThymioDSLPackage extends EPackage
    * @see ld.project2.thymioDSL.impl.ThymioDSLPackageImpl#getMultiplication()
    * @generated
    */
-  int MULTIPLICATION = 9;
+  int MULTIPLICATION = 11;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -516,6 +608,15 @@ public interface ThymioDSLPackage extends EPackage
    * @ordered
    */
   int MULTIPLICATION__LEFT = EXPRESSION__LEFT;
+
+  /**
+   * The feature id for the '<em><b>Operator</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MULTIPLICATION__OPERATOR = EXPRESSION__OPERATOR;
 
   /**
    * The feature id for the '<em><b>Right</b></em>' containment reference.
@@ -579,10 +680,10 @@ public interface ThymioDSLPackage extends EPackage
   EAttribute getProcedure_Name();
 
   /**
-   * Returns the meta object for the containment reference list '{@link ld.project2.thymioDSL.Procedure#getEvents <em>Events</em>}'.
+   * Returns the meta object for the containment reference '{@link ld.project2.thymioDSL.Procedure#getEvents <em>Events</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Events</em>'.
+   * @return the meta object for the containment reference '<em>Events</em>'.
    * @see ld.project2.thymioDSL.Procedure#getEvents()
    * @see #getProcedure()
    * @generated
@@ -687,55 +788,55 @@ public interface ThymioDSLPackage extends EPackage
   EAttribute getSensor_BackRightSensor();
 
   /**
-   * Returns the meta object for the attribute '{@link ld.project2.thymioDSL.Sensor#getFrontRightSensor <em>Front Right Sensor</em>}'.
+   * Returns the meta object for the attribute '{@link ld.project2.thymioDSL.Sensor#isFrontRightSensor <em>Front Right Sensor</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Front Right Sensor</em>'.
-   * @see ld.project2.thymioDSL.Sensor#getFrontRightSensor()
+   * @see ld.project2.thymioDSL.Sensor#isFrontRightSensor()
    * @see #getSensor()
    * @generated
    */
   EAttribute getSensor_FrontRightSensor();
 
   /**
-   * Returns the meta object for the attribute '{@link ld.project2.thymioDSL.Sensor#getFrontCenterRightSensor <em>Front Center Right Sensor</em>}'.
+   * Returns the meta object for the attribute '{@link ld.project2.thymioDSL.Sensor#isFrontCenterRightSensor <em>Front Center Right Sensor</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Front Center Right Sensor</em>'.
-   * @see ld.project2.thymioDSL.Sensor#getFrontCenterRightSensor()
+   * @see ld.project2.thymioDSL.Sensor#isFrontCenterRightSensor()
    * @see #getSensor()
    * @generated
    */
   EAttribute getSensor_FrontCenterRightSensor();
 
   /**
-   * Returns the meta object for the attribute '{@link ld.project2.thymioDSL.Sensor#getFrontCenterSensor <em>Front Center Sensor</em>}'.
+   * Returns the meta object for the attribute '{@link ld.project2.thymioDSL.Sensor#isFrontCenterSensor <em>Front Center Sensor</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Front Center Sensor</em>'.
-   * @see ld.project2.thymioDSL.Sensor#getFrontCenterSensor()
+   * @see ld.project2.thymioDSL.Sensor#isFrontCenterSensor()
    * @see #getSensor()
    * @generated
    */
   EAttribute getSensor_FrontCenterSensor();
 
   /**
-   * Returns the meta object for the attribute '{@link ld.project2.thymioDSL.Sensor#getFrontCenterLeftSensor <em>Front Center Left Sensor</em>}'.
+   * Returns the meta object for the attribute '{@link ld.project2.thymioDSL.Sensor#isFrontCenterLeftSensor <em>Front Center Left Sensor</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Front Center Left Sensor</em>'.
-   * @see ld.project2.thymioDSL.Sensor#getFrontCenterLeftSensor()
+   * @see ld.project2.thymioDSL.Sensor#isFrontCenterLeftSensor()
    * @see #getSensor()
    * @generated
    */
   EAttribute getSensor_FrontCenterLeftSensor();
 
   /**
-   * Returns the meta object for the attribute '{@link ld.project2.thymioDSL.Sensor#getFrontLeftSensor <em>Front Left Sensor</em>}'.
+   * Returns the meta object for the attribute '{@link ld.project2.thymioDSL.Sensor#isFrontLeftSensor <em>Front Left Sensor</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Front Left Sensor</em>'.
-   * @see ld.project2.thymioDSL.Sensor#getFrontLeftSensor()
+   * @see ld.project2.thymioDSL.Sensor#isFrontLeftSensor()
    * @see #getSensor()
    * @generated
    */
@@ -763,26 +864,15 @@ public interface ThymioDSLPackage extends EPackage
   EReference getAction_Move();
 
   /**
-   * Returns the meta object for the attribute '{@link ld.project2.thymioDSL.Action#getTopLight <em>Top Light</em>}'.
+   * Returns the meta object for the containment reference '{@link ld.project2.thymioDSL.Action#getLight <em>Light</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Top Light</em>'.
-   * @see ld.project2.thymioDSL.Action#getTopLight()
+   * @return the meta object for the containment reference '<em>Light</em>'.
+   * @see ld.project2.thymioDSL.Action#getLight()
    * @see #getAction()
    * @generated
    */
-  EAttribute getAction_TopLight();
-
-  /**
-   * Returns the meta object for the attribute '{@link ld.project2.thymioDSL.Action#getBottomLight <em>Bottom Light</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Bottom Light</em>'.
-   * @see ld.project2.thymioDSL.Action#getBottomLight()
-   * @see #getAction()
-   * @generated
-   */
-  EAttribute getAction_BottomLight();
+  EReference getAction_Light();
 
   /**
    * Returns the meta object for the containment reference list '{@link ld.project2.thymioDSL.Action#getSound <em>Sound</em>}'.
@@ -796,36 +886,111 @@ public interface ThymioDSLPackage extends EPackage
   EReference getAction_Sound();
 
   /**
-   * Returns the meta object for class '{@link ld.project2.thymioDSL.Motor <em>Motor</em>}'.
+   * Returns the meta object for class '{@link ld.project2.thymioDSL.Motors <em>Motors</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Motor</em>'.
-   * @see ld.project2.thymioDSL.Motor
+   * @return the meta object for class '<em>Motors</em>'.
+   * @see ld.project2.thymioDSL.Motors
    * @generated
    */
-  EClass getMotor();
+  EClass getMotors();
 
   /**
-   * Returns the meta object for the containment reference '{@link ld.project2.thymioDSL.Motor#getLeft <em>Left</em>}'.
+   * Returns the meta object for the containment reference '{@link ld.project2.thymioDSL.Motors#getLeft <em>Left</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Left</em>'.
-   * @see ld.project2.thymioDSL.Motor#getLeft()
-   * @see #getMotor()
+   * @see ld.project2.thymioDSL.Motors#getLeft()
+   * @see #getMotors()
    * @generated
    */
-  EReference getMotor_Left();
+  EReference getMotors_Left();
 
   /**
-   * Returns the meta object for the containment reference '{@link ld.project2.thymioDSL.Motor#getRight <em>Right</em>}'.
+   * Returns the meta object for the containment reference '{@link ld.project2.thymioDSL.Motors#getRight <em>Right</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Right</em>'.
-   * @see ld.project2.thymioDSL.Motor#getRight()
-   * @see #getMotor()
+   * @see ld.project2.thymioDSL.Motors#getRight()
+   * @see #getMotors()
    * @generated
    */
-  EReference getMotor_Right();
+  EReference getMotors_Right();
+
+  /**
+   * Returns the meta object for class '{@link ld.project2.thymioDSL.Lights <em>Lights</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Lights</em>'.
+   * @see ld.project2.thymioDSL.Lights
+   * @generated
+   */
+  EClass getLights();
+
+  /**
+   * Returns the meta object for the containment reference '{@link ld.project2.thymioDSL.Lights#getTopLight <em>Top Light</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Top Light</em>'.
+   * @see ld.project2.thymioDSL.Lights#getTopLight()
+   * @see #getLights()
+   * @generated
+   */
+  EReference getLights_TopLight();
+
+  /**
+   * Returns the meta object for the containment reference '{@link ld.project2.thymioDSL.Lights#getBottomLight <em>Bottom Light</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Bottom Light</em>'.
+   * @see ld.project2.thymioDSL.Lights#getBottomLight()
+   * @see #getLights()
+   * @generated
+   */
+  EReference getLights_BottomLight();
+
+  /**
+   * Returns the meta object for class '{@link ld.project2.thymioDSL.RGB <em>RGB</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>RGB</em>'.
+   * @see ld.project2.thymioDSL.RGB
+   * @generated
+   */
+  EClass getRGB();
+
+  /**
+   * Returns the meta object for the containment reference '{@link ld.project2.thymioDSL.RGB#getRed <em>Red</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Red</em>'.
+   * @see ld.project2.thymioDSL.RGB#getRed()
+   * @see #getRGB()
+   * @generated
+   */
+  EReference getRGB_Red();
+
+  /**
+   * Returns the meta object for the containment reference '{@link ld.project2.thymioDSL.RGB#getGreen <em>Green</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Green</em>'.
+   * @see ld.project2.thymioDSL.RGB#getGreen()
+   * @see #getRGB()
+   * @generated
+   */
+  EReference getRGB_Green();
+
+  /**
+   * Returns the meta object for the containment reference '{@link ld.project2.thymioDSL.RGB#getBlue <em>Blue</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Blue</em>'.
+   * @see ld.project2.thymioDSL.RGB#getBlue()
+   * @see #getRGB()
+   * @generated
+   */
+  EReference getRGB_Blue();
 
   /**
    * Returns the meta object for class '{@link ld.project2.thymioDSL.Sound <em>Sound</em>}'.
@@ -838,10 +1003,10 @@ public interface ThymioDSLPackage extends EPackage
   EClass getSound();
 
   /**
-   * Returns the meta object for the containment reference list '{@link ld.project2.thymioDSL.Sound#getPitch <em>Pitch</em>}'.
+   * Returns the meta object for the containment reference '{@link ld.project2.thymioDSL.Sound#getPitch <em>Pitch</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Pitch</em>'.
+   * @return the meta object for the containment reference '<em>Pitch</em>'.
    * @see ld.project2.thymioDSL.Sound#getPitch()
    * @see #getSound()
    * @generated
@@ -849,10 +1014,10 @@ public interface ThymioDSLPackage extends EPackage
   EReference getSound_Pitch();
 
   /**
-   * Returns the meta object for the attribute list '{@link ld.project2.thymioDSL.Sound#getDuration <em>Duration</em>}'.
+   * Returns the meta object for the attribute '{@link ld.project2.thymioDSL.Sound#getDuration <em>Duration</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Duration</em>'.
+   * @return the meta object for the attribute '<em>Duration</em>'.
    * @see ld.project2.thymioDSL.Sound#getDuration()
    * @see #getSound()
    * @generated
@@ -890,6 +1055,17 @@ public interface ThymioDSLPackage extends EPackage
    * @generated
    */
   EReference getExpression_Left();
+
+  /**
+   * Returns the meta object for the attribute '{@link ld.project2.thymioDSL.Expression#getOperator <em>Operator</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Operator</em>'.
+   * @see ld.project2.thymioDSL.Expression#getOperator()
+   * @see #getExpression()
+   * @generated
+   */
+  EAttribute getExpression_Operator();
 
   /**
    * Returns the meta object for the containment reference '{@link ld.project2.thymioDSL.Expression#getRight <em>Right</em>}'.
@@ -982,7 +1158,7 @@ public interface ThymioDSLPackage extends EPackage
     EAttribute PROCEDURE__NAME = eINSTANCE.getProcedure_Name();
 
     /**
-     * The meta object literal for the '<em><b>Events</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Events</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -1124,20 +1300,12 @@ public interface ThymioDSLPackage extends EPackage
     EReference ACTION__MOVE = eINSTANCE.getAction_Move();
 
     /**
-     * The meta object literal for the '<em><b>Top Light</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Light</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ACTION__TOP_LIGHT = eINSTANCE.getAction_TopLight();
-
-    /**
-     * The meta object literal for the '<em><b>Bottom Light</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute ACTION__BOTTOM_LIGHT = eINSTANCE.getAction_BottomLight();
+    EReference ACTION__LIGHT = eINSTANCE.getAction_Light();
 
     /**
      * The meta object literal for the '<em><b>Sound</b></em>' containment reference list feature.
@@ -1148,14 +1316,14 @@ public interface ThymioDSLPackage extends EPackage
     EReference ACTION__SOUND = eINSTANCE.getAction_Sound();
 
     /**
-     * The meta object literal for the '{@link ld.project2.thymioDSL.impl.MotorImpl <em>Motor</em>}' class.
+     * The meta object literal for the '{@link ld.project2.thymioDSL.impl.MotorsImpl <em>Motors</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see ld.project2.thymioDSL.impl.MotorImpl
-     * @see ld.project2.thymioDSL.impl.ThymioDSLPackageImpl#getMotor()
+     * @see ld.project2.thymioDSL.impl.MotorsImpl
+     * @see ld.project2.thymioDSL.impl.ThymioDSLPackageImpl#getMotors()
      * @generated
      */
-    EClass MOTOR = eINSTANCE.getMotor();
+    EClass MOTORS = eINSTANCE.getMotors();
 
     /**
      * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
@@ -1163,7 +1331,7 @@ public interface ThymioDSLPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MOTOR__LEFT = eINSTANCE.getMotor_Left();
+    EReference MOTORS__LEFT = eINSTANCE.getMotors_Left();
 
     /**
      * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
@@ -1171,7 +1339,67 @@ public interface ThymioDSLPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MOTOR__RIGHT = eINSTANCE.getMotor_Right();
+    EReference MOTORS__RIGHT = eINSTANCE.getMotors_Right();
+
+    /**
+     * The meta object literal for the '{@link ld.project2.thymioDSL.impl.LightsImpl <em>Lights</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ld.project2.thymioDSL.impl.LightsImpl
+     * @see ld.project2.thymioDSL.impl.ThymioDSLPackageImpl#getLights()
+     * @generated
+     */
+    EClass LIGHTS = eINSTANCE.getLights();
+
+    /**
+     * The meta object literal for the '<em><b>Top Light</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LIGHTS__TOP_LIGHT = eINSTANCE.getLights_TopLight();
+
+    /**
+     * The meta object literal for the '<em><b>Bottom Light</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LIGHTS__BOTTOM_LIGHT = eINSTANCE.getLights_BottomLight();
+
+    /**
+     * The meta object literal for the '{@link ld.project2.thymioDSL.impl.RGBImpl <em>RGB</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ld.project2.thymioDSL.impl.RGBImpl
+     * @see ld.project2.thymioDSL.impl.ThymioDSLPackageImpl#getRGB()
+     * @generated
+     */
+    EClass RGB = eINSTANCE.getRGB();
+
+    /**
+     * The meta object literal for the '<em><b>Red</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RGB__RED = eINSTANCE.getRGB_Red();
+
+    /**
+     * The meta object literal for the '<em><b>Green</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RGB__GREEN = eINSTANCE.getRGB_Green();
+
+    /**
+     * The meta object literal for the '<em><b>Blue</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RGB__BLUE = eINSTANCE.getRGB_Blue();
 
     /**
      * The meta object literal for the '{@link ld.project2.thymioDSL.impl.SoundImpl <em>Sound</em>}' class.
@@ -1184,7 +1412,7 @@ public interface ThymioDSLPackage extends EPackage
     EClass SOUND = eINSTANCE.getSound();
 
     /**
-     * The meta object literal for the '<em><b>Pitch</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Pitch</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -1192,7 +1420,7 @@ public interface ThymioDSLPackage extends EPackage
     EReference SOUND__PITCH = eINSTANCE.getSound_Pitch();
 
     /**
-     * The meta object literal for the '<em><b>Duration</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Duration</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -1224,6 +1452,14 @@ public interface ThymioDSLPackage extends EPackage
      * @generated
      */
     EReference EXPRESSION__LEFT = eINSTANCE.getExpression_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXPRESSION__OPERATOR = eINSTANCE.getExpression_Operator();
 
     /**
      * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.

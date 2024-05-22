@@ -17,8 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link ld.project2.thymioDSL.Action#getMove <em>Move</em>}</li>
- *   <li>{@link ld.project2.thymioDSL.Action#getTopLight <em>Top Light</em>}</li>
- *   <li>{@link ld.project2.thymioDSL.Action#getBottomLight <em>Bottom Light</em>}</li>
+ *   <li>{@link ld.project2.thymioDSL.Action#getLight <em>Light</em>}</li>
  *   <li>{@link ld.project2.thymioDSL.Action#getSound <em>Sound</em>}</li>
  * </ul>
  *
@@ -33,12 +32,12 @@ public interface Action extends EObject
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Move</em>' containment reference.
-   * @see #setMove(Motor)
+   * @see #setMove(Motors)
    * @see ld.project2.thymioDSL.ThymioDSLPackage#getAction_Move()
    * @model containment="true"
    * @generated
    */
-  Motor getMove();
+  Motors getMove();
 
   /**
    * Sets the value of the '{@link ld.project2.thymioDSL.Action#getMove <em>Move</em>}' containment reference.
@@ -48,51 +47,29 @@ public interface Action extends EObject
    * @see #getMove()
    * @generated
    */
-  void setMove(Motor value);
+  void setMove(Motors value);
 
   /**
-   * Returns the value of the '<em><b>Top Light</b></em>' attribute.
+   * Returns the value of the '<em><b>Light</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Top Light</em>' attribute.
-   * @see #setTopLight(String)
-   * @see ld.project2.thymioDSL.ThymioDSLPackage#getAction_TopLight()
-   * @model
+   * @return the value of the '<em>Light</em>' containment reference.
+   * @see #setLight(Lights)
+   * @see ld.project2.thymioDSL.ThymioDSLPackage#getAction_Light()
+   * @model containment="true"
    * @generated
    */
-  String getTopLight();
+  Lights getLight();
 
   /**
-   * Sets the value of the '{@link ld.project2.thymioDSL.Action#getTopLight <em>Top Light</em>}' attribute.
+   * Sets the value of the '{@link ld.project2.thymioDSL.Action#getLight <em>Light</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Top Light</em>' attribute.
-   * @see #getTopLight()
+   * @param value the new value of the '<em>Light</em>' containment reference.
+   * @see #getLight()
    * @generated
    */
-  void setTopLight(String value);
-
-  /**
-   * Returns the value of the '<em><b>Bottom Light</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Bottom Light</em>' attribute.
-   * @see #setBottomLight(String)
-   * @see ld.project2.thymioDSL.ThymioDSLPackage#getAction_BottomLight()
-   * @model
-   * @generated
-   */
-  String getBottomLight();
-
-  /**
-   * Sets the value of the '{@link ld.project2.thymioDSL.Action#getBottomLight <em>Bottom Light</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Bottom Light</em>' attribute.
-   * @see #getBottomLight()
-   * @generated
-   */
-  void setBottomLight(String value);
+  void setLight(Lights value);
 
   /**
    * Returns the value of the '<em><b>Sound</b></em>' containment reference list.

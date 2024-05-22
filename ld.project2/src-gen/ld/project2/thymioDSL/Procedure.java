@@ -50,16 +50,26 @@ public interface Procedure extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Events</b></em>' containment reference list.
-   * The list contents are of type {@link ld.project2.thymioDSL.Event}.
+   * Returns the value of the '<em><b>Events</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Events</em>' containment reference list.
+   * @return the value of the '<em>Events</em>' containment reference.
+   * @see #setEvents(Event)
    * @see ld.project2.thymioDSL.ThymioDSLPackage#getProcedure_Events()
    * @model containment="true"
    * @generated
    */
-  EList<Event> getEvents();
+  Event getEvents();
+
+  /**
+   * Sets the value of the '{@link ld.project2.thymioDSL.Procedure#getEvents <em>Events</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Events</em>' containment reference.
+   * @see #getEvents()
+   * @generated
+   */
+  void setEvents(Event value);
 
   /**
    * Returns the value of the '<em><b>Actions</b></em>' containment reference list.

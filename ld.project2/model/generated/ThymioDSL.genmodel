@@ -31,13 +31,21 @@
     </genClasses>
     <genClasses ecoreClass="ThymioDSL.ecore#//Action">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ThymioDSL.ecore#//Action/move"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ThymioDSL.ecore#//Action/topLight"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ThymioDSL.ecore#//Action/bottomLight"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ThymioDSL.ecore#//Action/light"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ThymioDSL.ecore#//Action/sound"/>
     </genClasses>
-    <genClasses ecoreClass="ThymioDSL.ecore#//Motor">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ThymioDSL.ecore#//Motor/left"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ThymioDSL.ecore#//Motor/right"/>
+    <genClasses ecoreClass="ThymioDSL.ecore#//Motors">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ThymioDSL.ecore#//Motors/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ThymioDSL.ecore#//Motors/right"/>
+    </genClasses>
+    <genClasses ecoreClass="ThymioDSL.ecore#//Lights">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ThymioDSL.ecore#//Lights/topLight"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ThymioDSL.ecore#//Lights/bottomLight"/>
+    </genClasses>
+    <genClasses ecoreClass="ThymioDSL.ecore#//RGB">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ThymioDSL.ecore#//RGB/red"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ThymioDSL.ecore#//RGB/green"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ThymioDSL.ecore#//RGB/blue"/>
     </genClasses>
     <genClasses ecoreClass="ThymioDSL.ecore#//Sound">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ThymioDSL.ecore#//Sound/pitch"/>
@@ -46,6 +54,7 @@
     <genClasses ecoreClass="ThymioDSL.ecore#//Expression">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ThymioDSL.ecore#//Expression/value"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ThymioDSL.ecore#//Expression/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ThymioDSL.ecore#//Expression/operator"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ThymioDSL.ecore#//Expression/right"/>
     </genClasses>
     <genClasses ecoreClass="ThymioDSL.ecore#//Addition"/>

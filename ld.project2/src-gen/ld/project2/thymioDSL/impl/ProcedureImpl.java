@@ -62,14 +62,14 @@ public class ProcedureImpl extends MinimalEObjectImpl.Container implements Proce
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getEvents() <em>Events</em>}' containment reference list.
+   * The cached value of the '{@link #getEvents() <em>Events</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getEvents()
    * @generated
    * @ordered
    */
-  protected EList<Event> events;
+  protected Event events;
 
   /**
    * The cached value of the '{@link #getActions() <em>Actions</em>}' containment reference list.
@@ -133,13 +133,48 @@ public class ProcedureImpl extends MinimalEObjectImpl.Container implements Proce
    * @generated
    */
   @Override
-  public EList<Event> getEvents()
+  public Event getEvents()
   {
-    if (events == null)
-    {
-      events = new EObjectContainmentEList<Event>(Event.class, this, ThymioDSLPackage.PROCEDURE__EVENTS);
-    }
     return events;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetEvents(Event newEvents, NotificationChain msgs)
+  {
+    Event oldEvents = events;
+    events = newEvents;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.PROCEDURE__EVENTS, oldEvents, newEvents);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setEvents(Event newEvents)
+  {
+    if (newEvents != events)
+    {
+      NotificationChain msgs = null;
+      if (events != null)
+        msgs = ((InternalEObject)events).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.PROCEDURE__EVENTS, null, msgs);
+      if (newEvents != null)
+        msgs = ((InternalEObject)newEvents).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.PROCEDURE__EVENTS, null, msgs);
+      msgs = basicSetEvents(newEvents, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.PROCEDURE__EVENTS, newEvents, newEvents));
   }
 
   /**
@@ -168,7 +203,7 @@ public class ProcedureImpl extends MinimalEObjectImpl.Container implements Proce
     switch (featureID)
     {
       case ThymioDSLPackage.PROCEDURE__EVENTS:
-        return ((InternalEList<?>)getEvents()).basicRemove(otherEnd, msgs);
+        return basicSetEvents(null, msgs);
       case ThymioDSLPackage.PROCEDURE__ACTIONS:
         return ((InternalEList<?>)getActions()).basicRemove(otherEnd, msgs);
     }
@@ -210,8 +245,7 @@ public class ProcedureImpl extends MinimalEObjectImpl.Container implements Proce
         setName((String)newValue);
         return;
       case ThymioDSLPackage.PROCEDURE__EVENTS:
-        getEvents().clear();
-        getEvents().addAll((Collection<? extends Event>)newValue);
+        setEvents((Event)newValue);
         return;
       case ThymioDSLPackage.PROCEDURE__ACTIONS:
         getActions().clear();
@@ -235,7 +269,7 @@ public class ProcedureImpl extends MinimalEObjectImpl.Container implements Proce
         setName(NAME_EDEFAULT);
         return;
       case ThymioDSLPackage.PROCEDURE__EVENTS:
-        getEvents().clear();
+        setEvents((Event)null);
         return;
       case ThymioDSLPackage.PROCEDURE__ACTIONS:
         getActions().clear();
@@ -257,7 +291,7 @@ public class ProcedureImpl extends MinimalEObjectImpl.Container implements Proce
       case ThymioDSLPackage.PROCEDURE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case ThymioDSLPackage.PROCEDURE__EVENTS:
-        return events != null && !events.isEmpty();
+        return events != null;
       case ThymioDSLPackage.PROCEDURE__ACTIONS:
         return actions != null && !actions.isEmpty();
     }

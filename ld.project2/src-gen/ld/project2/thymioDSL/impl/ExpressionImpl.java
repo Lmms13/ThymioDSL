@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link ld.project2.thymioDSL.impl.ExpressionImpl#getValue <em>Value</em>}</li>
  *   <li>{@link ld.project2.thymioDSL.impl.ExpressionImpl#getLeft <em>Left</em>}</li>
+ *   <li>{@link ld.project2.thymioDSL.impl.ExpressionImpl#getOperator <em>Operator</em>}</li>
  *   <li>{@link ld.project2.thymioDSL.impl.ExpressionImpl#getRight <em>Right</em>}</li>
  * </ul>
  *
@@ -61,6 +62,26 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
    * @ordered
    */
   protected Expression left;
+
+  /**
+   * The default value of the '{@link #getOperator() <em>Operator</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOperator()
+   * @generated
+   * @ordered
+   */
+  protected static final String OPERATOR_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getOperator() <em>Operator</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOperator()
+   * @generated
+   * @ordered
+   */
+  protected String operator = OPERATOR_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getRight() <em>Right</em>}' containment reference.
@@ -174,6 +195,31 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
    * @generated
    */
   @Override
+  public String getOperator()
+  {
+    return operator;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setOperator(String newOperator)
+  {
+    String oldOperator = operator;
+    operator = newOperator;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.EXPRESSION__OPERATOR, oldOperator, operator));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Expression getRight()
   {
     return right;
@@ -250,6 +296,8 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
         return getValue();
       case ThymioDSLPackage.EXPRESSION__LEFT:
         return getLeft();
+      case ThymioDSLPackage.EXPRESSION__OPERATOR:
+        return getOperator();
       case ThymioDSLPackage.EXPRESSION__RIGHT:
         return getRight();
     }
@@ -271,6 +319,9 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
         return;
       case ThymioDSLPackage.EXPRESSION__LEFT:
         setLeft((Expression)newValue);
+        return;
+      case ThymioDSLPackage.EXPRESSION__OPERATOR:
+        setOperator((String)newValue);
         return;
       case ThymioDSLPackage.EXPRESSION__RIGHT:
         setRight((Expression)newValue);
@@ -295,6 +346,9 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
       case ThymioDSLPackage.EXPRESSION__LEFT:
         setLeft((Expression)null);
         return;
+      case ThymioDSLPackage.EXPRESSION__OPERATOR:
+        setOperator(OPERATOR_EDEFAULT);
+        return;
       case ThymioDSLPackage.EXPRESSION__RIGHT:
         setRight((Expression)null);
         return;
@@ -316,6 +370,8 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
         return value != VALUE_EDEFAULT;
       case ThymioDSLPackage.EXPRESSION__LEFT:
         return left != null;
+      case ThymioDSLPackage.EXPRESSION__OPERATOR:
+        return OPERATOR_EDEFAULT == null ? operator != null : !OPERATOR_EDEFAULT.equals(operator);
       case ThymioDSLPackage.EXPRESSION__RIGHT:
         return right != null;
     }
@@ -335,6 +391,8 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (value: ");
     result.append(value);
+    result.append(", operator: ");
+    result.append(operator);
     result.append(')');
     return result.toString();
   }

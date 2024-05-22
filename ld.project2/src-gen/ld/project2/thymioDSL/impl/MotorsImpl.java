@@ -4,7 +4,7 @@
 package ld.project2.thymioDSL.impl;
 
 import ld.project2.thymioDSL.Expression;
-import ld.project2.thymioDSL.Motor;
+import ld.project2.thymioDSL.Motors;
 import ld.project2.thymioDSL.ThymioDSLPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -18,19 +18,19 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Motor</b></em>'.
+ * An implementation of the model object '<em><b>Motors</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ld.project2.thymioDSL.impl.MotorImpl#getLeft <em>Left</em>}</li>
- *   <li>{@link ld.project2.thymioDSL.impl.MotorImpl#getRight <em>Right</em>}</li>
+ *   <li>{@link ld.project2.thymioDSL.impl.MotorsImpl#getLeft <em>Left</em>}</li>
+ *   <li>{@link ld.project2.thymioDSL.impl.MotorsImpl#getRight <em>Right</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class MotorImpl extends MinimalEObjectImpl.Container implements Motor
+public class MotorsImpl extends MinimalEObjectImpl.Container implements Motors
 {
   /**
    * The cached value of the '{@link #getLeft() <em>Left</em>}' containment reference.
@@ -57,7 +57,7 @@ public class MotorImpl extends MinimalEObjectImpl.Container implements Motor
    * <!-- end-user-doc -->
    * @generated
    */
-  protected MotorImpl()
+  protected MotorsImpl()
   {
     super();
   }
@@ -70,7 +70,7 @@ public class MotorImpl extends MinimalEObjectImpl.Container implements Motor
   @Override
   protected EClass eStaticClass()
   {
-    return ThymioDSLPackage.Literals.MOTOR;
+    return ThymioDSLPackage.Literals.MOTORS;
   }
 
   /**
@@ -95,7 +95,7 @@ public class MotorImpl extends MinimalEObjectImpl.Container implements Motor
     left = newLeft;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.MOTOR__LEFT, oldLeft, newLeft);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.MOTORS__LEFT, oldLeft, newLeft);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -113,14 +113,14 @@ public class MotorImpl extends MinimalEObjectImpl.Container implements Motor
     {
       NotificationChain msgs = null;
       if (left != null)
-        msgs = ((InternalEObject)left).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.MOTOR__LEFT, null, msgs);
+        msgs = ((InternalEObject)left).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.MOTORS__LEFT, null, msgs);
       if (newLeft != null)
-        msgs = ((InternalEObject)newLeft).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.MOTOR__LEFT, null, msgs);
+        msgs = ((InternalEObject)newLeft).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.MOTORS__LEFT, null, msgs);
       msgs = basicSetLeft(newLeft, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.MOTOR__LEFT, newLeft, newLeft));
+      eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.MOTORS__LEFT, newLeft, newLeft));
   }
 
   /**
@@ -145,7 +145,7 @@ public class MotorImpl extends MinimalEObjectImpl.Container implements Motor
     right = newRight;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.MOTOR__RIGHT, oldRight, newRight);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.MOTORS__RIGHT, oldRight, newRight);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -163,14 +163,14 @@ public class MotorImpl extends MinimalEObjectImpl.Container implements Motor
     {
       NotificationChain msgs = null;
       if (right != null)
-        msgs = ((InternalEObject)right).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.MOTOR__RIGHT, null, msgs);
+        msgs = ((InternalEObject)right).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.MOTORS__RIGHT, null, msgs);
       if (newRight != null)
-        msgs = ((InternalEObject)newRight).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.MOTOR__RIGHT, null, msgs);
+        msgs = ((InternalEObject)newRight).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.MOTORS__RIGHT, null, msgs);
       msgs = basicSetRight(newRight, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.MOTOR__RIGHT, newRight, newRight));
+      eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.MOTORS__RIGHT, newRight, newRight));
   }
 
   /**
@@ -183,9 +183,9 @@ public class MotorImpl extends MinimalEObjectImpl.Container implements Motor
   {
     switch (featureID)
     {
-      case ThymioDSLPackage.MOTOR__LEFT:
+      case ThymioDSLPackage.MOTORS__LEFT:
         return basicSetLeft(null, msgs);
-      case ThymioDSLPackage.MOTOR__RIGHT:
+      case ThymioDSLPackage.MOTORS__RIGHT:
         return basicSetRight(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -201,9 +201,9 @@ public class MotorImpl extends MinimalEObjectImpl.Container implements Motor
   {
     switch (featureID)
     {
-      case ThymioDSLPackage.MOTOR__LEFT:
+      case ThymioDSLPackage.MOTORS__LEFT:
         return getLeft();
-      case ThymioDSLPackage.MOTOR__RIGHT:
+      case ThymioDSLPackage.MOTORS__RIGHT:
         return getRight();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -219,10 +219,10 @@ public class MotorImpl extends MinimalEObjectImpl.Container implements Motor
   {
     switch (featureID)
     {
-      case ThymioDSLPackage.MOTOR__LEFT:
+      case ThymioDSLPackage.MOTORS__LEFT:
         setLeft((Expression)newValue);
         return;
-      case ThymioDSLPackage.MOTOR__RIGHT:
+      case ThymioDSLPackage.MOTORS__RIGHT:
         setRight((Expression)newValue);
         return;
     }
@@ -239,10 +239,10 @@ public class MotorImpl extends MinimalEObjectImpl.Container implements Motor
   {
     switch (featureID)
     {
-      case ThymioDSLPackage.MOTOR__LEFT:
+      case ThymioDSLPackage.MOTORS__LEFT:
         setLeft((Expression)null);
         return;
-      case ThymioDSLPackage.MOTOR__RIGHT:
+      case ThymioDSLPackage.MOTORS__RIGHT:
         setRight((Expression)null);
         return;
     }
@@ -259,12 +259,12 @@ public class MotorImpl extends MinimalEObjectImpl.Container implements Motor
   {
     switch (featureID)
     {
-      case ThymioDSLPackage.MOTOR__LEFT:
+      case ThymioDSLPackage.MOTORS__LEFT:
         return left != null;
-      case ThymioDSLPackage.MOTOR__RIGHT:
+      case ThymioDSLPackage.MOTORS__RIGHT:
         return right != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //MotorImpl
+} //MotorsImpl

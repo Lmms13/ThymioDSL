@@ -3,8 +3,6 @@
  */
 package ld.project2.thymioDSL;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -27,27 +25,47 @@ import org.eclipse.emf.ecore.EObject;
 public interface Sound extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Pitch</b></em>' containment reference list.
-   * The list contents are of type {@link ld.project2.thymioDSL.Expression}.
+   * Returns the value of the '<em><b>Pitch</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Pitch</em>' containment reference list.
+   * @return the value of the '<em>Pitch</em>' containment reference.
+   * @see #setPitch(Expression)
    * @see ld.project2.thymioDSL.ThymioDSLPackage#getSound_Pitch()
    * @model containment="true"
    * @generated
    */
-  EList<Expression> getPitch();
+  Expression getPitch();
 
   /**
-   * Returns the value of the '<em><b>Duration</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
+   * Sets the value of the '{@link ld.project2.thymioDSL.Sound#getPitch <em>Pitch</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Duration</em>' attribute list.
-   * @see ld.project2.thymioDSL.ThymioDSLPackage#getSound_Duration()
-   * @model unique="false"
+   * @param value the new value of the '<em>Pitch</em>' containment reference.
+   * @see #getPitch()
    * @generated
    */
-  EList<String> getDuration();
+  void setPitch(Expression value);
+
+  /**
+   * Returns the value of the '<em><b>Duration</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Duration</em>' attribute.
+   * @see #setDuration(String)
+   * @see ld.project2.thymioDSL.ThymioDSLPackage#getSound_Duration()
+   * @model
+   * @generated
+   */
+  String getDuration();
+
+  /**
+   * Sets the value of the '{@link ld.project2.thymioDSL.Sound#getDuration <em>Duration</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Duration</em>' attribute.
+   * @see #getDuration()
+   * @generated
+   */
+  void setDuration(String value);
 
 } // Sound

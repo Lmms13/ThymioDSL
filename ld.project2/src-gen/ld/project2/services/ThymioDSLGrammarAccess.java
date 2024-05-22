@@ -48,7 +48,7 @@ public class ThymioDSLGrammarAccess extends AbstractElementFinder.AbstractGramma
 		private final Keyword cEventKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cEventsAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cEventsEventParserRuleCall_3_0 = (RuleCall)cEventsAssignment_3.eContents().get(0);
-		private final Keyword cActionKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cActionsKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Assignment cActionsAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cActionsActionParserRuleCall_5_0 = (RuleCall)cActionsAssignment_5.eContents().get(0);
 		
@@ -56,8 +56,8 @@ public class ThymioDSLGrammarAccess extends AbstractElementFinder.AbstractGramma
 		//    'Procedure:'
 		//    name = EString
 		//    'Event:'
-		//    (events+=Event)
-		//    'Action:'
+		//    (events = Event)
+		//    'Actions:'
 		//    (actions+=Action)+
 		//;
 		@Override public ParserRule getRule() { return rule; }
@@ -65,8 +65,8 @@ public class ThymioDSLGrammarAccess extends AbstractElementFinder.AbstractGramma
 		//'Procedure:'
 		//name = EString
 		//'Event:'
-		//(events+=Event)
-		//'Action:'
+		//(events = Event)
+		//'Actions:'
 		//(actions+=Action)+
 		public Group getGroup() { return cGroup; }
 		
@@ -82,14 +82,14 @@ public class ThymioDSLGrammarAccess extends AbstractElementFinder.AbstractGramma
 		//'Event:'
 		public Keyword getEventKeyword_2() { return cEventKeyword_2; }
 		
-		//(events+=Event)
+		//(events = Event)
 		public Assignment getEventsAssignment_3() { return cEventsAssignment_3; }
 		
 		//Event
 		public RuleCall getEventsEventParserRuleCall_3_0() { return cEventsEventParserRuleCall_3_0; }
 		
-		//'Action:'
-		public Keyword getActionKeyword_4() { return cActionKeyword_4; }
+		//'Actions:'
+		public Keyword getActionsKeyword_4() { return cActionsKeyword_4; }
 		
 		//(actions+=Action)+
 		public Assignment getActionsAssignment_5() { return cActionsAssignment_5; }
@@ -101,11 +101,9 @@ public class ThymioDSLGrammarAccess extends AbstractElementFinder.AbstractGramma
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ld.project2.ThymioDSL.Event");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
-		private final Action cEventAction_0_0 = (Action)cGroup_0.eContents().get(0);
-		private final Group cGroup_0_1 = (Group)cGroup_0.eContents().get(1);
-		private final Keyword cButton_is_clickedKeyword_0_1_0 = (Keyword)cGroup_0_1.eContents().get(0);
-		private final Assignment cButtonAssignment_0_1_1 = (Assignment)cGroup_0_1.eContents().get(1);
-		private final RuleCall cButtonOrtogonalParserRuleCall_0_1_1_0 = (RuleCall)cButtonAssignment_0_1_1.eContents().get(0);
+		private final Keyword cButton_is_clickedKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Assignment cButtonAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cButtonOrtogonalParserRuleCall_0_1_0 = (RuleCall)cButtonAssignment_0_1.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final Keyword cRobot_is_tappedKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final Assignment cTapAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
@@ -120,7 +118,7 @@ public class ThymioDSLGrammarAccess extends AbstractElementFinder.AbstractGramma
 		private final RuleCall cSensorSensorParserRuleCall_3_1_0 = (RuleCall)cSensorAssignment_3_1.eContents().get(0);
 		
 		//Event returns Event:
-		//    {Event} ('button_is_clicked:'
+		//    ('button_is_clicked:'
 		//    (button = Ortogonal))|
 		//    ('robot_is_tapped:'
 		//    (tap = EBoolean))|
@@ -131,7 +129,7 @@ public class ThymioDSLGrammarAccess extends AbstractElementFinder.AbstractGramma
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Event} ('button_is_clicked:'
+		//('button_is_clicked:'
 		//(button = Ortogonal))|
 		//('robot_is_tapped:'
 		//(tap = EBoolean))|
@@ -141,25 +139,18 @@ public class ThymioDSLGrammarAccess extends AbstractElementFinder.AbstractGramma
 		//(sensor+= (Sensor)))+
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//{Event} ('button_is_clicked:'
+		//('button_is_clicked:'
 		//(button = Ortogonal))
 		public Group getGroup_0() { return cGroup_0; }
 		
-		//{Event}
-		public Action getEventAction_0_0() { return cEventAction_0_0; }
-		
-		//('button_is_clicked:'
-		//   (button = Ortogonal))
-		public Group getGroup_0_1() { return cGroup_0_1; }
-		
 		//'button_is_clicked:'
-		public Keyword getButton_is_clickedKeyword_0_1_0() { return cButton_is_clickedKeyword_0_1_0; }
+		public Keyword getButton_is_clickedKeyword_0_0() { return cButton_is_clickedKeyword_0_0; }
 		
 		//(button = Ortogonal)
-		public Assignment getButtonAssignment_0_1_1() { return cButtonAssignment_0_1_1; }
+		public Assignment getButtonAssignment_0_1() { return cButtonAssignment_0_1; }
 		
 		//Ortogonal
-		public RuleCall getButtonOrtogonalParserRuleCall_0_1_1_0() { return cButtonOrtogonalParserRuleCall_0_1_1_0; }
+		public RuleCall getButtonOrtogonalParserRuleCall_0_1_0() { return cButtonOrtogonalParserRuleCall_0_1_0; }
 		
 		//('robot_is_tapped:'
 		//(tap = EBoolean))
@@ -204,11 +195,9 @@ public class ThymioDSLGrammarAccess extends AbstractElementFinder.AbstractGramma
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ld.project2.ThymioDSL.Sensor");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
-		private final Action cSensorAction_0_0 = (Action)cGroup_0.eContents().get(0);
-		private final Group cGroup_0_1 = (Group)cGroup_0.eContents().get(1);
-		private final Keyword cBack_leftKeyword_0_1_0 = (Keyword)cGroup_0_1.eContents().get(0);
-		private final Assignment cBackLeftSensorAssignment_0_1_1 = (Assignment)cGroup_0_1.eContents().get(1);
-		private final RuleCall cBackLeftSensorBlackWhiteParserRuleCall_0_1_1_0 = (RuleCall)cBackLeftSensorAssignment_0_1_1.eContents().get(0);
+		private final Keyword cBack_leftKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Assignment cBackLeftSensorAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cBackLeftSensorBlackWhiteParserRuleCall_0_1_0 = (RuleCall)cBackLeftSensorAssignment_0_1.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final Keyword cBack_rightKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final Assignment cBackRightSensorAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
@@ -216,77 +205,70 @@ public class ThymioDSLGrammarAccess extends AbstractElementFinder.AbstractGramma
 		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
 		private final Keyword cFront_rightKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
 		private final Assignment cFrontRightSensorAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cFrontRightSensorSensorStatusParserRuleCall_2_1_0 = (RuleCall)cFrontRightSensorAssignment_2_1.eContents().get(0);
+		private final RuleCall cFrontRightSensorEBooleanParserRuleCall_2_1_0 = (RuleCall)cFrontRightSensorAssignment_2_1.eContents().get(0);
 		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
 		private final Keyword cFront_center_rightKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Assignment cFrontCenterRightSensorAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cFrontCenterRightSensorSensorStatusParserRuleCall_3_1_0 = (RuleCall)cFrontCenterRightSensorAssignment_3_1.eContents().get(0);
+		private final RuleCall cFrontCenterRightSensorEBooleanParserRuleCall_3_1_0 = (RuleCall)cFrontCenterRightSensorAssignment_3_1.eContents().get(0);
 		private final Group cGroup_4 = (Group)cAlternatives.eContents().get(4);
 		private final Keyword cFront_centerKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cFrontCenterSensorAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cFrontCenterSensorSensorStatusParserRuleCall_4_1_0 = (RuleCall)cFrontCenterSensorAssignment_4_1.eContents().get(0);
+		private final RuleCall cFrontCenterSensorEBooleanParserRuleCall_4_1_0 = (RuleCall)cFrontCenterSensorAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cAlternatives.eContents().get(5);
 		private final Keyword cFront_center_leftKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cFrontCenterLeftSensorAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cFrontCenterLeftSensorSensorStatusParserRuleCall_5_1_0 = (RuleCall)cFrontCenterLeftSensorAssignment_5_1.eContents().get(0);
+		private final RuleCall cFrontCenterLeftSensorEBooleanParserRuleCall_5_1_0 = (RuleCall)cFrontCenterLeftSensorAssignment_5_1.eContents().get(0);
 		private final Group cGroup_6 = (Group)cAlternatives.eContents().get(6);
 		private final Keyword cFront_leftKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Assignment cFrontLeftSensorAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cFrontLeftSensorSensorStatusParserRuleCall_6_1_0 = (RuleCall)cFrontLeftSensorAssignment_6_1.eContents().get(0);
+		private final RuleCall cFrontLeftSensorEBooleanParserRuleCall_6_1_0 = (RuleCall)cFrontLeftSensorAssignment_6_1.eContents().get(0);
 		
 		//Sensor returns Sensor:
-		//    {Sensor} ('back_left:'
+		//    ('back_left:'
 		//    (backLeftSensor = BlackWhite))|
 		//    ('back_right:'
 		//    (backRightSensor = BlackWhite))|
 		//    ('front_right:'
-		//    (frontRightSensor = SensorStatus))|
+		//    (frontRightSensor = EBoolean))|
 		//    ('front_center_right:'
-		//    (frontCenterRightSensor = SensorStatus))|
+		//    (frontCenterRightSensor = EBoolean))|
 		//    ('front_center:'
-		//    (frontCenterSensor = SensorStatus))|
+		//    (frontCenterSensor = EBoolean))|
 		//    ('front_center_left:'
-		//    (frontCenterLeftSensor = SensorStatus))|
+		//    (frontCenterLeftSensor = EBoolean))|
 		//    ('front_left:'
-		//    (frontLeftSensor = SensorStatus))
+		//    (frontLeftSensor = EBoolean))
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Sensor} ('back_left:'
+		//('back_left:'
 		//(backLeftSensor = BlackWhite))|
 		//('back_right:'
 		//(backRightSensor = BlackWhite))|
 		//('front_right:'
-		//(frontRightSensor = SensorStatus))|
+		//(frontRightSensor = EBoolean))|
 		//('front_center_right:'
-		//(frontCenterRightSensor = SensorStatus))|
+		//(frontCenterRightSensor = EBoolean))|
 		//('front_center:'
-		//(frontCenterSensor = SensorStatus))|
+		//(frontCenterSensor = EBoolean))|
 		//('front_center_left:'
-		//(frontCenterLeftSensor = SensorStatus))|
+		//(frontCenterLeftSensor = EBoolean))|
 		//('front_left:'
-		//(frontLeftSensor = SensorStatus))
+		//(frontLeftSensor = EBoolean))
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//{Sensor} ('back_left:'
+		//('back_left:'
 		//(backLeftSensor = BlackWhite))
 		public Group getGroup_0() { return cGroup_0; }
 		
-		//{Sensor}
-		public Action getSensorAction_0_0() { return cSensorAction_0_0; }
-		
-		//('back_left:'
-		//   (backLeftSensor = BlackWhite))
-		public Group getGroup_0_1() { return cGroup_0_1; }
-		
 		//'back_left:'
-		public Keyword getBack_leftKeyword_0_1_0() { return cBack_leftKeyword_0_1_0; }
+		public Keyword getBack_leftKeyword_0_0() { return cBack_leftKeyword_0_0; }
 		
 		//(backLeftSensor = BlackWhite)
-		public Assignment getBackLeftSensorAssignment_0_1_1() { return cBackLeftSensorAssignment_0_1_1; }
+		public Assignment getBackLeftSensorAssignment_0_1() { return cBackLeftSensorAssignment_0_1; }
 		
 		//BlackWhite
-		public RuleCall getBackLeftSensorBlackWhiteParserRuleCall_0_1_1_0() { return cBackLeftSensorBlackWhiteParserRuleCall_0_1_1_0; }
+		public RuleCall getBackLeftSensorBlackWhiteParserRuleCall_0_1_0() { return cBackLeftSensorBlackWhiteParserRuleCall_0_1_0; }
 		
 		//('back_right:'
 		//(backRightSensor = BlackWhite))
@@ -302,220 +284,354 @@ public class ThymioDSLGrammarAccess extends AbstractElementFinder.AbstractGramma
 		public RuleCall getBackRightSensorBlackWhiteParserRuleCall_1_1_0() { return cBackRightSensorBlackWhiteParserRuleCall_1_1_0; }
 		
 		//('front_right:'
-		//(frontRightSensor = SensorStatus))
+		//(frontRightSensor = EBoolean))
 		public Group getGroup_2() { return cGroup_2; }
 		
 		//'front_right:'
 		public Keyword getFront_rightKeyword_2_0() { return cFront_rightKeyword_2_0; }
 		
-		//(frontRightSensor = SensorStatus)
+		//(frontRightSensor = EBoolean)
 		public Assignment getFrontRightSensorAssignment_2_1() { return cFrontRightSensorAssignment_2_1; }
 		
-		//SensorStatus
-		public RuleCall getFrontRightSensorSensorStatusParserRuleCall_2_1_0() { return cFrontRightSensorSensorStatusParserRuleCall_2_1_0; }
+		//EBoolean
+		public RuleCall getFrontRightSensorEBooleanParserRuleCall_2_1_0() { return cFrontRightSensorEBooleanParserRuleCall_2_1_0; }
 		
 		//('front_center_right:'
-		//(frontCenterRightSensor = SensorStatus))
+		//(frontCenterRightSensor = EBoolean))
 		public Group getGroup_3() { return cGroup_3; }
 		
 		//'front_center_right:'
 		public Keyword getFront_center_rightKeyword_3_0() { return cFront_center_rightKeyword_3_0; }
 		
-		//(frontCenterRightSensor = SensorStatus)
+		//(frontCenterRightSensor = EBoolean)
 		public Assignment getFrontCenterRightSensorAssignment_3_1() { return cFrontCenterRightSensorAssignment_3_1; }
 		
-		//SensorStatus
-		public RuleCall getFrontCenterRightSensorSensorStatusParserRuleCall_3_1_0() { return cFrontCenterRightSensorSensorStatusParserRuleCall_3_1_0; }
+		//EBoolean
+		public RuleCall getFrontCenterRightSensorEBooleanParserRuleCall_3_1_0() { return cFrontCenterRightSensorEBooleanParserRuleCall_3_1_0; }
 		
 		//('front_center:'
-		//(frontCenterSensor = SensorStatus))
+		//(frontCenterSensor = EBoolean))
 		public Group getGroup_4() { return cGroup_4; }
 		
 		//'front_center:'
 		public Keyword getFront_centerKeyword_4_0() { return cFront_centerKeyword_4_0; }
 		
-		//(frontCenterSensor = SensorStatus)
+		//(frontCenterSensor = EBoolean)
 		public Assignment getFrontCenterSensorAssignment_4_1() { return cFrontCenterSensorAssignment_4_1; }
 		
-		//SensorStatus
-		public RuleCall getFrontCenterSensorSensorStatusParserRuleCall_4_1_0() { return cFrontCenterSensorSensorStatusParserRuleCall_4_1_0; }
+		//EBoolean
+		public RuleCall getFrontCenterSensorEBooleanParserRuleCall_4_1_0() { return cFrontCenterSensorEBooleanParserRuleCall_4_1_0; }
 		
 		//('front_center_left:'
-		//(frontCenterLeftSensor = SensorStatus))
+		//(frontCenterLeftSensor = EBoolean))
 		public Group getGroup_5() { return cGroup_5; }
 		
 		//'front_center_left:'
 		public Keyword getFront_center_leftKeyword_5_0() { return cFront_center_leftKeyword_5_0; }
 		
-		//(frontCenterLeftSensor = SensorStatus)
+		//(frontCenterLeftSensor = EBoolean)
 		public Assignment getFrontCenterLeftSensorAssignment_5_1() { return cFrontCenterLeftSensorAssignment_5_1; }
 		
-		//SensorStatus
-		public RuleCall getFrontCenterLeftSensorSensorStatusParserRuleCall_5_1_0() { return cFrontCenterLeftSensorSensorStatusParserRuleCall_5_1_0; }
+		//EBoolean
+		public RuleCall getFrontCenterLeftSensorEBooleanParserRuleCall_5_1_0() { return cFrontCenterLeftSensorEBooleanParserRuleCall_5_1_0; }
 		
 		//('front_left:'
-		//(frontLeftSensor = SensorStatus))
+		//(frontLeftSensor = EBoolean))
 		public Group getGroup_6() { return cGroup_6; }
 		
 		//'front_left:'
 		public Keyword getFront_leftKeyword_6_0() { return cFront_leftKeyword_6_0; }
 		
-		//(frontLeftSensor = SensorStatus)
+		//(frontLeftSensor = EBoolean)
 		public Assignment getFrontLeftSensorAssignment_6_1() { return cFrontLeftSensorAssignment_6_1; }
 		
-		//SensorStatus
-		public RuleCall getFrontLeftSensorSensorStatusParserRuleCall_6_1_0() { return cFrontLeftSensorSensorStatusParserRuleCall_6_1_0; }
+		//EBoolean
+		public RuleCall getFrontLeftSensorEBooleanParserRuleCall_6_1_0() { return cFrontLeftSensorEBooleanParserRuleCall_6_1_0; }
 	}
 	public class ActionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ld.project2.ThymioDSL.Action");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
-		private final Action cActionAction_0_0 = (Action)cGroup_0.eContents().get(0);
-		private final Group cGroup_0_1 = (Group)cGroup_0.eContents().get(1);
-		private final Keyword cMoveKeyword_0_1_0 = (Keyword)cGroup_0_1.eContents().get(0);
-		private final Assignment cMoveAssignment_0_1_1 = (Assignment)cGroup_0_1.eContents().get(1);
-		private final RuleCall cMoveMotorParserRuleCall_0_1_1_0 = (RuleCall)cMoveAssignment_0_1_1.eContents().get(0);
+		private final Keyword cMoveKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Assignment cMoveAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cMoveMotorsParserRuleCall_0_1_0 = (RuleCall)cMoveAssignment_0_1.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Keyword cTop_lightKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Assignment cTopLightAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cTopLightOnOffParserRuleCall_1_1_0 = (RuleCall)cTopLightAssignment_1_1.eContents().get(0);
+		private final Keyword cLightsKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cLightAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cLightLightsParserRuleCall_1_1_0 = (RuleCall)cLightAssignment_1_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
-		private final Keyword cBottom_lightKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cBottomLightAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cBottomLightOnOffParserRuleCall_2_1_0 = (RuleCall)cBottomLightAssignment_2_1.eContents().get(0);
-		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
-		private final Keyword cSoundKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cSoundAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cSoundSoundParserRuleCall_3_1_0 = (RuleCall)cSoundAssignment_3_1.eContents().get(0);
+		private final Keyword cSoundKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cSoundAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cSoundSoundParserRuleCall_2_1_0 = (RuleCall)cSoundAssignment_2_1.eContents().get(0);
 		
 		//Action returns Action:
-		//    {Action} ('move:'
-		//    (move = (Motor)))|
-		//    ('top_light:'
-		//    (topLight = OnOff))|
-		//    ('bottom_light:'
-		//    (bottomLight = OnOff))|
+		//    ('move:'
+		//    (move = (Motors)))|
+		//    ('lights:'
+		//    (light = (Lights)))|
 		//    ('sound:'
-		//    (sound+= (Sound)))
+		//    (sound+= (Sound)+))
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Action} ('move:'
-		//(move = (Motor)))|
-		//('top_light:'
-		//(topLight = OnOff))|
-		//('bottom_light:'
-		//(bottomLight = OnOff))|
+		//('move:'
+		//(move = (Motors)))|
+		//('lights:'
+		//(light = (Lights)))|
 		//('sound:'
-		//(sound+= (Sound)))
+		//(sound+= (Sound)+))
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//{Action} ('move:'
-		//(move = (Motor)))
+		//('move:'
+		//(move = (Motors)))
 		public Group getGroup_0() { return cGroup_0; }
 		
-		//{Action}
-		public Action getActionAction_0_0() { return cActionAction_0_0; }
-		
-		//('move:'
-		//   (move = (Motor)))
-		public Group getGroup_0_1() { return cGroup_0_1; }
-		
 		//'move:'
-		public Keyword getMoveKeyword_0_1_0() { return cMoveKeyword_0_1_0; }
+		public Keyword getMoveKeyword_0_0() { return cMoveKeyword_0_0; }
 		
-		//(move = (Motor))
-		public Assignment getMoveAssignment_0_1_1() { return cMoveAssignment_0_1_1; }
+		//(move = (Motors))
+		public Assignment getMoveAssignment_0_1() { return cMoveAssignment_0_1; }
 		
-		//(Motor)
-		public RuleCall getMoveMotorParserRuleCall_0_1_1_0() { return cMoveMotorParserRuleCall_0_1_1_0; }
+		//(Motors)
+		public RuleCall getMoveMotorsParserRuleCall_0_1_0() { return cMoveMotorsParserRuleCall_0_1_0; }
+		
+		//('lights:'
+		//(light = (Lights)))
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//'lights:'
+		public Keyword getLightsKeyword_1_0() { return cLightsKeyword_1_0; }
+		
+		//(light = (Lights))
+		public Assignment getLightAssignment_1_1() { return cLightAssignment_1_1; }
+		
+		//(Lights)
+		public RuleCall getLightLightsParserRuleCall_1_1_0() { return cLightLightsParserRuleCall_1_1_0; }
+		
+		//('sound:'
+		//(sound+= (Sound)+))
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//'sound:'
+		public Keyword getSoundKeyword_2_0() { return cSoundKeyword_2_0; }
+		
+		//(sound+= (Sound)+)
+		public Assignment getSoundAssignment_2_1() { return cSoundAssignment_2_1; }
+		
+		//(Sound)
+		public RuleCall getSoundSoundParserRuleCall_2_1_0() { return cSoundSoundParserRuleCall_2_1_0; }
+	}
+	public class MotorsElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ld.project2.ThymioDSL.Motors");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cLeft_motorKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cLeftAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cLeftAdditionParserRuleCall_1_0 = (RuleCall)cLeftAssignment_1.eContents().get(0);
+		private final Keyword cRight_motorKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cRightAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cRightAdditionParserRuleCall_3_0 = (RuleCall)cRightAssignment_3.eContents().get(0);
+		
+		//Motors returns Motors:
+		//    'left_motor:'
+		//    (left = Addition)
+		//    'right_motor:'
+		//    (right = Addition)
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'left_motor:'
+		//(left = Addition)
+		//'right_motor:'
+		//(right = Addition)
+		public Group getGroup() { return cGroup; }
+		
+		//'left_motor:'
+		public Keyword getLeft_motorKeyword_0() { return cLeft_motorKeyword_0; }
+		
+		//(left = Addition)
+		public Assignment getLeftAssignment_1() { return cLeftAssignment_1; }
+		
+		//Addition
+		public RuleCall getLeftAdditionParserRuleCall_1_0() { return cLeftAdditionParserRuleCall_1_0; }
+		
+		//'right_motor:'
+		public Keyword getRight_motorKeyword_2() { return cRight_motorKeyword_2; }
+		
+		//(right = Addition)
+		public Assignment getRightAssignment_3() { return cRightAssignment_3; }
+		
+		//Addition
+		public RuleCall getRightAdditionParserRuleCall_3_0() { return cRightAdditionParserRuleCall_3_0; }
+	}
+	public class LightsElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ld.project2.ThymioDSL.Lights");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cLightsAction_0 = (Action)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cTop_lightKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Alternatives cAlternatives_1_1 = (Alternatives)cGroup_1.eContents().get(1);
+		private final Group cGroup_1_1_0 = (Group)cAlternatives_1_1.eContents().get(0);
+		private final Keyword cOnKeyword_1_1_0_0 = (Keyword)cGroup_1_1_0.eContents().get(0);
+		private final Assignment cTopLightAssignment_1_1_0_1 = (Assignment)cGroup_1_1_0.eContents().get(1);
+		private final RuleCall cTopLightRGBParserRuleCall_1_1_0_1_0 = (RuleCall)cTopLightAssignment_1_1_0_1.eContents().get(0);
+		private final Keyword cOffKeyword_1_1_1 = (Keyword)cAlternatives_1_1.eContents().get(1);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cBottom_lightKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Alternatives cAlternatives_2_1 = (Alternatives)cGroup_2.eContents().get(1);
+		private final Group cGroup_2_1_0 = (Group)cAlternatives_2_1.eContents().get(0);
+		private final Keyword cOnKeyword_2_1_0_0 = (Keyword)cGroup_2_1_0.eContents().get(0);
+		private final Assignment cBottomLightAssignment_2_1_0_1 = (Assignment)cGroup_2_1_0.eContents().get(1);
+		private final RuleCall cBottomLightRGBParserRuleCall_2_1_0_1_0 = (RuleCall)cBottomLightAssignment_2_1_0_1.eContents().get(0);
+		private final Keyword cOffKeyword_2_1_1 = (Keyword)cAlternatives_2_1.eContents().get(1);
+		
+		//Lights returns Lights:
+		//    {Lights} ('top_light:'
+		//    (('on'
+		//    (topLight = (RGB)))|
+		//    ('off')))
+		//    ('bottom_light:'
+		//    (('on'
+		//    (bottomLight = (RGB)))|
+		//    ('off')))
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{Lights} ('top_light:'
+		//(('on'
+		//(topLight = (RGB)))|
+		//('off')))
+		//('bottom_light:'
+		//(('on'
+		//(bottomLight = (RGB)))|
+		//('off')))
+		public Group getGroup() { return cGroup; }
+		
+		//{Lights}
+		public Action getLightsAction_0() { return cLightsAction_0; }
 		
 		//('top_light:'
-		//(topLight = OnOff))
+		//   (('on'
+		//   (topLight = (RGB)))|
+		//   ('off')))
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//'top_light:'
 		public Keyword getTop_lightKeyword_1_0() { return cTop_lightKeyword_1_0; }
 		
-		//(topLight = OnOff)
-		public Assignment getTopLightAssignment_1_1() { return cTopLightAssignment_1_1; }
+		//(('on'
+		//(topLight = (RGB)))|
+		//('off'))
+		public Alternatives getAlternatives_1_1() { return cAlternatives_1_1; }
 		
-		//OnOff
-		public RuleCall getTopLightOnOffParserRuleCall_1_1_0() { return cTopLightOnOffParserRuleCall_1_1_0; }
+		//('on'
+		//    (topLight = (RGB)))
+		public Group getGroup_1_1_0() { return cGroup_1_1_0; }
+		
+		//'on'
+		public Keyword getOnKeyword_1_1_0_0() { return cOnKeyword_1_1_0_0; }
+		
+		//(topLight = (RGB))
+		public Assignment getTopLightAssignment_1_1_0_1() { return cTopLightAssignment_1_1_0_1; }
+		
+		//(RGB)
+		public RuleCall getTopLightRGBParserRuleCall_1_1_0_1_0() { return cTopLightRGBParserRuleCall_1_1_0_1_0; }
+		
+		//('off')
+		public Keyword getOffKeyword_1_1_1() { return cOffKeyword_1_1_1; }
 		
 		//('bottom_light:'
-		//(bottomLight = OnOff))
+		//(('on'
+		//(bottomLight = (RGB)))|
+		//('off')))
 		public Group getGroup_2() { return cGroup_2; }
 		
 		//'bottom_light:'
 		public Keyword getBottom_lightKeyword_2_0() { return cBottom_lightKeyword_2_0; }
 		
-		//(bottomLight = OnOff)
-		public Assignment getBottomLightAssignment_2_1() { return cBottomLightAssignment_2_1; }
+		//(('on'
+		//(bottomLight = (RGB)))|
+		//('off'))
+		public Alternatives getAlternatives_2_1() { return cAlternatives_2_1; }
 		
-		//OnOff
-		public RuleCall getBottomLightOnOffParserRuleCall_2_1_0() { return cBottomLightOnOffParserRuleCall_2_1_0; }
+		//('on'
+		//    (bottomLight = (RGB)))
+		public Group getGroup_2_1_0() { return cGroup_2_1_0; }
 		
-		//('sound:'
-		//(sound+= (Sound)))
-		public Group getGroup_3() { return cGroup_3; }
+		//'on'
+		public Keyword getOnKeyword_2_1_0_0() { return cOnKeyword_2_1_0_0; }
 		
-		//'sound:'
-		public Keyword getSoundKeyword_3_0() { return cSoundKeyword_3_0; }
+		//(bottomLight = (RGB))
+		public Assignment getBottomLightAssignment_2_1_0_1() { return cBottomLightAssignment_2_1_0_1; }
 		
-		//(sound+= (Sound))
-		public Assignment getSoundAssignment_3_1() { return cSoundAssignment_3_1; }
+		//(RGB)
+		public RuleCall getBottomLightRGBParserRuleCall_2_1_0_1_0() { return cBottomLightRGBParserRuleCall_2_1_0_1_0; }
 		
-		//(Sound)
-		public RuleCall getSoundSoundParserRuleCall_3_1_0() { return cSoundSoundParserRuleCall_3_1_0; }
+		//('off')
+		public Keyword getOffKeyword_2_1_1() { return cOffKeyword_2_1_1; }
 	}
-	public class MotorElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ld.project2.ThymioDSL.Motor");
+	public class RGBElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ld.project2.ThymioDSL.RGB");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cMotorsKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cLeftAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cLeftAdditionParserRuleCall_2_0 = (RuleCall)cLeftAssignment_2.eContents().get(0);
-		private final Keyword cRightKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cRightAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cRightAdditionParserRuleCall_4_0 = (RuleCall)cRightAssignment_4.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cRedAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cRedAdditionParserRuleCall_1_0 = (RuleCall)cRedAssignment_1.eContents().get(0);
+		private final Keyword cCommaKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cGreenAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cGreenAdditionParserRuleCall_3_0 = (RuleCall)cGreenAssignment_3.eContents().get(0);
+		private final Keyword cCommaKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cBlueAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cBlueAdditionParserRuleCall_5_0 = (RuleCall)cBlueAssignment_5.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
-		//Motor returns Motor:
-		//    'motors:'
-		//    'left:'
-		//    (left = Addition)
-		//    'right:'
-		//    (right = Addition)
+		//RGB returns RGB:
+		//    '('
+		//    (red = Addition)
+		//    ','
+		//    (green = Addition)
+		//    ','
+		//    (blue = Addition)
+		//    ')'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'motors:'
-		//'left:'
-		//(left = Addition)
-		//'right:'
-		//(right = Addition)
+		//'('
+		//(red = Addition)
+		//','
+		//(green = Addition)
+		//','
+		//(blue = Addition)
+		//')'
 		public Group getGroup() { return cGroup; }
 		
-		//'motors:'
-		public Keyword getMotorsKeyword_0() { return cMotorsKeyword_0; }
+		//'('
+		public Keyword getLeftParenthesisKeyword_0() { return cLeftParenthesisKeyword_0; }
 		
-		//'left:'
-		public Keyword getLeftKeyword_1() { return cLeftKeyword_1; }
-		
-		//(left = Addition)
-		public Assignment getLeftAssignment_2() { return cLeftAssignment_2; }
+		//(red = Addition)
+		public Assignment getRedAssignment_1() { return cRedAssignment_1; }
 		
 		//Addition
-		public RuleCall getLeftAdditionParserRuleCall_2_0() { return cLeftAdditionParserRuleCall_2_0; }
+		public RuleCall getRedAdditionParserRuleCall_1_0() { return cRedAdditionParserRuleCall_1_0; }
 		
-		//'right:'
-		public Keyword getRightKeyword_3() { return cRightKeyword_3; }
+		//','
+		public Keyword getCommaKeyword_2() { return cCommaKeyword_2; }
 		
-		//(right = Addition)
-		public Assignment getRightAssignment_4() { return cRightAssignment_4; }
+		//(green = Addition)
+		public Assignment getGreenAssignment_3() { return cGreenAssignment_3; }
 		
 		//Addition
-		public RuleCall getRightAdditionParserRuleCall_4_0() { return cRightAdditionParserRuleCall_4_0; }
+		public RuleCall getGreenAdditionParserRuleCall_3_0() { return cGreenAdditionParserRuleCall_3_0; }
+		
+		//','
+		public Keyword getCommaKeyword_4() { return cCommaKeyword_4; }
+		
+		//(blue = Addition)
+		public Assignment getBlueAssignment_5() { return cBlueAssignment_5; }
+		
+		//Addition
+		public RuleCall getBlueAdditionParserRuleCall_5_0() { return cBlueAdditionParserRuleCall_5_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_6() { return cRightParenthesisKeyword_6; }
 	}
 	public class SoundElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ld.project2.ThymioDSL.Sound");
@@ -525,65 +641,33 @@ public class ThymioDSLGrammarAccess extends AbstractElementFinder.AbstractGramma
 		private final RuleCall cPitchAdditionParserRuleCall_1_0 = (RuleCall)cPitchAssignment_1.eContents().get(0);
 		private final Assignment cDurationAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cDurationNoteDurationParserRuleCall_2_0 = (RuleCall)cDurationAssignment_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cNoteKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cPitchAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cPitchAdditionParserRuleCall_3_1_0 = (RuleCall)cPitchAssignment_3_1.eContents().get(0);
-		private final Assignment cDurationAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
-		private final RuleCall cDurationNoteDurationParserRuleCall_3_2_0 = (RuleCall)cDurationAssignment_3_2.eContents().get(0);
 		
 		//Sound returns Sound:
 		//    'note:'
-		//    (pitch+= Addition)
-		//    (duration+= NoteDuration)
-		//    ('note:'
-		//    pitch+= Addition
-		//    duration+= NoteDuration)*
+		//    (pitch = Addition)
+		//    (duration = NoteDuration)
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'note:'
-		//(pitch+= Addition)
-		//(duration+= NoteDuration)
-		//('note:'
-		//pitch+= Addition
-		//duration+= NoteDuration)*
+		//(pitch = Addition)
+		//(duration = NoteDuration)
 		public Group getGroup() { return cGroup; }
 		
 		//'note:'
 		public Keyword getNoteKeyword_0() { return cNoteKeyword_0; }
 		
-		//(pitch+= Addition)
+		//(pitch = Addition)
 		public Assignment getPitchAssignment_1() { return cPitchAssignment_1; }
 		
 		//Addition
 		public RuleCall getPitchAdditionParserRuleCall_1_0() { return cPitchAdditionParserRuleCall_1_0; }
 		
-		//(duration+= NoteDuration)
+		//(duration = NoteDuration)
 		public Assignment getDurationAssignment_2() { return cDurationAssignment_2; }
 		
 		//NoteDuration
 		public RuleCall getDurationNoteDurationParserRuleCall_2_0() { return cDurationNoteDurationParserRuleCall_2_0; }
-		
-		//('note:'
-		//pitch+= Addition
-		//duration+= NoteDuration)*
-		public Group getGroup_3() { return cGroup_3; }
-		
-		//'note:'
-		public Keyword getNoteKeyword_3_0() { return cNoteKeyword_3_0; }
-		
-		//pitch+= Addition
-		public Assignment getPitchAssignment_3_1() { return cPitchAssignment_3_1; }
-		
-		//Addition
-		public RuleCall getPitchAdditionParserRuleCall_3_1_0() { return cPitchAdditionParserRuleCall_3_1_0; }
-		
-		//duration+= NoteDuration
-		public Assignment getDurationAssignment_3_2() { return cDurationAssignment_3_2; }
-		
-		//NoteDuration
-		public RuleCall getDurationNoteDurationParserRuleCall_3_2_0() { return cDurationNoteDurationParserRuleCall_3_2_0; }
 	}
 	public class EIntElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ld.project2.ThymioDSL.EInt");
@@ -641,72 +725,6 @@ public class ThymioDSLGrammarAccess extends AbstractElementFinder.AbstractGramma
 		
 		//'false'
 		public Keyword getFalseKeyword_1() { return cFalseKeyword_1; }
-	}
-	public class OnOffElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ld.project2.ThymioDSL.OnOff");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
-		private final Keyword cOnKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
-		private final RuleCall cRGBParserRuleCall_0_1 = (RuleCall)cGroup_0.eContents().get(1);
-		private final Keyword cOffKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
-		
-		//OnOff returns ecore::EString:
-		//    'on' RGB | 'off';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'on' RGB | 'off'
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//'on' RGB
-		public Group getGroup_0() { return cGroup_0; }
-		
-		//'on'
-		public Keyword getOnKeyword_0_0() { return cOnKeyword_0_0; }
-		
-		//RGB
-		public RuleCall getRGBParserRuleCall_0_1() { return cRGBParserRuleCall_0_1; }
-		
-		//'off'
-		public Keyword getOffKeyword_1() { return cOffKeyword_1; }
-	}
-	public class RGBElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ld.project2.ThymioDSL.RGB");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cLeftParenthesisKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final RuleCall cEIntParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
-		private final Keyword cCommaKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final RuleCall cEIntParserRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
-		private final Keyword cCommaKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final RuleCall cEIntParserRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
-		private final Keyword cRightParenthesisKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		
-		//RGB returns ecore::EString:
-		//    '('EInt','EInt','EInt')';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'('EInt','EInt','EInt')'
-		public Group getGroup() { return cGroup; }
-		
-		//'('
-		public Keyword getLeftParenthesisKeyword_0() { return cLeftParenthesisKeyword_0; }
-		
-		//EInt
-		public RuleCall getEIntParserRuleCall_1() { return cEIntParserRuleCall_1; }
-		
-		//','
-		public Keyword getCommaKeyword_2() { return cCommaKeyword_2; }
-		
-		//EInt
-		public RuleCall getEIntParserRuleCall_3() { return cEIntParserRuleCall_3; }
-		
-		//','
-		public Keyword getCommaKeyword_4() { return cCommaKeyword_4; }
-		
-		//EInt
-		public RuleCall getEIntParserRuleCall_5() { return cEIntParserRuleCall_5; }
-		
-		//')'
-		public Keyword getRightParenthesisKeyword_6() { return cRightParenthesisKeyword_6; }
 	}
 	public class NoteDurationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ld.project2.ThymioDSL.NoteDuration");
@@ -777,53 +795,46 @@ public class ThymioDSLGrammarAccess extends AbstractElementFinder.AbstractGramma
 		//'white'
 		public Keyword getWhiteKeyword_1() { return cWhiteKeyword_1; }
 	}
-	public class SensorStatusElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ld.project2.ThymioDSL.SensorStatus");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Keyword cCoveredKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
-		private final Keyword cUncoveredKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
-		
-		//SensorStatus returns ecore::EString:
-		//    'covered' | 'uncovered';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'covered' | 'uncovered'
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//'covered'
-		public Keyword getCoveredKeyword_0() { return cCoveredKeyword_0; }
-		
-		//'uncovered'
-		public Keyword getUncoveredKeyword_1() { return cUncoveredKeyword_1; }
-	}
 	public class AdditionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ld.project2.ThymioDSL.Addition");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final RuleCall cMultiplicationParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final Action cAdditionLeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
-		private final Keyword cPlusSignKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final Assignment cOperatorAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final Alternatives cOperatorAlternatives_1_1_0 = (Alternatives)cOperatorAssignment_1_1.eContents().get(0);
+		private final Keyword cOperatorPlusSignKeyword_1_1_0_0 = (Keyword)cOperatorAlternatives_1_1_0.eContents().get(0);
+		private final Keyword cOperatorHyphenMinusKeyword_1_1_0_1 = (Keyword)cOperatorAlternatives_1_1_0.eContents().get(1);
 		private final Assignment cRightAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
 		private final RuleCall cRightMultiplicationParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
 		
 		//Addition returns Expression:
-		//  Multiplication ({Addition.left=current} '+' right=Multiplication)*;
+		//  Multiplication ({Addition.left=current} operator=('+'|'-') right=Multiplication)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Multiplication ({Addition.left=current} '+' right=Multiplication)*
+		//Multiplication ({Addition.left=current} operator=('+'|'-') right=Multiplication)*
 		public Group getGroup() { return cGroup; }
 		
 		//Multiplication
 		public RuleCall getMultiplicationParserRuleCall_0() { return cMultiplicationParserRuleCall_0; }
 		
-		//({Addition.left=current} '+' right=Multiplication)*
+		//({Addition.left=current} operator=('+'|'-') right=Multiplication)*
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//{Addition.left=current}
 		public Action getAdditionLeftAction_1_0() { return cAdditionLeftAction_1_0; }
 		
+		//operator=('+'|'-')
+		public Assignment getOperatorAssignment_1_1() { return cOperatorAssignment_1_1; }
+		
+		//('+'|'-')
+		public Alternatives getOperatorAlternatives_1_1_0() { return cOperatorAlternatives_1_1_0; }
+		
 		//'+'
-		public Keyword getPlusSignKeyword_1_1() { return cPlusSignKeyword_1_1; }
+		public Keyword getOperatorPlusSignKeyword_1_1_0_0() { return cOperatorPlusSignKeyword_1_1_0_0; }
+		
+		//'-'
+		public Keyword getOperatorHyphenMinusKeyword_1_1_0_1() { return cOperatorHyphenMinusKeyword_1_1_0_1; }
 		
 		//right=Multiplication
 		public Assignment getRightAssignment_1_2() { return cRightAssignment_1_2; }
@@ -837,28 +848,40 @@ public class ThymioDSLGrammarAccess extends AbstractElementFinder.AbstractGramma
 		private final RuleCall cNumberParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final Action cMultiplicationLeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
-		private final Keyword cAsteriskKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final Assignment cOperatorAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final Alternatives cOperatorAlternatives_1_1_0 = (Alternatives)cOperatorAssignment_1_1.eContents().get(0);
+		private final Keyword cOperatorAsteriskKeyword_1_1_0_0 = (Keyword)cOperatorAlternatives_1_1_0.eContents().get(0);
+		private final Keyword cOperatorSolidusKeyword_1_1_0_1 = (Keyword)cOperatorAlternatives_1_1_0.eContents().get(1);
 		private final Assignment cRightAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
 		private final RuleCall cRightNumberParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
 		
 		//Multiplication returns Expression:
-		//  Number ({Multiplication.left=current} '*' right=Number)*;
+		//  Number ({Multiplication.left=current} operator=('*'|'/') right=Number)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Number ({Multiplication.left=current} '*' right=Number)*
+		//Number ({Multiplication.left=current} operator=('*'|'/') right=Number)*
 		public Group getGroup() { return cGroup; }
 		
 		//Number
 		public RuleCall getNumberParserRuleCall_0() { return cNumberParserRuleCall_0; }
 		
-		//({Multiplication.left=current} '*' right=Number)*
+		//({Multiplication.left=current} operator=('*'|'/') right=Number)*
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//{Multiplication.left=current}
 		public Action getMultiplicationLeftAction_1_0() { return cMultiplicationLeftAction_1_0; }
 		
+		//operator=('*'|'/')
+		public Assignment getOperatorAssignment_1_1() { return cOperatorAssignment_1_1; }
+		
+		//('*'|'/')
+		public Alternatives getOperatorAlternatives_1_1_0() { return cOperatorAlternatives_1_1_0; }
+		
 		//'*'
-		public Keyword getAsteriskKeyword_1_1() { return cAsteriskKeyword_1_1; }
+		public Keyword getOperatorAsteriskKeyword_1_1_0_0() { return cOperatorAsteriskKeyword_1_1_0_0; }
+		
+		//'/'
+		public Keyword getOperatorSolidusKeyword_1_1_0_1() { return cOperatorSolidusKeyword_1_1_0_1; }
 		
 		//right=Number
 		public Assignment getRightAssignment_1_2() { return cRightAssignment_1_2; }
@@ -910,17 +933,16 @@ public class ThymioDSLGrammarAccess extends AbstractElementFinder.AbstractGramma
 	private final EventElements pEvent;
 	private final SensorElements pSensor;
 	private final ActionElements pAction;
-	private final MotorElements pMotor;
+	private final MotorsElements pMotors;
+	private final LightsElements pLights;
+	private final RGBElements pRGB;
 	private final SoundElements pSound;
 	private final EIntElements pEInt;
 	private final EStringElements pEString;
 	private final EBooleanElements pEBoolean;
-	private final OnOffElements pOnOff;
-	private final RGBElements pRGB;
 	private final NoteDurationElements pNoteDuration;
 	private final OrtogonalElements pOrtogonal;
 	private final BlackWhiteElements pBlackWhite;
-	private final SensorStatusElements pSensorStatus;
 	private final AdditionElements pAddition;
 	private final MultiplicationElements pMultiplication;
 	private final NumberElements pNumber;
@@ -939,17 +961,16 @@ public class ThymioDSLGrammarAccess extends AbstractElementFinder.AbstractGramma
 		this.pEvent = new EventElements();
 		this.pSensor = new SensorElements();
 		this.pAction = new ActionElements();
-		this.pMotor = new MotorElements();
+		this.pMotors = new MotorsElements();
+		this.pLights = new LightsElements();
+		this.pRGB = new RGBElements();
 		this.pSound = new SoundElements();
 		this.pEInt = new EIntElements();
 		this.pEString = new EStringElements();
 		this.pEBoolean = new EBooleanElements();
-		this.pOnOff = new OnOffElements();
-		this.pRGB = new RGBElements();
 		this.pNoteDuration = new NoteDurationElements();
 		this.pOrtogonal = new OrtogonalElements();
 		this.pBlackWhite = new BlackWhiteElements();
-		this.pSensorStatus = new SensorStatusElements();
 		this.pAddition = new AdditionElements();
 		this.pMultiplication = new MultiplicationElements();
 		this.pNumber = new NumberElements();
@@ -997,8 +1018,8 @@ public class ThymioDSLGrammarAccess extends AbstractElementFinder.AbstractGramma
 	//    'Procedure:'
 	//    name = EString
 	//    'Event:'
-	//    (events+=Event)
-	//    'Action:'
+	//    (events = Event)
+	//    'Actions:'
 	//    (actions+=Action)+
 	//;
 	public ProcedureElements getProcedureAccess() {
@@ -1010,7 +1031,7 @@ public class ThymioDSLGrammarAccess extends AbstractElementFinder.AbstractGramma
 	}
 	
 	//Event returns Event:
-	//    {Event} ('button_is_clicked:'
+	//    ('button_is_clicked:'
 	//    (button = Ortogonal))|
 	//    ('robot_is_tapped:'
 	//    (tap = EBoolean))|
@@ -1028,20 +1049,20 @@ public class ThymioDSLGrammarAccess extends AbstractElementFinder.AbstractGramma
 	}
 	
 	//Sensor returns Sensor:
-	//    {Sensor} ('back_left:'
+	//    ('back_left:'
 	//    (backLeftSensor = BlackWhite))|
 	//    ('back_right:'
 	//    (backRightSensor = BlackWhite))|
 	//    ('front_right:'
-	//    (frontRightSensor = SensorStatus))|
+	//    (frontRightSensor = EBoolean))|
 	//    ('front_center_right:'
-	//    (frontCenterRightSensor = SensorStatus))|
+	//    (frontCenterRightSensor = EBoolean))|
 	//    ('front_center:'
-	//    (frontCenterSensor = SensorStatus))|
+	//    (frontCenterSensor = EBoolean))|
 	//    ('front_center_left:'
-	//    (frontCenterLeftSensor = SensorStatus))|
+	//    (frontCenterLeftSensor = EBoolean))|
 	//    ('front_left:'
-	//    (frontLeftSensor = SensorStatus))
+	//    (frontLeftSensor = EBoolean))
 	//;
 	public SensorElements getSensorAccess() {
 		return pSensor;
@@ -1052,14 +1073,12 @@ public class ThymioDSLGrammarAccess extends AbstractElementFinder.AbstractGramma
 	}
 	
 	//Action returns Action:
-	//    {Action} ('move:'
-	//    (move = (Motor)))|
-	//    ('top_light:'
-	//    (topLight = OnOff))|
-	//    ('bottom_light:'
-	//    (bottomLight = OnOff))|
+	//    ('move:'
+	//    (move = (Motors)))|
+	//    ('lights:'
+	//    (light = (Lights)))|
 	//    ('sound:'
-	//    (sound+= (Sound)))
+	//    (sound+= (Sound)+))
 	//;
 	public ActionElements getActionAccess() {
 		return pAction;
@@ -1069,28 +1088,59 @@ public class ThymioDSLGrammarAccess extends AbstractElementFinder.AbstractGramma
 		return getActionAccess().getRule();
 	}
 	
-	//Motor returns Motor:
-	//    'motors:'
-	//    'left:'
+	//Motors returns Motors:
+	//    'left_motor:'
 	//    (left = Addition)
-	//    'right:'
+	//    'right_motor:'
 	//    (right = Addition)
 	//;
-	public MotorElements getMotorAccess() {
-		return pMotor;
+	public MotorsElements getMotorsAccess() {
+		return pMotors;
 	}
 	
-	public ParserRule getMotorRule() {
-		return getMotorAccess().getRule();
+	public ParserRule getMotorsRule() {
+		return getMotorsAccess().getRule();
+	}
+	
+	//Lights returns Lights:
+	//    {Lights} ('top_light:'
+	//    (('on'
+	//    (topLight = (RGB)))|
+	//    ('off')))
+	//    ('bottom_light:'
+	//    (('on'
+	//    (bottomLight = (RGB)))|
+	//    ('off')))
+	//;
+	public LightsElements getLightsAccess() {
+		return pLights;
+	}
+	
+	public ParserRule getLightsRule() {
+		return getLightsAccess().getRule();
+	}
+	
+	//RGB returns RGB:
+	//    '('
+	//    (red = Addition)
+	//    ','
+	//    (green = Addition)
+	//    ','
+	//    (blue = Addition)
+	//    ')'
+	//;
+	public RGBElements getRGBAccess() {
+		return pRGB;
+	}
+	
+	public ParserRule getRGBRule() {
+		return getRGBAccess().getRule();
 	}
 	
 	//Sound returns Sound:
 	//    'note:'
-	//    (pitch+= Addition)
-	//    (duration+= NoteDuration)
-	//    ('note:'
-	//    pitch+= Addition
-	//    duration+= NoteDuration)*
+	//    (pitch = Addition)
+	//    (duration = NoteDuration)
 	//;
 	public SoundElements getSoundAccess() {
 		return pSound;
@@ -1130,26 +1180,6 @@ public class ThymioDSLGrammarAccess extends AbstractElementFinder.AbstractGramma
 		return getEBooleanAccess().getRule();
 	}
 	
-	//OnOff returns ecore::EString:
-	//    'on' RGB | 'off';
-	public OnOffElements getOnOffAccess() {
-		return pOnOff;
-	}
-	
-	public ParserRule getOnOffRule() {
-		return getOnOffAccess().getRule();
-	}
-	
-	//RGB returns ecore::EString:
-	//    '('EInt','EInt','EInt')';
-	public RGBElements getRGBAccess() {
-		return pRGB;
-	}
-	
-	public ParserRule getRGBRule() {
-		return getRGBAccess().getRule();
-	}
-	
 	//NoteDuration returns ecore::EString:
 	//    'short' | 'long';
 	public NoteDurationElements getNoteDurationAccess() {
@@ -1180,18 +1210,8 @@ public class ThymioDSLGrammarAccess extends AbstractElementFinder.AbstractGramma
 		return getBlackWhiteAccess().getRule();
 	}
 	
-	//SensorStatus returns ecore::EString:
-	//    'covered' | 'uncovered';
-	public SensorStatusElements getSensorStatusAccess() {
-		return pSensorStatus;
-	}
-	
-	public ParserRule getSensorStatusRule() {
-		return getSensorStatusAccess().getRule();
-	}
-	
 	//Addition returns Expression:
-	//  Multiplication ({Addition.left=current} '+' right=Multiplication)*;
+	//  Multiplication ({Addition.left=current} operator=('+'|'-') right=Multiplication)*;
 	public AdditionElements getAdditionAccess() {
 		return pAddition;
 	}
@@ -1201,7 +1221,7 @@ public class ThymioDSLGrammarAccess extends AbstractElementFinder.AbstractGramma
 	}
 	
 	//Multiplication returns Expression:
-	//  Number ({Multiplication.left=current} '*' right=Number)*;
+	//  Number ({Multiplication.left=current} operator=('*'|'/') right=Number)*;
 	public MultiplicationElements getMultiplicationAccess() {
 		return pMultiplication;
 	}

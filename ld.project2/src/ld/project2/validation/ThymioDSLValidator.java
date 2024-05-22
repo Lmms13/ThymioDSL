@@ -3,6 +3,20 @@
  */
 package ld.project2.validation;
 
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.xtext.validation.Check;
+import org.eclipse.xtext.validation.CheckType;
+
+import ld.project2.thymioDSL.Action;
+import ld.project2.thymioDSL.Addition;
+import ld.project2.thymioDSL.Expression;
+import ld.project2.thymioDSL.Lights;
+import ld.project2.thymioDSL.Model;
+import ld.project2.thymioDSL.Motors;
+import ld.project2.thymioDSL.Multiplication;
+import ld.project2.thymioDSL.Procedure;
+import ld.project2.thymioDSL.Sound;
+import ld.project2.thymioDSL.ThymioDSLPackage;
 
 /**
  * This class contains custom validation rules. 
@@ -11,15 +25,175 @@ package ld.project2.validation;
  */
 public class ThymioDSLValidator extends AbstractThymioDSLValidator {
 	
-//	public static final String INVALID_NAME = "invalidName";
-//
-//	@Check
-//	public void checkGreetingStartsWithCapital(Greeting greeting) {
-//		if (!Character.isUpperCase(greeting.getName().charAt(0))) {
-//			warning("Name should start with a capital",
-//					ThymioDSLPackage.Literals.GREETING__NAME,
-//					INVALID_NAME);
-//		}
-//	}
+	private int evaluateExpression(Expression e) {
+		if(e instanceof Addition) {
+			Addition a = (Addition) e;
+			if(a.getOperator().equals("+")) {
+				return evaluateExpression(a.getLeft()) + evaluateExpression(a.getRight());
+			}
+			else {
+				return evaluateExpression(a.getLeft()) - evaluateExpression(a.getRight());				
+			}
+		}
+		else if(e instanceof Multiplication) {
+			Multiplication m = (Multiplication) e;
+			if(m.getOperator().equals("*")) {
+				return evaluateExpression(m.getLeft()) * evaluateExpression(m.getRight());
+			}
+			else {
+				return (int) (evaluateExpression(m.getLeft()) / evaluateExpression(m.getRight()));				
+			}
+		}
+		else {
+			return e.getValue();
+		}
+	}
+	
+	public static final String INVALID_RGB = "invalidRGB";
+
+	@Check(CheckType.NORMAL)
+	public void checkRGB(Action action) {
+		if(action.getLight() != null) {
+			Lights lights = action.getLight();
+			if(lights.getTopLight() != null) {
+				int r = evaluateExpression(lights.getTopLight().getRed());
+				if(r < 0 || r > 255)
+					error("red must be between 0 and 255"
+							, action.getLight()
+							, ThymioDSLPackage.eINSTANCE.getLights_TopLight()
+							, INVALID_RGB);
+				int g = evaluateExpression(lights.getTopLight().getGreen());
+				if(g < 0 || g > 255)
+					error("green must be between 0 and 255"
+							, action.getLight()
+							, ThymioDSLPackage.eINSTANCE.getLights_TopLight()
+							, INVALID_RGB);
+				int b = evaluateExpression(lights.getTopLight().getBlue());
+				if(b < 0 || b > 255)
+					error("blue must be between 0 and 255"
+							, action.getLight()
+							, ThymioDSLPackage.eINSTANCE.getLights_TopLight()
+							, INVALID_RGB);
+			}
+			else if(lights.getBottomLight() != null) {
+				int r = evaluateExpression(lights.getBottomLight().getRed());
+				if(r < 0 || r > 255)
+					error("red must be between 0 and 255"
+							, action.getLight()
+							, ThymioDSLPackage.eINSTANCE.getLights_BottomLight()
+							, INVALID_RGB);
+				int g = evaluateExpression(lights.getBottomLight().getGreen());
+				if(g < 0 || g > 255)
+					error("green must be between 0 and 255"
+							, action.getLight()
+							, ThymioDSLPackage.eINSTANCE.getLights_BottomLight()
+							, INVALID_RGB);
+				int b = evaluateExpression(lights.getBottomLight().getBlue());
+				if(b < 0 || b > 255)
+					error("blue must be between 0 and 255"
+							, action.getLight()
+							, ThymioDSLPackage.eINSTANCE.getLights_BottomLight()
+							, INVALID_RGB);
+			}
+		}
+	}
+	
+	public static final String INVALID_MOTORS = "invalidMotors";
+	
+	@Check(CheckType.NORMAL)
+	public void checkMotors(Action action) {
+		if(action.getMove() != null) {
+			Motors motors = action.getMove();
+			if(motors.getLeft() != null) {
+				int left = evaluateExpression(motors.getLeft());
+				if(left < -500 || left > 500)
+					error("motor values must be between -500 and 500"
+							, action.getMove()
+							, ThymioDSLPackage.eINSTANCE.getMotors_Left()
+							, INVALID_MOTORS);
+			}
+			else if(motors.getRight() != null) {
+				int right = evaluateExpression(motors.getRight());
+				if(right < -500 || right > 500)
+					error("motor values must be between -500 and 500"
+							, action.getMove()
+							, ThymioDSLPackage.eINSTANCE.getMotors_Right()
+							, INVALID_MOTORS);
+			}
+		}
+	}
+	
+	private boolean duplicateActions(Action a1, Action a2) {
+		if(a1.getLight() != null && a2.getLight() != null) {
+			return true;
+		}
+		else if(a1.getMove() != null && a2.getMove() != null) {
+			return true;
+		}
+		else if(!a1.getSound().isEmpty() && !a2.getSound().isEmpty()) {
+			return true;
+		}
+		return false;
+	}
+	
+	public static final String DUPLICATE_ACTIONS = "duplicateActions";
+	
+	@Check(CheckType.NORMAL)
+	public void checkDuplicateActions(Procedure procedure) {
+		EList<Action> actions = procedure.getActions();
+		for(int i = 0; i < actions.size(); i++) {
+			for(int j = 0; j < actions.size(); j++) {
+				if(i != j) {
+					if(duplicateActions(actions.get(i), actions.get(j)))
+							error("one event can't trigger the same action more than once"
+									, actions.get(j)
+									, ThymioDSLPackage.eINSTANCE.getAction().getEReferences().get(ThymioDSLPackage.eINSTANCE.getAction().getEReferences().size() - 1)
+									, DUPLICATE_ACTIONS);
+				}
+			}
+		}
+	}
+	
+	public static final String NOTE_LIMIT_REACHED = "noteLimitReached";
+	
+	@Check(CheckType.NORMAL)
+	public void checkNoteLimit(Action action) {
+		if(action.getSound().size() > 6)
+			error("the maximum number of notes is 6"
+					, action
+					, ThymioDSLPackage.eINSTANCE.getAction_Sound()
+					, NOTE_LIMIT_REACHED);
+	}
+	
+	public static final String INVALID_PITCH = "invalidPitch";
+	
+	@Check(CheckType.NORMAL)
+	public void checkPitch(Action action) {
+		if(!action.getSound().isEmpty()) {
+			for(Sound s: action.getSound()) {
+				int pitch = evaluateExpression(s.getPitch());
+				if(pitch < 0 || pitch > 524)
+					error("pitch values must be between 0 and 524"
+					, s
+					, ThymioDSLPackage.eINSTANCE.getSound_Pitch()
+					, INVALID_PITCH);
+			}
+		}
+	}
+	
+	public static final String DUPLICATE_PROCEDURE = "duplicateProcedure";
+	
+	@Check(CheckType.NORMAL)
+	public void checkDuplicateProcedure(Model model) {
+		for(Procedure p1: model.getProcedures()) {
+			for(Procedure p2: model.getProcedures()) {
+				if(!p1.equals(p2) && p1.getName().equals(p2.getName()))
+					error("different procedures can't have the same name"
+							, model
+							,ThymioDSLPackage.eINSTANCE.getModel_Procedures()
+							, DUPLICATE_PROCEDURE);
+			}
+		}
+	}
 	
 }

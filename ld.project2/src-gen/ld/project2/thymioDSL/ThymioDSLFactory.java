@@ -69,13 +69,31 @@ public interface ThymioDSLFactory extends EFactory
   Action createAction();
 
   /**
-   * Returns a new object of class '<em>Motor</em>'.
+   * Returns a new object of class '<em>Motors</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Motor</em>'.
+   * @return a new object of class '<em>Motors</em>'.
    * @generated
    */
-  Motor createMotor();
+  Motors createMotors();
+
+  /**
+   * Returns a new object of class '<em>Lights</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Lights</em>'.
+   * @generated
+   */
+  Lights createLights();
+
+  /**
+   * Returns a new object of class '<em>RGB</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>RGB</em>'.
+   * @generated
+   */
+  RGB createRGB();
 
   /**
    * Returns a new object of class '<em>Sound</em>'.

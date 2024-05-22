@@ -12,13 +12,13 @@ Procedure returns Procedure:
 	'Procedure:'
 	name = EString
 	'Event:'
-	(events+=Event)
+	(events = Event)
 	'Actions:'
 	(actions+=Action)+
 ;
 
 Event returns Event:
-	{Event} ('button_is_clicked:'
+	('button_is_clicked:'
 	(button = Ortogonal))|
 	('robot_is_tapped:'
 	(tap = EBoolean))|
@@ -29,49 +29,63 @@ Event returns Event:
 ;
 
 Sensor returns Sensor:
-	{Sensor} ('back_left:'
+	('back_left:'
 	(backLeftSensor = BlackWhite))|
 	('back_right:'
 	(backRightSensor = BlackWhite))|
 	('front_right:'
-	(frontRightSensor = SensorStatus))|
+	(frontRightSensor = EBoolean))|
 	('front_center_right:'
-	(frontCenterRightSensor = SensorStatus))|
+	(frontCenterRightSensor = EBoolean))|
 	('front_center:'
-	(frontCenterSensor = SensorStatus))|
+	(frontCenterSensor = EBoolean))|
 	('front_center_left:'
-	(frontCenterLeftSensor = SensorStatus))|
+	(frontCenterLeftSensor = EBoolean))|
 	('front_left:'
-	(frontLeftSensor = SensorStatus))
+	(frontLeftSensor = EBoolean))
 ;
-
 
 Action returns Action:
-	{Action} ('move:'
-	(move = (Motor)))|
-	('top_light:'
-	(topLight = OnOff))|
-	('bottom_light:'
-	(bottomLight = OnOff))|
+	('move:'
+	(move = (Motors)))|
+	('lights:'
+	(light = (Lights)))|
 	('sound:'
-	(sound+= (Sound)))
+	(sound+= (Sound)+))
 ;
 
-Motor returns Motor:
-	'motors:'
-	'left:'
+Motors returns Motors:
+	'left_motor:'
 	(left = Addition)
-	'right:'
+	'right_motor:'
 	(right = Addition)
+;
+
+Lights returns Lights:
+	{Lights} ('top_light:'
+	(('on'
+	(topLight = (RGB)))|
+	('off')))
+	('bottom_light:'
+	(('on'
+	(bottomLight = (RGB)))|
+	('off')))
+;
+
+RGB returns RGB:
+	'('
+	(red = Addition)
+	','
+	(green = Addition)
+	','
+	(blue = Addition)
+	')'
 ;
 
 Sound returns Sound:
 	'note:'
-	(pitch+= Addition)
-	(duration+= NoteDuration)
-	('note:'
-	pitch+= Addition
-	duration+= NoteDuration)*
+	(pitch = Addition)
+	(duration = NoteDuration)
 ;
 
 EInt returns ecore::EInt:
@@ -83,12 +97,6 @@ EString returns ecore::EString:
 EBoolean returns ecore::EBoolean:
 	'true' | 'false';
 	
-OnOff returns ecore::EString:
-	'on' RGB | 'off';
-	
-RGB returns ecore::EString:
-	'('EInt','EInt','EInt')';
-	
 NoteDuration returns ecore::EString:
 	'short' | 'long';
 
@@ -98,14 +106,11 @@ Ortogonal returns ecore::EString:
 BlackWhite returns ecore::EString:
 	'black' | 'white';
 	
-SensorStatus returns ecore::EString:
-	'covered' | 'uncovered';
-	
 Addition returns Expression:
-  Multiplication ({Addition.left=current} '+' right=Multiplication)*;
+  Multiplication ({Addition.left=current} operator=('+'|'-') right=Multiplication)*;
 
 Multiplication returns Expression:
-  Number ({Multiplication.left=current} '*' right=Number)*;
+  Number ({Multiplication.left=current} operator=('*'|'/') right=Number)*;
 
 Number returns Expression:
   value = EInt |

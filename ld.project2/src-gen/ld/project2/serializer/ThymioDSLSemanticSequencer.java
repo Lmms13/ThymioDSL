@@ -9,10 +9,12 @@ import ld.project2.services.ThymioDSLGrammarAccess;
 import ld.project2.thymioDSL.Addition;
 import ld.project2.thymioDSL.Event;
 import ld.project2.thymioDSL.Expression;
+import ld.project2.thymioDSL.Lights;
 import ld.project2.thymioDSL.Model;
-import ld.project2.thymioDSL.Motor;
+import ld.project2.thymioDSL.Motors;
 import ld.project2.thymioDSL.Multiplication;
 import ld.project2.thymioDSL.Procedure;
+import ld.project2.thymioDSL.RGB;
 import ld.project2.thymioDSL.Sensor;
 import ld.project2.thymioDSL.Sound;
 import ld.project2.thymioDSL.ThymioDSLPackage;
@@ -52,17 +54,23 @@ public class ThymioDSLSemanticSequencer extends AbstractDelegatingSemanticSequen
 			case ThymioDSLPackage.EXPRESSION:
 				sequence_Number(context, (Expression) semanticObject); 
 				return; 
+			case ThymioDSLPackage.LIGHTS:
+				sequence_Lights(context, (Lights) semanticObject); 
+				return; 
 			case ThymioDSLPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
 				return; 
-			case ThymioDSLPackage.MOTOR:
-				sequence_Motor(context, (Motor) semanticObject); 
+			case ThymioDSLPackage.MOTORS:
+				sequence_Motors(context, (Motors) semanticObject); 
 				return; 
 			case ThymioDSLPackage.MULTIPLICATION:
 				sequence_Multiplication(context, (Multiplication) semanticObject); 
 				return; 
 			case ThymioDSLPackage.PROCEDURE:
 				sequence_Procedure(context, (Procedure) semanticObject); 
+				return; 
+			case ThymioDSLPackage.RGB:
+				sequence_RGB(context, (RGB) semanticObject); 
 				return; 
 			case ThymioDSLPackage.SENSOR:
 				sequence_Sensor(context, (Sensor) semanticObject); 
@@ -81,7 +89,7 @@ public class ThymioDSLSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Action returns Action
 	 *
 	 * Constraint:
-	 *     (move=Motor | topLight=OnOff | bottomLight=OnOff | sound+=Sound)
+	 *     (move=Motors | light=Lights | sound+=Sound+)
 	 * </pre>
 	 */
 	protected void sequence_Action(ISerializationContext context, ld.project2.thymioDSL.Action semanticObject) {
@@ -99,20 +107,11 @@ public class ThymioDSLSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Number returns Addition
 	 *
 	 * Constraint:
-	 *     (left=Addition_Addition_1_0 right=Multiplication)
+	 *     (left=Addition_Addition_1_0 (operator='+' | operator='-') right=Multiplication)
 	 * </pre>
 	 */
 	protected void sequence_Addition(ISerializationContext context, Addition semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, ThymioDSLPackage.Literals.EXPRESSION__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ThymioDSLPackage.Literals.EXPRESSION__LEFT));
-			if (transientValues.isValueTransient(semanticObject, ThymioDSLPackage.Literals.EXPRESSION__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ThymioDSLPackage.Literals.EXPRESSION__RIGHT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAdditionAccess().getAdditionLeftAction_1_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getAdditionAccess().getRightMultiplicationParserRuleCall_1_2_0(), semanticObject.getRight());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -126,6 +125,20 @@ public class ThymioDSLSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 * </pre>
 	 */
 	protected void sequence_Event(ISerializationContext context, Event semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Lights returns Lights
+	 *
+	 * Constraint:
+	 *     (topLight=RGB? bottomLight=RGB?)
+	 * </pre>
+	 */
+	protected void sequence_Lights(ISerializationContext context, Lights semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -147,22 +160,22 @@ public class ThymioDSLSemanticSequencer extends AbstractDelegatingSemanticSequen
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Motor returns Motor
+	 *     Motors returns Motors
 	 *
 	 * Constraint:
 	 *     (left=Addition right=Addition)
 	 * </pre>
 	 */
-	protected void sequence_Motor(ISerializationContext context, Motor semanticObject) {
+	protected void sequence_Motors(ISerializationContext context, Motors semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, ThymioDSLPackage.Literals.MOTOR__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ThymioDSLPackage.Literals.MOTOR__LEFT));
-			if (transientValues.isValueTransient(semanticObject, ThymioDSLPackage.Literals.MOTOR__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ThymioDSLPackage.Literals.MOTOR__RIGHT));
+			if (transientValues.isValueTransient(semanticObject, ThymioDSLPackage.Literals.MOTORS__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ThymioDSLPackage.Literals.MOTORS__LEFT));
+			if (transientValues.isValueTransient(semanticObject, ThymioDSLPackage.Literals.MOTORS__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ThymioDSLPackage.Literals.MOTORS__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getMotorAccess().getLeftAdditionParserRuleCall_2_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getMotorAccess().getRightAdditionParserRuleCall_4_0(), semanticObject.getRight());
+		feeder.accept(grammarAccess.getMotorsAccess().getLeftAdditionParserRuleCall_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getMotorsAccess().getRightAdditionParserRuleCall_3_0(), semanticObject.getRight());
 		feeder.finish();
 	}
 	
@@ -177,20 +190,11 @@ public class ThymioDSLSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Number returns Multiplication
 	 *
 	 * Constraint:
-	 *     (left=Multiplication_Multiplication_1_0 right=Number)
+	 *     (left=Multiplication_Multiplication_1_0 (operator='*' | operator='/') right=Number)
 	 * </pre>
 	 */
 	protected void sequence_Multiplication(ISerializationContext context, Multiplication semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, ThymioDSLPackage.Literals.EXPRESSION__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ThymioDSLPackage.Literals.EXPRESSION__LEFT));
-			if (transientValues.isValueTransient(semanticObject, ThymioDSLPackage.Literals.EXPRESSION__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ThymioDSLPackage.Literals.EXPRESSION__RIGHT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getMultiplicationAccess().getMultiplicationLeftAction_1_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getMultiplicationAccess().getRightNumberParserRuleCall_1_2_0(), semanticObject.getRight());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -224,11 +228,37 @@ public class ThymioDSLSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Procedure returns Procedure
 	 *
 	 * Constraint:
-	 *     (name=EString events+=Event actions+=Action+)
+	 *     (name=EString events=Event actions+=Action+)
 	 * </pre>
 	 */
 	protected void sequence_Procedure(ISerializationContext context, Procedure semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     RGB returns RGB
+	 *
+	 * Constraint:
+	 *     (red=Addition green=Addition blue=Addition)
+	 * </pre>
+	 */
+	protected void sequence_RGB(ISerializationContext context, RGB semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, ThymioDSLPackage.Literals.RGB__RED) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ThymioDSLPackage.Literals.RGB__RED));
+			if (transientValues.isValueTransient(semanticObject, ThymioDSLPackage.Literals.RGB__GREEN) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ThymioDSLPackage.Literals.RGB__GREEN));
+			if (transientValues.isValueTransient(semanticObject, ThymioDSLPackage.Literals.RGB__BLUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ThymioDSLPackage.Literals.RGB__BLUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getRGBAccess().getRedAdditionParserRuleCall_1_0(), semanticObject.getRed());
+		feeder.accept(grammarAccess.getRGBAccess().getGreenAdditionParserRuleCall_3_0(), semanticObject.getGreen());
+		feeder.accept(grammarAccess.getRGBAccess().getBlueAdditionParserRuleCall_5_0(), semanticObject.getBlue());
+		feeder.finish();
 	}
 	
 	
@@ -241,11 +271,11 @@ public class ThymioDSLSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     (
 	 *         backLeftSensor=BlackWhite | 
 	 *         backRightSensor=BlackWhite | 
-	 *         frontRightSensor=SensorStatus | 
-	 *         frontCenterRightSensor=SensorStatus | 
-	 *         frontCenterSensor=SensorStatus | 
-	 *         frontCenterLeftSensor=SensorStatus | 
-	 *         frontLeftSensor=SensorStatus
+	 *         frontRightSensor=EBoolean | 
+	 *         frontCenterRightSensor=EBoolean | 
+	 *         frontCenterSensor=EBoolean | 
+	 *         frontCenterLeftSensor=EBoolean | 
+	 *         frontLeftSensor=EBoolean
 	 *     )
 	 * </pre>
 	 */
@@ -260,11 +290,20 @@ public class ThymioDSLSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Sound returns Sound
 	 *
 	 * Constraint:
-	 *     (pitch+=Addition duration+=NoteDuration (pitch+=Addition duration+=NoteDuration)*)
+	 *     (pitch=Addition duration=NoteDuration)
 	 * </pre>
 	 */
 	protected void sequence_Sound(ISerializationContext context, Sound semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, ThymioDSLPackage.Literals.SOUND__PITCH) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ThymioDSLPackage.Literals.SOUND__PITCH));
+			if (transientValues.isValueTransient(semanticObject, ThymioDSLPackage.Literals.SOUND__DURATION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ThymioDSLPackage.Literals.SOUND__DURATION));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSoundAccess().getPitchAdditionParserRuleCall_1_0(), semanticObject.getPitch());
+		feeder.accept(grammarAccess.getSoundAccess().getDurationNoteDurationParserRuleCall_2_0(), semanticObject.getDuration());
+		feeder.finish();
 	}
 	
 	

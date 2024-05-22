@@ -7,22 +7,22 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Motor</b></em>'.
+ * A representation of the model object '<em><b>Motors</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ld.project2.thymioDSL.Motor#getLeft <em>Left</em>}</li>
- *   <li>{@link ld.project2.thymioDSL.Motor#getRight <em>Right</em>}</li>
+ *   <li>{@link ld.project2.thymioDSL.Motors#getLeft <em>Left</em>}</li>
+ *   <li>{@link ld.project2.thymioDSL.Motors#getRight <em>Right</em>}</li>
  * </ul>
  *
- * @see ld.project2.thymioDSL.ThymioDSLPackage#getMotor()
+ * @see ld.project2.thymioDSL.ThymioDSLPackage#getMotors()
  * @model
  * @generated
  */
-public interface Motor extends EObject
+public interface Motors extends EObject
 {
   /**
    * Returns the value of the '<em><b>Left</b></em>' containment reference.
@@ -30,14 +30,14 @@ public interface Motor extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Left</em>' containment reference.
    * @see #setLeft(Expression)
-   * @see ld.project2.thymioDSL.ThymioDSLPackage#getMotor_Left()
+   * @see ld.project2.thymioDSL.ThymioDSLPackage#getMotors_Left()
    * @model containment="true"
    * @generated
    */
   Expression getLeft();
 
   /**
-   * Sets the value of the '{@link ld.project2.thymioDSL.Motor#getLeft <em>Left</em>}' containment reference.
+   * Sets the value of the '{@link ld.project2.thymioDSL.Motors#getLeft <em>Left</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Left</em>' containment reference.
@@ -52,14 +52,14 @@ public interface Motor extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Right</em>' containment reference.
    * @see #setRight(Expression)
-   * @see ld.project2.thymioDSL.ThymioDSLPackage#getMotor_Right()
+   * @see ld.project2.thymioDSL.ThymioDSLPackage#getMotors_Right()
    * @model containment="true"
    * @generated
    */
   Expression getRight();
 
   /**
-   * Sets the value of the '{@link ld.project2.thymioDSL.Motor#getRight <em>Right</em>}' containment reference.
+   * Sets the value of the '{@link ld.project2.thymioDSL.Motors#getRight <em>Right</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Right</em>' containment reference.
@@ -68,4 +68,4 @@ public interface Motor extends EObject
    */
   void setRight(Expression value);
 
-} // Motor
+} // Motors

@@ -108,10 +108,24 @@ public class ThymioDSLSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case ThymioDSLPackage.MOTOR:
+      case ThymioDSLPackage.MOTORS:
       {
-        Motor motor = (Motor)theEObject;
-        T result = caseMotor(motor);
+        Motors motors = (Motors)theEObject;
+        T result = caseMotors(motors);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ThymioDSLPackage.LIGHTS:
+      {
+        Lights lights = (Lights)theEObject;
+        T result = caseLights(lights);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ThymioDSLPackage.RGB:
+      {
+        RGB rgb = (RGB)theEObject;
+        T result = caseRGB(rgb);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -230,17 +244,49 @@ public class ThymioDSLSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Motor</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Motors</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Motor</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Motors</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseMotor(Motor object)
+  public T caseMotors(Motors object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Lights</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Lights</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLights(Lights object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>RGB</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>RGB</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRGB(RGB object)
   {
     return null;
   }
