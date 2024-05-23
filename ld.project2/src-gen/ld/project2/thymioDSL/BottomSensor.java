@@ -25,47 +25,47 @@ import org.eclipse.emf.ecore.EObject;
 public interface BottomSensor extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Bottom Left Sensor</b></em>' attribute.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Bottom Left Sensor</b></em>' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Bottom Left Sensor</em>' attribute.
-   * @see #setBottomLeftSensor(String)
-   * @see ld.project2.thymioDSL.ThymioDSLPackage#getBottomSensor_BottomLeftSensor()
-   * @model
-   * @generated
-   */
+	 * @return the value of the '<em>Bottom Left Sensor</em>' attribute.
+	 * @see #setBottomLeftSensor(String)
+	 * @see ld.project2.thymioDSL.ThymioDSLPackage#getBottomSensor_BottomLeftSensor()
+	 * @model
+	 * @generated
+	 */
   String getBottomLeftSensor();
 
   /**
-   * Sets the value of the '{@link ld.project2.thymioDSL.BottomSensor#getBottomLeftSensor <em>Bottom Left Sensor</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link ld.project2.thymioDSL.BottomSensor#getBottomLeftSensor <em>Bottom Left Sensor</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Bottom Left Sensor</em>' attribute.
-   * @see #getBottomLeftSensor()
-   * @generated
-   */
+	 * @param value the new value of the '<em>Bottom Left Sensor</em>' attribute.
+	 * @see #getBottomLeftSensor()
+	 * @generated
+	 */
   void setBottomLeftSensor(String value);
 
   /**
-   * Returns the value of the '<em><b>Bottom Right Sensor</b></em>' attribute.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Bottom Right Sensor</b></em>' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Bottom Right Sensor</em>' attribute.
-   * @see #setBottomRightSensor(String)
-   * @see ld.project2.thymioDSL.ThymioDSLPackage#getBottomSensor_BottomRightSensor()
-   * @model
-   * @generated
-   */
+	 * @return the value of the '<em>Bottom Right Sensor</em>' attribute.
+	 * @see #setBottomRightSensor(String)
+	 * @see ld.project2.thymioDSL.ThymioDSLPackage#getBottomSensor_BottomRightSensor()
+	 * @model
+	 * @generated
+	 */
   String getBottomRightSensor();
 
   /**
-   * Sets the value of the '{@link ld.project2.thymioDSL.BottomSensor#getBottomRightSensor <em>Bottom Right Sensor</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link ld.project2.thymioDSL.BottomSensor#getBottomRightSensor <em>Bottom Right Sensor</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Bottom Right Sensor</em>' attribute.
-   * @see #getBottomRightSensor()
-   * @generated
-   */
+	 * @param value the new value of the '<em>Bottom Right Sensor</em>' attribute.
+	 * @see #getBottomRightSensor()
+	 * @generated
+	 */
   void setBottomRightSensor(String value);
 
 } // BottomSensor

@@ -33,238 +33,229 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class LightsImpl extends MinimalEObjectImpl.Container implements Lights
 {
   /**
-   * The cached value of the '{@link #getTopLight() <em>Top Light</em>}' containment reference.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getTopLight() <em>Top Light</em>}' containment reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTopLight()
-   * @generated
-   * @ordered
-   */
+	 * @see #getTopLight()
+	 * @generated
+	 * @ordered
+	 */
   protected RGB topLight;
 
   /**
-   * The cached value of the '{@link #getBottomLight() <em>Bottom Light</em>}' containment reference.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getBottomLight() <em>Bottom Light</em>}' containment reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getBottomLight()
-   * @generated
-   * @ordered
-   */
+	 * @see #getBottomLight()
+	 * @generated
+	 * @ordered
+	 */
   protected RGB bottomLight;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected LightsImpl()
   {
-    super();
-  }
+		super();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected EClass eStaticClass()
   {
-    return ThymioDSLPackage.Literals.LIGHTS;
-  }
+		return ThymioDSLPackage.Literals.LIGHTS;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public RGB getTopLight()
   {
-    return topLight;
-  }
+		return topLight;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public NotificationChain basicSetTopLight(RGB newTopLight, NotificationChain msgs)
   {
-    RGB oldTopLight = topLight;
-    topLight = newTopLight;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.LIGHTS__TOP_LIGHT, oldTopLight, newTopLight);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
+		RGB oldTopLight = topLight;
+		topLight = newTopLight;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.LIGHTS__TOP_LIGHT, oldTopLight, newTopLight);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void setTopLight(RGB newTopLight)
   {
-    if (newTopLight != topLight)
-    {
-      NotificationChain msgs = null;
-      if (topLight != null)
-        msgs = ((InternalEObject)topLight).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.LIGHTS__TOP_LIGHT, null, msgs);
-      if (newTopLight != null)
-        msgs = ((InternalEObject)newTopLight).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.LIGHTS__TOP_LIGHT, null, msgs);
-      msgs = basicSetTopLight(newTopLight, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.LIGHTS__TOP_LIGHT, newTopLight, newTopLight));
-  }
+		if (newTopLight != topLight) {
+			NotificationChain msgs = null;
+			if (topLight != null)
+				msgs = ((InternalEObject)topLight).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.LIGHTS__TOP_LIGHT, null, msgs);
+			if (newTopLight != null)
+				msgs = ((InternalEObject)newTopLight).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.LIGHTS__TOP_LIGHT, null, msgs);
+			msgs = basicSetTopLight(newTopLight, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.LIGHTS__TOP_LIGHT, newTopLight, newTopLight));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public RGB getBottomLight()
   {
-    return bottomLight;
-  }
+		return bottomLight;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public NotificationChain basicSetBottomLight(RGB newBottomLight, NotificationChain msgs)
   {
-    RGB oldBottomLight = bottomLight;
-    bottomLight = newBottomLight;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.LIGHTS__BOTTOM_LIGHT, oldBottomLight, newBottomLight);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
+		RGB oldBottomLight = bottomLight;
+		bottomLight = newBottomLight;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.LIGHTS__BOTTOM_LIGHT, oldBottomLight, newBottomLight);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void setBottomLight(RGB newBottomLight)
   {
-    if (newBottomLight != bottomLight)
-    {
-      NotificationChain msgs = null;
-      if (bottomLight != null)
-        msgs = ((InternalEObject)bottomLight).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.LIGHTS__BOTTOM_LIGHT, null, msgs);
-      if (newBottomLight != null)
-        msgs = ((InternalEObject)newBottomLight).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.LIGHTS__BOTTOM_LIGHT, null, msgs);
-      msgs = basicSetBottomLight(newBottomLight, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.LIGHTS__BOTTOM_LIGHT, newBottomLight, newBottomLight));
-  }
+		if (newBottomLight != bottomLight) {
+			NotificationChain msgs = null;
+			if (bottomLight != null)
+				msgs = ((InternalEObject)bottomLight).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.LIGHTS__BOTTOM_LIGHT, null, msgs);
+			if (newBottomLight != null)
+				msgs = ((InternalEObject)newBottomLight).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.LIGHTS__BOTTOM_LIGHT, null, msgs);
+			msgs = basicSetBottomLight(newBottomLight, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.LIGHTS__BOTTOM_LIGHT, newBottomLight, newBottomLight));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    switch (featureID)
-    {
-      case ThymioDSLPackage.LIGHTS__TOP_LIGHT:
-        return basicSetTopLight(null, msgs);
-      case ThymioDSLPackage.LIGHTS__BOTTOM_LIGHT:
-        return basicSetBottomLight(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
+		switch (featureID) {
+			case ThymioDSLPackage.LIGHTS__TOP_LIGHT:
+				return basicSetTopLight(null, msgs);
+			case ThymioDSLPackage.LIGHTS__BOTTOM_LIGHT:
+				return basicSetBottomLight(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-    switch (featureID)
-    {
-      case ThymioDSLPackage.LIGHTS__TOP_LIGHT:
-        return getTopLight();
-      case ThymioDSLPackage.LIGHTS__BOTTOM_LIGHT:
-        return getBottomLight();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
+		switch (featureID) {
+			case ThymioDSLPackage.LIGHTS__TOP_LIGHT:
+				return getTopLight();
+			case ThymioDSLPackage.LIGHTS__BOTTOM_LIGHT:
+				return getBottomLight();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eSet(int featureID, Object newValue)
   {
-    switch (featureID)
-    {
-      case ThymioDSLPackage.LIGHTS__TOP_LIGHT:
-        setTopLight((RGB)newValue);
-        return;
-      case ThymioDSLPackage.LIGHTS__BOTTOM_LIGHT:
-        setBottomLight((RGB)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
+		switch (featureID) {
+			case ThymioDSLPackage.LIGHTS__TOP_LIGHT:
+				setTopLight((RGB)newValue);
+				return;
+			case ThymioDSLPackage.LIGHTS__BOTTOM_LIGHT:
+				setBottomLight((RGB)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eUnset(int featureID)
   {
-    switch (featureID)
-    {
-      case ThymioDSLPackage.LIGHTS__TOP_LIGHT:
-        setTopLight((RGB)null);
-        return;
-      case ThymioDSLPackage.LIGHTS__BOTTOM_LIGHT:
-        setBottomLight((RGB)null);
-        return;
-    }
-    super.eUnset(featureID);
-  }
+		switch (featureID) {
+			case ThymioDSLPackage.LIGHTS__TOP_LIGHT:
+				setTopLight((RGB)null);
+				return;
+			case ThymioDSLPackage.LIGHTS__BOTTOM_LIGHT:
+				setBottomLight((RGB)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public boolean eIsSet(int featureID)
   {
-    switch (featureID)
-    {
-      case ThymioDSLPackage.LIGHTS__TOP_LIGHT:
-        return topLight != null;
-      case ThymioDSLPackage.LIGHTS__BOTTOM_LIGHT:
-        return bottomLight != null;
-    }
-    return super.eIsSet(featureID);
-  }
+		switch (featureID) {
+			case ThymioDSLPackage.LIGHTS__TOP_LIGHT:
+				return topLight != null;
+			case ThymioDSLPackage.LIGHTS__BOTTOM_LIGHT:
+				return bottomLight != null;
+		}
+		return super.eIsSet(featureID);
+	}
 
 } //LightsImpl

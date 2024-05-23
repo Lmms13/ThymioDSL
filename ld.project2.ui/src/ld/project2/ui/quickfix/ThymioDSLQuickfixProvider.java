@@ -3,7 +3,19 @@
  */
 package ld.project2.ui.quickfix;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtext.ui.editor.model.edit.IModificationContext;
+import org.eclipse.xtext.ui.editor.model.edit.ISemanticModification;
 import org.eclipse.xtext.ui.editor.quickfix.DefaultQuickfixProvider;
+import org.eclipse.xtext.ui.editor.quickfix.Fix;
+import org.eclipse.xtext.ui.editor.quickfix.IssueResolutionAcceptor;
+import org.eclipse.xtext.validation.Issue;
+
+import ld.project2.thymioDSL.Action;
+import ld.project2.thymioDSL.Motors;
+import ld.project2.thymioDSL.Procedure;
+import ld.project2.thymioDSL.RGB;
+import ld.project2.validation.ThymioDSLValidator;
 
 /**
  * Custom quickfixes.
@@ -22,5 +34,151 @@ public class ThymioDSLQuickfixProvider extends DefaultQuickfixProvider {
 //			}
 //		});
 //	}
+	
+	@Fix(ThymioDSLValidator.INVALID_RGB_RED)
+	public void fixRedRGB(final Issue issue, IssueResolutionAcceptor acceptor) {
+		int value = Integer.valueOf(issue.getData()[0]);
+
+		acceptor.accept(issue
+				, "Fix red value of RGB"
+				, "Fix red value of RGB"
+				, null
+				, new ISemanticModification() {
+
+			@Override
+			public void apply(EObject element, IModificationContext context) throws Exception {
+				RGB rgb = ((RGB) element);
+
+				if(value < 0) {
+					rgb.getRed().setValue(0);
+				}
+				else {
+					rgb.getRed().setValue(32);
+				}
+				rgb.setRed(rgb.getRed());
+
+			}
+		});
+	}
+	
+	@Fix(ThymioDSLValidator.INVALID_RGB_GREEN)
+	public void fixGreenRGB(final Issue issue, IssueResolutionAcceptor acceptor) {
+		int value = Integer.valueOf(issue.getData()[0]);
+
+		acceptor.accept(issue
+				, "Fix green value of RGB"
+				, "Fix green value of RGB"
+				, null
+				, new ISemanticModification() {
+
+			@Override
+			public void apply(EObject element, IModificationContext context) throws Exception {
+				RGB rgb = ((RGB) element);
+
+				if(value < 0) {
+					rgb.getGreen().setValue(0);
+				}
+				else {
+					rgb.getGreen().setValue(32);
+				}
+				rgb.setGreen(rgb.getGreen());
+
+			}
+		});
+	}
+	
+	@Fix(ThymioDSLValidator.INVALID_RGB_BLUE)
+	public void fixBlueRGB(final Issue issue, IssueResolutionAcceptor acceptor) {
+		int value = Integer.valueOf(issue.getData()[0]);
+
+		acceptor.accept(issue
+				, "Fix blue value of RGB"
+				, "Fix blue value of RGB"
+				, null
+				, new ISemanticModification() {
+
+			@Override
+			public void apply(EObject element, IModificationContext context) throws Exception {
+				RGB rgb = ((RGB) element);
+
+				if(value < 0) {
+					rgb.getBlue().setValue(0);
+				}
+				else {
+					rgb.getBlue().setValue(32);
+				}
+				rgb.setBlue(rgb.getBlue());
+
+			}
+		});
+	}
+	
+	@Fix(ThymioDSLValidator.INVALID_MOTORS_LEFT)
+	public void fixLeftMotor(final Issue issue, IssueResolutionAcceptor acceptor) {
+		int value = Integer.valueOf(issue.getData()[0]);
+
+		acceptor.accept(issue
+				, "Fix value of left motor"
+				, "Fix value of left motor"
+				, null
+				, new ISemanticModification() {
+
+			@Override
+			public void apply(EObject element, IModificationContext context) throws Exception {
+				Motors motors = ((Motors) element);
+
+				if(value < -500) {
+					motors.getLeft().setValue(-500);
+				}
+				else {
+					motors.getLeft().setValue(500);
+				}
+				motors.setLeft(motors.getLeft());
+			}
+		});
+	}
+	
+	@Fix(ThymioDSLValidator.INVALID_MOTORS_RIGHT)
+	public void fixRightMotor(final Issue issue, IssueResolutionAcceptor acceptor) {
+		int value = Integer.valueOf(issue.getData()[0]);
+
+		acceptor.accept(issue
+				, "Fix value of right motor"
+				, "Fix value of right motor"
+				, null
+				, new ISemanticModification() {
+
+			@Override
+			public void apply(EObject element, IModificationContext context) throws Exception {
+				Motors motors = ((Motors) element);
+
+				if(value < -500) {
+					motors.getRight().setValue(-500);
+				}
+				else {
+					motors.getRight().setValue(500);
+				}
+				motors.setRight(motors.getRight());
+			}
+		});
+	}
+	
+	@Fix(ThymioDSLValidator.DUPLICATE_ACTIONS)
+	public void fixDuplicateActions(final Issue issue, IssueResolutionAcceptor acceptor) {
+		acceptor.accept(issue
+				, "Remove duplicate action"
+				, "Remove duplicate action"
+				, null
+				, new ISemanticModification() {
+
+			@Override
+			public void apply(EObject element, IModificationContext context) throws Exception {
+				Action action = ((Action) element);
+				Procedure procedure = (Procedure) element.eContainer();
+				
+				procedure.getActions().remove(action);
+			}
+		});
+	}
 
 }

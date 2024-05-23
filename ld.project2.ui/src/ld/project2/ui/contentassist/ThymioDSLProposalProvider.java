@@ -3,10 +3,75 @@
  */
 package ld.project2.ui.contentassist;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtext.Assignment;
+import org.eclipse.xtext.RuleCall;
+import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
+import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
 
 /**
  * See https://www.eclipse.org/Xtext/documentation/310_eclipse_support.html#content-assist
  * on how to customize the content assistant.
  */
 public class ThymioDSLProposalProvider extends AbstractThymioDSLProposalProvider {
+	
+	@Override
+    public void complete_Ortogonal(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+        acceptor.accept(createCompletionProposal("up", context));
+        acceptor.accept(createCompletionProposal("down", context));
+        acceptor.accept(createCompletionProposal("left", context));
+        acceptor.accept(createCompletionProposal("right", context));
+        acceptor.accept(createCompletionProposal("center", context));
+    }
+    
+	@Override
+    public void complete_Stimulus(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+        acceptor.accept(createCompletionProposal("tap", context));
+        acceptor.accept(createCompletionProposal("sound", context));
+    }
+
+    @Override
+    public void complete_NoteDuration(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+        acceptor.accept(createCompletionProposal("short", context));
+        acceptor.accept(createCompletionProposal("long", context));
+    }
+    
+    @Override
+    public void complete_SensorStatus(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+        acceptor.accept(createCompletionProposal("very_close", context));
+        acceptor.accept(createCompletionProposal("close", context));
+        acceptor.accept(createCompletionProposal("far", context));
+    }
+
+    @Override
+    public void complete_BlackWhite(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+        acceptor.accept(createCompletionProposal("black", context));
+        acceptor.accept(createCompletionProposal("white", context));
+        acceptor.accept(createCompletionProposal("any", context));
+    }
+
+    @Override
+    public void completeAddition_Right(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+        // Implement code completion for right side of addition
+        // Example:
+        acceptor.accept(createCompletionProposal("1", context));
+        acceptor.accept(createCompletionProposal("(1+1)", context));
+    }
+
+    @Override
+    public void completeMultiplication_Right(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+        // Implement code completion for right side of multiplication
+        // Example:
+        acceptor.accept(createCompletionProposal("1", context));
+        acceptor.accept(createCompletionProposal("(1+1)", context));
+    }
+
+    @Override
+    public void completeNumber_Value(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+        // Implement code completion for the value of a number
+        // Example:
+        acceptor.accept(createCompletionProposal("1", context));
+        acceptor.accept(createCompletionProposal("-1", context));
+    }
+    
 }

@@ -25,47 +25,47 @@ import org.eclipse.emf.ecore.EObject;
 public interface Sound extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Pitch</b></em>' containment reference.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Pitch</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Pitch</em>' containment reference.
-   * @see #setPitch(Expression)
-   * @see ld.project2.thymioDSL.ThymioDSLPackage#getSound_Pitch()
-   * @model containment="true"
-   * @generated
-   */
+	 * @return the value of the '<em>Pitch</em>' containment reference.
+	 * @see #setPitch(Expression)
+	 * @see ld.project2.thymioDSL.ThymioDSLPackage#getSound_Pitch()
+	 * @model containment="true"
+	 * @generated
+	 */
   Expression getPitch();
 
   /**
-   * Sets the value of the '{@link ld.project2.thymioDSL.Sound#getPitch <em>Pitch</em>}' containment reference.
-   * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link ld.project2.thymioDSL.Sound#getPitch <em>Pitch</em>}' containment reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Pitch</em>' containment reference.
-   * @see #getPitch()
-   * @generated
-   */
+	 * @param value the new value of the '<em>Pitch</em>' containment reference.
+	 * @see #getPitch()
+	 * @generated
+	 */
   void setPitch(Expression value);
 
   /**
-   * Returns the value of the '<em><b>Duration</b></em>' attribute.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Duration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Duration</em>' attribute.
-   * @see #setDuration(String)
-   * @see ld.project2.thymioDSL.ThymioDSLPackage#getSound_Duration()
-   * @model
-   * @generated
-   */
+	 * @return the value of the '<em>Duration</em>' attribute.
+	 * @see #setDuration(String)
+	 * @see ld.project2.thymioDSL.ThymioDSLPackage#getSound_Duration()
+	 * @model
+	 * @generated
+	 */
   String getDuration();
 
   /**
-   * Sets the value of the '{@link ld.project2.thymioDSL.Sound#getDuration <em>Duration</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link ld.project2.thymioDSL.Sound#getDuration <em>Duration</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Duration</em>' attribute.
-   * @see #getDuration()
-   * @generated
-   */
+	 * @param value the new value of the '<em>Duration</em>' attribute.
+	 * @see #getDuration()
+	 * @generated
+	 */
   void setDuration(String value);
 
 } // Sound

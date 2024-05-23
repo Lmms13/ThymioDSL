@@ -33,238 +33,231 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class SoundImpl extends MinimalEObjectImpl.Container implements Sound
 {
   /**
-   * The cached value of the '{@link #getPitch() <em>Pitch</em>}' containment reference.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getPitch() <em>Pitch</em>}' containment reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getPitch()
-   * @generated
-   * @ordered
-   */
+	 * @see #getPitch()
+	 * @generated
+	 * @ordered
+	 */
   protected Expression pitch;
 
   /**
-   * The default value of the '{@link #getDuration() <em>Duration</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getDuration() <em>Duration</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDuration()
-   * @generated
-   * @ordered
-   */
+	 * @see #getDuration()
+	 * @generated
+	 * @ordered
+	 */
   protected static final String DURATION_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getDuration() <em>Duration</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getDuration() <em>Duration</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDuration()
-   * @generated
-   * @ordered
-   */
+	 * @see #getDuration()
+	 * @generated
+	 * @ordered
+	 */
   protected String duration = DURATION_EDEFAULT;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected SoundImpl()
   {
-    super();
-  }
+		super();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected EClass eStaticClass()
   {
-    return ThymioDSLPackage.Literals.SOUND;
-  }
+		return ThymioDSLPackage.Literals.SOUND;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Expression getPitch()
   {
-    return pitch;
-  }
+		return pitch;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public NotificationChain basicSetPitch(Expression newPitch, NotificationChain msgs)
   {
-    Expression oldPitch = pitch;
-    pitch = newPitch;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.SOUND__PITCH, oldPitch, newPitch);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
+		Expression oldPitch = pitch;
+		pitch = newPitch;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.SOUND__PITCH, oldPitch, newPitch);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void setPitch(Expression newPitch)
   {
-    if (newPitch != pitch)
-    {
-      NotificationChain msgs = null;
-      if (pitch != null)
-        msgs = ((InternalEObject)pitch).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.SOUND__PITCH, null, msgs);
-      if (newPitch != null)
-        msgs = ((InternalEObject)newPitch).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.SOUND__PITCH, null, msgs);
-      msgs = basicSetPitch(newPitch, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.SOUND__PITCH, newPitch, newPitch));
-  }
+		if (newPitch != pitch) {
+			NotificationChain msgs = null;
+			if (pitch != null)
+				msgs = ((InternalEObject)pitch).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.SOUND__PITCH, null, msgs);
+			if (newPitch != null)
+				msgs = ((InternalEObject)newPitch).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ThymioDSLPackage.SOUND__PITCH, null, msgs);
+			msgs = basicSetPitch(newPitch, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.SOUND__PITCH, newPitch, newPitch));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public String getDuration()
   {
-    return duration;
-  }
+		return duration;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void setDuration(String newDuration)
   {
-    String oldDuration = duration;
-    duration = newDuration;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.SOUND__DURATION, oldDuration, duration));
-  }
+		String oldDuration = duration;
+		duration = newDuration;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ThymioDSLPackage.SOUND__DURATION, oldDuration, duration));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    switch (featureID)
-    {
-      case ThymioDSLPackage.SOUND__PITCH:
-        return basicSetPitch(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
+		switch (featureID) {
+			case ThymioDSLPackage.SOUND__PITCH:
+				return basicSetPitch(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-    switch (featureID)
-    {
-      case ThymioDSLPackage.SOUND__PITCH:
-        return getPitch();
-      case ThymioDSLPackage.SOUND__DURATION:
-        return getDuration();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
+		switch (featureID) {
+			case ThymioDSLPackage.SOUND__PITCH:
+				return getPitch();
+			case ThymioDSLPackage.SOUND__DURATION:
+				return getDuration();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eSet(int featureID, Object newValue)
   {
-    switch (featureID)
-    {
-      case ThymioDSLPackage.SOUND__PITCH:
-        setPitch((Expression)newValue);
-        return;
-      case ThymioDSLPackage.SOUND__DURATION:
-        setDuration((String)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
+		switch (featureID) {
+			case ThymioDSLPackage.SOUND__PITCH:
+				setPitch((Expression)newValue);
+				return;
+			case ThymioDSLPackage.SOUND__DURATION:
+				setDuration((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eUnset(int featureID)
   {
-    switch (featureID)
-    {
-      case ThymioDSLPackage.SOUND__PITCH:
-        setPitch((Expression)null);
-        return;
-      case ThymioDSLPackage.SOUND__DURATION:
-        setDuration(DURATION_EDEFAULT);
-        return;
-    }
-    super.eUnset(featureID);
-  }
+		switch (featureID) {
+			case ThymioDSLPackage.SOUND__PITCH:
+				setPitch((Expression)null);
+				return;
+			case ThymioDSLPackage.SOUND__DURATION:
+				setDuration(DURATION_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public boolean eIsSet(int featureID)
   {
-    switch (featureID)
-    {
-      case ThymioDSLPackage.SOUND__PITCH:
-        return pitch != null;
-      case ThymioDSLPackage.SOUND__DURATION:
-        return DURATION_EDEFAULT == null ? duration != null : !DURATION_EDEFAULT.equals(duration);
-    }
-    return super.eIsSet(featureID);
-  }
+		switch (featureID) {
+			case ThymioDSLPackage.SOUND__PITCH:
+				return pitch != null;
+			case ThymioDSLPackage.SOUND__DURATION:
+				return DURATION_EDEFAULT == null ? duration != null : !DURATION_EDEFAULT.equals(duration);
+		}
+		return super.eIsSet(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public String toString()
   {
-    if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (duration: ");
-    result.append(duration);
-    result.append(')');
-    return result.toString();
-  }
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (duration: ");
+		result.append(duration);
+		result.append(')');
+		return result.toString();
+	}
 
 } //SoundImpl

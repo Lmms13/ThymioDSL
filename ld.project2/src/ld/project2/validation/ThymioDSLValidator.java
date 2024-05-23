@@ -9,14 +9,12 @@ import org.eclipse.xtext.validation.CheckType;
 
 import ld.project2.thymioDSL.Action;
 import ld.project2.thymioDSL.Addition;
-import ld.project2.thymioDSL.Event;
 import ld.project2.thymioDSL.Expression;
 import ld.project2.thymioDSL.Lights;
 import ld.project2.thymioDSL.Model;
 import ld.project2.thymioDSL.Motors;
 import ld.project2.thymioDSL.Multiplication;
 import ld.project2.thymioDSL.Procedure;
-import ld.project2.thymioDSL.ProxSensor;
 import ld.project2.thymioDSL.Sound;
 import ld.project2.thymioDSL.ThymioDSLPackage;
 
@@ -51,7 +49,9 @@ public class ThymioDSLValidator extends AbstractThymioDSLValidator {
 		}
 	}
 	
-	public static final String INVALID_RGB = "invalidRGB";
+	public static final String INVALID_RGB_RED = "invalidRGBRed";
+	public static final String INVALID_RGB_GREEN = "invalidRGBGreen";
+	public static final String INVALID_RGB_BLUE = "invalidRGBBlue";
 
 	@Check(CheckType.NORMAL)
 	public void checkRGB(Action action) {
@@ -61,46 +61,53 @@ public class ThymioDSLValidator extends AbstractThymioDSLValidator {
 				int r = evaluateExpression(lights.getTopLight().getRed());
 				if(r < 0 || r > 32)
 					error("red must be between 0 and 32"
-							, action.getLight()
-							, ThymioDSLPackage.eINSTANCE.getLights_TopLight()
-							, INVALID_RGB);
+							, lights.getTopLight()
+							, ThymioDSLPackage.eINSTANCE.getRGB_Red()
+							, INVALID_RGB_RED
+							, "" + r);
 				int g = evaluateExpression(lights.getTopLight().getGreen());
 				if(g < 0 || g > 32)
 					error("green must be between 0 and 32"
-							, action.getLight()
-							, ThymioDSLPackage.eINSTANCE.getLights_TopLight()
-							, INVALID_RGB);
+							, lights.getTopLight()
+							, ThymioDSLPackage.eINSTANCE.getRGB_Green()
+							, INVALID_RGB_GREEN
+							, "" + g);
 				int b = evaluateExpression(lights.getTopLight().getBlue());
 				if(b < 0 || b > 32)
 					error("blue must be between 0 and 32"
-							, action.getLight()
-							, ThymioDSLPackage.eINSTANCE.getLights_TopLight()
-							, INVALID_RGB);
+							, lights.getTopLight()
+							, ThymioDSLPackage.eINSTANCE.getRGB_Blue()
+							, INVALID_RGB_BLUE
+							, "" + b);
 			}
-			else if(lights.getBottomLight() != null) {
+			if(lights.getBottomLight() != null) {
 				int r = evaluateExpression(lights.getBottomLight().getRed());
 				if(r < 0 || r > 32)
 					error("red must be between 0 and 32"
-							, action.getLight()
-							, ThymioDSLPackage.eINSTANCE.getLights_BottomLight()
-							, INVALID_RGB);
+							, lights.getBottomLight()
+							, ThymioDSLPackage.eINSTANCE.getRGB_Red()
+							, INVALID_RGB_RED
+							, "" + r);
 				int g = evaluateExpression(lights.getBottomLight().getGreen());
 				if(g < 0 || g > 32)
 					error("green must be between 0 and 32"
-							, action.getLight()
-							, ThymioDSLPackage.eINSTANCE.getLights_BottomLight()
-							, INVALID_RGB);
+							, lights.getBottomLight()
+							, ThymioDSLPackage.eINSTANCE.getRGB_Green()
+							, INVALID_RGB_GREEN
+							, "" + g);
 				int b = evaluateExpression(lights.getBottomLight().getBlue());
 				if(b < 0 || b > 32)
 					error("blue must be between 0 and 32"
-							, action.getLight()
-							, ThymioDSLPackage.eINSTANCE.getLights_BottomLight()
-							, INVALID_RGB);
+							, lights.getBottomLight()
+							, ThymioDSLPackage.eINSTANCE.getRGB_Blue()
+							, INVALID_RGB_BLUE
+							, "" + b);
 			}
 		}
 	}
 	
-	public static final String INVALID_MOTORS = "invalidMotors";
+	public static final String INVALID_MOTORS_LEFT = "invalidLeftMotor";
+	public static final String INVALID_MOTORS_RIGHT = "invalidRightMotor";
 	
 	@Check(CheckType.NORMAL)
 	public void checkMotors(Action action) {
@@ -112,15 +119,17 @@ public class ThymioDSLValidator extends AbstractThymioDSLValidator {
 					error("motor values must be between -500 and 500"
 							, action.getMove()
 							, ThymioDSLPackage.eINSTANCE.getMotors_Left()
-							, INVALID_MOTORS);
+							, INVALID_MOTORS_LEFT
+							, "" + left);
 			}
-			else if(motors.getRight() != null) {
+			if(motors.getRight() != null) {
 				int right = evaluateExpression(motors.getRight());
 				if(right < -500 || right > 500)
 					error("motor values must be between -500 and 500"
 							, action.getMove()
 							, ThymioDSLPackage.eINSTANCE.getMotors_Right()
-							, INVALID_MOTORS);
+							, INVALID_MOTORS_RIGHT
+							, "" + right);
 			}
 		}
 	}
