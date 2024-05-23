@@ -1,0 +1,83 @@
+Procedure: detect_left_wall
+	Event: 
+		proximity_sensor_is_activated: 
+			front_left: close
+			front_center_left: close
+			front_center: close
+	Actions:
+		move:
+			left_motor: 500
+			right_motor: 0
+		lights:
+			top_light: on (0, 0, 32)
+			bottom_light: on (0, 0, 32)
+			
+Procedure: detect_near_left_wall
+	Event: 
+		proximity_sensor_is_activated: 
+			front_left: very_close
+			front_center_left: very_close
+			front_center: very_close
+	Actions:
+		move:
+			left_motor: 500
+			right_motor: -500
+		lights:
+			top_light: on (32, 0, 0)
+			bottom_light: on (32, 0, 0)
+			
+Procedure: detect_right_wall
+	Event: 
+		proximity_sensor_is_activated: 
+			front_center: close
+			front_center_right: close
+			front_right: close 
+	Actions:
+		move:
+			left_motor: 0
+			right_motor: 500
+		lights:
+			top_light: on (0, 0, 32)
+			bottom_light: on (0, 0, 32)
+			
+Procedure: detect_near_right_wall
+	Event: 
+		proximity_sensor_is_activated: 
+			front_center: very_close
+			front_center_right: very_close
+			front_right: very_close
+	Actions:
+		move:
+			left_motor: -500
+			right_motor: 500
+		lights:
+			top_light: on (32, 0, 0)
+			bottom_light: on (32, 0, 0)
+			
+Procedure: no_obstacles
+	Event: 
+		proximity_sensor_is_activated: 
+			front_center: far
+	Actions:
+		move:
+			left_motor: 250
+			right_motor: 250
+		lights:
+			top_light: on (0, 32, 0)
+			bottom_light: on (0, 32, 0)
+			
+Procedure: stop
+	Event: 
+		proximity_sensor_is_activated: 
+			back_left: close
+			back_right: close
+	Actions:
+		move:
+			left_motor: 0
+			right_motor: 0
+		lights:
+			top_light: on (0, 0, 0)
+			bottom_light: on (0, 0, 0)
+			
+			
+			

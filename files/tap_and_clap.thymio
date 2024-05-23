@@ -1,0 +1,21 @@
+Procedure: tap_and_clap
+    Event:
+        robot_detects_stimulus: sound
+    Actions:
+        lights:
+            top_light: on (32, 0, 0)
+            bottom_light: off
+
+Procedure: TapPlayMusic
+    Event:
+        robot_detects_stimulus: tap
+    Actions:
+        sound:
+            note: 1 short
+            note: 2 long
+            note: 0 short
+            note: 4 long
+            note: 5 short
+			
+			
+			

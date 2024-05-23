@@ -1,0 +1,57 @@
+Procedure: steer_right
+	Event: 
+		bottom_sensor_detects_color: 
+			left: white
+			right: black		
+	Actions:
+		lights:
+			top_light: on (16*(20/(5+5)),0,0)
+			bottom_light: on (0,0,16*(20/(5+5)))
+		move:
+			left_motor: 500
+			right_motor: 0
+	
+Procedure: steer_left
+	Event: 
+		bottom_sensor_detects_color: 
+			left: black
+			right: white		
+	Actions:
+		lights:
+			top_light: on (0,0,16*(20/(5+5)))
+			bottom_light: on (16*(20/(5+5)),0,0)
+		move:
+			left_motor: 0
+			right_motor: 500
+	
+Procedure: follow_line
+	Event: 
+		bottom_sensor_detects_color: 
+			left: black
+			right: black		
+	Actions:
+		lights:
+			top_light: on (0,16*(20/(5+5)),0)
+			bottom_light: on (0,16*(20/(5+5)),0)
+		move:
+			left_motor: 500
+			right_motor: 500
+			
+Procedure: u_turn
+	Event: 
+		bottom_sensor_detects_color: 
+			left: white
+			right: white		
+	Actions:
+		move:
+			left_motor: 500
+			right_motor: 0
+			
+Procedure: stop
+	Event: 
+		button_is_clicked: center
+	Actions:
+		move:
+			left_motor: 641798 * 0
+			right_motor: 641798 * 0
+			
