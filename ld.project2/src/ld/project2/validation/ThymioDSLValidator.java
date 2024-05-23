@@ -187,7 +187,8 @@ public class ThymioDSLValidator extends AbstractThymioDSLValidator {
 					error("pitch values must be between 0 and 5"
 					, s
 					, ThymioDSLPackage.eINSTANCE.getSound_Pitch()
-					, INVALID_PITCH);
+					, INVALID_PITCH
+					, "" + pitch);
 			}
 		}
 	}

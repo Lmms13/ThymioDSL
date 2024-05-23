@@ -12,9 +12,16 @@ import org.eclipse.xtext.ui.editor.quickfix.IssueResolutionAcceptor;
 import org.eclipse.xtext.validation.Issue;
 
 import ld.project2.thymioDSL.Action;
+import ld.project2.thymioDSL.Addition;
+import ld.project2.thymioDSL.Model;
 import ld.project2.thymioDSL.Motors;
+import ld.project2.thymioDSL.Multiplication;
 import ld.project2.thymioDSL.Procedure;
 import ld.project2.thymioDSL.RGB;
+import ld.project2.thymioDSL.Sound;
+import ld.project2.thymioDSL.ThymioDSLFactory;
+import ld.project2.thymioDSL.impl.ExpressionImpl;
+import ld.project2.thymioDSL.Expression;
 import ld.project2.validation.ThymioDSLValidator;
 
 /**
@@ -23,17 +30,6 @@ import ld.project2.validation.ThymioDSLValidator;
  * See https://www.eclipse.org/Xtext/documentation/310_eclipse_support.html#quick-fixes
  */
 public class ThymioDSLQuickfixProvider extends DefaultQuickfixProvider {
-
-//	@Fix(ThymioDSLValidator.INVALID_NAME)
-//	public void capitalizeName(final Issue issue, IssueResolutionAcceptor acceptor) {
-//		acceptor.accept(issue, "Capitalize name", "Capitalize the name.", "upcase.png", new IModification() {
-//			public void apply(IModificationContext context) throws BadLocationException {
-//				IXtextDocument xtextDocument = context.getXtextDocument();
-//				String firstLetter = xtextDocument.get(issue.getOffset(), 1);
-//				xtextDocument.replace(issue.getOffset(), 1, firstLetter.toUpperCase());
-//			}
-//		});
-//	}
 	
 	@Fix(ThymioDSLValidator.INVALID_RGB_RED)
 	public void fixRedRGB(final Issue issue, IssueResolutionAcceptor acceptor) {
@@ -49,14 +45,14 @@ public class ThymioDSLQuickfixProvider extends DefaultQuickfixProvider {
 			public void apply(EObject element, IModificationContext context) throws Exception {
 				RGB rgb = ((RGB) element);
 
+				Expression exp = ThymioDSLFactory.eINSTANCE.createExpression();
 				if(value < 0) {
-					rgb.getRed().setValue(0);
+					exp.setValue(0);
 				}
 				else {
-					rgb.getRed().setValue(32);
+					exp.setValue(32);
 				}
-				rgb.setRed(rgb.getRed());
-
+				rgb.setRed(exp);
 			}
 		});
 	}
@@ -75,13 +71,14 @@ public class ThymioDSLQuickfixProvider extends DefaultQuickfixProvider {
 			public void apply(EObject element, IModificationContext context) throws Exception {
 				RGB rgb = ((RGB) element);
 
+				Expression exp = ThymioDSLFactory.eINSTANCE.createExpression();
 				if(value < 0) {
-					rgb.getGreen().setValue(0);
+					exp.setValue(0);
 				}
 				else {
-					rgb.getGreen().setValue(32);
+					exp.setValue(32);
 				}
-				rgb.setGreen(rgb.getGreen());
+				rgb.setGreen(exp);
 
 			}
 		});
@@ -101,13 +98,14 @@ public class ThymioDSLQuickfixProvider extends DefaultQuickfixProvider {
 			public void apply(EObject element, IModificationContext context) throws Exception {
 				RGB rgb = ((RGB) element);
 
+				Expression exp = ThymioDSLFactory.eINSTANCE.createExpression();
 				if(value < 0) {
-					rgb.getBlue().setValue(0);
+					exp.setValue(0);
 				}
 				else {
-					rgb.getBlue().setValue(32);
+					exp.setValue(32);
 				}
-				rgb.setBlue(rgb.getBlue());
+				rgb.setBlue(exp);
 
 			}
 		});
@@ -127,13 +125,14 @@ public class ThymioDSLQuickfixProvider extends DefaultQuickfixProvider {
 			public void apply(EObject element, IModificationContext context) throws Exception {
 				Motors motors = ((Motors) element);
 
+				Expression exp = ThymioDSLFactory.eINSTANCE.createExpression();
 				if(value < -500) {
-					motors.getLeft().setValue(-500);
+					exp.setValue(-500);
 				}
 				else {
-					motors.getLeft().setValue(500);
+					exp.setValue(500);
 				}
-				motors.setLeft(motors.getLeft());
+				motors.setLeft(exp);
 			}
 		});
 	}
@@ -152,13 +151,14 @@ public class ThymioDSLQuickfixProvider extends DefaultQuickfixProvider {
 			public void apply(EObject element, IModificationContext context) throws Exception {
 				Motors motors = ((Motors) element);
 
+				Expression exp = ThymioDSLFactory.eINSTANCE.createExpression();
 				if(value < -500) {
-					motors.getRight().setValue(-500);
+					exp.setValue(-500);
 				}
 				else {
-					motors.getRight().setValue(500);
+					exp.setValue(500);
 				}
-				motors.setRight(motors.getRight());
+				motors.setRight(exp);
 			}
 		});
 	}
@@ -177,6 +177,72 @@ public class ThymioDSLQuickfixProvider extends DefaultQuickfixProvider {
 				Procedure procedure = (Procedure) element.eContainer();
 				
 				procedure.getActions().remove(action);
+			}
+		});
+	}
+	
+	@Fix(ThymioDSLValidator.NOTE_LIMIT_REACHED)
+	public void fixNoteLimit(final Issue issue, IssueResolutionAcceptor acceptor) {
+		acceptor.accept(issue
+				, "Remove extra notes"
+				, "Remove extra notes"
+				, null
+				, new ISemanticModification() {
+
+			@Override
+			public void apply(EObject element, IModificationContext context) throws Exception {
+				Action action = ((Action) element);
+				
+				int size = action.getSound().size();
+				for(int i = size - 1; i >= 0; i--) {
+					if(i > 5) {
+						action.getSound().remove(i);
+					}
+				}
+			}
+		});
+	}
+	
+	@Fix(ThymioDSLValidator.INVALID_PITCH)
+	public void fixPitch(final Issue issue, IssueResolutionAcceptor acceptor) {
+		int value = Integer.valueOf(issue.getData()[0]);
+
+		acceptor.accept(issue
+				, "Fix pitch of note"
+				, "Fix pitch of note"
+				, null
+				, new ISemanticModification() {
+
+			@Override
+			public void apply(EObject element, IModificationContext context) throws Exception {
+				Sound sound = ((Sound) element);
+
+				Expression exp = ThymioDSLFactory.eINSTANCE.createExpression();
+				if(value < 0) {
+					exp.setValue(0);
+				}
+				else {
+					exp.setValue(5);
+				}
+				sound.setPitch(exp);
+			}
+		});
+	}
+	
+	@Fix(ThymioDSLValidator.DUPLICATE_PROCEDURE)
+	public void fixDuplicateProcedure(final Issue issue, IssueResolutionAcceptor acceptor) {
+		acceptor.accept(issue
+				, "Remove duplicate procedure"
+				, "Remove duplicate procedure"
+				, null
+				, new ISemanticModification() {
+
+			@Override
+			public void apply(EObject element, IModificationContext context) throws Exception {
+				Procedure procedure = ((Procedure) element);
+				Model model = (Model) element.eContainer();
+				
+				model.getProcedures().remove(procedure);
 			}
 		});
 	}
