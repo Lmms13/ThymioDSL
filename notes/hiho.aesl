@@ -41,13 +41,13 @@ onevent buttons
 	_emit debug_log [0xd, 0x2, 0x91, 0, 0, 0x1ef]
 
 	when button.forward == 1 do
-		call math.copy(notes[0:4], [524, 524, 0, 524, 524])
+		call math.copy(notes[0:4], [262, 311, 0, 440, 524])
 		call math.copy(durations[0:4], [7, 14, 14, 7, 14])
 		note_index = 1
 		note_count = 5
 		call sound.freq(notes[0], durations[0])
 		emit pair_run 8
-		_emit debug_log [0x8, 0x2, 0xb1, 0, 0x10, 0x92a5, 0x1dc]
+		_emit debug_log [0x8, 0x2, 0xb1, 0, 0x10, 0x9d1, 0x1dc]
 	end
 
 	when button.backward == 1 do
@@ -177,7 +177,7 @@ onevent tap
 </set>
 <set>
 <block value5="0" value1="0" name="button" value6="0" value4="0" value3="0" value2="0" value0="1" type="event"/>
-<block value5="517" value1="516" name="sound" value4="516" value3="260" value2="517" value0="260" type="action"/>
+<block value5="517" value1="513" name="sound" value4="516" value3="259" value2="517" value0="256" type="action"/>
 </set>
 <set>
 <block value5="0" value1="0" name="button" value6="0" value4="0" value3="0" value2="1" value0="0" type="event"/>

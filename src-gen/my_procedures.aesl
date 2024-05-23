@@ -40,15 +40,24 @@ onevent sound.finished
 
 <set>
 <block type="event" name="button" value0="1" value1="0" value2="0" value3="0" value4="0"/>
+<block type="action" name="colortop" value0="0" value1="0" value2="0"/>
+<block type="action" name="colorbottom" value0="0" value1="0" value2="0"/>
+<block type="action" name="move" value0="500" value1="-500"/>
+<block type="action" name="sound" value0="517" value1="259" value2="514" value3="260" value4="256" value5="256"/>
 </set>
 <set>
 <block type="event" name="prox" value0="2" value1="2" value2="0" value3="2" value4="0" value5="2" value6="1" value7="1000" value8="2000"/>
+<block type="action" name="colortop" value0="0" value1="0" value2="0"/>
+<block type="action" name="colorbottom" value0="16" value1="20" value2="32"/>
 </set>
 <set>
 <block type="event" name="proxground" value0="1" value1="2" value2="400" value3="450"/>
+<block type="action" name="colortop" value0="32" value1="32" value2="32"/>
+<block type="action" name="colorbottom" value0="0" value1="0" value2="0"/>
 </set>
 <set>
 <block type="event" name="acc"/>
+<block type="action" name="move" value0="1" value1="2"/>
 </set>
 
 <set/>

@@ -8,6 +8,7 @@ import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
 import ld.project2.thymioDSL.Model
+import ld.project2.validation.ThymioDSLValidator;
 
 /**
  * Generates code from your model files on save.
@@ -79,6 +80,24 @@ class ThymioDSLGenerator extends AbstractGenerator {
 				<block type="event" name="proxground" value0="«p.events.bottomSensor.bottomLeftSensor.equals("any")?0:p.events.bottomSensor.bottomLeftSensor.equals("white")?1:2»" value1="«p.events.bottomSensor.bottomRightSensor.equals("any")?0:p.events.bottomSensor.bottomRightSensor.equals("white")?1:2»" value2="400" value3="450"/>
 			«ENDIF»
 			«FOR a : p.actions»
+				«IF a.move !== null»
+					<block type="action" name="move" value0="«new ThymioDSLValidator().evaluateExpression(a.move.left)»" value1="«new ThymioDSLValidator().evaluateExpression(a.move.right)»"/>
+				«ENDIF»
+				«IF a.light !== null»
+					«IF a.light.topLight !== null»
+						<block type="action" name="colortop" value0="«new ThymioDSLValidator().evaluateExpression(a.light.topLight.red)»" value1="«new ThymioDSLValidator().evaluateExpression(a.light.topLight.green)»" value2="«new ThymioDSLValidator().evaluateExpression(a.light.topLight.blue)»"/>
+					«ELSE»
+						<block type="action" name="colortop" value0="0" value1="0" value2="0"/>
+					«ENDIF»
+					«IF a.light.bottomLight !== null»
+						<block type="action" name="colorbottom" value0="«new ThymioDSLValidator().evaluateExpression(a.light.bottomLight.red)»" value1="«new ThymioDSLValidator().evaluateExpression(a.light.bottomLight.green)»" value2="«new ThymioDSLValidator().evaluateExpression(a.light.bottomLight.blue)»"/>
+					«ELSE»
+						<block type="action" name="colorbottom" value0="0" value1="0" value2="0"/>
+					«ENDIF»
+				«ENDIF»
+				«IF !a.sound.isEmpty»
+					<block type="action" name="sound" value0="«new ThymioDSLValidator().evaluateExpression(a.sound.get(0).pitch)==0?517:a.sound.get(0).duration.equals("short")?new ThymioDSLValidator().evaluateExpression(a.sound.get(0).pitch) + 255:new ThymioDSLValidator().evaluateExpression(a.sound.get(0).pitch) + 511»" value1="«a.sound.size >= 2?new ThymioDSLValidator().evaluateExpression(a.sound.get(1).pitch)==0?517:a.sound.get(1).duration.equals("short")?new ThymioDSLValidator().evaluateExpression(a.sound.get(1).pitch) + 255:new ThymioDSLValidator().evaluateExpression(a.sound.get(1).pitch) + 511:517»" value2="«a.sound.size >= 3?new ThymioDSLValidator().evaluateExpression(a.sound.get(2).pitch)==0?517:a.sound.get(2).duration.equals("short")?new ThymioDSLValidator().evaluateExpression(a.sound.get(2).pitch) + 255:new ThymioDSLValidator().evaluateExpression(a.sound.get(2).pitch) + 511:517»" value3="«a.sound.size >= 4?new ThymioDSLValidator().evaluateExpression(a.sound.get(3).pitch)==0?517:a.sound.get(3).duration.equals("short")?new ThymioDSLValidator().evaluateExpression(a.sound.get(3).pitch) + 255:new ThymioDSLValidator().evaluateExpression(a.sound.get(3).pitch) + 511:517»" value4="«a.sound.size >= 5?new ThymioDSLValidator().evaluateExpression(a.sound.get(4).pitch)==0?517:a.sound.get(4).duration.equals("short")?new ThymioDSLValidator().evaluateExpression(a.sound.get(4).pitch) + 255:new ThymioDSLValidator().evaluateExpression(a.sound.get(4).pitch) + 511:517»" value5="«a.sound.size >= 6?new ThymioDSLValidator().evaluateExpression(a.sound.get(5).pitch)==0?517:a.sound.get(5).duration.equals("short")?new ThymioDSLValidator().evaluateExpression(a.sound.get(5).pitch) + 255:new ThymioDSLValidator().evaluateExpression(a.sound.get(5).pitch) + 511:517»"/>
+				«ENDIF»
 			«ENDFOR»
 			</set>
 		«ENDFOR»	

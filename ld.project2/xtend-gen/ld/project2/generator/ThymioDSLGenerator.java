@@ -5,9 +5,13 @@ package ld.project2.generator;
 
 import ld.project2.thymioDSL.Action;
 import ld.project2.thymioDSL.BottomSensor;
+import ld.project2.thymioDSL.Lights;
 import ld.project2.thymioDSL.Model;
+import ld.project2.thymioDSL.Motors;
 import ld.project2.thymioDSL.Procedure;
 import ld.project2.thymioDSL.ProxSensor;
+import ld.project2.thymioDSL.RGB;
+import ld.project2.validation.ThymioDSLValidator;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -411,6 +415,228 @@ public class ThymioDSLGenerator extends AbstractGenerator {
         {
           EList<Action> _actions = p.getActions();
           for(final Action a : _actions) {
+            {
+              Motors _move = a.getMove();
+              boolean _tripleNotEquals_11 = (_move != null);
+              if (_tripleNotEquals_11) {
+                _builder.append("<block type=\"action\" name=\"move\" value0=\"");
+                int _evaluateExpression = new ThymioDSLValidator().evaluateExpression(a.getMove().getLeft());
+                _builder.append(_evaluateExpression);
+                _builder.append("\" value1=\"");
+                int _evaluateExpression_1 = new ThymioDSLValidator().evaluateExpression(a.getMove().getRight());
+                _builder.append(_evaluateExpression_1);
+                _builder.append("\"/>");
+                _builder.newLineIfNotEmpty();
+              }
+            }
+            {
+              Lights _light = a.getLight();
+              boolean _tripleNotEquals_12 = (_light != null);
+              if (_tripleNotEquals_12) {
+                {
+                  RGB _topLight = a.getLight().getTopLight();
+                  boolean _tripleNotEquals_13 = (_topLight != null);
+                  if (_tripleNotEquals_13) {
+                    _builder.append("<block type=\"action\" name=\"colortop\" value0=\"");
+                    int _evaluateExpression_2 = new ThymioDSLValidator().evaluateExpression(a.getLight().getTopLight().getRed());
+                    _builder.append(_evaluateExpression_2);
+                    _builder.append("\" value1=\"");
+                    int _evaluateExpression_3 = new ThymioDSLValidator().evaluateExpression(a.getLight().getTopLight().getGreen());
+                    _builder.append(_evaluateExpression_3);
+                    _builder.append("\" value2=\"");
+                    int _evaluateExpression_4 = new ThymioDSLValidator().evaluateExpression(a.getLight().getTopLight().getBlue());
+                    _builder.append(_evaluateExpression_4);
+                    _builder.append("\"/>");
+                    _builder.newLineIfNotEmpty();
+                  } else {
+                    _builder.append("<block type=\"action\" name=\"colortop\" value0=\"0\" value1=\"0\" value2=\"0\"/>");
+                    _builder.newLine();
+                  }
+                }
+                {
+                  RGB _bottomLight = a.getLight().getBottomLight();
+                  boolean _tripleNotEquals_14 = (_bottomLight != null);
+                  if (_tripleNotEquals_14) {
+                    _builder.append("<block type=\"action\" name=\"colorbottom\" value0=\"");
+                    int _evaluateExpression_5 = new ThymioDSLValidator().evaluateExpression(a.getLight().getBottomLight().getRed());
+                    _builder.append(_evaluateExpression_5);
+                    _builder.append("\" value1=\"");
+                    int _evaluateExpression_6 = new ThymioDSLValidator().evaluateExpression(a.getLight().getBottomLight().getGreen());
+                    _builder.append(_evaluateExpression_6);
+                    _builder.append("\" value2=\"");
+                    int _evaluateExpression_7 = new ThymioDSLValidator().evaluateExpression(a.getLight().getBottomLight().getBlue());
+                    _builder.append(_evaluateExpression_7);
+                    _builder.append("\"/>");
+                    _builder.newLineIfNotEmpty();
+                  } else {
+                    _builder.append("<block type=\"action\" name=\"colorbottom\" value0=\"0\" value1=\"0\" value2=\"0\"/>");
+                    _builder.newLine();
+                  }
+                }
+              }
+            }
+            {
+              boolean _isEmpty = a.getSound().isEmpty();
+              boolean _not = (!_isEmpty);
+              if (_not) {
+                _builder.append("<block type=\"action\" name=\"sound\" value0=\"");
+                int _xifexpression_31 = (int) 0;
+                int _evaluateExpression_8 = new ThymioDSLValidator().evaluateExpression(a.getSound().get(0).getPitch());
+                boolean _equals_24 = (_evaluateExpression_8 == 0);
+                if (_equals_24) {
+                  _xifexpression_31 = 517;
+                } else {
+                  int _xifexpression_32 = (int) 0;
+                  boolean _equals_25 = a.getSound().get(0).getDuration().equals("short");
+                  if (_equals_25) {
+                    int _evaluateExpression_9 = new ThymioDSLValidator().evaluateExpression(a.getSound().get(0).getPitch());
+                    _xifexpression_32 = (_evaluateExpression_9 + 255);
+                  } else {
+                    int _evaluateExpression_10 = new ThymioDSLValidator().evaluateExpression(a.getSound().get(0).getPitch());
+                    _xifexpression_32 = (_evaluateExpression_10 + 511);
+                  }
+                  _xifexpression_31 = _xifexpression_32;
+                }
+                _builder.append(_xifexpression_31);
+                _builder.append("\" value1=\"");
+                int _xifexpression_33 = (int) 0;
+                int _size = a.getSound().size();
+                boolean _greaterEqualsThan = (_size >= 2);
+                if (_greaterEqualsThan) {
+                  int _xifexpression_34 = (int) 0;
+                  int _evaluateExpression_11 = new ThymioDSLValidator().evaluateExpression(a.getSound().get(1).getPitch());
+                  boolean _equals_26 = (_evaluateExpression_11 == 0);
+                  if (_equals_26) {
+                    _xifexpression_34 = 517;
+                  } else {
+                    int _xifexpression_35 = (int) 0;
+                    boolean _equals_27 = a.getSound().get(1).getDuration().equals("short");
+                    if (_equals_27) {
+                      int _evaluateExpression_12 = new ThymioDSLValidator().evaluateExpression(a.getSound().get(1).getPitch());
+                      _xifexpression_35 = (_evaluateExpression_12 + 255);
+                    } else {
+                      int _evaluateExpression_13 = new ThymioDSLValidator().evaluateExpression(a.getSound().get(1).getPitch());
+                      _xifexpression_35 = (_evaluateExpression_13 + 511);
+                    }
+                    _xifexpression_34 = _xifexpression_35;
+                  }
+                  _xifexpression_33 = _xifexpression_34;
+                } else {
+                  _xifexpression_33 = 517;
+                }
+                _builder.append(_xifexpression_33);
+                _builder.append("\" value2=\"");
+                int _xifexpression_36 = (int) 0;
+                int _size_1 = a.getSound().size();
+                boolean _greaterEqualsThan_1 = (_size_1 >= 3);
+                if (_greaterEqualsThan_1) {
+                  int _xifexpression_37 = (int) 0;
+                  int _evaluateExpression_14 = new ThymioDSLValidator().evaluateExpression(a.getSound().get(2).getPitch());
+                  boolean _equals_28 = (_evaluateExpression_14 == 0);
+                  if (_equals_28) {
+                    _xifexpression_37 = 517;
+                  } else {
+                    int _xifexpression_38 = (int) 0;
+                    boolean _equals_29 = a.getSound().get(2).getDuration().equals("short");
+                    if (_equals_29) {
+                      int _evaluateExpression_15 = new ThymioDSLValidator().evaluateExpression(a.getSound().get(2).getPitch());
+                      _xifexpression_38 = (_evaluateExpression_15 + 255);
+                    } else {
+                      int _evaluateExpression_16 = new ThymioDSLValidator().evaluateExpression(a.getSound().get(2).getPitch());
+                      _xifexpression_38 = (_evaluateExpression_16 + 511);
+                    }
+                    _xifexpression_37 = _xifexpression_38;
+                  }
+                  _xifexpression_36 = _xifexpression_37;
+                } else {
+                  _xifexpression_36 = 517;
+                }
+                _builder.append(_xifexpression_36);
+                _builder.append("\" value3=\"");
+                int _xifexpression_39 = (int) 0;
+                int _size_2 = a.getSound().size();
+                boolean _greaterEqualsThan_2 = (_size_2 >= 4);
+                if (_greaterEqualsThan_2) {
+                  int _xifexpression_40 = (int) 0;
+                  int _evaluateExpression_17 = new ThymioDSLValidator().evaluateExpression(a.getSound().get(3).getPitch());
+                  boolean _equals_30 = (_evaluateExpression_17 == 0);
+                  if (_equals_30) {
+                    _xifexpression_40 = 517;
+                  } else {
+                    int _xifexpression_41 = (int) 0;
+                    boolean _equals_31 = a.getSound().get(3).getDuration().equals("short");
+                    if (_equals_31) {
+                      int _evaluateExpression_18 = new ThymioDSLValidator().evaluateExpression(a.getSound().get(3).getPitch());
+                      _xifexpression_41 = (_evaluateExpression_18 + 255);
+                    } else {
+                      int _evaluateExpression_19 = new ThymioDSLValidator().evaluateExpression(a.getSound().get(3).getPitch());
+                      _xifexpression_41 = (_evaluateExpression_19 + 511);
+                    }
+                    _xifexpression_40 = _xifexpression_41;
+                  }
+                  _xifexpression_39 = _xifexpression_40;
+                } else {
+                  _xifexpression_39 = 517;
+                }
+                _builder.append(_xifexpression_39);
+                _builder.append("\" value4=\"");
+                int _xifexpression_42 = (int) 0;
+                int _size_3 = a.getSound().size();
+                boolean _greaterEqualsThan_3 = (_size_3 >= 5);
+                if (_greaterEqualsThan_3) {
+                  int _xifexpression_43 = (int) 0;
+                  int _evaluateExpression_20 = new ThymioDSLValidator().evaluateExpression(a.getSound().get(4).getPitch());
+                  boolean _equals_32 = (_evaluateExpression_20 == 0);
+                  if (_equals_32) {
+                    _xifexpression_43 = 517;
+                  } else {
+                    int _xifexpression_44 = (int) 0;
+                    boolean _equals_33 = a.getSound().get(4).getDuration().equals("short");
+                    if (_equals_33) {
+                      int _evaluateExpression_21 = new ThymioDSLValidator().evaluateExpression(a.getSound().get(4).getPitch());
+                      _xifexpression_44 = (_evaluateExpression_21 + 255);
+                    } else {
+                      int _evaluateExpression_22 = new ThymioDSLValidator().evaluateExpression(a.getSound().get(4).getPitch());
+                      _xifexpression_44 = (_evaluateExpression_22 + 511);
+                    }
+                    _xifexpression_43 = _xifexpression_44;
+                  }
+                  _xifexpression_42 = _xifexpression_43;
+                } else {
+                  _xifexpression_42 = 517;
+                }
+                _builder.append(_xifexpression_42);
+                _builder.append("\" value5=\"");
+                int _xifexpression_45 = (int) 0;
+                int _size_4 = a.getSound().size();
+                boolean _greaterEqualsThan_4 = (_size_4 >= 6);
+                if (_greaterEqualsThan_4) {
+                  int _xifexpression_46 = (int) 0;
+                  int _evaluateExpression_23 = new ThymioDSLValidator().evaluateExpression(a.getSound().get(5).getPitch());
+                  boolean _equals_34 = (_evaluateExpression_23 == 0);
+                  if (_equals_34) {
+                    _xifexpression_46 = 517;
+                  } else {
+                    int _xifexpression_47 = (int) 0;
+                    boolean _equals_35 = a.getSound().get(5).getDuration().equals("short");
+                    if (_equals_35) {
+                      int _evaluateExpression_24 = new ThymioDSLValidator().evaluateExpression(a.getSound().get(5).getPitch());
+                      _xifexpression_47 = (_evaluateExpression_24 + 255);
+                    } else {
+                      int _evaluateExpression_25 = new ThymioDSLValidator().evaluateExpression(a.getSound().get(5).getPitch());
+                      _xifexpression_47 = (_evaluateExpression_25 + 511);
+                    }
+                    _xifexpression_46 = _xifexpression_47;
+                  }
+                  _xifexpression_45 = _xifexpression_46;
+                } else {
+                  _xifexpression_45 = 517;
+                }
+                _builder.append(_xifexpression_45);
+                _builder.append("\"/>");
+                _builder.newLineIfNotEmpty();
+              }
+            }
           }
         }
         _builder.append("</set>");
