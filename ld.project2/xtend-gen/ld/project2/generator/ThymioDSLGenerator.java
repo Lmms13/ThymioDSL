@@ -32,10 +32,10 @@ public class ThymioDSLGenerator extends AbstractGenerator {
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
     EObject _head = IterableExtensions.<EObject>head(resource.getContents());
     fsa.generateFile("my_procedures.aesl", 
-      this.generateCode(((Model) _head)));
+      this.generateAsebaCode(((Model) _head)));
   }
 
-  public CharSequence generateCode(final Model m) {
+  public CharSequence generateVPLCode(final Model m) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<!DOCTYPE aesl-source>");
     _builder.newLine();
@@ -658,6 +658,1850 @@ public class ThymioDSLGenerator extends AbstractGenerator {
     _builder.newLine();
     _builder.append("</network>");
     _builder.newLine();
+    return _builder;
+  }
+
+  public CharSequence generateAsebaCode(final Model m) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("var notes[6]");
+    _builder.newLine();
+    _builder.append("var durations[6]");
+    _builder.newLine();
+    _builder.append("var note_index = 6");
+    _builder.newLine();
+    _builder.append("var note_count = 6");
+    _builder.newLine();
+    _builder.append("var wave[142]");
+    _builder.newLine();
+    _builder.append("var i");
+    _builder.newLine();
+    _builder.append("var wave_phase");
+    _builder.newLine();
+    _builder.append("var wave_intensity");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("# setup threshold for detecting claps");
+    _builder.newLine();
+    _builder.append("mic.threshold = 250");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("# reset outputs");
+    _builder.newLine();
+    _builder.append("call sound.system(-1)");
+    _builder.newLine();
+    _builder.append("call leds.top(0,0,0)");
+    _builder.newLine();
+    _builder.append("call leds.bottom.left(0,0,0)");
+    _builder.newLine();
+    _builder.append("call leds.bottom.right(0,0,0)");
+    _builder.newLine();
+    _builder.append("call leds.circle(0,0,0,0,0,0,0,0)");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("# when a note is finished, play the next note");
+    _builder.newLine();
+    _builder.append("onevent sound.finished");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("if note_index != note_count then");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("call sound.freq(notes[note_index], durations[note_index])");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("note_index += 1");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("end");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("onevent buttons");
+    _builder.newLine();
+    {
+      EList<Procedure> _procedures = m.getProcedures();
+      for(final Procedure p : _procedures) {
+        {
+          String _button = p.getEvents().getButton();
+          boolean _tripleNotEquals = (_button != null);
+          if (_tripleNotEquals) {
+            _builder.append("when button.");
+            String _xifexpression = null;
+            boolean _equals = p.getEvents().getButton().equals("up");
+            if (_equals) {
+              _xifexpression = "forward";
+            } else {
+              String _xifexpression_1 = null;
+              boolean _equals_1 = p.getEvents().getButton().equals("down");
+              if (_equals_1) {
+                _xifexpression_1 = "backward";
+              } else {
+                _xifexpression_1 = p.getEvents().getButton();
+              }
+              _xifexpression = _xifexpression_1;
+            }
+            _builder.append(_xifexpression);
+            _builder.append("== 1 do");
+            _builder.newLineIfNotEmpty();
+            {
+              EList<Action> _actions = p.getActions();
+              for(final Action a : _actions) {
+                {
+                  Motors _move = a.getMove();
+                  boolean _tripleNotEquals_1 = (_move != null);
+                  if (_tripleNotEquals_1) {
+                    _builder.append("motor.left.target = ");
+                    int _evaluateExpression = new ThymioDSLValidator().evaluateExpression(a.getMove().getLeft());
+                    _builder.append(_evaluateExpression);
+                    _builder.newLineIfNotEmpty();
+                    _builder.append("motor.right.target = ");
+                    int _evaluateExpression_1 = new ThymioDSLValidator().evaluateExpression(a.getMove().getRight());
+                    _builder.append(_evaluateExpression_1);
+                    _builder.newLineIfNotEmpty();
+                  }
+                }
+                {
+                  Lights _light = a.getLight();
+                  boolean _tripleNotEquals_2 = (_light != null);
+                  if (_tripleNotEquals_2) {
+                    {
+                      RGB _topLight = a.getLight().getTopLight();
+                      boolean _tripleNotEquals_3 = (_topLight != null);
+                      if (_tripleNotEquals_3) {
+                        _builder.append("call leds.top(");
+                        int _evaluateExpression_2 = new ThymioDSLValidator().evaluateExpression(a.getLight().getTopLight().getRed());
+                        _builder.append(_evaluateExpression_2);
+                        _builder.append(",");
+                        int _evaluateExpression_3 = new ThymioDSLValidator().evaluateExpression(a.getLight().getTopLight().getGreen());
+                        _builder.append(_evaluateExpression_3);
+                        _builder.append(",");
+                        int _evaluateExpression_4 = new ThymioDSLValidator().evaluateExpression(a.getLight().getTopLight().getBlue());
+                        _builder.append(_evaluateExpression_4);
+                        _builder.append(")");
+                        _builder.newLineIfNotEmpty();
+                      } else {
+                        _builder.append("call leds.top(0,0,0)");
+                        _builder.newLine();
+                      }
+                    }
+                    {
+                      RGB _bottomLight = a.getLight().getBottomLight();
+                      boolean _tripleNotEquals_4 = (_bottomLight != null);
+                      if (_tripleNotEquals_4) {
+                        _builder.append("call leds.bottom.left(");
+                        int _evaluateExpression_5 = new ThymioDSLValidator().evaluateExpression(a.getLight().getBottomLight().getRed());
+                        _builder.append(_evaluateExpression_5);
+                        _builder.append(",");
+                        int _evaluateExpression_6 = new ThymioDSLValidator().evaluateExpression(a.getLight().getBottomLight().getGreen());
+                        _builder.append(_evaluateExpression_6);
+                        _builder.append(",");
+                        int _evaluateExpression_7 = new ThymioDSLValidator().evaluateExpression(a.getLight().getBottomLight().getBlue());
+                        _builder.append(_evaluateExpression_7);
+                        _builder.append(")");
+                        _builder.newLineIfNotEmpty();
+                        _builder.append("call leds.bottom.right(");
+                        int _evaluateExpression_8 = new ThymioDSLValidator().evaluateExpression(a.getLight().getBottomLight().getRed());
+                        _builder.append(_evaluateExpression_8);
+                        _builder.append(",");
+                        int _evaluateExpression_9 = new ThymioDSLValidator().evaluateExpression(a.getLight().getBottomLight().getGreen());
+                        _builder.append(_evaluateExpression_9);
+                        _builder.append(",");
+                        int _evaluateExpression_10 = new ThymioDSLValidator().evaluateExpression(a.getLight().getBottomLight().getBlue());
+                        _builder.append(_evaluateExpression_10);
+                        _builder.append(")");
+                        _builder.newLineIfNotEmpty();
+                      } else {
+                        _builder.append("call leds.bottom.left(0,0,0)");
+                        _builder.newLine();
+                        _builder.append("call leds.bottom.right(0,0,0)");
+                        _builder.newLine();
+                      }
+                    }
+                  }
+                }
+                {
+                  boolean _isEmpty = a.getSound().isEmpty();
+                  boolean _not = (!_isEmpty);
+                  if (_not) {
+                    _builder.append("call math.copy(notes[0:5], [");
+                    int _computePitch = new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a.getSound().get(0).getPitch()));
+                    _builder.append(_computePitch);
+                    _builder.append(", ");
+                    int _xifexpression_2 = (int) 0;
+                    int _size = a.getSound().size();
+                    boolean _greaterEqualsThan = (_size >= 2);
+                    if (_greaterEqualsThan) {
+                      _xifexpression_2 = new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a.getSound().get(1).getPitch()));
+                    } else {
+                      _xifexpression_2 = 0;
+                    }
+                    _builder.append(_xifexpression_2);
+                    _builder.append(", ");
+                    int _xifexpression_3 = (int) 0;
+                    int _size_1 = a.getSound().size();
+                    boolean _greaterEqualsThan_1 = (_size_1 >= 3);
+                    if (_greaterEqualsThan_1) {
+                      _xifexpression_3 = new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a.getSound().get(2).getPitch()));
+                    } else {
+                      _xifexpression_3 = 0;
+                    }
+                    _builder.append(_xifexpression_3);
+                    _builder.append(", ");
+                    int _xifexpression_4 = (int) 0;
+                    int _size_2 = a.getSound().size();
+                    boolean _greaterEqualsThan_2 = (_size_2 >= 4);
+                    if (_greaterEqualsThan_2) {
+                      _xifexpression_4 = new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a.getSound().get(3).getPitch()));
+                    } else {
+                      _xifexpression_4 = 0;
+                    }
+                    _builder.append(_xifexpression_4);
+                    _builder.append(", ");
+                    int _xifexpression_5 = (int) 0;
+                    int _size_3 = a.getSound().size();
+                    boolean _greaterEqualsThan_3 = (_size_3 >= 5);
+                    if (_greaterEqualsThan_3) {
+                      _xifexpression_5 = new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a.getSound().get(4).getPitch()));
+                    } else {
+                      _xifexpression_5 = 0;
+                    }
+                    _builder.append(_xifexpression_5);
+                    _builder.append(", ");
+                    int _xifexpression_6 = (int) 0;
+                    int _size_4 = a.getSound().size();
+                    boolean _greaterEqualsThan_4 = (_size_4 >= 6);
+                    if (_greaterEqualsThan_4) {
+                      _xifexpression_6 = new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a.getSound().get(5).getPitch()));
+                    } else {
+                      _xifexpression_6 = 0;
+                    }
+                    _builder.append(_xifexpression_6);
+                    _builder.append("])");
+                    _builder.newLineIfNotEmpty();
+                    _builder.append("call math.copy(notes[0:5], [");
+                    int _xifexpression_7 = (int) 0;
+                    boolean _equals_2 = a.getSound().get(0).getDuration().equals("short");
+                    if (_equals_2) {
+                      _xifexpression_7 = 7;
+                    } else {
+                      _xifexpression_7 = 14;
+                    }
+                    _builder.append(_xifexpression_7);
+                    _builder.append(", ");
+                    int _xifexpression_8 = (int) 0;
+                    int _size_5 = a.getSound().size();
+                    boolean _greaterEqualsThan_5 = (_size_5 >= 2);
+                    if (_greaterEqualsThan_5) {
+                      int _xifexpression_9 = (int) 0;
+                      boolean _equals_3 = a.getSound().get(1).getDuration().equals("short");
+                      if (_equals_3) {
+                        _xifexpression_9 = 7;
+                      } else {
+                        _xifexpression_9 = 14;
+                      }
+                      _xifexpression_8 = _xifexpression_9;
+                    }
+                    _builder.append(_xifexpression_8);
+                    _builder.append(", ");
+                    int _xifexpression_10 = (int) 0;
+                    int _size_6 = a.getSound().size();
+                    boolean _greaterEqualsThan_6 = (_size_6 >= 3);
+                    if (_greaterEqualsThan_6) {
+                      int _xifexpression_11 = (int) 0;
+                      boolean _equals_4 = a.getSound().get(2).getDuration().equals("short");
+                      if (_equals_4) {
+                        _xifexpression_11 = 7;
+                      } else {
+                        _xifexpression_11 = 14;
+                      }
+                      _xifexpression_10 = _xifexpression_11;
+                    }
+                    _builder.append(_xifexpression_10);
+                    _builder.append(", ");
+                    int _xifexpression_12 = (int) 0;
+                    int _size_7 = a.getSound().size();
+                    boolean _greaterEqualsThan_7 = (_size_7 >= 4);
+                    if (_greaterEqualsThan_7) {
+                      int _xifexpression_13 = (int) 0;
+                      boolean _equals_5 = a.getSound().get(3).getDuration().equals("short");
+                      if (_equals_5) {
+                        _xifexpression_13 = 7;
+                      } else {
+                        _xifexpression_13 = 14;
+                      }
+                      _xifexpression_12 = _xifexpression_13;
+                    }
+                    _builder.append(_xifexpression_12);
+                    _builder.append(", ");
+                    int _xifexpression_14 = (int) 0;
+                    int _size_8 = a.getSound().size();
+                    boolean _greaterEqualsThan_8 = (_size_8 >= 5);
+                    if (_greaterEqualsThan_8) {
+                      int _xifexpression_15 = (int) 0;
+                      boolean _equals_6 = a.getSound().get(4).getDuration().equals("short");
+                      if (_equals_6) {
+                        _xifexpression_15 = 7;
+                      } else {
+                        _xifexpression_15 = 14;
+                      }
+                      _xifexpression_14 = _xifexpression_15;
+                    }
+                    _builder.append(_xifexpression_14);
+                    _builder.append(", ");
+                    int _xifexpression_16 = (int) 0;
+                    int _size_9 = a.getSound().size();
+                    boolean _greaterEqualsThan_9 = (_size_9 >= 6);
+                    if (_greaterEqualsThan_9) {
+                      int _xifexpression_17 = (int) 0;
+                      boolean _equals_7 = a.getSound().get(5).getDuration().equals("short");
+                      if (_equals_7) {
+                        _xifexpression_17 = 7;
+                      } else {
+                        _xifexpression_17 = 14;
+                      }
+                      _xifexpression_16 = _xifexpression_17;
+                    }
+                    _builder.append(_xifexpression_16);
+                    _builder.append("])");
+                    _builder.newLineIfNotEmpty();
+                    _builder.append("note_index = 1");
+                    _builder.newLine();
+                    _builder.append("note_count = 6");
+                    _builder.newLine();
+                    _builder.append("call sound.freq(notes[0], durations[0])");
+                    _builder.newLine();
+                  }
+                }
+              }
+            }
+            _builder.append("end");
+            _builder.newLine();
+          }
+        }
+      }
+    }
+    _builder.newLine();
+    _builder.append("onevent prox");
+    _builder.newLine();
+    {
+      EList<Procedure> _procedures_1 = m.getProcedures();
+      for(final Procedure p_1 : _procedures_1) {
+        {
+          ProxSensor _proxSensor = p_1.getEvents().getProxSensor();
+          boolean _tripleNotEquals_5 = (_proxSensor != null);
+          if (_tripleNotEquals_5) {
+            {
+              if (((((((((p_1.getEvents().getProxSensor().getFrontLeftSensor() == null) || p_1.getEvents().getProxSensor().getFrontLeftSensor().equals("far")) && ((p_1.getEvents().getProxSensor().getFrontCenterLeftSensor() == null) || p_1.getEvents().getProxSensor().getFrontCenterLeftSensor().equals("far"))) && ((p_1.getEvents().getProxSensor().getFrontCenterSensor() == null) || p_1.getEvents().getProxSensor().getFrontCenterSensor().equals("far"))) && ((p_1.getEvents().getProxSensor().getFrontCenterRightSensor() == null) || p_1.getEvents().getProxSensor().getFrontCenterRightSensor().equals("far"))) && ((p_1.getEvents().getProxSensor().getFrontRightSensor() == null) || p_1.getEvents().getProxSensor().getFrontRightSensor().equals("far"))) && ((p_1.getEvents().getProxSensor().getBackLeftSensor() == null) || p_1.getEvents().getProxSensor().getBackLeftSensor().equals("far"))) && ((p_1.getEvents().getProxSensor().getBackRightSensor() == null) || p_1.getEvents().getProxSensor().getBackRightSensor().equals("far")))) {
+                {
+                  EList<Action> _actions_1 = p_1.getActions();
+                  for(final Action a_1 : _actions_1) {
+                    {
+                      Motors _move_1 = a_1.getMove();
+                      boolean _tripleNotEquals_6 = (_move_1 != null);
+                      if (_tripleNotEquals_6) {
+                        _builder.append("motor.left.target = ");
+                        int _evaluateExpression_11 = new ThymioDSLValidator().evaluateExpression(a_1.getMove().getLeft());
+                        _builder.append(_evaluateExpression_11);
+                        _builder.newLineIfNotEmpty();
+                        _builder.append("motor.right.target = ");
+                        int _evaluateExpression_12 = new ThymioDSLValidator().evaluateExpression(a_1.getMove().getRight());
+                        _builder.append(_evaluateExpression_12);
+                        _builder.newLineIfNotEmpty();
+                      }
+                    }
+                    {
+                      Lights _light_1 = a_1.getLight();
+                      boolean _tripleNotEquals_7 = (_light_1 != null);
+                      if (_tripleNotEquals_7) {
+                        {
+                          RGB _topLight_1 = a_1.getLight().getTopLight();
+                          boolean _tripleNotEquals_8 = (_topLight_1 != null);
+                          if (_tripleNotEquals_8) {
+                            _builder.append("call leds.top(");
+                            int _evaluateExpression_13 = new ThymioDSLValidator().evaluateExpression(a_1.getLight().getTopLight().getRed());
+                            _builder.append(_evaluateExpression_13);
+                            _builder.append(",");
+                            int _evaluateExpression_14 = new ThymioDSLValidator().evaluateExpression(a_1.getLight().getTopLight().getGreen());
+                            _builder.append(_evaluateExpression_14);
+                            _builder.append(",");
+                            int _evaluateExpression_15 = new ThymioDSLValidator().evaluateExpression(a_1.getLight().getTopLight().getBlue());
+                            _builder.append(_evaluateExpression_15);
+                            _builder.append(")");
+                            _builder.newLineIfNotEmpty();
+                          } else {
+                            _builder.append("call leds.top(0,0,0)");
+                            _builder.newLine();
+                          }
+                        }
+                        {
+                          RGB _bottomLight_1 = a_1.getLight().getBottomLight();
+                          boolean _tripleNotEquals_9 = (_bottomLight_1 != null);
+                          if (_tripleNotEquals_9) {
+                            _builder.append("call leds.bottom.left(");
+                            int _evaluateExpression_16 = new ThymioDSLValidator().evaluateExpression(a_1.getLight().getBottomLight().getRed());
+                            _builder.append(_evaluateExpression_16);
+                            _builder.append(",");
+                            int _evaluateExpression_17 = new ThymioDSLValidator().evaluateExpression(a_1.getLight().getBottomLight().getGreen());
+                            _builder.append(_evaluateExpression_17);
+                            _builder.append(",");
+                            int _evaluateExpression_18 = new ThymioDSLValidator().evaluateExpression(a_1.getLight().getBottomLight().getBlue());
+                            _builder.append(_evaluateExpression_18);
+                            _builder.append(")");
+                            _builder.newLineIfNotEmpty();
+                            _builder.append("call leds.bottom.right(");
+                            int _evaluateExpression_19 = new ThymioDSLValidator().evaluateExpression(a_1.getLight().getBottomLight().getRed());
+                            _builder.append(_evaluateExpression_19);
+                            _builder.append(",");
+                            int _evaluateExpression_20 = new ThymioDSLValidator().evaluateExpression(a_1.getLight().getBottomLight().getGreen());
+                            _builder.append(_evaluateExpression_20);
+                            _builder.append(",");
+                            int _evaluateExpression_21 = new ThymioDSLValidator().evaluateExpression(a_1.getLight().getBottomLight().getBlue());
+                            _builder.append(_evaluateExpression_21);
+                            _builder.append(")");
+                            _builder.newLineIfNotEmpty();
+                          } else {
+                            _builder.append("call leds.bottom.left(0,0,0)");
+                            _builder.newLine();
+                            _builder.append("call leds.bottom.right(0,0,0)");
+                            _builder.newLine();
+                          }
+                        }
+                      }
+                    }
+                    {
+                      boolean _isEmpty_1 = a_1.getSound().isEmpty();
+                      boolean _not_1 = (!_isEmpty_1);
+                      if (_not_1) {
+                        _builder.append("call math.copy(notes[0:5], [");
+                        int _computePitch_1 = new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a_1.getSound().get(0).getPitch()));
+                        _builder.append(_computePitch_1);
+                        _builder.append(", ");
+                        int _xifexpression_18 = (int) 0;
+                        int _size_10 = a_1.getSound().size();
+                        boolean _greaterEqualsThan_10 = (_size_10 >= 2);
+                        if (_greaterEqualsThan_10) {
+                          _xifexpression_18 = new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a_1.getSound().get(1).getPitch()));
+                        } else {
+                          _xifexpression_18 = 0;
+                        }
+                        _builder.append(_xifexpression_18);
+                        _builder.append(", ");
+                        int _xifexpression_19 = (int) 0;
+                        int _size_11 = a_1.getSound().size();
+                        boolean _greaterEqualsThan_11 = (_size_11 >= 3);
+                        if (_greaterEqualsThan_11) {
+                          _xifexpression_19 = new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a_1.getSound().get(2).getPitch()));
+                        } else {
+                          _xifexpression_19 = 0;
+                        }
+                        _builder.append(_xifexpression_19);
+                        _builder.append(", ");
+                        int _xifexpression_20 = (int) 0;
+                        int _size_12 = a_1.getSound().size();
+                        boolean _greaterEqualsThan_12 = (_size_12 >= 4);
+                        if (_greaterEqualsThan_12) {
+                          _xifexpression_20 = new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a_1.getSound().get(3).getPitch()));
+                        } else {
+                          _xifexpression_20 = 0;
+                        }
+                        _builder.append(_xifexpression_20);
+                        _builder.append(", ");
+                        int _xifexpression_21 = (int) 0;
+                        int _size_13 = a_1.getSound().size();
+                        boolean _greaterEqualsThan_13 = (_size_13 >= 5);
+                        if (_greaterEqualsThan_13) {
+                          _xifexpression_21 = new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a_1.getSound().get(4).getPitch()));
+                        } else {
+                          _xifexpression_21 = 0;
+                        }
+                        _builder.append(_xifexpression_21);
+                        _builder.append(", ");
+                        int _xifexpression_22 = (int) 0;
+                        int _size_14 = a_1.getSound().size();
+                        boolean _greaterEqualsThan_14 = (_size_14 >= 6);
+                        if (_greaterEqualsThan_14) {
+                          _xifexpression_22 = new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a_1.getSound().get(5).getPitch()));
+                        } else {
+                          _xifexpression_22 = 0;
+                        }
+                        _builder.append(_xifexpression_22);
+                        _builder.append("])");
+                        _builder.newLineIfNotEmpty();
+                        _builder.append("call math.copy(notes[0:5], [");
+                        int _xifexpression_23 = (int) 0;
+                        boolean _equals_8 = a_1.getSound().get(0).getDuration().equals("short");
+                        if (_equals_8) {
+                          _xifexpression_23 = 7;
+                        } else {
+                          _xifexpression_23 = 14;
+                        }
+                        _builder.append(_xifexpression_23);
+                        _builder.append(", ");
+                        int _xifexpression_24 = (int) 0;
+                        int _size_15 = a_1.getSound().size();
+                        boolean _greaterEqualsThan_15 = (_size_15 >= 2);
+                        if (_greaterEqualsThan_15) {
+                          int _xifexpression_25 = (int) 0;
+                          boolean _equals_9 = a_1.getSound().get(1).getDuration().equals("short");
+                          if (_equals_9) {
+                            _xifexpression_25 = 7;
+                          } else {
+                            _xifexpression_25 = 14;
+                          }
+                          _xifexpression_24 = _xifexpression_25;
+                        }
+                        _builder.append(_xifexpression_24);
+                        _builder.append(", ");
+                        int _xifexpression_26 = (int) 0;
+                        int _size_16 = a_1.getSound().size();
+                        boolean _greaterEqualsThan_16 = (_size_16 >= 3);
+                        if (_greaterEqualsThan_16) {
+                          int _xifexpression_27 = (int) 0;
+                          boolean _equals_10 = a_1.getSound().get(2).getDuration().equals("short");
+                          if (_equals_10) {
+                            _xifexpression_27 = 7;
+                          } else {
+                            _xifexpression_27 = 14;
+                          }
+                          _xifexpression_26 = _xifexpression_27;
+                        }
+                        _builder.append(_xifexpression_26);
+                        _builder.append(", ");
+                        int _xifexpression_28 = (int) 0;
+                        int _size_17 = a_1.getSound().size();
+                        boolean _greaterEqualsThan_17 = (_size_17 >= 4);
+                        if (_greaterEqualsThan_17) {
+                          int _xifexpression_29 = (int) 0;
+                          boolean _equals_11 = a_1.getSound().get(3).getDuration().equals("short");
+                          if (_equals_11) {
+                            _xifexpression_29 = 7;
+                          } else {
+                            _xifexpression_29 = 14;
+                          }
+                          _xifexpression_28 = _xifexpression_29;
+                        }
+                        _builder.append(_xifexpression_28);
+                        _builder.append(", ");
+                        int _xifexpression_30 = (int) 0;
+                        int _size_18 = a_1.getSound().size();
+                        boolean _greaterEqualsThan_18 = (_size_18 >= 5);
+                        if (_greaterEqualsThan_18) {
+                          int _xifexpression_31 = (int) 0;
+                          boolean _equals_12 = a_1.getSound().get(4).getDuration().equals("short");
+                          if (_equals_12) {
+                            _xifexpression_31 = 7;
+                          } else {
+                            _xifexpression_31 = 14;
+                          }
+                          _xifexpression_30 = _xifexpression_31;
+                        }
+                        _builder.append(_xifexpression_30);
+                        _builder.append(", ");
+                        int _xifexpression_32 = (int) 0;
+                        int _size_19 = a_1.getSound().size();
+                        boolean _greaterEqualsThan_19 = (_size_19 >= 6);
+                        if (_greaterEqualsThan_19) {
+                          int _xifexpression_33 = (int) 0;
+                          boolean _equals_13 = a_1.getSound().get(5).getDuration().equals("short");
+                          if (_equals_13) {
+                            _xifexpression_33 = 7;
+                          } else {
+                            _xifexpression_33 = 14;
+                          }
+                          _xifexpression_32 = _xifexpression_33;
+                        }
+                        _builder.append(_xifexpression_32);
+                        _builder.append("])");
+                        _builder.newLineIfNotEmpty();
+                        _builder.append("note_index = 1");
+                        _builder.newLine();
+                        _builder.append("note_count = 6");
+                        _builder.newLine();
+                        _builder.append("call sound.freq(notes[0], durations[0])");
+                        _builder.newLine();
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        _builder.newLine();
+        {
+          BottomSensor _bottomSensor = p_1.getEvents().getBottomSensor();
+          boolean _tripleNotEquals_10 = (_bottomSensor != null);
+          if (_tripleNotEquals_10) {
+            {
+              if ((p_1.getEvents().getBottomSensor().getBottomLeftSensor().equals("any") && p_1.getEvents().getBottomSensor().getBottomRightSensor().equals("any"))) {
+                {
+                  EList<Action> _actions_2 = p_1.getActions();
+                  for(final Action a_2 : _actions_2) {
+                    {
+                      Motors _move_2 = a_2.getMove();
+                      boolean _tripleNotEquals_11 = (_move_2 != null);
+                      if (_tripleNotEquals_11) {
+                        _builder.append("motor.left.target = ");
+                        int _evaluateExpression_22 = new ThymioDSLValidator().evaluateExpression(a_2.getMove().getLeft());
+                        _builder.append(_evaluateExpression_22);
+                        _builder.newLineIfNotEmpty();
+                        _builder.append("motor.right.target = ");
+                        int _evaluateExpression_23 = new ThymioDSLValidator().evaluateExpression(a_2.getMove().getRight());
+                        _builder.append(_evaluateExpression_23);
+                        _builder.newLineIfNotEmpty();
+                      }
+                    }
+                    {
+                      Lights _light_2 = a_2.getLight();
+                      boolean _tripleNotEquals_12 = (_light_2 != null);
+                      if (_tripleNotEquals_12) {
+                        {
+                          RGB _topLight_2 = a_2.getLight().getTopLight();
+                          boolean _tripleNotEquals_13 = (_topLight_2 != null);
+                          if (_tripleNotEquals_13) {
+                            _builder.append("call leds.top(");
+                            int _evaluateExpression_24 = new ThymioDSLValidator().evaluateExpression(a_2.getLight().getTopLight().getRed());
+                            _builder.append(_evaluateExpression_24);
+                            _builder.append(",");
+                            int _evaluateExpression_25 = new ThymioDSLValidator().evaluateExpression(a_2.getLight().getTopLight().getGreen());
+                            _builder.append(_evaluateExpression_25);
+                            _builder.append(",");
+                            int _evaluateExpression_26 = new ThymioDSLValidator().evaluateExpression(a_2.getLight().getTopLight().getBlue());
+                            _builder.append(_evaluateExpression_26);
+                            _builder.append(")");
+                            _builder.newLineIfNotEmpty();
+                          } else {
+                            _builder.append("call leds.top(0,0,0)");
+                            _builder.newLine();
+                          }
+                        }
+                        {
+                          RGB _bottomLight_2 = a_2.getLight().getBottomLight();
+                          boolean _tripleNotEquals_14 = (_bottomLight_2 != null);
+                          if (_tripleNotEquals_14) {
+                            _builder.append("call leds.bottom.left(");
+                            int _evaluateExpression_27 = new ThymioDSLValidator().evaluateExpression(a_2.getLight().getBottomLight().getRed());
+                            _builder.append(_evaluateExpression_27);
+                            _builder.append(",");
+                            int _evaluateExpression_28 = new ThymioDSLValidator().evaluateExpression(a_2.getLight().getBottomLight().getGreen());
+                            _builder.append(_evaluateExpression_28);
+                            _builder.append(",");
+                            int _evaluateExpression_29 = new ThymioDSLValidator().evaluateExpression(a_2.getLight().getBottomLight().getBlue());
+                            _builder.append(_evaluateExpression_29);
+                            _builder.append(")");
+                            _builder.newLineIfNotEmpty();
+                            _builder.append("call leds.bottom.right(");
+                            int _evaluateExpression_30 = new ThymioDSLValidator().evaluateExpression(a_2.getLight().getBottomLight().getRed());
+                            _builder.append(_evaluateExpression_30);
+                            _builder.append(",");
+                            int _evaluateExpression_31 = new ThymioDSLValidator().evaluateExpression(a_2.getLight().getBottomLight().getGreen());
+                            _builder.append(_evaluateExpression_31);
+                            _builder.append(",");
+                            int _evaluateExpression_32 = new ThymioDSLValidator().evaluateExpression(a_2.getLight().getBottomLight().getBlue());
+                            _builder.append(_evaluateExpression_32);
+                            _builder.append(")");
+                            _builder.newLineIfNotEmpty();
+                          } else {
+                            _builder.append("call leds.bottom.left(0,0,0)");
+                            _builder.newLine();
+                            _builder.append("call leds.bottom.right(0,0,0)");
+                            _builder.newLine();
+                          }
+                        }
+                      }
+                    }
+                    {
+                      boolean _isEmpty_2 = a_2.getSound().isEmpty();
+                      boolean _not_2 = (!_isEmpty_2);
+                      if (_not_2) {
+                        _builder.append("call math.copy(notes[0:5], [");
+                        int _computePitch_2 = new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a_2.getSound().get(0).getPitch()));
+                        _builder.append(_computePitch_2);
+                        _builder.append(", ");
+                        int _xifexpression_34 = (int) 0;
+                        int _size_20 = a_2.getSound().size();
+                        boolean _greaterEqualsThan_20 = (_size_20 >= 2);
+                        if (_greaterEqualsThan_20) {
+                          _xifexpression_34 = new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a_2.getSound().get(1).getPitch()));
+                        } else {
+                          _xifexpression_34 = 0;
+                        }
+                        _builder.append(_xifexpression_34);
+                        _builder.append(", ");
+                        int _xifexpression_35 = (int) 0;
+                        int _size_21 = a_2.getSound().size();
+                        boolean _greaterEqualsThan_21 = (_size_21 >= 3);
+                        if (_greaterEqualsThan_21) {
+                          _xifexpression_35 = new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a_2.getSound().get(2).getPitch()));
+                        } else {
+                          _xifexpression_35 = 0;
+                        }
+                        _builder.append(_xifexpression_35);
+                        _builder.append(", ");
+                        int _xifexpression_36 = (int) 0;
+                        int _size_22 = a_2.getSound().size();
+                        boolean _greaterEqualsThan_22 = (_size_22 >= 4);
+                        if (_greaterEqualsThan_22) {
+                          _xifexpression_36 = new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a_2.getSound().get(3).getPitch()));
+                        } else {
+                          _xifexpression_36 = 0;
+                        }
+                        _builder.append(_xifexpression_36);
+                        _builder.append(", ");
+                        int _xifexpression_37 = (int) 0;
+                        int _size_23 = a_2.getSound().size();
+                        boolean _greaterEqualsThan_23 = (_size_23 >= 5);
+                        if (_greaterEqualsThan_23) {
+                          _xifexpression_37 = new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a_2.getSound().get(4).getPitch()));
+                        } else {
+                          _xifexpression_37 = 0;
+                        }
+                        _builder.append(_xifexpression_37);
+                        _builder.append(", ");
+                        int _xifexpression_38 = (int) 0;
+                        int _size_24 = a_2.getSound().size();
+                        boolean _greaterEqualsThan_24 = (_size_24 >= 6);
+                        if (_greaterEqualsThan_24) {
+                          _xifexpression_38 = new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a_2.getSound().get(5).getPitch()));
+                        } else {
+                          _xifexpression_38 = 0;
+                        }
+                        _builder.append(_xifexpression_38);
+                        _builder.append("])");
+                        _builder.newLineIfNotEmpty();
+                        _builder.append("call math.copy(notes[0:5], [");
+                        int _xifexpression_39 = (int) 0;
+                        boolean _equals_14 = a_2.getSound().get(0).getDuration().equals("short");
+                        if (_equals_14) {
+                          _xifexpression_39 = 7;
+                        } else {
+                          _xifexpression_39 = 14;
+                        }
+                        _builder.append(_xifexpression_39);
+                        _builder.append(", ");
+                        int _xifexpression_40 = (int) 0;
+                        int _size_25 = a_2.getSound().size();
+                        boolean _greaterEqualsThan_25 = (_size_25 >= 2);
+                        if (_greaterEqualsThan_25) {
+                          int _xifexpression_41 = (int) 0;
+                          boolean _equals_15 = a_2.getSound().get(1).getDuration().equals("short");
+                          if (_equals_15) {
+                            _xifexpression_41 = 7;
+                          } else {
+                            _xifexpression_41 = 14;
+                          }
+                          _xifexpression_40 = _xifexpression_41;
+                        }
+                        _builder.append(_xifexpression_40);
+                        _builder.append(", ");
+                        int _xifexpression_42 = (int) 0;
+                        int _size_26 = a_2.getSound().size();
+                        boolean _greaterEqualsThan_26 = (_size_26 >= 3);
+                        if (_greaterEqualsThan_26) {
+                          int _xifexpression_43 = (int) 0;
+                          boolean _equals_16 = a_2.getSound().get(2).getDuration().equals("short");
+                          if (_equals_16) {
+                            _xifexpression_43 = 7;
+                          } else {
+                            _xifexpression_43 = 14;
+                          }
+                          _xifexpression_42 = _xifexpression_43;
+                        }
+                        _builder.append(_xifexpression_42);
+                        _builder.append(", ");
+                        int _xifexpression_44 = (int) 0;
+                        int _size_27 = a_2.getSound().size();
+                        boolean _greaterEqualsThan_27 = (_size_27 >= 4);
+                        if (_greaterEqualsThan_27) {
+                          int _xifexpression_45 = (int) 0;
+                          boolean _equals_17 = a_2.getSound().get(3).getDuration().equals("short");
+                          if (_equals_17) {
+                            _xifexpression_45 = 7;
+                          } else {
+                            _xifexpression_45 = 14;
+                          }
+                          _xifexpression_44 = _xifexpression_45;
+                        }
+                        _builder.append(_xifexpression_44);
+                        _builder.append(", ");
+                        int _xifexpression_46 = (int) 0;
+                        int _size_28 = a_2.getSound().size();
+                        boolean _greaterEqualsThan_28 = (_size_28 >= 5);
+                        if (_greaterEqualsThan_28) {
+                          int _xifexpression_47 = (int) 0;
+                          boolean _equals_18 = a_2.getSound().get(4).getDuration().equals("short");
+                          if (_equals_18) {
+                            _xifexpression_47 = 7;
+                          } else {
+                            _xifexpression_47 = 14;
+                          }
+                          _xifexpression_46 = _xifexpression_47;
+                        }
+                        _builder.append(_xifexpression_46);
+                        _builder.append(", ");
+                        int _xifexpression_48 = (int) 0;
+                        int _size_29 = a_2.getSound().size();
+                        boolean _greaterEqualsThan_29 = (_size_29 >= 6);
+                        if (_greaterEqualsThan_29) {
+                          int _xifexpression_49 = (int) 0;
+                          boolean _equals_19 = a_2.getSound().get(5).getDuration().equals("short");
+                          if (_equals_19) {
+                            _xifexpression_49 = 7;
+                          } else {
+                            _xifexpression_49 = 14;
+                          }
+                          _xifexpression_48 = _xifexpression_49;
+                        }
+                        _builder.append(_xifexpression_48);
+                        _builder.append("])");
+                        _builder.newLineIfNotEmpty();
+                        _builder.append("note_index = 1");
+                        _builder.newLine();
+                        _builder.append("note_count = 6");
+                        _builder.newLine();
+                        _builder.append("call sound.freq(notes[0], durations[0])");
+                        _builder.newLine();
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    _builder.newLine();
+    {
+      EList<Procedure> _procedures_2 = m.getProcedures();
+      for(final Procedure p_2 : _procedures_2) {
+        {
+          ProxSensor _proxSensor_1 = p_2.getEvents().getProxSensor();
+          boolean _tripleNotEquals_15 = (_proxSensor_1 != null);
+          if (_tripleNotEquals_15) {
+            {
+              boolean _not_3 = (!((((((((p_2.getEvents().getProxSensor().getFrontLeftSensor() == null) || p_2.getEvents().getProxSensor().getFrontLeftSensor().equals("far")) && ((p_2.getEvents().getProxSensor().getFrontCenterLeftSensor() == null) || p_2.getEvents().getProxSensor().getFrontCenterLeftSensor().equals("far"))) && ((p_2.getEvents().getProxSensor().getFrontCenterSensor() == null) || p_2.getEvents().getProxSensor().getFrontCenterSensor().equals("far"))) && ((p_2.getEvents().getProxSensor().getFrontCenterRightSensor() == null) || p_2.getEvents().getProxSensor().getFrontCenterRightSensor().equals("far"))) && ((p_2.getEvents().getProxSensor().getFrontRightSensor() == null) || p_2.getEvents().getProxSensor().getFrontRightSensor().equals("far"))) && ((p_2.getEvents().getProxSensor().getBackLeftSensor() == null) || p_2.getEvents().getProxSensor().getBackLeftSensor().equals("far"))) && ((p_2.getEvents().getProxSensor().getBackRightSensor() == null) || p_2.getEvents().getProxSensor().getBackRightSensor().equals("far"))));
+              if (_not_3) {
+                String _proxSensorInAseba = new ThymioDSLValidator().proxSensorInAseba(p_2.getEvents().getProxSensor());
+                _builder.append(_proxSensorInAseba);
+                _builder.newLineIfNotEmpty();
+                {
+                  EList<Action> _actions_3 = p_2.getActions();
+                  for(final Action a_3 : _actions_3) {
+                    {
+                      Motors _move_3 = a_3.getMove();
+                      boolean _tripleNotEquals_16 = (_move_3 != null);
+                      if (_tripleNotEquals_16) {
+                        _builder.append("motor.left.target = ");
+                        int _evaluateExpression_33 = new ThymioDSLValidator().evaluateExpression(a_3.getMove().getLeft());
+                        _builder.append(_evaluateExpression_33);
+                        _builder.newLineIfNotEmpty();
+                        _builder.append("motor.right.target = ");
+                        int _evaluateExpression_34 = new ThymioDSLValidator().evaluateExpression(a_3.getMove().getRight());
+                        _builder.append(_evaluateExpression_34);
+                        _builder.newLineIfNotEmpty();
+                      }
+                    }
+                    {
+                      Lights _light_3 = a_3.getLight();
+                      boolean _tripleNotEquals_17 = (_light_3 != null);
+                      if (_tripleNotEquals_17) {
+                        {
+                          RGB _topLight_3 = a_3.getLight().getTopLight();
+                          boolean _tripleNotEquals_18 = (_topLight_3 != null);
+                          if (_tripleNotEquals_18) {
+                            _builder.append("call leds.top(");
+                            int _evaluateExpression_35 = new ThymioDSLValidator().evaluateExpression(a_3.getLight().getTopLight().getRed());
+                            _builder.append(_evaluateExpression_35);
+                            _builder.append(",");
+                            int _evaluateExpression_36 = new ThymioDSLValidator().evaluateExpression(a_3.getLight().getTopLight().getGreen());
+                            _builder.append(_evaluateExpression_36);
+                            _builder.append(",");
+                            int _evaluateExpression_37 = new ThymioDSLValidator().evaluateExpression(a_3.getLight().getTopLight().getBlue());
+                            _builder.append(_evaluateExpression_37);
+                            _builder.append(")");
+                            _builder.newLineIfNotEmpty();
+                          } else {
+                            _builder.append("call leds.top(0,0,0)");
+                            _builder.newLine();
+                          }
+                        }
+                        {
+                          RGB _bottomLight_3 = a_3.getLight().getBottomLight();
+                          boolean _tripleNotEquals_19 = (_bottomLight_3 != null);
+                          if (_tripleNotEquals_19) {
+                            _builder.append("call leds.bottom.left(");
+                            int _evaluateExpression_38 = new ThymioDSLValidator().evaluateExpression(a_3.getLight().getBottomLight().getRed());
+                            _builder.append(_evaluateExpression_38);
+                            _builder.append(",");
+                            int _evaluateExpression_39 = new ThymioDSLValidator().evaluateExpression(a_3.getLight().getBottomLight().getGreen());
+                            _builder.append(_evaluateExpression_39);
+                            _builder.append(",");
+                            int _evaluateExpression_40 = new ThymioDSLValidator().evaluateExpression(a_3.getLight().getBottomLight().getBlue());
+                            _builder.append(_evaluateExpression_40);
+                            _builder.append(")");
+                            _builder.newLineIfNotEmpty();
+                            _builder.append("call leds.bottom.right(");
+                            int _evaluateExpression_41 = new ThymioDSLValidator().evaluateExpression(a_3.getLight().getBottomLight().getRed());
+                            _builder.append(_evaluateExpression_41);
+                            _builder.append(",");
+                            int _evaluateExpression_42 = new ThymioDSLValidator().evaluateExpression(a_3.getLight().getBottomLight().getGreen());
+                            _builder.append(_evaluateExpression_42);
+                            _builder.append(",");
+                            int _evaluateExpression_43 = new ThymioDSLValidator().evaluateExpression(a_3.getLight().getBottomLight().getBlue());
+                            _builder.append(_evaluateExpression_43);
+                            _builder.append(")");
+                            _builder.newLineIfNotEmpty();
+                          } else {
+                            _builder.append("call leds.bottom.left(0,0,0)");
+                            _builder.newLine();
+                            _builder.append("call leds.bottom.right(0,0,0)");
+                            _builder.newLine();
+                          }
+                        }
+                      }
+                    }
+                    {
+                      boolean _isEmpty_3 = a_3.getSound().isEmpty();
+                      boolean _not_4 = (!_isEmpty_3);
+                      if (_not_4) {
+                        _builder.append("call math.copy(notes[0:5], [");
+                        int _computePitch_3 = new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a_3.getSound().get(0).getPitch()));
+                        _builder.append(_computePitch_3);
+                        _builder.append(", ");
+                        int _xifexpression_50 = (int) 0;
+                        int _size_30 = a_3.getSound().size();
+                        boolean _greaterEqualsThan_30 = (_size_30 >= 2);
+                        if (_greaterEqualsThan_30) {
+                          _xifexpression_50 = new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a_3.getSound().get(1).getPitch()));
+                        } else {
+                          _xifexpression_50 = 0;
+                        }
+                        _builder.append(_xifexpression_50);
+                        _builder.append(", ");
+                        int _xifexpression_51 = (int) 0;
+                        int _size_31 = a_3.getSound().size();
+                        boolean _greaterEqualsThan_31 = (_size_31 >= 3);
+                        if (_greaterEqualsThan_31) {
+                          _xifexpression_51 = new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a_3.getSound().get(2).getPitch()));
+                        } else {
+                          _xifexpression_51 = 0;
+                        }
+                        _builder.append(_xifexpression_51);
+                        _builder.append(", ");
+                        int _xifexpression_52 = (int) 0;
+                        int _size_32 = a_3.getSound().size();
+                        boolean _greaterEqualsThan_32 = (_size_32 >= 4);
+                        if (_greaterEqualsThan_32) {
+                          _xifexpression_52 = new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a_3.getSound().get(3).getPitch()));
+                        } else {
+                          _xifexpression_52 = 0;
+                        }
+                        _builder.append(_xifexpression_52);
+                        _builder.append(", ");
+                        int _xifexpression_53 = (int) 0;
+                        int _size_33 = a_3.getSound().size();
+                        boolean _greaterEqualsThan_33 = (_size_33 >= 5);
+                        if (_greaterEqualsThan_33) {
+                          _xifexpression_53 = new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a_3.getSound().get(4).getPitch()));
+                        } else {
+                          _xifexpression_53 = 0;
+                        }
+                        _builder.append(_xifexpression_53);
+                        _builder.append(", ");
+                        int _xifexpression_54 = (int) 0;
+                        int _size_34 = a_3.getSound().size();
+                        boolean _greaterEqualsThan_34 = (_size_34 >= 6);
+                        if (_greaterEqualsThan_34) {
+                          _xifexpression_54 = new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a_3.getSound().get(5).getPitch()));
+                        } else {
+                          _xifexpression_54 = 0;
+                        }
+                        _builder.append(_xifexpression_54);
+                        _builder.append("])");
+                        _builder.newLineIfNotEmpty();
+                        _builder.append("call math.copy(notes[0:5], [");
+                        int _xifexpression_55 = (int) 0;
+                        boolean _equals_20 = a_3.getSound().get(0).getDuration().equals("short");
+                        if (_equals_20) {
+                          _xifexpression_55 = 7;
+                        } else {
+                          _xifexpression_55 = 14;
+                        }
+                        _builder.append(_xifexpression_55);
+                        _builder.append(", ");
+                        int _xifexpression_56 = (int) 0;
+                        int _size_35 = a_3.getSound().size();
+                        boolean _greaterEqualsThan_35 = (_size_35 >= 2);
+                        if (_greaterEqualsThan_35) {
+                          int _xifexpression_57 = (int) 0;
+                          boolean _equals_21 = a_3.getSound().get(1).getDuration().equals("short");
+                          if (_equals_21) {
+                            _xifexpression_57 = 7;
+                          } else {
+                            _xifexpression_57 = 14;
+                          }
+                          _xifexpression_56 = _xifexpression_57;
+                        }
+                        _builder.append(_xifexpression_56);
+                        _builder.append(", ");
+                        int _xifexpression_58 = (int) 0;
+                        int _size_36 = a_3.getSound().size();
+                        boolean _greaterEqualsThan_36 = (_size_36 >= 3);
+                        if (_greaterEqualsThan_36) {
+                          int _xifexpression_59 = (int) 0;
+                          boolean _equals_22 = a_3.getSound().get(2).getDuration().equals("short");
+                          if (_equals_22) {
+                            _xifexpression_59 = 7;
+                          } else {
+                            _xifexpression_59 = 14;
+                          }
+                          _xifexpression_58 = _xifexpression_59;
+                        }
+                        _builder.append(_xifexpression_58);
+                        _builder.append(", ");
+                        int _xifexpression_60 = (int) 0;
+                        int _size_37 = a_3.getSound().size();
+                        boolean _greaterEqualsThan_37 = (_size_37 >= 4);
+                        if (_greaterEqualsThan_37) {
+                          int _xifexpression_61 = (int) 0;
+                          boolean _equals_23 = a_3.getSound().get(3).getDuration().equals("short");
+                          if (_equals_23) {
+                            _xifexpression_61 = 7;
+                          } else {
+                            _xifexpression_61 = 14;
+                          }
+                          _xifexpression_60 = _xifexpression_61;
+                        }
+                        _builder.append(_xifexpression_60);
+                        _builder.append(", ");
+                        int _xifexpression_62 = (int) 0;
+                        int _size_38 = a_3.getSound().size();
+                        boolean _greaterEqualsThan_38 = (_size_38 >= 5);
+                        if (_greaterEqualsThan_38) {
+                          int _xifexpression_63 = (int) 0;
+                          boolean _equals_24 = a_3.getSound().get(4).getDuration().equals("short");
+                          if (_equals_24) {
+                            _xifexpression_63 = 7;
+                          } else {
+                            _xifexpression_63 = 14;
+                          }
+                          _xifexpression_62 = _xifexpression_63;
+                        }
+                        _builder.append(_xifexpression_62);
+                        _builder.append(", ");
+                        int _xifexpression_64 = (int) 0;
+                        int _size_39 = a_3.getSound().size();
+                        boolean _greaterEqualsThan_39 = (_size_39 >= 6);
+                        if (_greaterEqualsThan_39) {
+                          int _xifexpression_65 = (int) 0;
+                          boolean _equals_25 = a_3.getSound().get(5).getDuration().equals("short");
+                          if (_equals_25) {
+                            _xifexpression_65 = 7;
+                          } else {
+                            _xifexpression_65 = 14;
+                          }
+                          _xifexpression_64 = _xifexpression_65;
+                        }
+                        _builder.append(_xifexpression_64);
+                        _builder.append("])");
+                        _builder.newLineIfNotEmpty();
+                        _builder.append("note_index = 1");
+                        _builder.newLine();
+                        _builder.append("note_count = 6");
+                        _builder.newLine();
+                        _builder.append("call sound.freq(notes[0], durations[0])");
+                        _builder.newLine();
+                      }
+                    }
+                  }
+                }
+                _builder.append("end");
+                _builder.newLine();
+              }
+            }
+          }
+        }
+        _builder.newLine();
+        {
+          BottomSensor _bottomSensor_1 = p_2.getEvents().getBottomSensor();
+          boolean _tripleNotEquals_20 = (_bottomSensor_1 != null);
+          if (_tripleNotEquals_20) {
+            {
+              boolean _not_5 = (!(p_2.getEvents().getBottomSensor().getBottomLeftSensor().equals("any") && p_2.getEvents().getBottomSensor().getBottomRightSensor().equals("any")));
+              if (_not_5) {
+                _builder.append("when ");
+                String _xifexpression_66 = null;
+                boolean _equals_26 = p_2.getEvents().getBottomSensor().getBottomLeftSensor().equals("any");
+                if (_equals_26) {
+                  _xifexpression_66 = "";
+                } else {
+                  String _xifexpression_67 = null;
+                  boolean _equals_27 = p_2.getEvents().getBottomSensor().getBottomLeftSensor().equals("black");
+                  if (_equals_27) {
+                    _xifexpression_67 = "<= 400";
+                  } else {
+                    _xifexpression_67 = ">= 450";
+                  }
+                  _xifexpression_66 = ("prox.ground.delta[0] " + _xifexpression_67);
+                }
+                _builder.append(_xifexpression_66);
+                _builder.append(" ");
+                String _xifexpression_68 = null;
+                boolean _equals_28 = p_2.getEvents().getBottomSensor().getBottomRightSensor().equals("any");
+                if (_equals_28) {
+                  _xifexpression_68 = "do";
+                } else {
+                  String _xifexpression_69 = null;
+                  boolean _equals_29 = p_2.getEvents().getBottomSensor().getBottomRightSensor().equals("black");
+                  if (_equals_29) {
+                    _xifexpression_69 = "<= 400 do";
+                  } else {
+                    _xifexpression_69 = ">= 450 do";
+                  }
+                  _xifexpression_68 = ("and prox.ground.delta[1] " + _xifexpression_69);
+                }
+                _builder.append(_xifexpression_68);
+                _builder.newLineIfNotEmpty();
+                {
+                  EList<Action> _actions_4 = p_2.getActions();
+                  for(final Action a_4 : _actions_4) {
+                    {
+                      Motors _move_4 = a_4.getMove();
+                      boolean _tripleNotEquals_21 = (_move_4 != null);
+                      if (_tripleNotEquals_21) {
+                        _builder.append("motor.left.target = ");
+                        int _evaluateExpression_44 = new ThymioDSLValidator().evaluateExpression(a_4.getMove().getLeft());
+                        _builder.append(_evaluateExpression_44);
+                        _builder.newLineIfNotEmpty();
+                        _builder.append("motor.right.target = ");
+                        int _evaluateExpression_45 = new ThymioDSLValidator().evaluateExpression(a_4.getMove().getRight());
+                        _builder.append(_evaluateExpression_45);
+                        _builder.newLineIfNotEmpty();
+                      }
+                    }
+                    {
+                      Lights _light_4 = a_4.getLight();
+                      boolean _tripleNotEquals_22 = (_light_4 != null);
+                      if (_tripleNotEquals_22) {
+                        {
+                          RGB _topLight_4 = a_4.getLight().getTopLight();
+                          boolean _tripleNotEquals_23 = (_topLight_4 != null);
+                          if (_tripleNotEquals_23) {
+                            _builder.append("call leds.top(");
+                            int _evaluateExpression_46 = new ThymioDSLValidator().evaluateExpression(a_4.getLight().getTopLight().getRed());
+                            _builder.append(_evaluateExpression_46);
+                            _builder.append(",");
+                            int _evaluateExpression_47 = new ThymioDSLValidator().evaluateExpression(a_4.getLight().getTopLight().getGreen());
+                            _builder.append(_evaluateExpression_47);
+                            _builder.append(",");
+                            int _evaluateExpression_48 = new ThymioDSLValidator().evaluateExpression(a_4.getLight().getTopLight().getBlue());
+                            _builder.append(_evaluateExpression_48);
+                            _builder.append(")");
+                            _builder.newLineIfNotEmpty();
+                          } else {
+                            _builder.append("call leds.top(0,0,0)");
+                            _builder.newLine();
+                          }
+                        }
+                        {
+                          RGB _bottomLight_4 = a_4.getLight().getBottomLight();
+                          boolean _tripleNotEquals_24 = (_bottomLight_4 != null);
+                          if (_tripleNotEquals_24) {
+                            _builder.append("call leds.bottom.left(");
+                            int _evaluateExpression_49 = new ThymioDSLValidator().evaluateExpression(a_4.getLight().getBottomLight().getRed());
+                            _builder.append(_evaluateExpression_49);
+                            _builder.append(",");
+                            int _evaluateExpression_50 = new ThymioDSLValidator().evaluateExpression(a_4.getLight().getBottomLight().getGreen());
+                            _builder.append(_evaluateExpression_50);
+                            _builder.append(",");
+                            int _evaluateExpression_51 = new ThymioDSLValidator().evaluateExpression(a_4.getLight().getBottomLight().getBlue());
+                            _builder.append(_evaluateExpression_51);
+                            _builder.append(")");
+                            _builder.newLineIfNotEmpty();
+                            _builder.append("call leds.bottom.right(");
+                            int _evaluateExpression_52 = new ThymioDSLValidator().evaluateExpression(a_4.getLight().getBottomLight().getRed());
+                            _builder.append(_evaluateExpression_52);
+                            _builder.append(",");
+                            int _evaluateExpression_53 = new ThymioDSLValidator().evaluateExpression(a_4.getLight().getBottomLight().getGreen());
+                            _builder.append(_evaluateExpression_53);
+                            _builder.append(",");
+                            int _evaluateExpression_54 = new ThymioDSLValidator().evaluateExpression(a_4.getLight().getBottomLight().getBlue());
+                            _builder.append(_evaluateExpression_54);
+                            _builder.append(")");
+                            _builder.newLineIfNotEmpty();
+                          } else {
+                            _builder.append("call leds.bottom.left(0,0,0)");
+                            _builder.newLine();
+                            _builder.append("call leds.bottom.right(0,0,0)");
+                            _builder.newLine();
+                          }
+                        }
+                      }
+                    }
+                    {
+                      boolean _isEmpty_4 = a_4.getSound().isEmpty();
+                      boolean _not_6 = (!_isEmpty_4);
+                      if (_not_6) {
+                        _builder.append("call math.copy(notes[0:5], [");
+                        int _computePitch_4 = new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a_4.getSound().get(0).getPitch()));
+                        _builder.append(_computePitch_4);
+                        _builder.append(", ");
+                        int _xifexpression_70 = (int) 0;
+                        int _size_40 = a_4.getSound().size();
+                        boolean _greaterEqualsThan_40 = (_size_40 >= 2);
+                        if (_greaterEqualsThan_40) {
+                          _xifexpression_70 = new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a_4.getSound().get(1).getPitch()));
+                        } else {
+                          _xifexpression_70 = 0;
+                        }
+                        _builder.append(_xifexpression_70);
+                        _builder.append(", ");
+                        int _xifexpression_71 = (int) 0;
+                        int _size_41 = a_4.getSound().size();
+                        boolean _greaterEqualsThan_41 = (_size_41 >= 3);
+                        if (_greaterEqualsThan_41) {
+                          _xifexpression_71 = new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a_4.getSound().get(2).getPitch()));
+                        } else {
+                          _xifexpression_71 = 0;
+                        }
+                        _builder.append(_xifexpression_71);
+                        _builder.append(", ");
+                        int _xifexpression_72 = (int) 0;
+                        int _size_42 = a_4.getSound().size();
+                        boolean _greaterEqualsThan_42 = (_size_42 >= 4);
+                        if (_greaterEqualsThan_42) {
+                          _xifexpression_72 = new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a_4.getSound().get(3).getPitch()));
+                        } else {
+                          _xifexpression_72 = 0;
+                        }
+                        _builder.append(_xifexpression_72);
+                        _builder.append(", ");
+                        int _xifexpression_73 = (int) 0;
+                        int _size_43 = a_4.getSound().size();
+                        boolean _greaterEqualsThan_43 = (_size_43 >= 5);
+                        if (_greaterEqualsThan_43) {
+                          _xifexpression_73 = new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a_4.getSound().get(4).getPitch()));
+                        } else {
+                          _xifexpression_73 = 0;
+                        }
+                        _builder.append(_xifexpression_73);
+                        _builder.append(", ");
+                        int _xifexpression_74 = (int) 0;
+                        int _size_44 = a_4.getSound().size();
+                        boolean _greaterEqualsThan_44 = (_size_44 >= 6);
+                        if (_greaterEqualsThan_44) {
+                          _xifexpression_74 = new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a_4.getSound().get(5).getPitch()));
+                        } else {
+                          _xifexpression_74 = 0;
+                        }
+                        _builder.append(_xifexpression_74);
+                        _builder.append("])");
+                        _builder.newLineIfNotEmpty();
+                        _builder.append("call math.copy(notes[0:5], [");
+                        int _xifexpression_75 = (int) 0;
+                        boolean _equals_30 = a_4.getSound().get(0).getDuration().equals("short");
+                        if (_equals_30) {
+                          _xifexpression_75 = 7;
+                        } else {
+                          _xifexpression_75 = 14;
+                        }
+                        _builder.append(_xifexpression_75);
+                        _builder.append(", ");
+                        int _xifexpression_76 = (int) 0;
+                        int _size_45 = a_4.getSound().size();
+                        boolean _greaterEqualsThan_45 = (_size_45 >= 2);
+                        if (_greaterEqualsThan_45) {
+                          int _xifexpression_77 = (int) 0;
+                          boolean _equals_31 = a_4.getSound().get(1).getDuration().equals("short");
+                          if (_equals_31) {
+                            _xifexpression_77 = 7;
+                          } else {
+                            _xifexpression_77 = 14;
+                          }
+                          _xifexpression_76 = _xifexpression_77;
+                        }
+                        _builder.append(_xifexpression_76);
+                        _builder.append(", ");
+                        int _xifexpression_78 = (int) 0;
+                        int _size_46 = a_4.getSound().size();
+                        boolean _greaterEqualsThan_46 = (_size_46 >= 3);
+                        if (_greaterEqualsThan_46) {
+                          int _xifexpression_79 = (int) 0;
+                          boolean _equals_32 = a_4.getSound().get(2).getDuration().equals("short");
+                          if (_equals_32) {
+                            _xifexpression_79 = 7;
+                          } else {
+                            _xifexpression_79 = 14;
+                          }
+                          _xifexpression_78 = _xifexpression_79;
+                        }
+                        _builder.append(_xifexpression_78);
+                        _builder.append(", ");
+                        int _xifexpression_80 = (int) 0;
+                        int _size_47 = a_4.getSound().size();
+                        boolean _greaterEqualsThan_47 = (_size_47 >= 4);
+                        if (_greaterEqualsThan_47) {
+                          int _xifexpression_81 = (int) 0;
+                          boolean _equals_33 = a_4.getSound().get(3).getDuration().equals("short");
+                          if (_equals_33) {
+                            _xifexpression_81 = 7;
+                          } else {
+                            _xifexpression_81 = 14;
+                          }
+                          _xifexpression_80 = _xifexpression_81;
+                        }
+                        _builder.append(_xifexpression_80);
+                        _builder.append(", ");
+                        int _xifexpression_82 = (int) 0;
+                        int _size_48 = a_4.getSound().size();
+                        boolean _greaterEqualsThan_48 = (_size_48 >= 5);
+                        if (_greaterEqualsThan_48) {
+                          int _xifexpression_83 = (int) 0;
+                          boolean _equals_34 = a_4.getSound().get(4).getDuration().equals("short");
+                          if (_equals_34) {
+                            _xifexpression_83 = 7;
+                          } else {
+                            _xifexpression_83 = 14;
+                          }
+                          _xifexpression_82 = _xifexpression_83;
+                        }
+                        _builder.append(_xifexpression_82);
+                        _builder.append(", ");
+                        int _xifexpression_84 = (int) 0;
+                        int _size_49 = a_4.getSound().size();
+                        boolean _greaterEqualsThan_49 = (_size_49 >= 6);
+                        if (_greaterEqualsThan_49) {
+                          int _xifexpression_85 = (int) 0;
+                          boolean _equals_35 = a_4.getSound().get(5).getDuration().equals("short");
+                          if (_equals_35) {
+                            _xifexpression_85 = 7;
+                          } else {
+                            _xifexpression_85 = 14;
+                          }
+                          _xifexpression_84 = _xifexpression_85;
+                        }
+                        _builder.append(_xifexpression_84);
+                        _builder.append("])");
+                        _builder.newLineIfNotEmpty();
+                        _builder.append("note_index = 1");
+                        _builder.newLine();
+                        _builder.append("note_count = 6");
+                        _builder.newLine();
+                        _builder.append("call sound.freq(notes[0], durations[0])");
+                        _builder.newLine();
+                      }
+                    }
+                  }
+                }
+                _builder.append("end");
+                _builder.newLine();
+              }
+            }
+          }
+        }
+      }
+    }
+    _builder.newLine();
+    _builder.append("onevent tap");
+    _builder.newLine();
+    {
+      EList<Procedure> _procedures_3 = m.getProcedures();
+      for(final Procedure p_3 : _procedures_3) {
+        {
+          String _stimulus = p_3.getEvents().getStimulus();
+          boolean _tripleNotEquals_25 = (_stimulus != null);
+          if (_tripleNotEquals_25) {
+            {
+              boolean _equals_36 = p_3.getEvents().getStimulus().equals("tap");
+              if (_equals_36) {
+                {
+                  EList<Action> _actions_5 = p_3.getActions();
+                  for(final Action a_5 : _actions_5) {
+                    {
+                      Motors _move_5 = a_5.getMove();
+                      boolean _tripleNotEquals_26 = (_move_5 != null);
+                      if (_tripleNotEquals_26) {
+                        _builder.append("motor.left.target = ");
+                        int _evaluateExpression_55 = new ThymioDSLValidator().evaluateExpression(a_5.getMove().getLeft());
+                        _builder.append(_evaluateExpression_55);
+                        _builder.newLineIfNotEmpty();
+                        _builder.append("motor.right.target = ");
+                        int _evaluateExpression_56 = new ThymioDSLValidator().evaluateExpression(a_5.getMove().getRight());
+                        _builder.append(_evaluateExpression_56);
+                        _builder.newLineIfNotEmpty();
+                      }
+                    }
+                    {
+                      Lights _light_5 = a_5.getLight();
+                      boolean _tripleNotEquals_27 = (_light_5 != null);
+                      if (_tripleNotEquals_27) {
+                        {
+                          RGB _topLight_5 = a_5.getLight().getTopLight();
+                          boolean _tripleNotEquals_28 = (_topLight_5 != null);
+                          if (_tripleNotEquals_28) {
+                            _builder.append("call leds.top(");
+                            int _evaluateExpression_57 = new ThymioDSLValidator().evaluateExpression(a_5.getLight().getTopLight().getRed());
+                            _builder.append(_evaluateExpression_57);
+                            _builder.append(",");
+                            int _evaluateExpression_58 = new ThymioDSLValidator().evaluateExpression(a_5.getLight().getTopLight().getGreen());
+                            _builder.append(_evaluateExpression_58);
+                            _builder.append(",");
+                            int _evaluateExpression_59 = new ThymioDSLValidator().evaluateExpression(a_5.getLight().getTopLight().getBlue());
+                            _builder.append(_evaluateExpression_59);
+                            _builder.append(")");
+                            _builder.newLineIfNotEmpty();
+                          } else {
+                            _builder.append("call leds.top(0,0,0)");
+                            _builder.newLine();
+                          }
+                        }
+                        {
+                          RGB _bottomLight_5 = a_5.getLight().getBottomLight();
+                          boolean _tripleNotEquals_29 = (_bottomLight_5 != null);
+                          if (_tripleNotEquals_29) {
+                            _builder.append("call leds.bottom.left(");
+                            int _evaluateExpression_60 = new ThymioDSLValidator().evaluateExpression(a_5.getLight().getBottomLight().getRed());
+                            _builder.append(_evaluateExpression_60);
+                            _builder.append(",");
+                            int _evaluateExpression_61 = new ThymioDSLValidator().evaluateExpression(a_5.getLight().getBottomLight().getGreen());
+                            _builder.append(_evaluateExpression_61);
+                            _builder.append(",");
+                            int _evaluateExpression_62 = new ThymioDSLValidator().evaluateExpression(a_5.getLight().getBottomLight().getBlue());
+                            _builder.append(_evaluateExpression_62);
+                            _builder.append(")");
+                            _builder.newLineIfNotEmpty();
+                            _builder.append("call leds.bottom.right(");
+                            int _evaluateExpression_63 = new ThymioDSLValidator().evaluateExpression(a_5.getLight().getBottomLight().getRed());
+                            _builder.append(_evaluateExpression_63);
+                            _builder.append(",");
+                            int _evaluateExpression_64 = new ThymioDSLValidator().evaluateExpression(a_5.getLight().getBottomLight().getGreen());
+                            _builder.append(_evaluateExpression_64);
+                            _builder.append(",");
+                            int _evaluateExpression_65 = new ThymioDSLValidator().evaluateExpression(a_5.getLight().getBottomLight().getBlue());
+                            _builder.append(_evaluateExpression_65);
+                            _builder.append(")");
+                            _builder.newLineIfNotEmpty();
+                          } else {
+                            _builder.append("call leds.bottom.left(0,0,0)");
+                            _builder.newLine();
+                            _builder.append("call leds.bottom.right(0,0,0)");
+                            _builder.newLine();
+                          }
+                        }
+                      }
+                    }
+                    {
+                      boolean _isEmpty_5 = a_5.getSound().isEmpty();
+                      boolean _not_7 = (!_isEmpty_5);
+                      if (_not_7) {
+                        _builder.append("call math.copy(notes[0:5], [");
+                        int _computePitch_5 = new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a_5.getSound().get(0).getPitch()));
+                        _builder.append(_computePitch_5);
+                        _builder.append(", ");
+                        int _xifexpression_86 = (int) 0;
+                        int _size_50 = a_5.getSound().size();
+                        boolean _greaterEqualsThan_50 = (_size_50 >= 2);
+                        if (_greaterEqualsThan_50) {
+                          _xifexpression_86 = new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a_5.getSound().get(1).getPitch()));
+                        } else {
+                          _xifexpression_86 = 0;
+                        }
+                        _builder.append(_xifexpression_86);
+                        _builder.append(", ");
+                        int _xifexpression_87 = (int) 0;
+                        int _size_51 = a_5.getSound().size();
+                        boolean _greaterEqualsThan_51 = (_size_51 >= 3);
+                        if (_greaterEqualsThan_51) {
+                          _xifexpression_87 = new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a_5.getSound().get(2).getPitch()));
+                        } else {
+                          _xifexpression_87 = 0;
+                        }
+                        _builder.append(_xifexpression_87);
+                        _builder.append(", ");
+                        int _xifexpression_88 = (int) 0;
+                        int _size_52 = a_5.getSound().size();
+                        boolean _greaterEqualsThan_52 = (_size_52 >= 4);
+                        if (_greaterEqualsThan_52) {
+                          _xifexpression_88 = new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a_5.getSound().get(3).getPitch()));
+                        } else {
+                          _xifexpression_88 = 0;
+                        }
+                        _builder.append(_xifexpression_88);
+                        _builder.append(", ");
+                        int _xifexpression_89 = (int) 0;
+                        int _size_53 = a_5.getSound().size();
+                        boolean _greaterEqualsThan_53 = (_size_53 >= 5);
+                        if (_greaterEqualsThan_53) {
+                          _xifexpression_89 = new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a_5.getSound().get(4).getPitch()));
+                        } else {
+                          _xifexpression_89 = 0;
+                        }
+                        _builder.append(_xifexpression_89);
+                        _builder.append(", ");
+                        int _xifexpression_90 = (int) 0;
+                        int _size_54 = a_5.getSound().size();
+                        boolean _greaterEqualsThan_54 = (_size_54 >= 6);
+                        if (_greaterEqualsThan_54) {
+                          _xifexpression_90 = new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a_5.getSound().get(5).getPitch()));
+                        } else {
+                          _xifexpression_90 = 0;
+                        }
+                        _builder.append(_xifexpression_90);
+                        _builder.append("])");
+                        _builder.newLineIfNotEmpty();
+                        _builder.append("call math.copy(notes[0:5], [");
+                        int _xifexpression_91 = (int) 0;
+                        boolean _equals_37 = a_5.getSound().get(0).getDuration().equals("short");
+                        if (_equals_37) {
+                          _xifexpression_91 = 7;
+                        } else {
+                          _xifexpression_91 = 14;
+                        }
+                        _builder.append(_xifexpression_91);
+                        _builder.append(", ");
+                        int _xifexpression_92 = (int) 0;
+                        int _size_55 = a_5.getSound().size();
+                        boolean _greaterEqualsThan_55 = (_size_55 >= 2);
+                        if (_greaterEqualsThan_55) {
+                          int _xifexpression_93 = (int) 0;
+                          boolean _equals_38 = a_5.getSound().get(1).getDuration().equals("short");
+                          if (_equals_38) {
+                            _xifexpression_93 = 7;
+                          } else {
+                            _xifexpression_93 = 14;
+                          }
+                          _xifexpression_92 = _xifexpression_93;
+                        }
+                        _builder.append(_xifexpression_92);
+                        _builder.append(", ");
+                        int _xifexpression_94 = (int) 0;
+                        int _size_56 = a_5.getSound().size();
+                        boolean _greaterEqualsThan_56 = (_size_56 >= 3);
+                        if (_greaterEqualsThan_56) {
+                          int _xifexpression_95 = (int) 0;
+                          boolean _equals_39 = a_5.getSound().get(2).getDuration().equals("short");
+                          if (_equals_39) {
+                            _xifexpression_95 = 7;
+                          } else {
+                            _xifexpression_95 = 14;
+                          }
+                          _xifexpression_94 = _xifexpression_95;
+                        }
+                        _builder.append(_xifexpression_94);
+                        _builder.append(", ");
+                        int _xifexpression_96 = (int) 0;
+                        int _size_57 = a_5.getSound().size();
+                        boolean _greaterEqualsThan_57 = (_size_57 >= 4);
+                        if (_greaterEqualsThan_57) {
+                          int _xifexpression_97 = (int) 0;
+                          boolean _equals_40 = a_5.getSound().get(3).getDuration().equals("short");
+                          if (_equals_40) {
+                            _xifexpression_97 = 7;
+                          } else {
+                            _xifexpression_97 = 14;
+                          }
+                          _xifexpression_96 = _xifexpression_97;
+                        }
+                        _builder.append(_xifexpression_96);
+                        _builder.append(", ");
+                        int _xifexpression_98 = (int) 0;
+                        int _size_58 = a_5.getSound().size();
+                        boolean _greaterEqualsThan_58 = (_size_58 >= 5);
+                        if (_greaterEqualsThan_58) {
+                          int _xifexpression_99 = (int) 0;
+                          boolean _equals_41 = a_5.getSound().get(4).getDuration().equals("short");
+                          if (_equals_41) {
+                            _xifexpression_99 = 7;
+                          } else {
+                            _xifexpression_99 = 14;
+                          }
+                          _xifexpression_98 = _xifexpression_99;
+                        }
+                        _builder.append(_xifexpression_98);
+                        _builder.append(", ");
+                        int _xifexpression_100 = (int) 0;
+                        int _size_59 = a_5.getSound().size();
+                        boolean _greaterEqualsThan_59 = (_size_59 >= 6);
+                        if (_greaterEqualsThan_59) {
+                          int _xifexpression_101 = (int) 0;
+                          boolean _equals_42 = a_5.getSound().get(5).getDuration().equals("short");
+                          if (_equals_42) {
+                            _xifexpression_101 = 7;
+                          } else {
+                            _xifexpression_101 = 14;
+                          }
+                          _xifexpression_100 = _xifexpression_101;
+                        }
+                        _builder.append(_xifexpression_100);
+                        _builder.append("])");
+                        _builder.newLineIfNotEmpty();
+                        _builder.append("note_index = 1");
+                        _builder.newLine();
+                        _builder.append("note_count = 6");
+                        _builder.newLine();
+                        _builder.append("call sound.freq(notes[0], durations[0])");
+                        _builder.newLine();
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    _builder.newLine();
+    _builder.append("onevent mic");
+    _builder.newLine();
+    {
+      EList<Procedure> _procedures_4 = m.getProcedures();
+      for(final Procedure p_4 : _procedures_4) {
+        {
+          String _stimulus_1 = p_4.getEvents().getStimulus();
+          boolean _tripleNotEquals_30 = (_stimulus_1 != null);
+          if (_tripleNotEquals_30) {
+            {
+              boolean _equals_43 = p_4.getEvents().getStimulus().equals("sound");
+              if (_equals_43) {
+                {
+                  EList<Action> _actions_6 = p_4.getActions();
+                  for(final Action a_6 : _actions_6) {
+                    {
+                      Motors _move_6 = a_6.getMove();
+                      boolean _tripleNotEquals_31 = (_move_6 != null);
+                      if (_tripleNotEquals_31) {
+                        _builder.append("motor.left.target = ");
+                        int _evaluateExpression_66 = new ThymioDSLValidator().evaluateExpression(a_6.getMove().getLeft());
+                        _builder.append(_evaluateExpression_66);
+                        _builder.newLineIfNotEmpty();
+                        _builder.append("motor.right.target = ");
+                        int _evaluateExpression_67 = new ThymioDSLValidator().evaluateExpression(a_6.getMove().getRight());
+                        _builder.append(_evaluateExpression_67);
+                        _builder.newLineIfNotEmpty();
+                      }
+                    }
+                    {
+                      Lights _light_6 = a_6.getLight();
+                      boolean _tripleNotEquals_32 = (_light_6 != null);
+                      if (_tripleNotEquals_32) {
+                        {
+                          RGB _topLight_6 = a_6.getLight().getTopLight();
+                          boolean _tripleNotEquals_33 = (_topLight_6 != null);
+                          if (_tripleNotEquals_33) {
+                            _builder.append("call leds.top(");
+                            int _evaluateExpression_68 = new ThymioDSLValidator().evaluateExpression(a_6.getLight().getTopLight().getRed());
+                            _builder.append(_evaluateExpression_68);
+                            _builder.append(",");
+                            int _evaluateExpression_69 = new ThymioDSLValidator().evaluateExpression(a_6.getLight().getTopLight().getGreen());
+                            _builder.append(_evaluateExpression_69);
+                            _builder.append(",");
+                            int _evaluateExpression_70 = new ThymioDSLValidator().evaluateExpression(a_6.getLight().getTopLight().getBlue());
+                            _builder.append(_evaluateExpression_70);
+                            _builder.append(")");
+                            _builder.newLineIfNotEmpty();
+                          } else {
+                            _builder.append("call leds.top(0,0,0)");
+                            _builder.newLine();
+                          }
+                        }
+                        {
+                          RGB _bottomLight_6 = a_6.getLight().getBottomLight();
+                          boolean _tripleNotEquals_34 = (_bottomLight_6 != null);
+                          if (_tripleNotEquals_34) {
+                            _builder.append("call leds.bottom.left(");
+                            int _evaluateExpression_71 = new ThymioDSLValidator().evaluateExpression(a_6.getLight().getBottomLight().getRed());
+                            _builder.append(_evaluateExpression_71);
+                            _builder.append(",");
+                            int _evaluateExpression_72 = new ThymioDSLValidator().evaluateExpression(a_6.getLight().getBottomLight().getGreen());
+                            _builder.append(_evaluateExpression_72);
+                            _builder.append(",");
+                            int _evaluateExpression_73 = new ThymioDSLValidator().evaluateExpression(a_6.getLight().getBottomLight().getBlue());
+                            _builder.append(_evaluateExpression_73);
+                            _builder.append(")");
+                            _builder.newLineIfNotEmpty();
+                            _builder.append("call leds.bottom.right(");
+                            int _evaluateExpression_74 = new ThymioDSLValidator().evaluateExpression(a_6.getLight().getBottomLight().getRed());
+                            _builder.append(_evaluateExpression_74);
+                            _builder.append(",");
+                            int _evaluateExpression_75 = new ThymioDSLValidator().evaluateExpression(a_6.getLight().getBottomLight().getGreen());
+                            _builder.append(_evaluateExpression_75);
+                            _builder.append(",");
+                            int _evaluateExpression_76 = new ThymioDSLValidator().evaluateExpression(a_6.getLight().getBottomLight().getBlue());
+                            _builder.append(_evaluateExpression_76);
+                            _builder.append(")");
+                            _builder.newLineIfNotEmpty();
+                          } else {
+                            _builder.append("call leds.bottom.left(0,0,0)");
+                            _builder.newLine();
+                            _builder.append("call leds.bottom.right(0,0,0)");
+                            _builder.newLine();
+                          }
+                        }
+                      }
+                    }
+                    {
+                      boolean _isEmpty_6 = a_6.getSound().isEmpty();
+                      boolean _not_8 = (!_isEmpty_6);
+                      if (_not_8) {
+                        _builder.append("call math.copy(notes[0:5], [");
+                        int _computePitch_6 = new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a_6.getSound().get(0).getPitch()));
+                        _builder.append(_computePitch_6);
+                        _builder.append(", ");
+                        int _xifexpression_102 = (int) 0;
+                        int _size_60 = a_6.getSound().size();
+                        boolean _greaterEqualsThan_60 = (_size_60 >= 2);
+                        if (_greaterEqualsThan_60) {
+                          _xifexpression_102 = new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a_6.getSound().get(1).getPitch()));
+                        } else {
+                          _xifexpression_102 = 0;
+                        }
+                        _builder.append(_xifexpression_102);
+                        _builder.append(", ");
+                        int _xifexpression_103 = (int) 0;
+                        int _size_61 = a_6.getSound().size();
+                        boolean _greaterEqualsThan_61 = (_size_61 >= 3);
+                        if (_greaterEqualsThan_61) {
+                          _xifexpression_103 = new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a_6.getSound().get(2).getPitch()));
+                        } else {
+                          _xifexpression_103 = 0;
+                        }
+                        _builder.append(_xifexpression_103);
+                        _builder.append(", ");
+                        int _xifexpression_104 = (int) 0;
+                        int _size_62 = a_6.getSound().size();
+                        boolean _greaterEqualsThan_62 = (_size_62 >= 4);
+                        if (_greaterEqualsThan_62) {
+                          _xifexpression_104 = new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a_6.getSound().get(3).getPitch()));
+                        } else {
+                          _xifexpression_104 = 0;
+                        }
+                        _builder.append(_xifexpression_104);
+                        _builder.append(", ");
+                        int _xifexpression_105 = (int) 0;
+                        int _size_63 = a_6.getSound().size();
+                        boolean _greaterEqualsThan_63 = (_size_63 >= 5);
+                        if (_greaterEqualsThan_63) {
+                          _xifexpression_105 = new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a_6.getSound().get(4).getPitch()));
+                        } else {
+                          _xifexpression_105 = 0;
+                        }
+                        _builder.append(_xifexpression_105);
+                        _builder.append(", ");
+                        int _xifexpression_106 = (int) 0;
+                        int _size_64 = a_6.getSound().size();
+                        boolean _greaterEqualsThan_64 = (_size_64 >= 6);
+                        if (_greaterEqualsThan_64) {
+                          _xifexpression_106 = new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a_6.getSound().get(5).getPitch()));
+                        } else {
+                          _xifexpression_106 = 0;
+                        }
+                        _builder.append(_xifexpression_106);
+                        _builder.append("])");
+                        _builder.newLineIfNotEmpty();
+                        _builder.append("call math.copy(notes[0:5], [");
+                        int _xifexpression_107 = (int) 0;
+                        boolean _equals_44 = a_6.getSound().get(0).getDuration().equals("short");
+                        if (_equals_44) {
+                          _xifexpression_107 = 7;
+                        } else {
+                          _xifexpression_107 = 14;
+                        }
+                        _builder.append(_xifexpression_107);
+                        _builder.append(", ");
+                        int _xifexpression_108 = (int) 0;
+                        int _size_65 = a_6.getSound().size();
+                        boolean _greaterEqualsThan_65 = (_size_65 >= 2);
+                        if (_greaterEqualsThan_65) {
+                          int _xifexpression_109 = (int) 0;
+                          boolean _equals_45 = a_6.getSound().get(1).getDuration().equals("short");
+                          if (_equals_45) {
+                            _xifexpression_109 = 7;
+                          } else {
+                            _xifexpression_109 = 14;
+                          }
+                          _xifexpression_108 = _xifexpression_109;
+                        }
+                        _builder.append(_xifexpression_108);
+                        _builder.append(", ");
+                        int _xifexpression_110 = (int) 0;
+                        int _size_66 = a_6.getSound().size();
+                        boolean _greaterEqualsThan_66 = (_size_66 >= 3);
+                        if (_greaterEqualsThan_66) {
+                          int _xifexpression_111 = (int) 0;
+                          boolean _equals_46 = a_6.getSound().get(2).getDuration().equals("short");
+                          if (_equals_46) {
+                            _xifexpression_111 = 7;
+                          } else {
+                            _xifexpression_111 = 14;
+                          }
+                          _xifexpression_110 = _xifexpression_111;
+                        }
+                        _builder.append(_xifexpression_110);
+                        _builder.append(", ");
+                        int _xifexpression_112 = (int) 0;
+                        int _size_67 = a_6.getSound().size();
+                        boolean _greaterEqualsThan_67 = (_size_67 >= 4);
+                        if (_greaterEqualsThan_67) {
+                          int _xifexpression_113 = (int) 0;
+                          boolean _equals_47 = a_6.getSound().get(3).getDuration().equals("short");
+                          if (_equals_47) {
+                            _xifexpression_113 = 7;
+                          } else {
+                            _xifexpression_113 = 14;
+                          }
+                          _xifexpression_112 = _xifexpression_113;
+                        }
+                        _builder.append(_xifexpression_112);
+                        _builder.append(", ");
+                        int _xifexpression_114 = (int) 0;
+                        int _size_68 = a_6.getSound().size();
+                        boolean _greaterEqualsThan_68 = (_size_68 >= 5);
+                        if (_greaterEqualsThan_68) {
+                          int _xifexpression_115 = (int) 0;
+                          boolean _equals_48 = a_6.getSound().get(4).getDuration().equals("short");
+                          if (_equals_48) {
+                            _xifexpression_115 = 7;
+                          } else {
+                            _xifexpression_115 = 14;
+                          }
+                          _xifexpression_114 = _xifexpression_115;
+                        }
+                        _builder.append(_xifexpression_114);
+                        _builder.append(", ");
+                        int _xifexpression_116 = (int) 0;
+                        int _size_69 = a_6.getSound().size();
+                        boolean _greaterEqualsThan_69 = (_size_69 >= 6);
+                        if (_greaterEqualsThan_69) {
+                          int _xifexpression_117 = (int) 0;
+                          boolean _equals_49 = a_6.getSound().get(5).getDuration().equals("short");
+                          if (_equals_49) {
+                            _xifexpression_117 = 7;
+                          } else {
+                            _xifexpression_117 = 14;
+                          }
+                          _xifexpression_116 = _xifexpression_117;
+                        }
+                        _builder.append(_xifexpression_116);
+                        _builder.append("])");
+                        _builder.newLineIfNotEmpty();
+                        _builder.append("note_index = 1");
+                        _builder.newLine();
+                        _builder.append("note_count = 6");
+                        _builder.newLine();
+                        _builder.append("call sound.freq(notes[0], durations[0])");
+                        _builder.newLine();
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
     return _builder;
   }
 }

@@ -15,6 +15,7 @@ import ld.project2.thymioDSL.Model;
 import ld.project2.thymioDSL.Motors;
 import ld.project2.thymioDSL.Multiplication;
 import ld.project2.thymioDSL.Procedure;
+import ld.project2.thymioDSL.ProxSensor;
 import ld.project2.thymioDSL.Sound;
 import ld.project2.thymioDSL.ThymioDSLPackage;
 
@@ -25,6 +26,7 @@ import ld.project2.thymioDSL.ThymioDSLPackage;
  */
 public class ThymioDSLValidator extends AbstractThymioDSLValidator {
 	
+	//helper function, it's public because I needed to use it elsewhere
 	public int evaluateExpression(Expression e) {
 		if(e instanceof Addition) {
 			Addition a = (Addition) e;
@@ -47,6 +49,62 @@ public class ThymioDSLValidator extends AbstractThymioDSLValidator {
 		else {
 			return e.getValue();
 		}
+	}
+	
+	//ignore this function, it's here for convenience 
+	public int computePitch(int n) {
+		switch (n){
+			case 1:
+				return 262;
+			case 2:
+				return 311;
+			case 3:
+				return 370;
+			case 4:
+				return 440;
+			case 5:
+				return 524;
+			default:
+				return 0;
+		}
+	}
+	
+	//ignore this function, it's here for convenience 
+	public String proxSensorInAseba(ProxSensor s){
+		StringBuilder sb = new StringBuilder();
+		sb.append("when ");
+		if(s.getFrontLeftSensor() != null && !s.getFrontLeftSensor().equals("far")) {
+			sb.append(s.getFrontLeftSensor().equals("close")?"prox.horizontal[0] <= 1000":"prox.horizontal[0] >= 2000");
+			sb.append(" and ");
+		}
+		if(s.getFrontCenterLeftSensor() != null && !s.getFrontCenterLeftSensor().equals("far")) {
+			sb.append(s.getFrontCenterLeftSensor().equals("close")?"prox.horizontal[1] <= 1000":"prox.horizontal[1] >= 2000");
+			sb.append(" and ");
+		}
+		if(s.getFrontCenterSensor() != null && !s.getFrontCenterSensor().equals("far")) {
+			sb.append(s.getFrontCenterSensor().equals("close")?"prox.horizontal[2] <= 1000":"prox.horizontal[2] >= 2000");
+			sb.append(" and ");
+		}
+		if(s.getFrontCenterRightSensor() != null && !s.getFrontCenterRightSensor().equals("far")) {
+			sb.append(s.getFrontCenterRightSensor().equals("close")?"prox.horizontal[3] <= 1000":"prox.horizontal[3] >= 2000");
+			sb.append(" and ");
+		}
+		if(s.getFrontRightSensor() != null && !s.getFrontRightSensor().equals("far")) {
+			sb.append(s.getFrontRightSensor().equals("close")?"prox.horizontal[4] <= 1000":"prox.horizontal[4] >= 2000");
+			sb.append(" and ");
+		}
+		if(s.getBackLeftSensor() != null && !s.getBackLeftSensor().equals("far")) {
+			sb.append(s.getBackLeftSensor().equals("close")?"prox.horizontal[5] <= 1000":"prox.horizontal[5] >= 2000");
+			sb.append(" and ");
+		}
+		if(s.getBackRightSensor() != null && !s.getBackRightSensor().equals("far")) {
+			sb.append(s.getBackRightSensor().equals("close")?"prox.horizontal[6] <= 1000":"prox.horizontal[6] >= 2000");
+		}
+		if(sb.toString().endsWith(" and ")) {
+			sb.delete(sb.length() - 5 ,sb.length());
+		}
+		sb.append(" do" + System.lineSeparator());
+		return sb.toString();
 	}
 	
 	public static final String INVALID_RGB_RED = "invalidRGBRed";

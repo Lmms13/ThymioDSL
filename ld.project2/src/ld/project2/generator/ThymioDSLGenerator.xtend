@@ -19,11 +19,12 @@ class ThymioDSLGenerator extends AbstractGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		fsa.generateFile('my_procedures.aesl',
-			generateCode(resource.contents.head as Model)
+			generateAsebaCode(resource.contents.head as Model)
+			//generateVPLCode(resource.contents.head as Model)
 		)
 	}
 	
-	def generateCode(Model m){
+	def generateVPLCode(Model m){
 		'''
 		<!DOCTYPE aesl-source>
 		<network>
@@ -110,6 +111,278 @@ class ThymioDSLGenerator extends AbstractGenerator {
 		</node>
 		</network>
 		'''
+	}
+	
+	def generateAsebaCode(Model m){
+	'''
+	var notes[6]
+	var durations[6]
+	var note_index = 6
+	var note_count = 6
+	var wave[142]
+	var i
+	var wave_phase
+	var wave_intensity
+	
+	# setup threshold for detecting claps
+	mic.threshold = 250
+	
+	# reset outputs
+	call sound.system(-1)
+	call leds.top(0,0,0)
+	call leds.bottom.left(0,0,0)
+	call leds.bottom.right(0,0,0)
+	call leds.circle(0,0,0,0,0,0,0,0)
+	
+	# when a note is finished, play the next note
+	onevent sound.finished
+		if note_index != note_count then
+			call sound.freq(notes[note_index], durations[note_index])
+			note_index += 1
+		end
+		
+	onevent buttons
+	«FOR p : m.procedures»
+		«IF p.events.button !== null»
+			when button.«p.events.button.equals("up")?"forward":p.events.button.equals("down")?"backward":p.events.button»== 1 do
+			«FOR a : p.actions»
+				«IF a.move !== null»
+					motor.left.target = «new ThymioDSLValidator().evaluateExpression(a.move.left)»
+					motor.right.target = «new ThymioDSLValidator().evaluateExpression(a.move.right)»
+				«ENDIF»
+				«IF a.light !== null»
+					«IF a.light.topLight !== null»
+						call leds.top(«new ThymioDSLValidator().evaluateExpression(a.light.topLight.red)»,«new ThymioDSLValidator().evaluateExpression(a.light.topLight.green)»,«new ThymioDSLValidator().evaluateExpression(a.light.topLight.blue)»)
+					«ELSE»
+						call leds.top(0,0,0)
+					«ENDIF»
+					«IF a.light.bottomLight !== null»
+						call leds.bottom.left(«new ThymioDSLValidator().evaluateExpression(a.light.bottomLight.red)»,«new ThymioDSLValidator().evaluateExpression(a.light.bottomLight.green)»,«new ThymioDSLValidator().evaluateExpression(a.light.bottomLight.blue)»)
+						call leds.bottom.right(«new ThymioDSLValidator().evaluateExpression(a.light.bottomLight.red)»,«new ThymioDSLValidator().evaluateExpression(a.light.bottomLight.green)»,«new ThymioDSLValidator().evaluateExpression(a.light.bottomLight.blue)»)
+					«ELSE»
+						call leds.bottom.left(0,0,0)
+						call leds.bottom.right(0,0,0)
+					«ENDIF»
+				«ENDIF»
+				«IF !a.sound.isEmpty»
+					call math.copy(notes[0:5], [«new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a.sound.get(0).pitch))», «a.sound.size >= 2?new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a.sound.get(1).pitch)):0», «a.sound.size >= 3?new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a.sound.get(2).pitch)):0», «a.sound.size >= 4?new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a.sound.get(3).pitch)):0», «a.sound.size >= 5?new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a.sound.get(4).pitch)):0», «a.sound.size >= 6?new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a.sound.get(5).pitch)):0»])
+					call math.copy(notes[0:5], [«a.sound.get(0).duration.equals("short")?7:14», «a.sound.size >= 2?a.sound.get(1).duration.equals("short")?7:14», «a.sound.size >= 3?a.sound.get(2).duration.equals("short")?7:14», «a.sound.size >= 4?a.sound.get(3).duration.equals("short")?7:14», «a.sound.size >= 5?a.sound.get(4).duration.equals("short")?7:14», «a.sound.size >= 6?a.sound.get(5).duration.equals("short")?7:14»])
+					note_index = 1
+					note_count = 6
+					call sound.freq(notes[0], durations[0])
+				«ENDIF»
+			«ENDFOR»
+			end
+		«ENDIF»
+	«ENDFOR»
+
+	onevent prox
+	«FOR p : m.procedures»
+		«IF p.events.proxSensor !== null»	
+			«IF (p.events.proxSensor.frontLeftSensor === null || p.events.proxSensor.frontLeftSensor.equals("far")) && (p.events.proxSensor.frontCenterLeftSensor === null || p.events.proxSensor.frontCenterLeftSensor.equals("far")) && (p.events.proxSensor.frontCenterSensor === null || p.events.proxSensor.frontCenterSensor.equals("far")) && (p.events.proxSensor.frontCenterRightSensor === null || p.events.proxSensor.frontCenterRightSensor.equals("far")) && (p.events.proxSensor.frontRightSensor === null || p.events.proxSensor.frontRightSensor.equals("far")) && (p.events.proxSensor.backLeftSensor === null || p.events.proxSensor.backLeftSensor.equals("far")) && (p.events.proxSensor.backRightSensor === null || p.events.proxSensor.backRightSensor.equals("far"))»
+				«FOR a : p.actions»
+					«IF a.move !== null»
+						motor.left.target = «new ThymioDSLValidator().evaluateExpression(a.move.left)»
+						motor.right.target = «new ThymioDSLValidator().evaluateExpression(a.move.right)»
+					«ENDIF»
+					«IF a.light !== null»
+						«IF a.light.topLight !== null»
+							call leds.top(«new ThymioDSLValidator().evaluateExpression(a.light.topLight.red)»,«new ThymioDSLValidator().evaluateExpression(a.light.topLight.green)»,«new ThymioDSLValidator().evaluateExpression(a.light.topLight.blue)»)
+						«ELSE»
+							call leds.top(0,0,0)
+						«ENDIF»
+						«IF a.light.bottomLight !== null»
+							call leds.bottom.left(«new ThymioDSLValidator().evaluateExpression(a.light.bottomLight.red)»,«new ThymioDSLValidator().evaluateExpression(a.light.bottomLight.green)»,«new ThymioDSLValidator().evaluateExpression(a.light.bottomLight.blue)»)
+							call leds.bottom.right(«new ThymioDSLValidator().evaluateExpression(a.light.bottomLight.red)»,«new ThymioDSLValidator().evaluateExpression(a.light.bottomLight.green)»,«new ThymioDSLValidator().evaluateExpression(a.light.bottomLight.blue)»)
+						«ELSE»
+							call leds.bottom.left(0,0,0)
+							call leds.bottom.right(0,0,0)
+						«ENDIF»
+					«ENDIF»
+					«IF !a.sound.isEmpty»
+						call math.copy(notes[0:5], [«new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a.sound.get(0).pitch))», «a.sound.size >= 2?new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a.sound.get(1).pitch)):0», «a.sound.size >= 3?new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a.sound.get(2).pitch)):0», «a.sound.size >= 4?new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a.sound.get(3).pitch)):0», «a.sound.size >= 5?new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a.sound.get(4).pitch)):0», «a.sound.size >= 6?new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a.sound.get(5).pitch)):0»])
+						call math.copy(notes[0:5], [«a.sound.get(0).duration.equals("short")?7:14», «a.sound.size >= 2?a.sound.get(1).duration.equals("short")?7:14», «a.sound.size >= 3?a.sound.get(2).duration.equals("short")?7:14», «a.sound.size >= 4?a.sound.get(3).duration.equals("short")?7:14», «a.sound.size >= 5?a.sound.get(4).duration.equals("short")?7:14», «a.sound.size >= 6?a.sound.get(5).duration.equals("short")?7:14»])
+						note_index = 1
+						note_count = 6
+						call sound.freq(notes[0], durations[0])
+					«ENDIF»
+				«ENDFOR»
+			«ENDIF»
+		«ENDIF»
+		
+		«IF p.events.bottomSensor !== null»
+			«IF p.events.bottomSensor.bottomLeftSensor.equals("any") && p.events.bottomSensor.bottomRightSensor.equals("any")»
+				«FOR a : p.actions»
+					«IF a.move !== null»
+						motor.left.target = «new ThymioDSLValidator().evaluateExpression(a.move.left)»
+						motor.right.target = «new ThymioDSLValidator().evaluateExpression(a.move.right)»
+					«ENDIF»
+					«IF a.light !== null»
+						«IF a.light.topLight !== null»
+							call leds.top(«new ThymioDSLValidator().evaluateExpression(a.light.topLight.red)»,«new ThymioDSLValidator().evaluateExpression(a.light.topLight.green)»,«new ThymioDSLValidator().evaluateExpression(a.light.topLight.blue)»)
+						«ELSE»
+							call leds.top(0,0,0)
+						«ENDIF»
+						«IF a.light.bottomLight !== null»
+							call leds.bottom.left(«new ThymioDSLValidator().evaluateExpression(a.light.bottomLight.red)»,«new ThymioDSLValidator().evaluateExpression(a.light.bottomLight.green)»,«new ThymioDSLValidator().evaluateExpression(a.light.bottomLight.blue)»)
+							call leds.bottom.right(«new ThymioDSLValidator().evaluateExpression(a.light.bottomLight.red)»,«new ThymioDSLValidator().evaluateExpression(a.light.bottomLight.green)»,«new ThymioDSLValidator().evaluateExpression(a.light.bottomLight.blue)»)
+						«ELSE»
+							call leds.bottom.left(0,0,0)
+							call leds.bottom.right(0,0,0)
+						«ENDIF»
+					«ENDIF»
+					«IF !a.sound.isEmpty»
+						call math.copy(notes[0:5], [«new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a.sound.get(0).pitch))», «a.sound.size >= 2?new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a.sound.get(1).pitch)):0», «a.sound.size >= 3?new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a.sound.get(2).pitch)):0», «a.sound.size >= 4?new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a.sound.get(3).pitch)):0», «a.sound.size >= 5?new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a.sound.get(4).pitch)):0», «a.sound.size >= 6?new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a.sound.get(5).pitch)):0»])
+						call math.copy(notes[0:5], [«a.sound.get(0).duration.equals("short")?7:14», «a.sound.size >= 2?a.sound.get(1).duration.equals("short")?7:14», «a.sound.size >= 3?a.sound.get(2).duration.equals("short")?7:14», «a.sound.size >= 4?a.sound.get(3).duration.equals("short")?7:14», «a.sound.size >= 5?a.sound.get(4).duration.equals("short")?7:14», «a.sound.size >= 6?a.sound.get(5).duration.equals("short")?7:14»])
+						note_index = 1
+						note_count = 6
+						call sound.freq(notes[0], durations[0])
+					«ENDIF»
+				«ENDFOR»
+			«ENDIF»			
+		«ENDIF»
+	«ENDFOR»
+	
+	«FOR p : m.procedures»
+		«IF p.events.proxSensor !== null»	
+			«IF !((p.events.proxSensor.frontLeftSensor === null || p.events.proxSensor.frontLeftSensor.equals("far")) && (p.events.proxSensor.frontCenterLeftSensor === null || p.events.proxSensor.frontCenterLeftSensor.equals("far")) && (p.events.proxSensor.frontCenterSensor === null || p.events.proxSensor.frontCenterSensor.equals("far")) && (p.events.proxSensor.frontCenterRightSensor === null || p.events.proxSensor.frontCenterRightSensor.equals("far")) && (p.events.proxSensor.frontRightSensor === null || p.events.proxSensor.frontRightSensor.equals("far")) && (p.events.proxSensor.backLeftSensor === null || p.events.proxSensor.backLeftSensor.equals("far")) && (p.events.proxSensor.backRightSensor === null || p.events.proxSensor.backRightSensor.equals("far")))»
+				«new ThymioDSLValidator().proxSensorInAseba(p.events.proxSensor)»
+				«FOR a : p.actions»
+					«IF a.move !== null»
+						motor.left.target = «new ThymioDSLValidator().evaluateExpression(a.move.left)»
+						motor.right.target = «new ThymioDSLValidator().evaluateExpression(a.move.right)»
+					«ENDIF»
+					«IF a.light !== null»
+						«IF a.light.topLight !== null»
+							call leds.top(«new ThymioDSLValidator().evaluateExpression(a.light.topLight.red)»,«new ThymioDSLValidator().evaluateExpression(a.light.topLight.green)»,«new ThymioDSLValidator().evaluateExpression(a.light.topLight.blue)»)
+						«ELSE»
+							call leds.top(0,0,0)
+						«ENDIF»
+						«IF a.light.bottomLight !== null»
+							call leds.bottom.left(«new ThymioDSLValidator().evaluateExpression(a.light.bottomLight.red)»,«new ThymioDSLValidator().evaluateExpression(a.light.bottomLight.green)»,«new ThymioDSLValidator().evaluateExpression(a.light.bottomLight.blue)»)
+							call leds.bottom.right(«new ThymioDSLValidator().evaluateExpression(a.light.bottomLight.red)»,«new ThymioDSLValidator().evaluateExpression(a.light.bottomLight.green)»,«new ThymioDSLValidator().evaluateExpression(a.light.bottomLight.blue)»)
+						«ELSE»
+							call leds.bottom.left(0,0,0)
+							call leds.bottom.right(0,0,0)
+						«ENDIF»
+					«ENDIF»
+					«IF !a.sound.isEmpty»
+						call math.copy(notes[0:5], [«new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a.sound.get(0).pitch))», «a.sound.size >= 2?new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a.sound.get(1).pitch)):0», «a.sound.size >= 3?new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a.sound.get(2).pitch)):0», «a.sound.size >= 4?new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a.sound.get(3).pitch)):0», «a.sound.size >= 5?new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a.sound.get(4).pitch)):0», «a.sound.size >= 6?new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a.sound.get(5).pitch)):0»])
+						call math.copy(notes[0:5], [«a.sound.get(0).duration.equals("short")?7:14», «a.sound.size >= 2?a.sound.get(1).duration.equals("short")?7:14», «a.sound.size >= 3?a.sound.get(2).duration.equals("short")?7:14», «a.sound.size >= 4?a.sound.get(3).duration.equals("short")?7:14», «a.sound.size >= 5?a.sound.get(4).duration.equals("short")?7:14», «a.sound.size >= 6?a.sound.get(5).duration.equals("short")?7:14»])
+						note_index = 1
+						note_count = 6
+						call sound.freq(notes[0], durations[0])
+					«ENDIF»
+				«ENDFOR»
+				end
+			«ENDIF»
+		«ENDIF»		
+		
+		«IF p.events.bottomSensor !== null»	
+			«IF !(p.events.bottomSensor.bottomLeftSensor.equals("any") && p.events.bottomSensor.bottomRightSensor.equals("any"))»
+				when «p.events.bottomSensor.bottomLeftSensor.equals("any")?"":("prox.ground.delta[0] " + (p.events.bottomSensor.bottomLeftSensor.equals("black")?"<= 400":">= 450"))» «p.events.bottomSensor.bottomRightSensor.equals("any")?"do":("and prox.ground.delta[1] " + (p.events.bottomSensor.bottomRightSensor.equals("black")?"<= 400 do":">= 450 do"))»
+				«FOR a : p.actions»
+					«IF a.move !== null»
+						motor.left.target = «new ThymioDSLValidator().evaluateExpression(a.move.left)»
+						motor.right.target = «new ThymioDSLValidator().evaluateExpression(a.move.right)»
+					«ENDIF»
+					«IF a.light !== null»
+						«IF a.light.topLight !== null»
+							call leds.top(«new ThymioDSLValidator().evaluateExpression(a.light.topLight.red)»,«new ThymioDSLValidator().evaluateExpression(a.light.topLight.green)»,«new ThymioDSLValidator().evaluateExpression(a.light.topLight.blue)»)
+						«ELSE»
+							call leds.top(0,0,0)
+						«ENDIF»
+						«IF a.light.bottomLight !== null»
+							call leds.bottom.left(«new ThymioDSLValidator().evaluateExpression(a.light.bottomLight.red)»,«new ThymioDSLValidator().evaluateExpression(a.light.bottomLight.green)»,«new ThymioDSLValidator().evaluateExpression(a.light.bottomLight.blue)»)
+							call leds.bottom.right(«new ThymioDSLValidator().evaluateExpression(a.light.bottomLight.red)»,«new ThymioDSLValidator().evaluateExpression(a.light.bottomLight.green)»,«new ThymioDSLValidator().evaluateExpression(a.light.bottomLight.blue)»)
+						«ELSE»
+							call leds.bottom.left(0,0,0)
+							call leds.bottom.right(0,0,0)
+						«ENDIF»
+					«ENDIF»
+					«IF !a.sound.isEmpty»
+						call math.copy(notes[0:5], [«new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a.sound.get(0).pitch))», «a.sound.size >= 2?new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a.sound.get(1).pitch)):0», «a.sound.size >= 3?new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a.sound.get(2).pitch)):0», «a.sound.size >= 4?new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a.sound.get(3).pitch)):0», «a.sound.size >= 5?new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a.sound.get(4).pitch)):0», «a.sound.size >= 6?new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a.sound.get(5).pitch)):0»])
+						call math.copy(notes[0:5], [«a.sound.get(0).duration.equals("short")?7:14», «a.sound.size >= 2?a.sound.get(1).duration.equals("short")?7:14», «a.sound.size >= 3?a.sound.get(2).duration.equals("short")?7:14», «a.sound.size >= 4?a.sound.get(3).duration.equals("short")?7:14», «a.sound.size >= 5?a.sound.get(4).duration.equals("short")?7:14», «a.sound.size >= 6?a.sound.get(5).duration.equals("short")?7:14»])
+						note_index = 1
+						note_count = 6
+						call sound.freq(notes[0], durations[0])
+					«ENDIF»
+				«ENDFOR»
+				end
+			«ENDIF»
+		«ENDIF»
+	«ENDFOR»
+	
+	onevent tap
+	«FOR p : m.procedures»
+		«IF p.events.stimulus !== null»
+			«IF p.events.stimulus.equals("tap")»					
+				«FOR a : p.actions»
+					«IF a.move !== null»
+						motor.left.target = «new ThymioDSLValidator().evaluateExpression(a.move.left)»
+						motor.right.target = «new ThymioDSLValidator().evaluateExpression(a.move.right)»
+					«ENDIF»
+					«IF a.light !== null»
+						«IF a.light.topLight !== null»
+							call leds.top(«new ThymioDSLValidator().evaluateExpression(a.light.topLight.red)»,«new ThymioDSLValidator().evaluateExpression(a.light.topLight.green)»,«new ThymioDSLValidator().evaluateExpression(a.light.topLight.blue)»)
+						«ELSE»
+							call leds.top(0,0,0)
+						«ENDIF»
+						«IF a.light.bottomLight !== null»
+							call leds.bottom.left(«new ThymioDSLValidator().evaluateExpression(a.light.bottomLight.red)»,«new ThymioDSLValidator().evaluateExpression(a.light.bottomLight.green)»,«new ThymioDSLValidator().evaluateExpression(a.light.bottomLight.blue)»)
+							call leds.bottom.right(«new ThymioDSLValidator().evaluateExpression(a.light.bottomLight.red)»,«new ThymioDSLValidator().evaluateExpression(a.light.bottomLight.green)»,«new ThymioDSLValidator().evaluateExpression(a.light.bottomLight.blue)»)
+						«ELSE»
+							call leds.bottom.left(0,0,0)
+							call leds.bottom.right(0,0,0)
+						«ENDIF»
+					«ENDIF»
+					«IF !a.sound.isEmpty»
+						call math.copy(notes[0:5], [«new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a.sound.get(0).pitch))», «a.sound.size >= 2?new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a.sound.get(1).pitch)):0», «a.sound.size >= 3?new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a.sound.get(2).pitch)):0», «a.sound.size >= 4?new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a.sound.get(3).pitch)):0», «a.sound.size >= 5?new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a.sound.get(4).pitch)):0», «a.sound.size >= 6?new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a.sound.get(5).pitch)):0»])
+						call math.copy(notes[0:5], [«a.sound.get(0).duration.equals("short")?7:14», «a.sound.size >= 2?a.sound.get(1).duration.equals("short")?7:14», «a.sound.size >= 3?a.sound.get(2).duration.equals("short")?7:14», «a.sound.size >= 4?a.sound.get(3).duration.equals("short")?7:14», «a.sound.size >= 5?a.sound.get(4).duration.equals("short")?7:14», «a.sound.size >= 6?a.sound.get(5).duration.equals("short")?7:14»])
+						note_index = 1
+						note_count = 6
+						call sound.freq(notes[0], durations[0])
+					«ENDIF»
+				«ENDFOR»
+			«ENDIF»
+		«ENDIF»
+	«ENDFOR»	
+	
+	onevent mic
+	«FOR p : m.procedures»
+		«IF p.events.stimulus !== null»
+			«IF p.events.stimulus.equals("sound")»					
+				«FOR a : p.actions»
+					«IF a.move !== null»
+						motor.left.target = «new ThymioDSLValidator().evaluateExpression(a.move.left)»
+						motor.right.target = «new ThymioDSLValidator().evaluateExpression(a.move.right)»
+					«ENDIF»
+					«IF a.light !== null»
+						«IF a.light.topLight !== null»
+							call leds.top(«new ThymioDSLValidator().evaluateExpression(a.light.topLight.red)»,«new ThymioDSLValidator().evaluateExpression(a.light.topLight.green)»,«new ThymioDSLValidator().evaluateExpression(a.light.topLight.blue)»)
+						«ELSE»
+							call leds.top(0,0,0)
+						«ENDIF»
+						«IF a.light.bottomLight !== null»
+							call leds.bottom.left(«new ThymioDSLValidator().evaluateExpression(a.light.bottomLight.red)»,«new ThymioDSLValidator().evaluateExpression(a.light.bottomLight.green)»,«new ThymioDSLValidator().evaluateExpression(a.light.bottomLight.blue)»)
+							call leds.bottom.right(«new ThymioDSLValidator().evaluateExpression(a.light.bottomLight.red)»,«new ThymioDSLValidator().evaluateExpression(a.light.bottomLight.green)»,«new ThymioDSLValidator().evaluateExpression(a.light.bottomLight.blue)»)
+						«ELSE»
+							call leds.bottom.left(0,0,0)
+							call leds.bottom.right(0,0,0)
+						«ENDIF»
+					«ENDIF»
+					«IF !a.sound.isEmpty»
+						call math.copy(notes[0:5], [«new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a.sound.get(0).pitch))», «a.sound.size >= 2?new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a.sound.get(1).pitch)):0», «a.sound.size >= 3?new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a.sound.get(2).pitch)):0», «a.sound.size >= 4?new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a.sound.get(3).pitch)):0», «a.sound.size >= 5?new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a.sound.get(4).pitch)):0», «a.sound.size >= 6?new ThymioDSLValidator().computePitch(new ThymioDSLValidator().evaluateExpression(a.sound.get(5).pitch)):0»])
+						call math.copy(notes[0:5], [«a.sound.get(0).duration.equals("short")?7:14», «a.sound.size >= 2?a.sound.get(1).duration.equals("short")?7:14», «a.sound.size >= 3?a.sound.get(2).duration.equals("short")?7:14», «a.sound.size >= 4?a.sound.get(3).duration.equals("short")?7:14», «a.sound.size >= 5?a.sound.get(4).duration.equals("short")?7:14», «a.sound.size >= 6?a.sound.get(5).duration.equals("short")?7:14»])
+						note_index = 1
+						note_count = 6
+						call sound.freq(notes[0], durations[0])
+					«ENDIF»
+				«ENDFOR»
+			«ENDIF»
+		«ENDIF»
+	«ENDFOR»
+	'''
 	}
 	
 

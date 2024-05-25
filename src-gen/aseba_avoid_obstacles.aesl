@@ -1,0 +1,86 @@
+var notes[6]
+var durations[6]
+var note_index = 6
+var note_count = 6
+var wave[142]
+var i
+var wave_phase
+var wave_intensity
+
+# setup threshold for detecting claps
+mic.threshold = 250
+
+# reset outputs
+call sound.system(-1)
+call leds.top(0,0,0)
+call leds.bottom.left(0,0,0)
+call leds.bottom.right(0,0,0)
+call leds.circle(0,0,0,0,0,0,0,0)
+
+# when a note is finished, play the next note
+onevent sound.finished
+	if note_index != note_count then
+		call sound.freq(notes[note_index], durations[note_index])
+		note_index += 1
+	end
+	
+onevent buttons
+
+onevent prox
+
+
+
+
+motor.left.target = 250
+motor.right.target = 250
+call leds.top(0,32,0)
+call leds.bottom.left(0,32,0)
+call leds.bottom.right(0,32,0)
+
+
+
+when prox.horizontal[0] <= 1000 and prox.horizontal[1] <= 1000 and prox.horizontal[2] <= 1000 do
+motor.left.target = 500
+motor.right.target = 0
+call leds.top(0,0,32)
+call leds.bottom.left(0,0,32)
+call leds.bottom.right(0,0,32)
+end
+
+when prox.horizontal[0] >= 2000 and prox.horizontal[1] >= 2000 and prox.horizontal[2] >= 2000 do
+motor.left.target = 500
+motor.right.target = -500
+call leds.top(32,0,0)
+call leds.bottom.left(32,0,0)
+call leds.bottom.right(32,0,0)
+end
+
+when prox.horizontal[2] <= 1000 and prox.horizontal[3] <= 1000 and prox.horizontal[4] <= 1000 do
+motor.left.target = 0
+motor.right.target = 500
+call leds.top(0,0,32)
+call leds.bottom.left(0,0,32)
+call leds.bottom.right(0,0,32)
+end
+
+when prox.horizontal[2] >= 2000 and prox.horizontal[3] >= 2000 and prox.horizontal[4] >= 2000 do
+motor.left.target = -500
+motor.right.target = 500
+call leds.top(32,0,0)
+call leds.bottom.left(32,0,0)
+call leds.bottom.right(32,0,0)
+end
+
+
+when prox.horizontal[5] <= 1000 and prox.horizontal[6] <= 1000 do
+motor.left.target = 0
+motor.right.target = 0
+call leds.top(0,0,0)
+call leds.bottom.left(0,0,0)
+call leds.bottom.right(0,0,0)
+end
+
+
+onevent tap
+
+onevent mic
