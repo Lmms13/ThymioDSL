@@ -1,0 +1,156 @@
+Procedure: steer_right
+	Event: 
+		bottom_sensor_detects_color: 
+			left: white
+			right: black		
+	Actions:
+		lights:
+			top_light: on (16*(20/(5+5)),0,0)
+			bottom_light: on (0,0,16*(20/(5+5)))
+		move:
+			left_motor: 500
+			right_motor: 0
+	
+Procedure: steer_left
+	Event: 
+		bottom_sensor_detects_color: 
+			left: black
+			right: white		
+	Actions:
+		lights:
+			top_light: on (0,0,16*(20/(5+5)))
+			bottom_light: on (16*(20/(5+5)),0,0)
+		move:
+			left_motor: 0
+			right_motor: 500
+	
+Procedure: follow_line
+	Event: 
+		bottom_sensor_detects_color: 
+			left: black
+			right: black		
+	Actions:
+		lights:
+			top_light: on (0,16*(20/(5+5)),0)
+			bottom_light: on (0,16*(20/(5+5)),0)
+		move:
+			left_motor: 500
+			right_motor: 500
+			
+Procedure: u_turn
+	Event: 
+		bottom_sensor_detects_color: 
+			left: white
+			right: white		
+	Actions:
+		move:
+			left_motor: 500
+			right_motor: 0
+			
+Procedure: stop
+	Event: 
+		button_is_clicked: center
+	Actions:
+		move:
+			left_motor: 641798 * 0
+			right_motor: 641798 * 0
+			
+Procedure: detect_left_wall
+	Event: 
+		proximity_sensor_is_activated: 
+			front_left: close
+			front_center_left: close
+			front_center: close
+	Actions:
+		move:
+			left_motor: 500
+			right_motor: 0
+		lights:
+			top_light: on (0, 0, 32)
+			bottom_light: on (0, 0, 32)
+			
+Procedure: detect_near_left_wall
+	Event: 
+		proximity_sensor_is_activated: 
+			front_left: very_close
+			front_center_left: very_close
+			front_center: very_close
+	Actions:
+		move:
+			left_motor: 500
+			right_motor: -500
+		lights:
+			top_light: on (32, 0, 0)
+			bottom_light: on (32, 0, 0)
+			
+Procedure: detect_right_wall
+	Event: 
+		proximity_sensor_is_activated: 
+			front_center: close
+			front_center_right: close
+			front_right: close 
+	Actions:
+		move:
+			left_motor: 0
+			right_motor: 500
+		lights:
+			top_light: on (0, 0, 32)
+			bottom_light: on (0, 0, 32)
+			
+Procedure: detect_near_right_wall
+	Event: 
+		proximity_sensor_is_activated: 
+			front_center: very_close
+			front_center_right: very_close
+			front_right: very_close
+	Actions:
+		move:
+			left_motor: -500
+			right_motor: 500
+		lights:
+			top_light: on (32, 0, 0)
+			bottom_light: on (32, 0, 0)
+			
+Procedure: force_right_turn
+	Event:
+		button_is_clicked: right
+	Actions:
+		move:
+			left_motor: 500
+			right_motor: -500
+			
+Procedure: force_left_turn
+	Event:
+		button_is_clicked: right
+	Actions:
+		move:
+			left_motor: -500
+			right_motor: 500
+			
+Procedure: force_reverse
+	Event:
+		button_is_clicked: down
+	Actions:
+		move:
+			left_motor: -250*2
+			right_motor: -100*5
+
+Procedure: turn_lights_off
+	Event:
+		robot_detects_stimulus: tap
+	Actions:
+		lights:
+			top_light: off
+			bottom_light: off
+
+Procedure: play_music
+	Event:
+		robot_detects_stimulus: sound
+	Actions:
+		sound:
+			note: 5 long
+			note: 2*2 short
+			note: 3000/(500+500) long
+			note: 0 long
+			note: 1+1 short
+			note: -1*-1 long
