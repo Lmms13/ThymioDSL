@@ -5,12 +5,15 @@ package ld.project2.tests;
 
 import com.google.inject.Inject;
 import ld.project2.thymioDSL.Model;
+import ld.project2.thymioDSL.ThymioDSLPackage;
+import ld.project2.validation.ThymioDSLValidator;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.testing.InjectWith;
 import org.eclipse.xtext.testing.extensions.InjectionExtension;
 import org.eclipse.xtext.testing.util.ParseHelper;
+import org.eclipse.xtext.testing.validation.ValidationTestHelper;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.junit.jupiter.api.Assertions;
@@ -23,6 +26,9 @@ import org.junit.jupiter.api.extension.ExtendWith;
 public class ThymioDSLParsingTest {
   @Inject
   private ParseHelper<Model> parseHelper;
+
+  @Inject
+  private ValidationTestHelper validator;
 
   @Test
   public void loadValidModel() {
@@ -412,6 +418,519 @@ public class ThymioDSLParsingTest {
       String _join = IterableExtensions.join(errors, ", ");
       _builder_1.append(_join);
       Assertions.assertFalse(_isEmpty, _builder_1.toString());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+
+  @Test
+  public void loadValidModelForValidation() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("Procedure: steer_right");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("Event: ");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("bottom_sensor_detects_color: ");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("left: white");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("right: black\t\t");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("Actions:");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("lights:");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("top_light: on (16*(20/(5+5)),0,0)");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("bottom_light: on (0,0,16*(20/(5+5)))");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("move:");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("left_motor: 500");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("right_motor: 0");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.newLine();
+      _builder.append("Procedure: steer_left");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("Event: ");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("bottom_sensor_detects_color: ");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("left: black");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("right: white\t\t");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("Actions:");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("lights:");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("top_light: on (0,0,16*(20/(5+5)))");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("bottom_light: on (16*(20/(5+5)),0,0)");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("move:");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("left_motor: 0");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("right_motor: 500");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.newLine();
+      _builder.append("Procedure: follow_line");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("Event: ");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("bottom_sensor_detects_color: ");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("left: black");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("right: black\t\t");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("Actions:");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("lights:");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("top_light: on (0,16*(20/(5+5)),0)");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("bottom_light: on (0,16*(20/(5+5)),0)");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("move:");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("left_motor: 500");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("right_motor: 500");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.newLine();
+      _builder.append("Procedure: u_turn");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("Event: ");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("bottom_sensor_detects_color: ");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("left: white");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("right: white\t\t");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("Actions:");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("move:");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("left_motor: 500");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("right_motor: 0");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.newLine();
+      _builder.append("Procedure: stop");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("Event: ");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("button_is_clicked: center");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("Actions:");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("move:");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("left_motor: 641798 * 0");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("right_motor: 641798 * 0");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.newLine();
+      final Model result = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(result);
+      this.validator.assertNoError(result, "");
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+
+  @Test
+  public void loadMotorValueOutOfBounds() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("Procedure: steer_right");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("Event: ");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("bottom_sensor_detects_color: ");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("left: white");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("right: black\t\t");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("Actions:");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("move:");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("left_motor: -499 - 2*1");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("right_motor: 0");
+      _builder.newLine();
+      final Model result = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(result);
+      this.validator.assertError(result, ThymioDSLPackage.eINSTANCE.getMotors(), ThymioDSLValidator.INVALID_MOTORS_LEFT, "motor values must be between -500 and 500");
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+
+  @Test
+  public void loadRGBValueOutOfBounds() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("Procedure: steer_right");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("Event: ");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("bottom_sensor_detects_color: ");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("left: white");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("right: black\t\t");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("Actions:");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("lights:");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("top_light: on (16*(20/(5+5)),33,0)");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("bottom_light: on (0,0,16*(20/(5+5)))");
+      _builder.newLine();
+      final Model result = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(result);
+      this.validator.assertError(result, ThymioDSLPackage.eINSTANCE.getLights_TopLight().getEReferenceType(), ThymioDSLValidator.INVALID_RGB_GREEN, "green must be between 0 and 32");
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+
+  @Test
+  public void loadPitchValueOutOfBounds() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("Procedure: tap_and_clap");
+      _builder.newLine();
+      _builder.append("    ");
+      _builder.append("Event:");
+      _builder.newLine();
+      _builder.append("        ");
+      _builder.append("robot_detects_stimulus: sound");
+      _builder.newLine();
+      _builder.append("    ");
+      _builder.append("Actions:");
+      _builder.newLine();
+      _builder.append("        ");
+      _builder.append("lights:");
+      _builder.newLine();
+      _builder.append("            ");
+      _builder.append("top_light: on (32, 0, 0)");
+      _builder.newLine();
+      _builder.append("            ");
+      _builder.append("bottom_light: off");
+      _builder.newLine();
+      _builder.newLine();
+      _builder.append("Procedure: TapPlayMusic");
+      _builder.newLine();
+      _builder.append("    ");
+      _builder.append("Event:");
+      _builder.newLine();
+      _builder.append("        ");
+      _builder.append("robot_detects_stimulus: tap");
+      _builder.newLine();
+      _builder.append("    ");
+      _builder.append("Actions:");
+      _builder.newLine();
+      _builder.append("        ");
+      _builder.append("sound:");
+      _builder.newLine();
+      _builder.append("            ");
+      _builder.append("note: 1 short");
+      _builder.newLine();
+      _builder.append("            ");
+      _builder.append("note: 2 long");
+      _builder.newLine();
+      _builder.append("            ");
+      _builder.append("note: 4* (-1) short");
+      _builder.newLine();
+      _builder.append("            ");
+      _builder.append("note: 4 long");
+      _builder.newLine();
+      _builder.append("            ");
+      _builder.append("note: 5 short");
+      _builder.newLine();
+      final Model result = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(result);
+      this.validator.assertError(result, ThymioDSLPackage.eINSTANCE.getSound(), ThymioDSLValidator.INVALID_PITCH, "pitch values must be between 0 and 5");
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+
+  @Test
+  public void loadMaximumNumberOfNotesExceeded() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("Procedure: tap_and_clap");
+      _builder.newLine();
+      _builder.append("    ");
+      _builder.append("Event:");
+      _builder.newLine();
+      _builder.append("        ");
+      _builder.append("robot_detects_stimulus: sound");
+      _builder.newLine();
+      _builder.append("    ");
+      _builder.append("Actions:");
+      _builder.newLine();
+      _builder.append("        ");
+      _builder.append("lights:");
+      _builder.newLine();
+      _builder.append("            ");
+      _builder.append("top_light: on (32, 0, 0)");
+      _builder.newLine();
+      _builder.append("            ");
+      _builder.append("bottom_light: off");
+      _builder.newLine();
+      _builder.newLine();
+      _builder.append("Procedure: TapPlayMusic");
+      _builder.newLine();
+      _builder.append("    ");
+      _builder.append("Event:");
+      _builder.newLine();
+      _builder.append("        ");
+      _builder.append("robot_detects_stimulus: tap");
+      _builder.newLine();
+      _builder.append("    ");
+      _builder.append("Actions:");
+      _builder.newLine();
+      _builder.append("        ");
+      _builder.append("sound:");
+      _builder.newLine();
+      _builder.append("        \t");
+      _builder.append("note: 0 long");
+      _builder.newLine();
+      _builder.append("            ");
+      _builder.append("note: 1 short");
+      _builder.newLine();
+      _builder.append("            ");
+      _builder.append("note: 2 long");
+      _builder.newLine();
+      _builder.append("            ");
+      _builder.append("note: 3 short");
+      _builder.newLine();
+      _builder.append("            ");
+      _builder.append("note: 4 long");
+      _builder.newLine();
+      _builder.append("            ");
+      _builder.append("note: 5 short");
+      _builder.newLine();
+      _builder.append("            ");
+      _builder.append("note: 4 long");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("note: 3 short");
+      _builder.newLine();
+      final Model result = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(result);
+      this.validator.assertError(result, ThymioDSLPackage.eINSTANCE.getAction(), ThymioDSLValidator.NOTE_LIMIT_REACHED, "the maximum number of notes is 6");
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+
+  @Test
+  public void loadDuplicateActionsInProcedure() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("Procedure: steer_right");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("Event: ");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("bottom_sensor_detects_color: ");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("left: white");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("right: black\t\t");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("Actions:");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("move:");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("left_motor: 367");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("right_motor: 12");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("move:");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("left_motor: 123");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("right_motor: 678");
+      _builder.newLine();
+      final Model result = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(result);
+      this.validator.assertError(result, ThymioDSLPackage.eINSTANCE.getAction(), ThymioDSLValidator.DUPLICATE_ACTIONS, "one event can\'t trigger the same action more than once");
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+
+  @Test
+  public void loadDuplicateProceduresInModel() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("Procedure: steer_right");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("Event: ");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("bottom_sensor_detects_color: ");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("left: white");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("right: black\t\t");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("Actions:");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("lights:");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("top_light: on (16*(20/(5+5)),0,0)");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("bottom_light: on (0,0,16*(20/(5+5)))");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("move:");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("left_motor: 500");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("right_motor: 0");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.newLine();
+      _builder.append("Procedure: steer_right");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("Event: ");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("bottom_sensor_detects_color: ");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("left: black");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("right: white\t\t");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("Actions:");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("lights:");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("top_light: on (0,0,16*(20/(5+5)))");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("bottom_light: on (16*(20/(5+5)),0,0)");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("move:");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("left_motor: 0");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("right_motor: 500");
+      _builder.newLine();
+      final Model result = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(result);
+      this.validator.assertError(result, ThymioDSLPackage.eINSTANCE.getProcedure(), ThymioDSLValidator.DUPLICATE_PROCEDURE, "different procedures can\'t have the same name");
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }

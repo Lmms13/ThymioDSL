@@ -11,6 +11,9 @@ import org.eclipse.xtext.testing.util.ParseHelper
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
+import ld.project2.thymioDSL.ThymioDSLPackage
+import ld.project2.validation.ThymioDSLValidator
+import org.eclipse.xtext.testing.validation.ValidationTestHelper
 
 @ExtendWith(InjectionExtension)
 @InjectWith(ThymioDSLInjectorProvider)
@@ -22,6 +25,9 @@ class ThymioDSLParsingTest {
 	
 	@Inject
 	ParseHelper<Model> parseHelper
+	
+	@Inject
+	ValidationTestHelper validator
 	
 	
 	/////////////////////PARSING TESTS/////////////////////
@@ -199,4 +205,227 @@ class ThymioDSLParsingTest {
 	
 	/////////////////////VALIDATION TESTS/////////////////////
 	
+	//loading the "follow_line" program
+	@Test
+	def void loadValidModelForValidation() {
+		val result = parseHelper.parse('''
+			Procedure: steer_right
+				Event: 
+					bottom_sensor_detects_color: 
+						left: white
+						right: black		
+				Actions:
+					lights:
+						top_light: on (16*(20/(5+5)),0,0)
+						bottom_light: on (0,0,16*(20/(5+5)))
+					move:
+						left_motor: 500
+						right_motor: 0
+				
+			Procedure: steer_left
+				Event: 
+					bottom_sensor_detects_color: 
+						left: black
+						right: white		
+				Actions:
+					lights:
+						top_light: on (0,0,16*(20/(5+5)))
+						bottom_light: on (16*(20/(5+5)),0,0)
+					move:
+						left_motor: 0
+						right_motor: 500
+				
+			Procedure: follow_line
+				Event: 
+					bottom_sensor_detects_color: 
+						left: black
+						right: black		
+				Actions:
+					lights:
+						top_light: on (0,16*(20/(5+5)),0)
+						bottom_light: on (0,16*(20/(5+5)),0)
+					move:
+						left_motor: 500
+						right_motor: 500
+						
+			Procedure: u_turn
+				Event: 
+					bottom_sensor_detects_color: 
+						left: white
+						right: white		
+				Actions:
+					move:
+						left_motor: 500
+						right_motor: 0
+						
+			Procedure: stop
+				Event: 
+					button_is_clicked: center
+				Actions:
+					move:
+						left_motor: 641798 * 0
+						right_motor: 641798 * 0
+						
+		''')
+		Assertions.assertNotNull(result)
+		validator.assertNoError(result, "");
+	}
+	
+	
+	//loading the first procedure of "follow_line" 
+	//but the value for the left_motor is out of
+	//bounds, which is [-500,500]. 
+	@Test
+	def void loadMotorValueOutOfBounds() {
+		val result = parseHelper.parse('''
+			Procedure: steer_right
+				Event: 
+					bottom_sensor_detects_color: 
+						left: white
+						right: black		
+				Actions:
+					move:
+						left_motor: -499 - 2*1
+						right_motor: 0
+		''')
+		Assertions.assertNotNull(result)	
+		validator.assertError(result, ThymioDSLPackage.eINSTANCE.motors, ThymioDSLValidator.INVALID_MOTORS_LEFT, "motor values must be between -500 and 500");
+	}
+	
+	//loading the first procedure of "follow_line" 
+	//but the value for green in top_light is out of
+	//bounds, which is [0,32]. 
+	@Test
+	def void loadRGBValueOutOfBounds() {
+		val result = parseHelper.parse('''
+			Procedure: steer_right
+				Event: 
+					bottom_sensor_detects_color: 
+						left: white
+						right: black		
+				Actions:
+					lights:
+						top_light: on (16*(20/(5+5)),33,0)
+						bottom_light: on (0,0,16*(20/(5+5)))
+		''')
+		Assertions.assertNotNull(result)		
+		validator.assertError(result, ThymioDSLPackage.eINSTANCE.lights_TopLight.EReferenceType, ThymioDSLValidator.INVALID_RGB_GREEN, "green must be between 0 and 32");
+	}
+
+	//loading the file "tap_and_clap" but the value 
+	//for the third note's pitch is out of bounds, 
+	//which is [0,5]. 
+	@Test
+	def void loadPitchValueOutOfBounds() {
+		val result = parseHelper.parse('''
+			Procedure: tap_and_clap
+			    Event:
+			        robot_detects_stimulus: sound
+			    Actions:
+			        lights:
+			            top_light: on (32, 0, 0)
+			            bottom_light: off
+			
+			Procedure: TapPlayMusic
+			    Event:
+			        robot_detects_stimulus: tap
+			    Actions:
+			        sound:
+			            note: 1 short
+			            note: 2 long
+			            note: 4* (-1) short
+			            note: 4 long
+			            note: 5 short
+		''')
+		Assertions.assertNotNull(result)		
+		validator.assertError(result, ThymioDSLPackage.eINSTANCE.sound, ThymioDSLValidator.INVALID_PITCH, "pitch values must be between 0 and 5");
+	}
+	
+	//loading the file "tap_and_clap" but there are
+	//8 notes defined, when the maximum is 6.
+	@Test
+	def void loadMaximumNumberOfNotesExceeded() {
+		val result = parseHelper.parse('''
+			Procedure: tap_and_clap
+			    Event:
+			        robot_detects_stimulus: sound
+			    Actions:
+			        lights:
+			            top_light: on (32, 0, 0)
+			            bottom_light: off
+			
+			Procedure: TapPlayMusic
+			    Event:
+			        robot_detects_stimulus: tap
+			    Actions:
+			        sound:
+			        	note: 0 long
+			            note: 1 short
+			            note: 2 long
+			            note: 3 short
+			            note: 4 long
+			            note: 5 short
+			            note: 4 long
+						note: 3 short
+		''')
+		Assertions.assertNotNull(result)		
+		validator.assertError(result, ThymioDSLPackage.eINSTANCE.action, ThymioDSLValidator.NOTE_LIMIT_REACHED, "the maximum number of notes is 6");
+	}
+
+	//loading the first procedure of "follow_line" 
+	//but the action "move" is defined twice.
+	@Test
+	def void loadDuplicateActionsInProcedure() {
+		val result = parseHelper.parse('''
+						Procedure: steer_right
+							Event: 
+								bottom_sensor_detects_color: 
+									left: white
+									right: black		
+							Actions:
+								move:
+									left_motor: 367
+									right_motor: 12
+								move:
+									left_motor: 123
+									right_motor: 678
+		''')
+		Assertions.assertNotNull(result)		
+		validator.assertError(result, ThymioDSLPackage.eINSTANCE.action, ThymioDSLValidator.DUPLICATE_ACTIONS, "one event can't trigger the same action more than once");
+	}
+	
+	//loading the first two procedures of "follow_line" 
+	//but they have been given the same name.
+	@Test
+	def void loadDuplicateProceduresInModel() {
+		val result = parseHelper.parse('''
+						Procedure: steer_right
+							Event: 
+								bottom_sensor_detects_color: 
+									left: white
+									right: black		
+							Actions:
+								lights:
+									top_light: on (16*(20/(5+5)),0,0)
+									bottom_light: on (0,0,16*(20/(5+5)))
+								move:
+									left_motor: 500
+									right_motor: 0
+							
+						Procedure: steer_right
+							Event: 
+								bottom_sensor_detects_color: 
+									left: black
+									right: white		
+							Actions:
+								lights:
+									top_light: on (0,0,16*(20/(5+5)))
+									bottom_light: on (16*(20/(5+5)),0,0)
+								move:
+									left_motor: 0
+									right_motor: 500
+		''')
+		Assertions.assertNotNull(result)		
+		validator.assertError(result, ThymioDSLPackage.eINSTANCE.procedure, ThymioDSLValidator.DUPLICATE_PROCEDURE, "different procedures can't have the same name");
+	}
 }
