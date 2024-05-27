@@ -25,10 +25,169 @@ public class ThymioDSLParsingTest {
   private ParseHelper<Model> parseHelper;
 
   @Test
-  public void loadModel() {
+  public void loadValidModel() {
     try {
       StringConcatenation _builder = new StringConcatenation();
-      _builder.append("Hello Xtext!");
+      _builder.append("Procedure: steer_right");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("Event: ");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("bottom_sensor_detects_color: ");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("left: white");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("right: black\t\t");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("Actions:");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("lights:");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("top_light: on (16*(20/(5+5)),0,0)");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("bottom_light: on (0,0,16*(20/(5+5)))");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("move:");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("left_motor: 500");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("right_motor: 0");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.newLine();
+      _builder.append("Procedure: steer_left");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("Event: ");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("bottom_sensor_detects_color: ");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("left: black");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("right: white\t\t");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("Actions:");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("lights:");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("top_light: on (0,0,16*(20/(5+5)))");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("bottom_light: on (16*(20/(5+5)),0,0)");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("move:");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("left_motor: 0");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("right_motor: 500");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.newLine();
+      _builder.append("Procedure: follow_line");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("Event: ");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("bottom_sensor_detects_color: ");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("left: black");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("right: black\t\t");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("Actions:");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("lights:");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("top_light: on (0,16*(20/(5+5)),0)");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("bottom_light: on (0,16*(20/(5+5)),0)");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("move:");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("left_motor: 500");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("right_motor: 500");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.newLine();
+      _builder.append("Procedure: u_turn");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("Event: ");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("bottom_sensor_detects_color: ");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("left: white");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("right: white\t\t");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("Actions:");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("move:");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("left_motor: 500");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("right_motor: 0");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.newLine();
+      _builder.append("Procedure: stop");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("Event: ");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("button_is_clicked: center");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("Actions:");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("move:");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("left_motor: 641798 * 0");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("right_motor: 641798 * 0");
+      _builder.newLine();
+      _builder.append("\t\t\t");
       _builder.newLine();
       final Model result = this.parseHelper.parse(_builder);
       Assertions.assertNotNull(result);
@@ -39,6 +198,220 @@ public class ThymioDSLParsingTest {
       String _join = IterableExtensions.join(errors, ", ");
       _builder_1.append(_join);
       Assertions.assertTrue(_isEmpty, _builder_1.toString());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+
+  @Test
+  public void loadProcedureWithoutEvent() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("Procedure: steer_right");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("Event: \t\t");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("Actions:");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("lights:");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("top_light: on (16*(20/(5+5)),0,0)");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("bottom_light: on (0,0,16*(20/(5+5)))");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("move:");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("left_motor: 500");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("right_motor: 0");
+      _builder.newLine();
+      final Model result = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(result);
+      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
+      boolean _isEmpty = errors.isEmpty();
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("Unexpected errors: ");
+      String _join = IterableExtensions.join(errors, ", ");
+      _builder_1.append(_join);
+      Assertions.assertFalse(_isEmpty, _builder_1.toString());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+
+  @Test
+  public void loadMissingBottomLight() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("Procedure: steer_right");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("Event: ");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("bottom_sensor_detects_color: ");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("left: white");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("right: black\t\t");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("Actions:");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("lights:");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("top_light: on (16*(20/(5+5)),0,0)");
+      _builder.newLine();
+      final Model result = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(result);
+      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
+      boolean _isEmpty = errors.isEmpty();
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("Unexpected errors: ");
+      String _join = IterableExtensions.join(errors, ", ");
+      _builder_1.append(_join);
+      Assertions.assertFalse(_isEmpty, _builder_1.toString());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+
+  @Test
+  public void loadTypoInActions() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("Procedure: steer_right");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("Event: ");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("bottom_sensor_detects_color: ");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("left: white");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("right: black\t\t");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("Action:");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("lights:");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("top_light: on (16*(20/(5+5)),0,0)");
+      _builder.newLine();
+      final Model result = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(result);
+      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
+      boolean _isEmpty = errors.isEmpty();
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("Unexpected errors: ");
+      String _join = IterableExtensions.join(errors, ", ");
+      _builder_1.append(_join);
+      Assertions.assertFalse(_isEmpty, _builder_1.toString());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+
+  @Test
+  public void loadLightsOffWithRGB() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("Procedure: steer_right");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("Event: ");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("bottom_sensor_detects_color: ");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("left: white");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("right: black\t\t");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("Action:");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("lights:");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("top_light: on (16*(20/(5+5)),0,0)");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("bottom_light: off (0,0,16*(20/(5+5)))");
+      _builder.newLine();
+      final Model result = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(result);
+      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
+      boolean _isEmpty = errors.isEmpty();
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("Unexpected errors: ");
+      String _join = IterableExtensions.join(errors, ", ");
+      _builder_1.append(_join);
+      Assertions.assertFalse(_isEmpty, _builder_1.toString());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+
+  @Test
+  public void loadInvalidInputType() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("Procedure: steer_right");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("Event: ");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("bottom_sensor_detects_color: ");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("left: white");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("right: black\t\t");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("Actions:");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("move:");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("left_motor: fast");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("right_motor: 0");
+      _builder.newLine();
+      final Model result = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(result);
+      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
+      boolean _isEmpty = errors.isEmpty();
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("Unexpected errors: ");
+      String _join = IterableExtensions.join(errors, ", ");
+      _builder_1.append(_join);
+      Assertions.assertFalse(_isEmpty, _builder_1.toString());
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
