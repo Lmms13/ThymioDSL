@@ -1,4 +1,4 @@
-Procedure: tap_and_clap
+Procedure: clap_for_red
     Event:
         robot_detects_stimulus: sound
     Actions:
@@ -6,7 +6,7 @@ Procedure: tap_and_clap
             top_light: on (32, 0, 0)
             bottom_light: off
 
-Procedure: TapPlayMusic
+Procedure: tap_for_music
     Event:
         robot_detects_stimulus: tap
     Actions:
